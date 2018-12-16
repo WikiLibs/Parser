@@ -31,7 +31,6 @@ def main():
     startErrorHandler()
     for i in range(1, len(av)):
         parser = CParser(av[i])
-        parser.parseDefine()
 
 
 if __name__ == '__main__':
