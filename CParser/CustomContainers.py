@@ -1,0 +1,3 @@
+class defineClass:
+    definition = ""
+    comment = ""

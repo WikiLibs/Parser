@@ -1,0 +1,38 @@
+#!/usr/bin/python3.6 
+
+from sys import argv as av
+from sys import exit
+import Utilities
+from CParserClass import CParser
+
+ERROR_NO_ARGS = "Error: the parser needs at least one argument"
+ERROR_INVALID_FILE = "Error: \"{}\" is neither a \".h\" nor a \".c\" file"
+ERROR_FILE_NOT_EXISTANT = "Error: \"{}\" isn't a file."
+
+def startErrorHandler():
+    if len(av) < 2:
+        Utilities.printErr(ERROR_NO_ARGS)
+        exit(84)
+    
+    for i in range(1, len(av)):
+        if av[i].endswith(".h") == False and av[i].endswith(".c") == False:
+            Utilities.printErr(ERROR_INVALID_FILE.format(av[i]))
+            exit(84)
+
+    for i in range(1, len(av)):
+        try:
+            file = open(av[i])
+            file.close()
+        except:
+            Utilities.printErr(ERROR_FILE_NOT_EXISTANT.format(av[i]))
+            exit(84)
+
+def main():
+    startErrorHandler()
+    for i in range(1, len(av)):
+        parser = CParser(av[i])
+        parser.parseDefine()
+
+
+if __name__ == '__main__':
+    main()
