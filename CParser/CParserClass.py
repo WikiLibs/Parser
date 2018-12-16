@@ -32,7 +32,7 @@ class CParser:
                 tmpDefine.definition = tmpDefine.definition[len("#define "):]
                 self.defines.append(tmpDefine)
                 print(tmpDefine.definition)
-        print(len(self.defines))
+        #print(len(self.defines))
 
     def printFile(self):
         for line in self.file:
