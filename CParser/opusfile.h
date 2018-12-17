@@ -159,7 +159,7 @@ typedef struct OggOpusFile       OggOpusFile;
 /**A request did not succeed.*/
 #define OP_FALSE         (-1)
 /*Currently not used externally.*/
-#define OP_EOF           (-2)
+#define OP_EOF           (-2) 
 /**There was a hole in the page sequence numbers (e.g., a page was corrupt or
     missing).*/
 #define OP_HOLE          (-3)
