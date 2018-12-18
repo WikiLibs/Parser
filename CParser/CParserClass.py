@@ -36,7 +36,7 @@ class CParser:
         tmpMacro = CC.macroClass()
         tmpMacro.macroDef = self.content[i + 2].tokContent
         tmpMacro.macroComment = Util.removeUseless(Util.removeSpaces(Util.getComment(self.content, i)))#(self.content[i - 1].tokContent)))
-        tmpMacro.macroParams = Util.getParams(self.content, i, tmpMacro.macroComment)
+        tmpMacro.macroParams = Util.getMacroParams(self.content, i, tmpMacro.macroComment)
         tmpMacro.macroComment = Util.rerunRemove(tmpMacro.macroComment)
         return tmpMacro
 
@@ -45,9 +45,8 @@ class CParser:
         tmpFunc.funcType = self.content[i].tokContent
         tmpFunc.funcName = self.content[i + 1].tokContent
         tmpFunc.funcComment = Util.removeUseless(Util.removeSpaces(Util.getComment(self.content, i)))
-        #tmpFunc.funcParams = Util.getParams(self.content, i, tmpFunc.funcComment)
+        tmpFunc.funcParams = Util.getFuncParams(self.content, i, tmpFunc.funcComment)
         tmpFunc.funcComment = Util.rerunRemove(tmpFunc.funcComment)
-        #print("{} {} {}\n".format(tmpFunc.funcType, tmpFunc.funcName, tmpFunc.funcComment))
         return tmpFunc
 
     def parse(self):
@@ -59,66 +58,7 @@ class CParser:
             elif Util.isFunction(self.content, i):
                 self.functions.append(self.parseFunc(i))
         #self.printMacro()
-
-    '''def parseMacroGetComment(self, line):
-        line -= 1
-        if self.file[line].endswith("*/"):
-            tmpStr = self.file[line]
-            line -= 1
-            while (self.file[line + 1].startswith("/*") == False):
-                tmpStr = self.file[line] + tmpStr
-                line -= 1
-            tmpStr = Util.removeComments(Util.removeSpaces(tmpStr))
-            if OPUS_COMMENT_PARAM in tmpStr:
-                tmpStr = Util.opusRemoveUseless(tmpStr)
-        else:
-            return ""
-        return tmpStr
-
-    def parseMacroGetDefinition(self, line):
-        tmpStr = self.file[line]
-        if self.file[line].endswith("\\"):
-            tmpStr = tmpStr[:-1]
-            tmpStr += self.file[line + 1]
-        tmpStr = Util.removeSpaces(tmpStr)[len("#define "):].split(" ")[0]
-        return tmpStr
-
-    def parseMacroGetParams(self, tmpMacro):
-        tmpParam = CC.paramClass()
-        tmpStr = tmpMacro.definition
-        params = []
-        if ("(" in tmpStr):
-            i = tmpStr.find('(') + 1
-            j = tmpStr.find(')')
-            paramsStr = Util.removeSpaces(tmpStr[i:j]).split(",")
-            for i in range(len(paramsStr)):
-                tmpParam.varName = paramsStr[i]
-                tmpParam = Util.getParamDesc(tmpMacro, tmpParam, i)
-                params.append(tmpParam)
-        return params
-
-    def paramMacroRerunComment(self, comment):
-        if OPUS_COMMENT_PARAM in comment:
-            comment = comment[:comment.find(OPUS_COMMENT_PARAM) - 1]
-        return comment
-
-    def parseSave(self):
-        self.macros = []
-        for i in range(len(self.file)):
-            if self.file[i].startswith("#define"):
-                tmpMacro = CC.defineClass()
-                tmpMacro.definition = self.parseMacroGetDefinition(i)
-                tmpMacro.comment = self.parseMacroGetComment(i)
-                tmpMacro.params = self.parseMacroGetParams(tmpMacro)
-                tmpMacro.comment = self.paramMacroRerunComment(tmpMacro.comment)
-                self.macros.append(tmpMacro)
-            elif "(" in self.file[i] and "#" not in self.file[i] and "/*" not in self.file[i]:
-                print ("function: {}".format(self.file[i]))'''
-                
-
-    '''def printFile(self):
-        for line in self.file:
-            print(line)'''
+        #self.printFunctions()
 
     def printMacro(self):
         for macro in self.macros:
@@ -127,3 +67,11 @@ class CParser:
                 print("  {} ({}): {} ".format(param.varName, param.varType, param.varDesc))
             print()
         print(len(self.macros))
+
+    def printFunctions(self):
+        for func in self.functions:
+            print("type: {}, name: {}\ncomment: {}\nparams: ".format(func.funcType, func.funcName, func.funcComment))
+            for param in func.funcParams:
+                print("  {} ({}): {} ".format(param.varName, param.varType, param.varDesc))
+            print()
+        print(len(self.functions))

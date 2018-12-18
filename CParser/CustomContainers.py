@@ -18,3 +18,4 @@ class functionClass:
     funcName = ""
     funcComment = ""
     funcParams = None
+    funcRetComment = ""
