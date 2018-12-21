@@ -5,8 +5,9 @@ from cindex import *
 OPUS_COMMENT_PARAM = "\\param"
 
 class CParser:
-    def __init__(self, filename):
+    def __init__(self, filename, comments):
         """ object which will parse and do the program """
+        self.comments = comments
         self.readFile(filename)
         self.initClang()
         self.parse()
@@ -35,7 +36,8 @@ class CParser:
     def parseMacro(self, i):
         tmpMacro = CC.macroClass()
         tmpMacro.macroDef = self.content[i + 2].tokContent
-        tmpMacro.macroComment = Util.removeUseless(Util.removeSpaces(Util.getComment(self.content, i)))#(self.content[i - 1].tokContent)))
+        if self.comments:
+            tmpMacro.macroComment = Util.removeUseless(Util.removeSpaces(Util.getComment(self.content, i)))#(self.content[i - 1].tokContent)))
         tmpMacro.macroParams = Util.getMacroParams(self.content, i, tmpMacro.macroComment)
         tmpMacro.macroComment = Util.rerunRemove(tmpMacro.macroComment)
         return tmpMacro
@@ -44,7 +46,8 @@ class CParser:
         tmpFunc = CC.functionClass()
         tmpFunc.funcType = self.content[i].tokContent
         tmpFunc.funcName = self.content[i + 1].tokContent
-        tmpFunc.funcComment = Util.removeUseless(Util.removeSpaces(Util.getComment(self.content, i)))
+        if self.comments:
+            tmpFunc.funcComment = Util.removeUseless(Util.removeSpaces(Util.getComment(self.content, i)))
         tmpFunc.funcParams = Util.getFuncParams(self.content, i, tmpFunc.funcComment)
         tmpFunc.funcComment = Util.rerunRemove(tmpFunc.funcComment)
         return tmpFunc
@@ -58,7 +61,7 @@ class CParser:
             elif Util.isFunction(self.content, i):
                 self.functions.append(self.parseFunc(i))
         #self.printMacro()
-        #self.printFunctions()
+        self.printFunctions()
 
     def printMacro(self):
         for macro in self.macros:

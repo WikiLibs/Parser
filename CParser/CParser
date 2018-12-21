@@ -1,7 +1,8 @@
-#!/usr/bin/python3.6 
+#!/usr/bin/python3.6
 
-from sys import argv as av
 from sys import exit
+import argparse
+
 import Utilities
 from CParserClass import CParser
 
@@ -9,28 +10,43 @@ ERROR_NO_ARGS = "Error: the parser needs at least one argument"
 ERROR_INVALID_FILE = "Error: \"{}\" is neither a \".h\" nor a \".c\" file"
 ERROR_FILE_NOT_EXISTANT = "Error: \"{}\" isn't a file."
 
-def startErrorHandler():
-    if len(av) < 2:
+LAUNCH_DESC = "This program can create an xml documentation file (WikiLibs format), using the given headers.\n"
+LAUNCH_SUPPORTED_LANG = "Supported languages: C, C++"
+
+HELP_COMMENTS = "Use this flag if you want the comments to be parsed and used (default = false)"
+HELP_FILES = "Files you need to convert. At least one is required."
+
+
+def startErrorHandler(arr):
+    if len(arr) < 1:
         Utilities.printErr(ERROR_NO_ARGS)
         exit(84)
-    
-    for i in range(1, len(av)):
-        if av[i].endswith(".h") == False and av[i].endswith(".c") == False:
-            Utilities.printErr(ERROR_INVALID_FILE.format(av[i]))
+
+    for i in range(0, len(arr)):
+        if arr[i].endswith(".h") == False and arr[i].endswith(".c") == False:
+            Utilities.printErr(ERROR_INVALID_FILE.format(arr[i]))
             exit(84)
 
-    for i in range(1, len(av)):
+    for i in range(0, len(arr)):
         try:
-            file = open(av[i])
+            file = open(arr[i])
             file.close()
         except:
-            Utilities.printErr(ERROR_FILE_NOT_EXISTANT.format(av[i]))
+            Utilities.printErr(ERROR_FILE_NOT_EXISTANT.format(arr[i]))
             exit(84)
 
+
 def main():
-    startErrorHandler()
-    for i in range(1, len(av)):
-        parser = CParser(av[i])
+    argParser = argparse.ArgumentParser(description=(LAUNCH_DESC+LAUNCH_SUPPORTED_LANG))
+
+    argParser.add_argument("-c", "--commentsParsing", help=HELP_COMMENTS, action="store_true")
+    argParser.add_argument('files', nargs='+', help=HELP_FILES)
+    args = argParser.parse_args()
+
+    startErrorHandler(args.files)
+
+    for i in range(0, len(args.files)):
+        parser = CParser(args.files[i], args.commentsParsing)
 
 
 if __name__ == '__main__':
