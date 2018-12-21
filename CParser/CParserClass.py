@@ -16,8 +16,15 @@ class CParser:
         """ reads conf file """
         myfile = open(filename, "r")
         self.file = ""
+        comment = False
         for line in myfile:
             line = line.replace("\n", "")
+            if "//" in line and comment == False and "://" not in line:
+                line = "/*" + line
+                comment = True
+            elif "//" not in line and comment:
+                self.file = self.file + "*/"
+                comment = False
             if len(line) > 0:
                 self.file += line
         myfile.close()
@@ -45,6 +52,11 @@ class CParser:
     def parseFunc(self, i):
         tmpFunc = CC.functionClass()
         tmpFunc.funcType = self.content[i].tokContent
+        if self.content[i + 1].tokType == Util.TYPE_PUNC:
+            tmpFunc.funcType += " "
+        while self.content[i + 1].tokType == Util.TYPE_PUNC:
+            tmpFunc.funcType += self.content[i + 1].tokContent
+            i += 1
         tmpFunc.funcName = self.content[i + 1].tokContent
         if self.comments:
             tmpFunc.funcComment = Util.removeUseless(Util.removeSpaces(Util.getComment(self.content, i)))
@@ -56,6 +68,7 @@ class CParser:
         self.macros = [] 
         self.functions = []
         for i in range (len(self.content)):
+            #print(self.content[i].tokType, self.content[i].tokContent)
             if Util.isMacro(self.content, i):
                 self.macros.append(self.parseMacro(i))
             elif Util.isFunction(self.content, i):
@@ -65,7 +78,6 @@ class CParser:
 
     def printMacro(self):
         for macro in self.macros:
-            print("def: {}\ncomment: {}\nparams: ".format(macro.macroDef, macro.macroComment))
             for param in macro.macroParams:
                 print("  {} ({}): {} ".format(param.varName, param.varType, param.varDesc))
             print()

@@ -40,8 +40,12 @@ def isMacro(content, index):
 
 def isFunction(content, index):
     try:
-        if (content[index].tokType == TYPE_ID or content[index].tokType == TYPE_KEYW) and content[index + 1].tokType == TYPE_ID and content[index + 2].tokContent == '(' and content[index - 1].tokContent != PUNC_HASH:
-            return True
+        #if (content[index].tokType == TYPE_ID or content[index].tokType == TYPE_KEYW) and content[index + 1].tokType == TYPE_ID and content[index + 2].tokContent == '(' and content[index - 1].tokContent != PUNC_HASH:
+        if (content[index].tokType == TYPE_ID or content[index].tokType == TYPE_KEYW) and content[index - 1].tokContent != PUNC_HASH: 
+            while content[index + 1].tokType == TYPE_PUNC and (content[index + 1].tokContent == "*" or content[index + 1].tokContent == "&"):
+                index += 1
+            if content[index + 1].tokType == TYPE_ID and content[index + 2].tokContent == '(':
+                return True
     except:
         return False
     return False
@@ -144,11 +148,30 @@ def getMacroParamDesc(comment, tmpParam, index):
     return tmpParam
 
 def removeUseless(string):
-    #print(string)
     for word in USELESS:
         if word in string:
             string = string.replace(word, "")
+        string = removeConsecutive(string, "/")
     return string
+
+def removeConsecutive(string, char):
+    counter = 0
+    newStr = ""
+    for i in range(len(string)):
+        if string[i] == char:
+            counter += 1
+            try:
+                if newStr[-1] == char:
+                    newStr = newStr[:-1]
+            except:
+                newStr = newStr
+            if counter > 1:
+                continue
+        else:
+            counter = 0
+        newStr += string[i]
+    newStr = removeSpaces(newStr)
+    return newStr
 
 def rerunRemove(string):
     if OPUS_COMMENT_PARAM in string:
