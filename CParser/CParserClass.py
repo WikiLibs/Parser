@@ -1,5 +1,8 @@
 import CustomContainers as CC
 import Utilities as Util
+import StringOperations as StrOp
+import CheckType as CT
+
 from cindex import *
 
 OPUS_COMMENT_PARAM = "\\param"
@@ -44,9 +47,9 @@ class CParser:
         tmpMacro = CC.macroClass()
         tmpMacro.macroDef = self.content[i + 2].tokContent
         if self.comments:
-            tmpMacro.macroComment = Util.removeUseless(Util.removeSpaces(Util.getComment(self.content, i)))#(self.content[i - 1].tokContent)))
+            tmpMacro.macroComment = StrOp.removeUseless(StrOp.removeSpaces(Util.getComment(self.content, i)))#(self.content[i - 1].tokContent)))
         tmpMacro.macroParams = Util.getMacroParams(self.content, i, tmpMacro.macroComment)
-        tmpMacro.macroComment = Util.rerunRemove(tmpMacro.macroComment)
+        tmpMacro.macroComment = StrOp.rerunRemove(tmpMacro.macroComment)
         return tmpMacro
 
     def parseFunc(self, i):
@@ -59,9 +62,9 @@ class CParser:
             i += 1
         tmpFunc.funcName = self.content[i + 1].tokContent
         if self.comments:
-            tmpFunc.funcComment = Util.removeUseless(Util.removeSpaces(Util.getComment(self.content, i)))
+            tmpFunc.funcComment = StrOp.removeUseless(StrOp.removeSpaces(Util.getComment(self.content, i)))
         tmpFunc.funcParams = Util.getFuncParams(self.content, i, tmpFunc.funcComment)
-        tmpFunc.funcComment = Util.rerunRemove(tmpFunc.funcComment)
+        tmpFunc.funcComment = StrOp.rerunRemove(tmpFunc.funcComment)
         return tmpFunc
 
     def parse(self):
@@ -69,9 +72,9 @@ class CParser:
         self.functions = []
         for i in range (len(self.content)):
             #print(self.content[i].tokType, self.content[i].tokContent)
-            if Util.isMacro(self.content, i):
+            if CT.isMacro(self.content, i):
                 self.macros.append(self.parseMacro(i))
-            elif Util.isFunction(self.content, i):
+            elif CT.isFunction(self.content, i):
                 self.functions.append(self.parseFunc(i))
         #self.printMacro()
         self.printFunctions()
