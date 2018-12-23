@@ -19,8 +19,11 @@ def printErr(*msg, **kwargs):
 
 def getComment(content, index):
     i = 0
+    saveindex = index
     while content[index].tokType != TYPE_COMM:
         index -= 1
+    if saveindex - index > 2:
+        return ""
     string = str(content[index].tokContent)
     if string.startswith("//"):
         while (string[i] == '/'):
@@ -101,3 +104,18 @@ def getMacroParamDesc(comment, tmpParam, index):
         tmpParam.varType = " ".join(paramDesc[0].split(' ')[1:])
     return tmpParam
 
+def getTypedefStruct(content, index):
+    tmpTypedef = CC.typedefClass()
+    tmpTypedef.tdLeft = content[index + 1].tokContent + " " + content[index + 2].tokContent
+    tmpTypedef.tdRight = content[index + 3].tokContent
+    return tmpTypedef
+
+def getTypedefOther(content, index):
+    tmpTypedef = CC.typedefClass()
+    tmpStr = ""
+    i = index + 1
+    while content[i].tokContent != ';':
+        tmpStr += content[i].tokContent + " "
+        i += 1
+    tmpTypedef.tdLeft = tmpStr
+    return tmpTypedef

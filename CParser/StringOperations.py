@@ -1,5 +1,9 @@
 
-OPUS_COMMENT_PARAM = "\\param"
+COMMENT_EPUR = [
+    "\\param",
+    "\\return",
+    "\\retval"
+]
 
 USELESS = [
     "<code>",
@@ -51,8 +55,9 @@ def removeConsecutive(string, char):
     return newStr
 
 def rerunRemove(string):
-    if OPUS_COMMENT_PARAM in string:
-        string = string[:string.find(OPUS_COMMENT_PARAM) - 1]
+    for word in COMMENT_EPUR:
+        if word in string:
+            string = string[:string.find(word) - 1]
     return string
 
 

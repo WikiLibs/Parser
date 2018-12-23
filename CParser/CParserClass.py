@@ -29,7 +29,7 @@ class CParser:
                 self.file = self.file + "*/"
                 comment = False
             if len(line) > 0:
-                self.file += line
+                self.file += line + " "
         myfile.close()
 
     def initClang(self):
@@ -67,17 +67,31 @@ class CParser:
         tmpFunc.funcComment = StrOp.rerunRemove(tmpFunc.funcComment)
         return tmpFunc
 
+    def parseTypedef(self, i):
+        tmpTypedef = CC.typedefClass()
+        if self.content[i + 1].tokContent == "struct":
+            tmpTypedef = Util.getTypedefStruct(self.content, i)
+        else:
+            tmpTypedef = Util.getTypedefOther(self.content, i)
+        if self.comments:
+            tmpTypedef.tdComment = StrOp.rerunRemove(StrOp.removeUseless(StrOp.removeSpaces(Util.getComment(self.content, i))))
+        return tmpTypedef
+    
     def parse(self):
         self.macros = [] 
         self.functions = []
+        self.typedefs = []
         for i in range (len(self.content)):
             #print(self.content[i].tokType, self.content[i].tokContent)
             if CT.isMacro(self.content, i):
                 self.macros.append(self.parseMacro(i))
             elif CT.isFunction(self.content, i):
                 self.functions.append(self.parseFunc(i))
+            elif CT.isTypedef(self.content, i):
+                self.typedefs.append(self.parseTypedef(i))
         #self.printMacro()
-        self.printFunctions()
+        #self.printFunctions()
+        #self.printTypedefs()
 
     def printMacro(self):
         for macro in self.macros:
@@ -93,3 +107,9 @@ class CParser:
                 print("  {} ({}): {} ".format(param.varName, param.varType, param.varDesc))
             print()
         print(len(self.functions))
+    
+    def printTypedefs(self):
+        for td in self.typedefs:
+            print (td.tdLeft, td.tdRight, "\ncomment:", td.tdComment)
+            print()
+        print(len(self.typedefs))

@@ -19,3 +19,8 @@ class functionClass:
     funcComment = ""
     funcParams = None
     funcRetComment = ""
+
+class typedefClass:
+    tdLeft = ""
+    tdRight = ""
+    tdComment = ""
