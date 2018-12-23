@@ -119,3 +119,26 @@ def getTypedefOther(content, index):
         i += 1
     tmpTypedef.tdLeft = tmpStr
     return tmpTypedef
+
+def getStruct(content, index, checkComment):
+    tmpStruct = CC.structClass()
+    tmpStruct.structName = content[index + 1].tokContent
+    tmpStruct.structContents = []
+    if checkComment:
+        tmpStruct.structComment = StrOp.rerunRemove(StrOp.removeUseless(StrOp.removeSpaces(getComment(content, index))))
+    index += 3
+    while content[index].tokContent != '}':
+        tmpParam = CC.paramClass()
+        if content[index].tokType == TYPE_COMM and checkComment:
+            tmpParam.varDesc = StrOp.rerunRemove(StrOp.removeUseless(StrOp.removeSpaces(content[index].tokContent)))
+            index += 1
+        tmpStr = ""
+        while content[index].tokContent != ';':
+            tmpStr += content[index].tokContent + " "
+            index += 1
+        tmpTab = StrOp.removeSpaces(tmpStr).split(" ")
+        tmpParam.varName = tmpTab[-1]
+        tmpParam.varType = " ".join(tmpTab[:-1])
+        tmpStruct.structContents.append(tmpParam)
+        index += 1
+    return tmpStruct

@@ -81,6 +81,7 @@ class CParser:
         self.macros = [] 
         self.functions = []
         self.typedefs = []
+        self.structs = []
         for i in range (len(self.content)):
             #print(self.content[i].tokType, self.content[i].tokContent)
             if CT.isMacro(self.content, i):
@@ -89,9 +90,12 @@ class CParser:
                 self.functions.append(self.parseFunc(i))
             elif CT.isTypedef(self.content, i):
                 self.typedefs.append(self.parseTypedef(i))
+            elif CT.isStruct(self.content, i):
+                self.structs.append(Util.getStruct(self.content, i, self.comments))
         #self.printMacro()
         #self.printFunctions()
         #self.printTypedefs()
+        self.printStructs()
 
     def printMacro(self):
         for macro in self.macros:
@@ -113,3 +117,9 @@ class CParser:
             print (td.tdLeft, td.tdRight, "\ncomment:", td.tdComment)
             print()
         print(len(self.typedefs))
+
+    def printStructs(self):
+        for struct in self.structs:
+            print ("name:", struct.structName, ", desc:", struct.structComment)
+            for param in struct.structContents:
+                print("\ttype:", param.varType, ", name:", param.varName, ", comment:", param.varDesc)

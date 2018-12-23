@@ -29,3 +29,8 @@ def isTypedef(content, index):
     if content[index].tokContent == "typedef":
         return True
     return False
+
+def isStruct(content, index):
+    if content[index].tokContent == "struct" and content[index - 1].tokContent != "typedef":
+        return True
+    return False

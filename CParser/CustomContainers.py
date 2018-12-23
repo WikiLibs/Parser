@@ -24,3 +24,8 @@ class typedefClass:
     tdLeft = ""
     tdRight = ""
     tdComment = ""
+
+class structClass:
+    structName = ""
+    structComment = ""
+    structContents = None
