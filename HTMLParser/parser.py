@@ -70,5 +70,12 @@ if len(sys.argv) > 1 :
                         f.write(i + "\n")
                 f.write("END ######################################################################\n")
         print("html was parsed and output is in data_parsed.txt")
+else :
+        print("USAGE\n\tpython parser.py [file...]\n\t\t[file]: .html files")
 
 #python parser.py u_test/hard_test u_test/Vector2_8h.html
+
+#Call this function everytime you find a new symbol
+#json is the JSON string formated as specified in the REST API
+def pushSymbol(json):
+        print(json)
