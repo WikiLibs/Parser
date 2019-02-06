@@ -2,6 +2,7 @@
 
 import sys
 import os
+import json
 
 class SymbolPath :
     path = ''
@@ -17,17 +18,23 @@ class SymboPrototype :
     parameters = [] # list of SymbolParams
 
 class SymbolUpdate :
-    lang = ''
-    type = ''
-    prototypes = [] # list of SymbolPrototype
-    symbols = [] # list of SymbolPath
 
     def __init__(self, name):
         self.name = name
+        self.lang = ''
+        self.type = ''
+        self.prototypes = [] # list of SymbolPrototype
+        self.symbols = [] # list of SymbolPath
 
     def get_JSON(self):
-        print(self.name)
+        jsonData = {
+            "lang" : self.lang,
+            "type" : self.type,
+            "prototypes" : self.prototypes,
+            "symbols" : self.symbols
+        }
 
 
 S = SymbolUpdate("KEK")
-S.print_me()
+S.get_JSON()
+#S.print_me()
