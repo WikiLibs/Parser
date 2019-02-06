@@ -67,7 +67,7 @@ class CParser:
         tmpFunc.funcComment = StrOp.rerunRemove(tmpFunc.funcComment)
         return tmpFunc
 
-    def parseTypedef(self, i):
+    '''def parseTypedef(self, i):
         tmpTypedef = CC.typedefClass()
         if self.content[i + 1].tokContent == "struct":
             tmpTypedef = Util.getTypedefStruct(self.content, i)
@@ -75,7 +75,15 @@ class CParser:
             tmpTypedef = Util.getTypedefOther(self.content, i)
         if self.comments:
             tmpTypedef.tdComment = StrOp.rerunRemove(StrOp.removeUseless(StrOp.removeSpaces(Util.getComment(self.content, i))))
-        return tmpTypedef
+        return tmpTypedef'''
+    def parseTypedef(self, i):
+        newContent = []
+
+        if CT.isStruct(self.content, i + 1):
+            print("typedef struct")
+        else:
+            print("typedef other:", self.content[i + 1].tokContent)
+        
     
     def parse(self):
         self.macros = [] 
@@ -88,9 +96,10 @@ class CParser:
                 self.macros.append(self.parseMacro(i))
             elif CT.isFunction(self.content, i):
                 self.functions.append(self.parseFunc(i))
-            elif CT.isTypedef(self.content, i):
-                self.typedefs.append(self.parseTypedef(i))
+            #elif CT.isTypedef(self.content, i):
+            #    self.typedefs.append(self.parseTypedef(i))
             elif CT.isStruct(self.content, i):
+                print("hey")
                 self.structs.append(Util.getStruct(self.content, i, self.comments))
         #self.printMacro()
         #self.printFunctions()
