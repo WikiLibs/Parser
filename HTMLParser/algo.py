@@ -33,6 +33,8 @@ class SymbolUpdate :
             "prototypes" : self.prototypes,
             "symbols" : self.symbols
         }
+        '''string = json.dumps(jsonData, indent=4)
+        print(string)'''
 
 
 S = SymbolUpdate("KEK")
