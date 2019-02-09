@@ -8,6 +8,7 @@ comments = ['<!--', '-->']
 is_comments = False
 depth = 0
 output = []
+trTab = []
 
 
 def open_file(file_name):
@@ -57,11 +58,29 @@ def check_tr(string):
 def pushSymbol(json):
     print(json)
 
+def getTabNb(string):
+	tmp = ""
+	for i in range(len(string)):
+		if string[i].isdigit():
+			tmp += string[i]
+		else:
+			break
+	
+	if len(tmp) > 0:
+		tabs = ""
+		nb = int(tmp)
+		while nb > 0:
+			tabs += "\t"
+			nb -= 1
+		return tabs
+	else:
+		return ""
 
-def getBetweenTwoChar(string, sub1, sub2):
+def getBetweenTwoSep(string, sub1, sub2):
 	tab = []
 	searching = False
 	tmp = ""
+	tab.append(getTabNb(string))
 
 	for i in range(len(string)):
 		if string[i] == sub1:
@@ -80,22 +99,27 @@ def getBetweenTwoChar(string, sub1, sub2):
 
 	return tab
 
-
-def catTr(tab):
-	newTab = []
+def catTr(tab, i, recur):
+	global trTab
+	found = False
+	index = i
 	tmp = ""
-	adding = False
 
-	for elem in tab:
-		if "<tr" in elem:
-			tmp = ""
-			adding = True
-		tmp += elem
-		if "</tr" in elem:
-			newTab.append(re.sub(' +', ' ', tmp).strip())
-			adding = False
-
-	return newTab
+	while index < len(tab):
+		if "<tr" in tab[index]:
+			if found == True:
+				index = catTr(tab, index, recur + 1) + 1
+				continue
+			else:
+				found = True
+				tmp = ""
+		tmp += tab[index] + " "
+		if "</tr" in tab[index]:
+			tmp = str(recur) + re.sub(' +', ' ', tmp).strip()
+			trTab.append(tmp)
+			return index
+		index += 1
+	return 0
 
 
 def main():
@@ -103,6 +127,7 @@ def main():
 	global is_comments
 	global depth
 	global output
+	global trTab
 
 	if len(sys.argv) == 1:
 		print("USAGE\n\tpython parser.py [file...]\n\t\t[file]: .html files")
@@ -126,15 +151,19 @@ def main():
 
 		f = open("data_parsed.txt", "a")
 		f.write("BEGIN ####################################################################\n")
-		output = catTr(output)
-		for i in output:
-			tmpTab = getBetweenTwoChar(i, ">", "<")
+		'''for tmp in output:
+			print("1:", tmp)'''
+		#output = catTr(output)
+		catTr(output, 0, 0)
+		for tmp in trTab:
+			print("2:", tmp)
+		for i in trTab:
+			tmpTab = getBetweenTwoSep(i, ">", "<")
 			for i in range(len(tmpTab)):
-				if i != 0:
+				if i > 1:
 					f.write(" ")
 				f.write(tmpTab[i])
 			f.write("\n")
-			#f.write(i + "\n")
 		f.write("END ######################################################################\n")
 
 
