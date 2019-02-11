@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.8.13">
+  <compound refid="structapple" kind="struct"><name>apple</name>
+    <member refid="structapple_1ae62e19e4e110b0de93a7a2eff3290af4" kind="variable"><name>alive</name></member>
+    <member refid="structapple_1a7423e88eb88c6599e86d291fb1b468ff" kind="variable"><name>serial_no</name></member>
+  </compound>
+  <compound refid="unionbox" kind="union"><name>box</name>
+    <member refid="unionbox_1a105e2d30b57fbefd5d56948e9293e1ff" kind="variable"><name>food</name></member>
+  </compound>
+  <compound refid="namespaceparser_doxygen_x_m_l" kind="namespace"><name>parserDoxygenXML</name>
+    <member refid="namespaceparser_doxygen_x_m_l_1a53ef231d32bd621e91bfbd205885af34" kind="function"><name>main</name></member>
+  </compound>
+  <compound refid="parser_doxygen_x_m_l_8py" kind="file"><name>parserDoxygenXML.py</name>
+  </compound>
+  <compound refid="test__header_8h" kind="file"><name>test_header.h</name>
+    <member refid="test__header_8h_1aa8cecfc5c5c054d2875c03e77b7be15d" kind="define"><name>TRUE</name></member>
+    <member refid="test__header_8h_1aa93f0eb578d23995850d61f7d61c55c1" kind="define"><name>FALSE</name></member>
+    <member refid="test__header_8h_1ad1be640ccb547db273fc7da0cfd4a919" kind="define"><name>IS_POSITIVE</name></member>
+    <member refid="test__header_8h_1ad8857751a02006f83537657e19f1dfdb" kind="define"><name>SUM</name></member>
+    <member refid="test__header_8h_1a050c65e107f0c828f856a231f4b4e788" kind="typedef"><name>BOOL</name></member>
+    <member refid="test__header_8h_1a2f382689be5bc131d20310a57bb2a339" kind="function"><name>manger</name></member>
+  </compound>
+</doxygenindex>

@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="unionbox" kind="union" language="C++" prot="public">
+    <compoundname>box</compoundname>
+    <includes refid="test__header_8h" local="no">test_header.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="unionbox_1a105e2d30b57fbefd5d56948e9293e1ff" prot="public" static="no" mutable="no">
+        <type><ref refid="structapple" kindref="compound">apple</ref> *</type>
+        <definition>apple* box::food</definition>
+        <argsstring></argsstring>
+        <name>food</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="test_header.h" line="22" column="1" bodyfile="test_header.h" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="4">
+        <label>apple</label>
+        <link refid="structapple"/>
+      </node>
+      <node id="3">
+        <label>box</label>
+        <link refid="unionbox"/>
+        <childnode refid="4" relation="usage">
+          <edgelabel>food</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="test_header.h" line="21" column="1" bodyfile="test_header.h" bodystart="21" bodyend="23"/>
+    <listofallmembers>
+      <member refid="unionbox_1a105e2d30b57fbefd5d56948e9293e1ff" prot="public" virt="non-virtual"><scope>box</scope><name>food</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>
