@@ -18,6 +18,23 @@
     <member refid="classclasses_1_1define_class_1ac4df770bf6538843683da30d64e392a3" kind="function"><name>__init__</name></member>
     <member refid="classclasses_1_1define_class_1af93bff1de7dae8cfbce695e15ccea3dd" kind="function"><name>__str__</name></member>
   </compound>
+  <compound refid="classclasses_1_1struct_class" kind="class"><name>classes::structClass</name>
+    <member refid="classclasses_1_1struct_class_1a7eda33e02de70a47af425ba767e516df" kind="variable"><name>name</name></member>
+    <member refid="classclasses_1_1struct_class_1a2549c0243d8490ddcb2bc2bf3a3aeab4" kind="variable"><name>members</name></member>
+    <member refid="classclasses_1_1struct_class_1a7de7efed02922a58fdd215ef7deb8123" kind="variable"><name>briefDesc</name></member>
+    <member refid="classclasses_1_1struct_class_1a47891a86a8a1f6637efd6964d0621400" kind="variable"><name>detailedDesc</name></member>
+    <member refid="classclasses_1_1struct_class_1a6d87e3bdcf233d643eec7338a5b58b5b" kind="function"><name>__init__</name></member>
+    <member refid="classclasses_1_1struct_class_1a511d5556eb5d4f2c2c6845e8b368ae1e" kind="function"><name>__str__</name></member>
+  </compound>
+  <compound refid="classclasses_1_1variable_class" kind="class"><name>classes::variableClass</name>
+    <member refid="classclasses_1_1variable_class_1a4774b68fd6348891fb5b67c1c78ed11d" kind="variable"><name>name</name></member>
+    <member refid="classclasses_1_1variable_class_1ae6d8fcd25b5346f8d971b26cace99499" kind="variable"><name>type</name></member>
+    <member refid="classclasses_1_1variable_class_1a7fbf53b10fb02bb61eab1f6803cc69c2" kind="variable"><name>value</name></member>
+    <member refid="classclasses_1_1variable_class_1aa2109878f1f0116bcc9d33de5ecee1e7" kind="variable"><name>briefDesc</name></member>
+    <member refid="classclasses_1_1variable_class_1ae268fde5f0d3469bd276a14c1004d437" kind="variable"><name>detailedDesc</name></member>
+    <member refid="classclasses_1_1variable_class_1ab9ce12feb3b441feb13f74fa88b960a9" kind="function"><name>__init__</name></member>
+    <member refid="classclasses_1_1variable_class_1a96434da5daa4c2d746eb516c86e9f392" kind="function"><name>__str__</name></member>
+  </compound>
   <compound refid="namespaceclasses" kind="namespace"><name>classes</name>
   </compound>
   <compound refid="namespaceget_define" kind="namespace"><name>getDefine</name>
@@ -29,6 +46,14 @@
     <member refid="namespaceget_define_1a5ad593def60e933ef33853dc4c3cd0cf" kind="function"><name>getSourceFile</name></member>
     <member refid="namespaceget_define_1af7fe9248f3304dda71d9f9f5389952ff" kind="function"><name>getSourceLine</name></member>
     <member refid="namespaceget_define_1a8cb23a128c293bfb20beb4f0972d295f" kind="function"><name>getDefine</name></member>
+  </compound>
+  <compound refid="namespaceget_struct" kind="namespace"><name>getStruct</name>
+    <member refid="namespaceget_struct_1afda4ee8aee03d241a39bd4c43b0a2ff3" kind="function"><name>getName</name></member>
+    <member refid="namespaceget_struct_1ab1d688779b497636dc57e4e6b610152a" kind="function"><name>getBriefDesc</name></member>
+    <member refid="namespaceget_struct_1a47cc7b79f736b8ffcf09e6ef95c39986" kind="function"><name>getDetailedDesc</name></member>
+    <member refid="namespaceget_struct_1a868ed6e388a3c3d563e17f536c30142f" kind="function"><name>getParamName</name></member>
+    <member refid="namespaceget_struct_1ab2be39e84ccf7ecc824ab9041246cba6" kind="function"><name>getParamType</name></member>
+    <member refid="namespaceget_struct_1a3c32d8c312b82428e6cf4d96472b16e3" kind="function"><name>getStruct</name></member>
   </compound>
   <compound refid="namespaceparser_doxygen_x_m_l" kind="namespace"><name>parserDoxygenXML</name>
     <member refid="namespaceparser_doxygen_x_m_l_1a4fad5210f7a1a81df6bdfd0d2b6f283e" kind="function"><name>getFilePath</name></member>
@@ -50,6 +75,8 @@
   <compound refid="classes_8py" kind="file"><name>classes.py</name>
   </compound>
   <compound refid="get_define_8py" kind="file"><name>getDefine.py</name>
+  </compound>
+  <compound refid="get_struct_8py" kind="file"><name>getStruct.py</name>
   </compound>
   <compound refid="str_operations_8py" kind="file"><name>strOperations.py</name>
   </compound>

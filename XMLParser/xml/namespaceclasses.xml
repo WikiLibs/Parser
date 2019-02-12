@@ -3,6 +3,8 @@
   <compounddef id="namespaceclasses" kind="namespace" language="Python">
     <compoundname>classes</compoundname>
     <innerclass refid="classclasses_1_1define_class" prot="public">classes::defineClass</innerclass>
+    <innerclass refid="classclasses_1_1struct_class" prot="public">classes::structClass</innerclass>
+    <innerclass refid="classclasses_1_1variable_class" prot="public">classes::variableClass</innerclass>
     <briefdescription>
     </briefdescription>
     <detaileddescription>

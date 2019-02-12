@@ -15,7 +15,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="includes/personnal/test_header.h" line="22" column="1" bodyfile="includes/personnal/test_header.h" bodystart="22" bodyend="-1"/>
+        <location file="includes/personnal/test_header.h" line="28" column="1" bodyfile="includes/personnal/test_header.h" bodystart="28" bodyend="-1"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -35,7 +35,7 @@
         </childnode>
       </node>
     </collaborationgraph>
-    <location file="includes/personnal/test_header.h" line="21" column="1" bodyfile="includes/personnal/test_header.h" bodystart="21" bodyend="23"/>
+    <location file="includes/personnal/test_header.h" line="27" column="1" bodyfile="includes/personnal/test_header.h" bodystart="27" bodyend="29"/>
     <listofallmembers>
       <member refid="unionbox_1a105e2d30b57fbefd5d56948e9293e1ff" prot="public" virt="non-virtual"><scope>box</scope><name>food</name></member>
     </listofallmembers>

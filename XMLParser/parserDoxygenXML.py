@@ -3,6 +3,7 @@ import xml.etree.ElementTree as ET
 from sys import argv as av
 
 from src.getDefine import getDefine
+from src.getStruct import getStruct
 
 def getFilePath(root):
     try:
@@ -16,6 +17,7 @@ def getFilePath(root):
 
 def main():
     defines = []
+    structs = []
     root = ET.parse(av[1]).getroot()
 
     path = getFilePath(root)
@@ -23,6 +25,13 @@ def main():
     for elem in root.iter('memberdef'):
         if elem.get('kind') == 'define':
             defines = getDefine(elem, defines)
+    for elem in root.iter('innerclass'):
+        refid = elem.get("refid")
+        if "struct" in refid:
+            structs = getStruct("xml/" + refid + ".xml", structs)
+        if "union" in elem.get('refid'):
+            print("union found, should check ", refid, ".xml", sep="")
+        
 
 if __name__ == '__main__':
     main()

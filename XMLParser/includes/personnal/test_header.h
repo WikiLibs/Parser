@@ -13,9 +13,15 @@
 
 typedef int BOOL;
 
+/**
+ * Example structure
+ */
 struct apple {
+    /**
+     * \brief bool alive 
+     * Boolean telling if apple is alive */
     BOOL alive;
-    char *serial_no;
+    char *serial_no;  /**<Description after */
 };
 
 union box {
