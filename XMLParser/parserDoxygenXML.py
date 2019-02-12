@@ -4,6 +4,7 @@ from sys import argv as av
 
 from src.getDefine import getDefine
 from src.getStruct import getStruct
+from src.getUnion import getUnion
 
 def getFilePath(root):
     try:
@@ -15,9 +16,11 @@ def getFilePath(root):
             path = "none"
     return path
 
+
 def main():
     defines = []
     structs = []
+    unions = []
     root = ET.parse(av[1]).getroot()
 
     path = getFilePath(root)
@@ -30,7 +33,7 @@ def main():
         if "struct" in refid:
             structs = getStruct("xml/" + refid + ".xml", structs)
         if "union" in elem.get('refid'):
-            print("union found, should check ", refid, ".xml", sep="")
+            unions = getUnion("xml/" + refid + ".xml", unions)
         
 
 if __name__ == '__main__':

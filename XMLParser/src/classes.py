@@ -31,3 +31,10 @@ class structClass:
 
     def __str__(self):
         return "name = " + self.name + ", brief_desc = " + self.briefDesc + ", detailed_brief = " + self.detailedDesc
+
+class unionClass:
+    def __init__(self):
+        self.name = ""
+        self.members = []
+        self.briefDesc = ""
+        self.detailedDesc = ""

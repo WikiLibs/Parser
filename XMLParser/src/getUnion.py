@@ -1,5 +1,5 @@
 import xml.etree.ElementTree as ET
-from src.classes import structClass
+from src.classes import unionClass
 from src.classes import variableClass
 import src.strOperations as strOp
 
@@ -61,20 +61,20 @@ def getParamDetailedDesc(param):
     return detailedDesc
 
 
-def getStruct(fileName, structs):
-    tmpStruct = structClass()
+def getUnion(fileName, unions):
+    tmpUnion = unionClass()
     root = ET.parse(fileName).getroot()
 
-    tmpStruct.name = getName(root)
-    tmpStruct.briefDesc = getBriefDesc(root)
-    tmpStruct.detailedDesc = getDetailedDesc(root)
+    tmpUnion.name = getName(root)
+    tmpUnion.briefDesc = getBriefDesc(root)
+    tmpUnion.detailedDesc = getDetailedDesc(root)
     for elem in root.iter("memberdef"):
         tmpVar = variableClass()
         tmpVar.name = getParamName(elem)
         tmpVar.type = getParamType(elem)
         tmpVar.briefDesc = getParamBriefDesc(elem)
         tmpVar.detailedDesc = getParamDetailedDesc(elem)
-        tmpStruct.members.append(tmpVar)
+        tmpUnion.members.append(tmpVar)
 
-    structs.append(tmpStruct)
-    return structs
+    unions.append(tmpUnion)
+    return unions
