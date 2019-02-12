@@ -26,6 +26,13 @@
     <member refid="classclasses_1_1struct_class_1a6d87e3bdcf233d643eec7338a5b58b5b" kind="function"><name>__init__</name></member>
     <member refid="classclasses_1_1struct_class_1a511d5556eb5d4f2c2c6845e8b368ae1e" kind="function"><name>__str__</name></member>
   </compound>
+  <compound refid="classclasses_1_1union_class" kind="class"><name>classes::unionClass</name>
+    <member refid="classclasses_1_1union_class_1a29d6e2caf8c2be6418a645bfd66fdd05" kind="variable"><name>name</name></member>
+    <member refid="classclasses_1_1union_class_1ac08397b90f1ced6637678017a964ab3d" kind="variable"><name>members</name></member>
+    <member refid="classclasses_1_1union_class_1a7581c5de765b6dc0f728577456c852e7" kind="variable"><name>briefDesc</name></member>
+    <member refid="classclasses_1_1union_class_1adfb1fc840931e3014d547394709b5788" kind="variable"><name>detailedDesc</name></member>
+    <member refid="classclasses_1_1union_class_1a0dfbdb622818493cb6c108c15e7ba70b" kind="function"><name>__init__</name></member>
+  </compound>
   <compound refid="classclasses_1_1variable_class" kind="class"><name>classes::variableClass</name>
     <member refid="classclasses_1_1variable_class_1a4774b68fd6348891fb5b67c1c78ed11d" kind="variable"><name>name</name></member>
     <member refid="classclasses_1_1variable_class_1ae6d8fcd25b5346f8d971b26cace99499" kind="variable"><name>type</name></member>
@@ -53,7 +60,19 @@
     <member refid="namespaceget_struct_1a47cc7b79f736b8ffcf09e6ef95c39986" kind="function"><name>getDetailedDesc</name></member>
     <member refid="namespaceget_struct_1a868ed6e388a3c3d563e17f536c30142f" kind="function"><name>getParamName</name></member>
     <member refid="namespaceget_struct_1ab2be39e84ccf7ecc824ab9041246cba6" kind="function"><name>getParamType</name></member>
+    <member refid="namespaceget_struct_1a23ed94ee88ea5547708291e14971c8fb" kind="function"><name>getParamBriefDesc</name></member>
+    <member refid="namespaceget_struct_1a576661f15b052e0a30af4558ab573025" kind="function"><name>getParamDetailedDesc</name></member>
     <member refid="namespaceget_struct_1a3c32d8c312b82428e6cf4d96472b16e3" kind="function"><name>getStruct</name></member>
+  </compound>
+  <compound refid="namespaceget_union" kind="namespace"><name>getUnion</name>
+    <member refid="namespaceget_union_1a83f69080ccb805643a9cc0b2ad5115c1" kind="function"><name>getName</name></member>
+    <member refid="namespaceget_union_1ab448f7fed79acbbea4a8852cbb10503c" kind="function"><name>getBriefDesc</name></member>
+    <member refid="namespaceget_union_1a7fb1e41869422c93dbb59f07b28f7430" kind="function"><name>getDetailedDesc</name></member>
+    <member refid="namespaceget_union_1a7e5187dc90973e498cc34e35e5b935d6" kind="function"><name>getParamName</name></member>
+    <member refid="namespaceget_union_1ac434a3b6623b7842d8e6eb4530422b5f" kind="function"><name>getParamType</name></member>
+    <member refid="namespaceget_union_1a86f6ddecc5930de75f2de0726237ad8f" kind="function"><name>getParamBriefDesc</name></member>
+    <member refid="namespaceget_union_1a0b47ae3a32a20f8a030779539c41090d" kind="function"><name>getParamDetailedDesc</name></member>
+    <member refid="namespaceget_union_1a7bbde332952ac2bb51fc0d719b2d4bcb" kind="function"><name>getUnion</name></member>
   </compound>
   <compound refid="namespaceparser_doxygen_x_m_l" kind="namespace"><name>parserDoxygenXML</name>
     <member refid="namespaceparser_doxygen_x_m_l_1a4fad5210f7a1a81df6bdfd0d2b6f283e" kind="function"><name>getFilePath</name></member>
@@ -68,7 +87,7 @@
     <member refid="test__header_8h_1ad1be640ccb547db273fc7da0cfd4a919" kind="define"><name>IS_POSITIVE</name></member>
     <member refid="test__header_8h_1ad8857751a02006f83537657e19f1dfdb" kind="define"><name>SUM</name></member>
     <member refid="test__header_8h_1a050c65e107f0c828f856a231f4b4e788" kind="typedef"><name>BOOL</name></member>
-    <member refid="test__header_8h_1a2f382689be5bc131d20310a57bb2a339" kind="function"><name>manger</name></member>
+    <member refid="test__header_8h_1aa4f2ea658757153ad4fdce0d5e3f6bc4" kind="function"><name>manger</name></member>
   </compound>
   <compound refid="parser_doxygen_x_m_l_8py" kind="file"><name>parserDoxygenXML.py</name>
   </compound>
@@ -77,6 +96,8 @@
   <compound refid="get_define_8py" kind="file"><name>getDefine.py</name>
   </compound>
   <compound refid="get_struct_8py" kind="file"><name>getStruct.py</name>
+  </compound>
+  <compound refid="get_union_8py" kind="file"><name>getUnion.py</name>
   </compound>
   <compound refid="str_operations_8py" kind="file"><name>strOperations.py</name>
   </compound>

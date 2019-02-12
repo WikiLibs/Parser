@@ -81,13 +81,18 @@
       </memberdef>
       </sectiondef>
       <sectiondef kind="func">
-      <memberdef kind="function" id="test__header_8h_1a2f382689be5bc131d20310a57bb2a339" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="test__header_8h_1aa4f2ea658757153ad4fdce0d5e3f6bc4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="test__header_8h_1a050c65e107f0c828f856a231f4b4e788" kindref="member">BOOL</ref></type>
         <definition>BOOL manger</definition>
-        <argsstring>(box)</argsstring>
+        <argsstring>(box unionVar, int value)</argsstring>
         <name>manger</name>
         <param>
           <type><ref refid="unionbox" kindref="compound">box</ref></type>
+          <declname>unionVar</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>value</declname>
         </param>
         <briefdescription>
         </briefdescription>

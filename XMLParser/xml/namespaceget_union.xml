@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
 <doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
-  <compounddef id="namespaceget_struct" kind="namespace" language="Python">
-    <compoundname>getStruct</compoundname>
+  <compounddef id="namespaceget_union" kind="namespace" language="Python">
+    <compoundname>getUnion</compoundname>
       <sectiondef kind="func">
-      <memberdef kind="function" id="namespaceget_struct_1afda4ee8aee03d241a39bd4c43b0a2ff3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceget_union_1a83f69080ccb805643a9cc0b2ad5115c1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>def</type>
-        <definition>def getStruct.getName</definition>
+        <definition>def getUnion.getName</definition>
         <argsstring>(root)</argsstring>
         <name>getName</name>
         <param>
@@ -18,11 +18,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/getStruct.py" line="6" column="1" bodyfile="src/getStruct.py" bodystart="6" bodyend="9"/>
+        <location file="src/getUnion.py" line="6" column="1" bodyfile="src/getUnion.py" bodystart="6" bodyend="9"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceget_struct_1ab1d688779b497636dc57e4e6b610152a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceget_union_1ab448f7fed79acbbea4a8852cbb10503c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>def</type>
-        <definition>def getStruct.getBriefDesc</definition>
+        <definition>def getUnion.getBriefDesc</definition>
         <argsstring>(root)</argsstring>
         <name>getBriefDesc</name>
         <param>
@@ -35,11 +35,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/getStruct.py" line="10" column="1" bodyfile="src/getStruct.py" bodystart="10" bodyend="17"/>
+        <location file="src/getUnion.py" line="10" column="1" bodyfile="src/getUnion.py" bodystart="10" bodyend="17"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceget_struct_1a47cc7b79f736b8ffcf09e6ef95c39986" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceget_union_1a7fb1e41869422c93dbb59f07b28f7430" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>def</type>
-        <definition>def getStruct.getDetailedDesc</definition>
+        <definition>def getUnion.getDetailedDesc</definition>
         <argsstring>(root)</argsstring>
         <name>getDetailedDesc</name>
         <param>
@@ -52,11 +52,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/getStruct.py" line="18" column="1" bodyfile="src/getStruct.py" bodystart="18" bodyend="28"/>
+        <location file="src/getUnion.py" line="18" column="1" bodyfile="src/getUnion.py" bodystart="18" bodyend="28"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceget_struct_1a868ed6e388a3c3d563e17f536c30142f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceget_union_1a7e5187dc90973e498cc34e35e5b935d6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>def</type>
-        <definition>def getStruct.getParamName</definition>
+        <definition>def getUnion.getParamName</definition>
         <argsstring>(param)</argsstring>
         <name>getParamName</name>
         <param>
@@ -69,11 +69,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/getStruct.py" line="29" column="1" bodyfile="src/getStruct.py" bodystart="29" bodyend="32"/>
+        <location file="src/getUnion.py" line="29" column="1" bodyfile="src/getUnion.py" bodystart="29" bodyend="32"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceget_struct_1ab2be39e84ccf7ecc824ab9041246cba6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceget_union_1ac434a3b6623b7842d8e6eb4530422b5f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>def</type>
-        <definition>def getStruct.getParamType</definition>
+        <definition>def getUnion.getParamType</definition>
         <argsstring>(param)</argsstring>
         <name>getParamType</name>
         <param>
@@ -86,11 +86,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/getStruct.py" line="33" column="1" bodyfile="src/getStruct.py" bodystart="33" bodyend="42"/>
+        <location file="src/getUnion.py" line="33" column="1" bodyfile="src/getUnion.py" bodystart="33" bodyend="42"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceget_struct_1a23ed94ee88ea5547708291e14971c8fb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceget_union_1a86f6ddecc5930de75f2de0726237ad8f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>def</type>
-        <definition>def getStruct.getParamBriefDesc</definition>
+        <definition>def getUnion.getParamBriefDesc</definition>
         <argsstring>(param)</argsstring>
         <name>getParamBriefDesc</name>
         <param>
@@ -103,11 +103,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/getStruct.py" line="43" column="1" bodyfile="src/getStruct.py" bodystart="43" bodyend="52"/>
+        <location file="src/getUnion.py" line="43" column="1" bodyfile="src/getUnion.py" bodystart="43" bodyend="52"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceget_struct_1a576661f15b052e0a30af4558ab573025" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceget_union_1a0b47ae3a32a20f8a030779539c41090d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>def</type>
-        <definition>def getStruct.getParamDetailedDesc</definition>
+        <definition>def getUnion.getParamDetailedDesc</definition>
         <argsstring>(param)</argsstring>
         <name>getParamDetailedDesc</name>
         <param>
@@ -120,20 +120,20 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/getStruct.py" line="53" column="1" bodyfile="src/getStruct.py" bodystart="53" bodyend="63"/>
+        <location file="src/getUnion.py" line="53" column="1" bodyfile="src/getUnion.py" bodystart="53" bodyend="63"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceget_struct_1a3c32d8c312b82428e6cf4d96472b16e3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceget_union_1a7bbde332952ac2bb51fc0d719b2d4bcb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>def</type>
-        <definition>def getStruct.getStruct</definition>
-        <argsstring>(fileName, structs)</argsstring>
-        <name>getStruct</name>
+        <definition>def getUnion.getUnion</definition>
+        <argsstring>(fileName, unions)</argsstring>
+        <name>getUnion</name>
         <param>
           <type>fileName</type>
           <defname>fileName</defname>
         </param>
         <param>
-          <type>structs</type>
-          <defname>structs</defname>
+          <type>unions</type>
+          <defname>unions</defname>
         </param>
         <briefdescription>
         </briefdescription>
@@ -141,13 +141,13 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/getStruct.py" line="64" column="1" bodyfile="src/getStruct.py" bodystart="64" bodyend="80"/>
+        <location file="src/getUnion.py" line="64" column="1" bodyfile="src/getUnion.py" bodystart="64" bodyend="80"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="src/getStruct.py" line="1" column="1"/>
+    <location file="src/getUnion.py" line="1" column="1"/>
   </compounddef>
 </doxygen>

@@ -28,7 +28,8 @@ union box {
     apple *food;
 };
 
-BOOL manger(box) {
+
+BOOL manger(box unionVar, int value) {
     char p[8] = "crunch\n";
     printf("%s\n", p);
 };
