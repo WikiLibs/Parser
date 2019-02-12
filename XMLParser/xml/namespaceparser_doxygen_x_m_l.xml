@@ -3,6 +3,23 @@
   <compounddef id="namespaceparser_doxygen_x_m_l" kind="namespace" language="Python">
     <compoundname>parserDoxygenXML</compoundname>
       <sectiondef kind="func">
+      <memberdef kind="function" id="namespaceparser_doxygen_x_m_l_1a4fad5210f7a1a81df6bdfd0d2b6f283e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def parserDoxygenXML.getFilePath</definition>
+        <argsstring>(root)</argsstring>
+        <name>getFilePath</name>
+        <param>
+          <type>root</type>
+          <defname>root</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="parserDoxygenXML.py" line="7" column="1" bodyfile="parserDoxygenXML.py" bodystart="7" bodyend="16"/>
+      </memberdef>
       <memberdef kind="function" id="namespaceparser_doxygen_x_m_l_1a53ef231d32bd621e91bfbd205885af34" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>def</type>
         <definition>def parserDoxygenXML.main</definition>
@@ -14,7 +31,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="parserDoxygenXML.py" line="7" column="1" bodyfile="parserDoxygenXML.py" bodystart="7" bodyend="17"/>
+        <location file="parserDoxygenXML.py" line="17" column="1" bodyfile="parserDoxygenXML.py" bodystart="17" bodyend="26"/>
       </memberdef>
       </sectiondef>
     <briefdescription>

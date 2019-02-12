@@ -1,0 +1,153 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="namespaceget_define" kind="namespace" language="Python">
+    <compoundname>getDefine</compoundname>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="namespaceget_define_1a4014fd5d91ff7abfe1de89e5ac2d0c79" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def getDefine.getName</definition>
+        <argsstring>(define)</argsstring>
+        <name>getName</name>
+        <param>
+          <type>define</type>
+          <defname>define</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/getDefine.py" line="5" column="1" bodyfile="src/getDefine.py" bodystart="5" bodyend="8"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceget_define_1a309c503ed0bd25a6c924bd8109c6e42a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def getDefine.getInitializer</definition>
+        <argsstring>(define)</argsstring>
+        <name>getInitializer</name>
+        <param>
+          <type>define</type>
+          <defname>define</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/getDefine.py" line="9" column="1" bodyfile="src/getDefine.py" bodystart="9" bodyend="16"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceget_define_1ad5eaac7f08335da4643a5926090aae17" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def getDefine.getParams</definition>
+        <argsstring>(define)</argsstring>
+        <name>getParams</name>
+        <param>
+          <type>define</type>
+          <defname>define</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/getDefine.py" line="17" column="1" bodyfile="src/getDefine.py" bodystart="17" bodyend="26"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceget_define_1a3b2ae770d360d22cc85bac9a80a921ba" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def getDefine.getBriefDefinition</definition>
+        <argsstring>(define)</argsstring>
+        <name>getBriefDefinition</name>
+        <param>
+          <type>define</type>
+          <defname>define</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/getDefine.py" line="27" column="1" bodyfile="src/getDefine.py" bodystart="27" bodyend="36"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceget_define_1a78bc62de787207bc5371392688e6d89c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def getDefine.getDetailedDefinition</definition>
+        <argsstring>(define)</argsstring>
+        <name>getDetailedDefinition</name>
+        <param>
+          <type>define</type>
+          <defname>define</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/getDefine.py" line="37" column="1" bodyfile="src/getDefine.py" bodystart="37" bodyend="43"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceget_define_1a5ad593def60e933ef33853dc4c3cd0cf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def getDefine.getSourceFile</definition>
+        <argsstring>(define)</argsstring>
+        <name>getSourceFile</name>
+        <param>
+          <type>define</type>
+          <defname>define</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/getDefine.py" line="44" column="1" bodyfile="src/getDefine.py" bodystart="44" bodyend="46"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceget_define_1af7fe9248f3304dda71d9f9f5389952ff" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def getDefine.getSourceLine</definition>
+        <argsstring>(define)</argsstring>
+        <name>getSourceLine</name>
+        <param>
+          <type>define</type>
+          <defname>define</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/getDefine.py" line="47" column="1" bodyfile="src/getDefine.py" bodystart="47" bodyend="49"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceget_define_1a8cb23a128c293bfb20beb4f0972d295f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def getDefine.getDefine</definition>
+        <argsstring>(define, defines)</argsstring>
+        <name>getDefine</name>
+        <param>
+          <type>define</type>
+          <defname>define</defname>
+        </param>
+        <param>
+          <type>defines</type>
+          <defname>defines</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/getDefine.py" line="50" column="1" bodyfile="src/getDefine.py" bodystart="50" bodyend="63"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/getDefine.py" line="1" column="1"/>
+  </compounddef>
+</doxygen>

@@ -7,10 +7,35 @@
   <compound refid="unionbox" kind="union"><name>box</name>
     <member refid="unionbox_1a105e2d30b57fbefd5d56948e9293e1ff" kind="variable"><name>food</name></member>
   </compound>
+  <compound refid="classclasses_1_1define_class" kind="class"><name>classes::defineClass</name>
+    <member refid="classclasses_1_1define_class_1a55583c36d1ebe6b19cbf25e64d71d1db" kind="variable"><name>name</name></member>
+    <member refid="classclasses_1_1define_class_1a81a43a637686d346f8cebc53ecf193d2" kind="variable"><name>initializer</name></member>
+    <member refid="classclasses_1_1define_class_1a4f3f8d11c9cefed2f729e14f6ab14111" kind="variable"><name>params</name></member>
+    <member refid="classclasses_1_1define_class_1a1b72ba9a30129be4f2e33a7622b61388" kind="variable"><name>briefDesc</name></member>
+    <member refid="classclasses_1_1define_class_1aa72bc08ac33298c1812fce162ad27084" kind="variable"><name>detailedDesc</name></member>
+    <member refid="classclasses_1_1define_class_1a30e75afb1fdec1f07bb4105c713efbc1" kind="variable"><name>sourceFile</name></member>
+    <member refid="classclasses_1_1define_class_1a731dc5ccbe04884fa247e6e42a75be93" kind="variable"><name>sourceLine</name></member>
+    <member refid="classclasses_1_1define_class_1ac4df770bf6538843683da30d64e392a3" kind="function"><name>__init__</name></member>
+    <member refid="classclasses_1_1define_class_1af93bff1de7dae8cfbce695e15ccea3dd" kind="function"><name>__str__</name></member>
+  </compound>
+  <compound refid="namespaceclasses" kind="namespace"><name>classes</name>
+  </compound>
+  <compound refid="namespaceget_define" kind="namespace"><name>getDefine</name>
+    <member refid="namespaceget_define_1a4014fd5d91ff7abfe1de89e5ac2d0c79" kind="function"><name>getName</name></member>
+    <member refid="namespaceget_define_1a309c503ed0bd25a6c924bd8109c6e42a" kind="function"><name>getInitializer</name></member>
+    <member refid="namespaceget_define_1ad5eaac7f08335da4643a5926090aae17" kind="function"><name>getParams</name></member>
+    <member refid="namespaceget_define_1a3b2ae770d360d22cc85bac9a80a921ba" kind="function"><name>getBriefDefinition</name></member>
+    <member refid="namespaceget_define_1a78bc62de787207bc5371392688e6d89c" kind="function"><name>getDetailedDefinition</name></member>
+    <member refid="namespaceget_define_1a5ad593def60e933ef33853dc4c3cd0cf" kind="function"><name>getSourceFile</name></member>
+    <member refid="namespaceget_define_1af7fe9248f3304dda71d9f9f5389952ff" kind="function"><name>getSourceLine</name></member>
+    <member refid="namespaceget_define_1a8cb23a128c293bfb20beb4f0972d295f" kind="function"><name>getDefine</name></member>
+  </compound>
   <compound refid="namespaceparser_doxygen_x_m_l" kind="namespace"><name>parserDoxygenXML</name>
+    <member refid="namespaceparser_doxygen_x_m_l_1a4fad5210f7a1a81df6bdfd0d2b6f283e" kind="function"><name>getFilePath</name></member>
     <member refid="namespaceparser_doxygen_x_m_l_1a53ef231d32bd621e91bfbd205885af34" kind="function"><name>main</name></member>
   </compound>
-  <compound refid="parser_doxygen_x_m_l_8py" kind="file"><name>parserDoxygenXML.py</name>
+  <compound refid="namespacestr_operations" kind="namespace"><name>strOperations</name>
+    <member refid="namespacestr_operations_1a9df94d8eef52c6bca1702bb2007599a5" kind="function"><name>epurStr</name></member>
   </compound>
   <compound refid="test__header_8h" kind="file"><name>test_header.h</name>
     <member refid="test__header_8h_1aa8cecfc5c5c054d2875c03e77b7be15d" kind="define"><name>TRUE</name></member>
@@ -19,5 +44,19 @@
     <member refid="test__header_8h_1ad8857751a02006f83537657e19f1dfdb" kind="define"><name>SUM</name></member>
     <member refid="test__header_8h_1a050c65e107f0c828f856a231f4b4e788" kind="typedef"><name>BOOL</name></member>
     <member refid="test__header_8h_1a2f382689be5bc131d20310a57bb2a339" kind="function"><name>manger</name></member>
+  </compound>
+  <compound refid="parser_doxygen_x_m_l_8py" kind="file"><name>parserDoxygenXML.py</name>
+  </compound>
+  <compound refid="classes_8py" kind="file"><name>classes.py</name>
+  </compound>
+  <compound refid="get_define_8py" kind="file"><name>getDefine.py</name>
+  </compound>
+  <compound refid="str_operations_8py" kind="file"><name>strOperations.py</name>
+  </compound>
+  <compound refid="dir_09e761304027c904456130627fd4dcf5" kind="dir"><name>includes</name>
+  </compound>
+  <compound refid="dir_1c05a73b73ff0e3e0a232ff83f04730b" kind="dir"><name>includes/personnal</name>
+  </compound>
+  <compound refid="dir_68267d1309a1af8e8297ef4c3efbcdba" kind="dir"><name>src</name>
   </compound>
 </doxygenindex>
