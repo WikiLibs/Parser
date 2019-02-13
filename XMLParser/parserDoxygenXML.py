@@ -5,6 +5,7 @@ from sys import argv as av
 from src.getDefine import getDefine
 from src.getStruct import getStruct
 from src.getUnion import getUnion
+from src.getFunction import getFunction
 
 def getFilePath(root):
     try:
@@ -21,12 +22,18 @@ def main():
     defines = []
     structs = []
     unions = []
+    functions = []
     root = ET.parse(av[1]).getroot()
 
     path = getFilePath(root)
+
     for elem in root.iter('memberdef'):
-        if elem.get('kind') == 'define':
+        kind = elem.get('kind')
+        if kind == 'define':
             defines.append(getDefine(elem))
+        if kind == 'function':
+            functions.append(getFunction(elem))
+
     for elem in root.iter('innerclass'):
         refid = elem.get("refid")
         if "struct" in refid:

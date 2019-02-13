@@ -1,0 +1,105 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="classclasses_1_1function_class" kind="class" language="Python" prot="public">
+    <compoundname>classes::functionClass</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classclasses_1_1function_class_1acf4d1582a93a50f242c6b14dae5d28db" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>classes.functionClass::name</definition>
+        <argsstring></argsstring>
+        <name>name</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/classes.py" line="44" column="1" bodyfile="src/classes.py" bodystart="44" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classclasses_1_1function_class_1a39d232c0b3ff837c0c62ccaba7b13596" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>classes.functionClass::returnType</definition>
+        <argsstring></argsstring>
+        <name>returnType</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/classes.py" line="45" column="1" bodyfile="src/classes.py" bodystart="45" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classclasses_1_1function_class_1ad09fecb0a6ed2d7c0c99d2a651388269" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>classes.functionClass::params</definition>
+        <argsstring></argsstring>
+        <name>params</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/classes.py" line="46" column="1" bodyfile="src/classes.py" bodystart="46" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classclasses_1_1function_class_1ab92b0ff5792253298283b9486c343943" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>classes.functionClass::briefDesc</definition>
+        <argsstring></argsstring>
+        <name>briefDesc</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/classes.py" line="47" column="1" bodyfile="src/classes.py" bodystart="47" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classclasses_1_1function_class_1a8ee48288f482d44ce27875a60d928ee7" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>classes.functionClass::detailedDesc</definition>
+        <argsstring></argsstring>
+        <name>detailedDesc</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/classes.py" line="48" column="1" bodyfile="src/classes.py" bodystart="48" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classclasses_1_1function_class_1a901bdcc29dcf1fb694ff36ca8ed20806" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def classes.functionClass.__init__</definition>
+        <argsstring>(self)</argsstring>
+        <name>__init__</name>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/classes.py" line="43" column="1" bodyfile="src/classes.py" bodystart="43" bodyend="48"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/classes.py" line="42" column="1" bodyfile="src/classes.py" bodystart="42" bodyend="48"/>
+    <listofallmembers>
+      <member refid="classclasses_1_1function_class_1a901bdcc29dcf1fb694ff36ca8ed20806" prot="public" virt="non-virtual"><scope>classes::functionClass</scope><name>__init__</name></member>
+      <member refid="classclasses_1_1function_class_1ab92b0ff5792253298283b9486c343943" prot="public" virt="non-virtual"><scope>classes::functionClass</scope><name>briefDesc</name></member>
+      <member refid="classclasses_1_1function_class_1a8ee48288f482d44ce27875a60d928ee7" prot="public" virt="non-virtual"><scope>classes::functionClass</scope><name>detailedDesc</name></member>
+      <member refid="classclasses_1_1function_class_1acf4d1582a93a50f242c6b14dae5d28db" prot="public" virt="non-virtual"><scope>classes::functionClass</scope><name>name</name></member>
+      <member refid="classclasses_1_1function_class_1ad09fecb0a6ed2d7c0c99d2a651388269" prot="public" virt="non-virtual"><scope>classes::functionClass</scope><name>params</name></member>
+      <member refid="classclasses_1_1function_class_1a39d232c0b3ff837c0c62ccaba7b13596" prot="public" virt="non-virtual"><scope>classes::functionClass</scope><name>returnType</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

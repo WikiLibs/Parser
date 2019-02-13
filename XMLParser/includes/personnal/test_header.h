@@ -28,7 +28,13 @@ union box {
     apple *food;
 };
 
-
+/**
+ * @brief manger function
+ * @details function used to eat
+ * @param unionVar box containing food
+ * @param value random value
+ * @return boolean indicating if has eaten
+ */
 BOOL manger(box unionVar, int value) {
     char p[8] = "crunch\n";
     printf("%s\n", p);

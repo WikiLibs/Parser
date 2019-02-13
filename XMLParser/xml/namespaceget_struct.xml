@@ -3,145 +3,22 @@
   <compounddef id="namespaceget_struct" kind="namespace" language="Python">
     <compoundname>getStruct</compoundname>
       <sectiondef kind="func">
-      <memberdef kind="function" id="namespaceget_struct_1afda4ee8aee03d241a39bd4c43b0a2ff3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>def</type>
-        <definition>def getStruct.getName</definition>
-        <argsstring>(root)</argsstring>
-        <name>getName</name>
-        <param>
-          <type>root</type>
-          <defname>root</defname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="src/getStruct.py" line="6" column="1" bodyfile="src/getStruct.py" bodystart="6" bodyend="9"/>
-      </memberdef>
-      <memberdef kind="function" id="namespaceget_struct_1ab1d688779b497636dc57e4e6b610152a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>def</type>
-        <definition>def getStruct.getBriefDesc</definition>
-        <argsstring>(root)</argsstring>
-        <name>getBriefDesc</name>
-        <param>
-          <type>root</type>
-          <defname>root</defname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="src/getStruct.py" line="10" column="1" bodyfile="src/getStruct.py" bodystart="10" bodyend="17"/>
-      </memberdef>
-      <memberdef kind="function" id="namespaceget_struct_1a47cc7b79f736b8ffcf09e6ef95c39986" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>def</type>
-        <definition>def getStruct.getDetailedDesc</definition>
-        <argsstring>(root)</argsstring>
-        <name>getDetailedDesc</name>
-        <param>
-          <type>root</type>
-          <defname>root</defname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="src/getStruct.py" line="18" column="1" bodyfile="src/getStruct.py" bodystart="18" bodyend="28"/>
-      </memberdef>
-      <memberdef kind="function" id="namespaceget_struct_1a868ed6e388a3c3d563e17f536c30142f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>def</type>
-        <definition>def getStruct.getParamName</definition>
-        <argsstring>(param)</argsstring>
-        <name>getParamName</name>
-        <param>
-          <type>param</type>
-          <defname>param</defname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="src/getStruct.py" line="29" column="1" bodyfile="src/getStruct.py" bodystart="29" bodyend="32"/>
-      </memberdef>
-      <memberdef kind="function" id="namespaceget_struct_1ab2be39e84ccf7ecc824ab9041246cba6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>def</type>
-        <definition>def getStruct.getParamType</definition>
-        <argsstring>(param)</argsstring>
-        <name>getParamType</name>
-        <param>
-          <type>param</type>
-          <defname>param</defname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="src/getStruct.py" line="33" column="1" bodyfile="src/getStruct.py" bodystart="33" bodyend="42"/>
-      </memberdef>
-      <memberdef kind="function" id="namespaceget_struct_1a23ed94ee88ea5547708291e14971c8fb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>def</type>
-        <definition>def getStruct.getParamBriefDesc</definition>
-        <argsstring>(param)</argsstring>
-        <name>getParamBriefDesc</name>
-        <param>
-          <type>param</type>
-          <defname>param</defname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="src/getStruct.py" line="43" column="1" bodyfile="src/getStruct.py" bodystart="43" bodyend="52"/>
-      </memberdef>
-      <memberdef kind="function" id="namespaceget_struct_1a576661f15b052e0a30af4558ab573025" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>def</type>
-        <definition>def getStruct.getParamDetailedDesc</definition>
-        <argsstring>(param)</argsstring>
-        <name>getParamDetailedDesc</name>
-        <param>
-          <type>param</type>
-          <defname>param</defname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="src/getStruct.py" line="53" column="1" bodyfile="src/getStruct.py" bodystart="53" bodyend="63"/>
-      </memberdef>
-      <memberdef kind="function" id="namespaceget_struct_1a3c32d8c312b82428e6cf4d96472b16e3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceget_struct_1ad8434eccf6c50020ef85afcbd55643a1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>def</type>
         <definition>def getStruct.getStruct</definition>
-        <argsstring>(fileName, structs)</argsstring>
+        <argsstring>(fileName)</argsstring>
         <name>getStruct</name>
         <param>
           <type>fileName</type>
           <defname>fileName</defname>
         </param>
-        <param>
-          <type>structs</type>
-          <defname>structs</defname>
-        </param>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/getStruct.py" line="64" column="1" bodyfile="src/getStruct.py" bodystart="64" bodyend="80"/>
+        <location file="src/getStruct.py" line="8" column="1" bodyfile="src/getStruct.py" bodystart="8" bodyend="24"/>
       </memberdef>
       </sectiondef>
     <briefdescription>

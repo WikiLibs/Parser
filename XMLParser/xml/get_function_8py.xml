@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="get_function_8py" kind="file" language="Python">
+    <compoundname>getFunction.py</compoundname>
+    <innernamespace refid="namespaceget_function">getFunction</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/getFunction.py"/>
+  </compounddef>
+</doxygen>

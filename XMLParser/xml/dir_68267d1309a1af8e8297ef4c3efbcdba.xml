@@ -4,7 +4,9 @@
     <compoundname>src</compoundname>
     <innerfile refid="classes_8py">classes.py</innerfile>
     <innerfile refid="get_define_8py">getDefine.py</innerfile>
+    <innerfile refid="get_function_8py">getFunction.py</innerfile>
     <innerfile refid="get_struct_8py">getStruct.py</innerfile>
+    <innerfile refid="getters_8py">getters.py</innerfile>
     <innerfile refid="get_union_8py">getUnion.py</innerfile>
     <innerfile refid="str_operations_8py">strOperations.py</innerfile>
     <briefdescription>

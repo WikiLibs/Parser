@@ -95,12 +95,28 @@
           <declname>value</declname>
         </param>
         <briefdescription>
-        </briefdescription>
+<para>manger function </para>        </briefdescription>
         <detaileddescription>
-        </detaileddescription>
+<para>function used to eat <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>unionVar</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>box containing food </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>value</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>random value </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>boolean indicating if has eaten </para></simplesect>
+</para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="includes/personnal/test_header.h" line="31" column="1" bodyfile="includes/personnal/test_header.h" bodystart="31" bodyend="34"/>
+        <location file="includes/personnal/test_header.h" line="38" column="1" bodyfile="includes/personnal/test_header.h" bodystart="38" bodyend="41"/>
       </memberdef>
       </sectiondef>
     <briefdescription>

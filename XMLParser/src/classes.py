@@ -3,8 +3,7 @@ class variableClass:
         self.name = ""
         self.type = ""
         self.value = ""
-        self.briefDesc = ""
-        self.detailedDesc = ""
+        self.desc = ""
 
     def __str__(self):
         return "name = " + self.name + ", type = " + self.type + ", value = " + self.value
@@ -36,5 +35,14 @@ class unionClass:
     def __init__(self):
         self.name = ""
         self.members = []
+        self.briefDesc = ""
+        self.detailedDesc = ""
+
+class functionClass:
+    def __init__(self):
+        self.name = ""
+        self.returnType = ""
+        self.returnComment = ""
+        self.params = []
         self.briefDesc = ""
         self.detailedDesc = ""

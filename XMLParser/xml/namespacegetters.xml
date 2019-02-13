@@ -1,0 +1,115 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="namespacegetters" kind="namespace" language="Python">
+    <compoundname>getters</compoundname>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="namespacegetters_1a5a4e0b8ef1e198bf09f55cf1f3ca4969" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def getters.getCompoundName</definition>
+        <argsstring>(elem)</argsstring>
+        <name>getCompoundName</name>
+        <param>
+          <type>elem</type>
+          <defname>elem</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/getters.py" line="5" column="1" bodyfile="src/getters.py" bodystart="5" bodyend="7"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacegetters_1ab686be8e788eea39ec4ef84128a88a0b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def getters.getName</definition>
+        <argsstring>(elem)</argsstring>
+        <name>getName</name>
+        <param>
+          <type>elem</type>
+          <defname>elem</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/getters.py" line="8" column="1" bodyfile="src/getters.py" bodystart="8" bodyend="10"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacegetters_1a39272bb9ef7300476aca1f53006677b5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def getters.getType</definition>
+        <argsstring>(elem)</argsstring>
+        <name>getType</name>
+        <param>
+          <type>elem</type>
+          <defname>elem</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/getters.py" line="11" column="1" bodyfile="src/getters.py" bodystart="11" bodyend="21"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacegetters_1a02e86fac14e2b462948f5e5599f973e0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def getters.getDetailedDesc</definition>
+        <argsstring>(param)</argsstring>
+        <name>getDetailedDesc</name>
+        <param>
+          <type>param</type>
+          <defname>param</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/getters.py" line="22" column="1" bodyfile="src/getters.py" bodystart="22" bodyend="32"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacegetters_1a9d6063032743b5bf92368821930225c4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def getters.getBriefDesc</definition>
+        <argsstring>(param)</argsstring>
+        <name>getBriefDesc</name>
+        <param>
+          <type>param</type>
+          <defname>param</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/getters.py" line="33" column="1" bodyfile="src/getters.py" bodystart="33" bodyend="42"/>
+      </memberdef>
+      <memberdef kind="function" id="namespacegetters_1a0092c5ff469b38e4ac393177849a6ab0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def getters.getParams</definition>
+        <argsstring>(elem)</argsstring>
+        <name>getParams</name>
+        <param>
+          <type>elem</type>
+          <defname>elem</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/getters.py" line="43" column="1" bodyfile="src/getters.py" bodystart="43" bodyend="53"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/getters.py" line="1" column="1"/>
+  </compounddef>
+</doxygen>

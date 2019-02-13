@@ -72,14 +72,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/classes.py" line="36" column="1" bodyfile="src/classes.py" bodystart="36" bodyend="40"/>
+        <location file="src/classes.py" line="36" column="1" bodyfile="src/classes.py" bodystart="36" bodyend="41"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="src/classes.py" line="35" column="1" bodyfile="src/classes.py" bodystart="35" bodyend="40"/>
+    <location file="src/classes.py" line="35" column="1" bodyfile="src/classes.py" bodystart="35" bodyend="42"/>
     <listofallmembers>
       <member refid="classclasses_1_1union_class_1a0dfbdb622818493cb6c108c15e7ba70b" prot="public" virt="non-virtual"><scope>classes::unionClass</scope><name>__init__</name></member>
       <member refid="classclasses_1_1union_class_1a7581c5de765b6dc0f728577456c852e7" prot="public" virt="non-virtual"><scope>classes::unionClass</scope><name>briefDesc</name></member>

@@ -122,18 +122,14 @@
         </inbodydescription>
         <location file="src/getDefine.py" line="47" column="1" bodyfile="src/getDefine.py" bodystart="47" bodyend="49"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceget_define_1a8cb23a128c293bfb20beb4f0972d295f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceget_define_1a5d4073a9c6078cb1ca51aa5ec3f07426" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>def</type>
         <definition>def getDefine.getDefine</definition>
-        <argsstring>(define, defines)</argsstring>
+        <argsstring>(define)</argsstring>
         <name>getDefine</name>
         <param>
           <type>define</type>
           <defname>define</defname>
-        </param>
-        <param>
-          <type>defines</type>
-          <defname>defines</defname>
         </param>
         <briefdescription>
         </briefdescription>
@@ -141,7 +137,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/getDefine.py" line="50" column="1" bodyfile="src/getDefine.py" bodystart="50" bodyend="63"/>
+        <location file="src/getDefine.py" line="50" column="1" bodyfile="src/getDefine.py" bodystart="50" bodyend="61"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
