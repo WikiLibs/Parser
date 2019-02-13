@@ -24,16 +24,15 @@ def main():
     root = ET.parse(av[1]).getroot()
 
     path = getFilePath(root)
-    print(path)
     for elem in root.iter('memberdef'):
         if elem.get('kind') == 'define':
-            defines = getDefine(elem, defines)
+            defines.append(getDefine(elem))
     for elem in root.iter('innerclass'):
         refid = elem.get("refid")
         if "struct" in refid:
-            structs = getStruct("xml/" + refid + ".xml", structs)
-        if "union" in elem.get('refid'):
-            unions = getUnion("xml/" + refid + ".xml", unions)
+            structs.append(getStruct("xml/" + refid + ".xml"))
+        if "union" in refid:
+            unions.append(getUnion("xml/" + refid + ".xml"))
         
 
 if __name__ == '__main__':

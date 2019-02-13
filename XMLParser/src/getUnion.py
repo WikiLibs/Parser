@@ -5,7 +5,7 @@ import src.strOperations as strOp
 import src.getters as getters
 
 
-def getUnion(fileName, unions):
+def getUnion(fileName):
     tmpUnion = unionClass()
     root = ET.parse(fileName).getroot()
 
@@ -21,5 +21,4 @@ def getUnion(fileName, unions):
         tmpVar.detailedDesc = getters.getDetailedDesc(elem)
         tmpUnion.members.append(tmpVar)
 
-    unions.append(tmpUnion)
-    return unions
+    return tmpUnion

@@ -47,7 +47,7 @@ def getSourceFile(define):
 def getSourceLine(define):
     return strOp.epurStr(define.find("location").get("line"))
 
-def getDefine(define, defines):
+def getDefine(define):
     tmpDefine = defineClass()
     
     tmpDefine.name = getName(define)
@@ -58,6 +58,4 @@ def getDefine(define, defines):
     tmpDefine.sourceFile = getSourceFile(define)
     tmpDefine.sourceLine = getSourceLine(define)
     
-    print("define:", tmpDefine)
-    defines.append(tmpDefine)
-    return defines
+    return tmpDefine

@@ -5,7 +5,7 @@ import src.strOperations as strOp
 import src.getters as getters
 
 
-def getStruct(fileName, structs):
+def getStruct(fileName):
     tmpStruct = structClass()
     root = ET.parse(fileName).getroot()
 
@@ -21,5 +21,4 @@ def getStruct(fileName, structs):
         tmpVar.detailedDesc = getters.getDetailedDesc(elem)
         tmpStruct.members.append(tmpVar)
 
-    structs.append(tmpStruct)
-    return structs
+    return tmpStruct
