@@ -14,7 +14,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/classes.py" line="43" column="1" bodyfile="src/classes.py" bodystart="43" bodyend="-1"/>
+        <location file="src/classes.py" line="36" column="1" bodyfile="src/classes.py" bodystart="36" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classclasses_1_1function_class_1a39d232c0b3ff837c0c62ccaba7b13596" prot="public" static="no" mutable="no">
         <type></type>
@@ -27,7 +27,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/classes.py" line="44" column="1" bodyfile="src/classes.py" bodystart="44" bodyend="-1"/>
+        <location file="src/classes.py" line="37" column="1" bodyfile="src/classes.py" bodystart="37" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classclasses_1_1function_class_1a4639c90e0893df88c0b5d6eed731b6df" prot="public" static="no" mutable="no">
         <type></type>
@@ -40,7 +40,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/classes.py" line="45" column="1" bodyfile="src/classes.py" bodystart="45" bodyend="-1"/>
+        <location file="src/classes.py" line="38" column="1" bodyfile="src/classes.py" bodystart="38" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classclasses_1_1function_class_1ad09fecb0a6ed2d7c0c99d2a651388269" prot="public" static="no" mutable="no">
         <type></type>
@@ -53,7 +53,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/classes.py" line="46" column="1" bodyfile="src/classes.py" bodystart="46" bodyend="-1"/>
+        <location file="src/classes.py" line="39" column="1" bodyfile="src/classes.py" bodystart="39" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classclasses_1_1function_class_1ab92b0ff5792253298283b9486c343943" prot="public" static="no" mutable="no">
         <type></type>
@@ -66,7 +66,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/classes.py" line="47" column="1" bodyfile="src/classes.py" bodystart="47" bodyend="-1"/>
+        <location file="src/classes.py" line="40" column="1" bodyfile="src/classes.py" bodystart="40" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classclasses_1_1function_class_1a8ee48288f482d44ce27875a60d928ee7" prot="public" static="no" mutable="no">
         <type></type>
@@ -79,7 +79,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/classes.py" line="48" column="1" bodyfile="src/classes.py" bodystart="48" bodyend="-1"/>
+        <location file="src/classes.py" line="41" column="1" bodyfile="src/classes.py" bodystart="41" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -98,14 +98,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/classes.py" line="42" column="1" bodyfile="src/classes.py" bodystart="42" bodyend="49"/>
+        <location file="src/classes.py" line="35" column="1" bodyfile="src/classes.py" bodystart="35" bodyend="43"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="src/classes.py" line="41" column="1" bodyfile="src/classes.py" bodystart="41" bodyend="50"/>
+    <location file="src/classes.py" line="34" column="1" bodyfile="src/classes.py" bodystart="34" bodyend="44"/>
     <listofallmembers>
       <member refid="classclasses_1_1function_class_1a901bdcc29dcf1fb694ff36ca8ed20806" prot="public" virt="non-virtual"><scope>classes::functionClass</scope><name>__init__</name></member>
       <member refid="classclasses_1_1function_class_1ab92b0ff5792253298283b9486c343943" prot="public" virt="non-virtual"><scope>classes::functionClass</scope><name>briefDesc</name></member>

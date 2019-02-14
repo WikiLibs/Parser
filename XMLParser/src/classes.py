@@ -5,8 +5,6 @@ class variableClass:
         self.value = ""
         self.desc = ""
 
-    def __str__(self):
-        return "name = " + self.name + ", type = " + self.type + ", value = " + self.value
 
 class defineClass:
     def __init__(self):
@@ -15,11 +13,7 @@ class defineClass:
         self.params = []
         self.briefDesc = ""
         self.detailedDesc = ""
-        self.sourceFile = ""
-        self.sourceLine = ""
 
-    def __str__(self):
-        return "name = " + self.name + ", initializer = " + self.initializer + ", params = " + " ".join(self.params) + ", brief_description = " + self.briefDesc + ", detailed_description = " + self.detailedDesc + ", source_file = " + self.sourceFile + ", line = " + self.sourceLine
 
 class structClass:
     def __init__(self):
@@ -28,8 +22,6 @@ class structClass:
         self.briefDesc = ""
         self.detailedDesc = ""
 
-    def __str__(self):
-        return "name = " + self.name + ", brief_desc = " + self.briefDesc + ", detailed_brief = " + self.detailedDesc
 
 class unionClass:
     def __init__(self):
@@ -37,6 +29,7 @@ class unionClass:
         self.members = []
         self.briefDesc = ""
         self.detailedDesc = ""
+
 
 class functionClass:
     def __init__(self):
@@ -46,6 +39,7 @@ class functionClass:
         self.params = []
         self.briefDesc = ""
         self.detailedDesc = ""
+
 
 class typedefClass:
     def __init__(self):

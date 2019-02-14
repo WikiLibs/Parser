@@ -18,7 +18,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/getStruct.py" line="8" column="1" bodyfile="src/getStruct.py" bodystart="8" bodyend="24"/>
+        <location file="src/getStruct.py" line="8" column="1" bodyfile="src/getStruct.py" bodystart="8" bodyend="23"/>
       </memberdef>
       </sectiondef>
     <briefdescription>

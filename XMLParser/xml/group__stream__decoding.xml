@@ -5,7 +5,7 @@
     <title>Decoding</title>
       <sectiondef kind="user-defined">
       <header>Functions for decoding audio data</header>
-      <description><para>These functions retrieve actual decoded audio data from the stream. The general functions, <ref refid="group__stream__decoding_1ga963c917749335e29bb2b698c1cb20a10" kindref="member">op_read()</ref> and <ref refid="group__stream__decoding_1ga73493002d84a234f5e19b70f1dddbe2a" kindref="member">op_read_float()</ref> return 16-bit or floating-point output, both using native endian ordering. The number of channels returned can change from link to link in a chained stream. There are special functions, <ref refid="group__stream__decoding_1gaaca17ad3fd6430dc8fd43308149428eb" kindref="member">op_read_stereo()</ref> and <ref refid="group__stream__decoding_1ga9736f96563500c0978f56f0fd6bdad83" kindref="member">op_read_float_stereo()</ref>, which always output two channels, to simplify applications which do not wish to handle multichannel audio. These downmix multichannel files to two channels, so they can always return samples in the same format for every link in a chained file.</para><para>If the rest of your audio processing chain can handle floating point, those routines should be preferred, as floating point output avoids introducing clipping and other issues which might be avoided entirely if, e.g., you scale down the volume at some other stage. However, if you intend to direct consume 16-bit samples, the conversion in <computeroutput>libopusfile</computeroutput> provides noise-shaping dithering and, if compiled against <computeroutput>libopus</computeroutput><nonbreakablespace/>1.1 or later, soft-clipping prevention.</para><para><computeroutput>libopusfile</computeroutput> can also be configured at compile time to use the fixed-point <computeroutput>libopus</computeroutput> API. If so, <computeroutput>libopusfile</computeroutput>&apos;s floating-point API may also be disabled. In that configuration, nothing in <computeroutput>libopusfile</computeroutput> will use any floating-point operations, to simplify support on devices without an adequate FPU.</para><para><simplesect kind="warning"><para>HTTPS streams may be be vulnerable to truncation attacks if you do not check the error return code from <ref refid="group__stream__decoding_1ga73493002d84a234f5e19b70f1dddbe2a" kindref="member">op_read_float()</ref> or its associated functions. If the remote peer does not close the connection gracefully (with a TLS &quot;close notify&quot; message), these functions will return <ref refid="group__error__codes_1ga3ad48a4f99b1bed72acec552296dfc08" kindref="member">OP_EREAD</ref> instead of 0 when they reach the end of the file. If you are reading from an &lt;https:&gt; URL (particularly if seeking is not supported), you should make sure to check for this error and warn the user appropriately. </para></simplesect>
+      <description><para>These functions retrieve actual decoded audio data from the stream. The general functions, <ref refid="group__stream__decoding_1ga963c917749335e29bb2b698c1cb20a10" kindref="member">op_read()</ref> and <ref refid="group__stream__decoding_1ga73493002d84a234f5e19b70f1dddbe2a" kindref="member">op_read_float()</ref> return 16-bit or floating-point output, both using native endian ordering. The number of channels returned can change from link to link in a chained stream. There are special functions, <ref refid="group__stream__decoding_1gaaca17ad3fd6430dc8fd43308149428eb" kindref="member">op_read_stereo()</ref> and <ref refid="group__stream__decoding_1ga9736f96563500c0978f56f0fd6bdad83" kindref="member">op_read_float_stereo()</ref>, which always output two channels, to simplify applications which do not wish to handle multichannel audio. These downmix multichannel files to two channels, so they can always return samples in the same format for every link in a chained file. If the rest of your audio processing chain can handle floating point, those routines should be preferred, as floating point output avoids introducing clipping and other issues which might be avoided entirely if, e.g., you scale down the volume at some other stage. However, if you intend to direct consume 16-bit samples, the conversion in <computeroutput>libopusfile</computeroutput> provides noise-shaping dithering and, if compiled against <computeroutput>libopus</computeroutput><nonbreakablespace/>1.1 or later, soft-clipping prevention. <computeroutput>libopusfile</computeroutput> can also be configured at compile time to use the fixed-point <computeroutput>libopus</computeroutput> API. If so, <computeroutput>libopusfile</computeroutput>&apos;s floating-point API may also be disabled. In that configuration, nothing in <computeroutput>libopusfile</computeroutput> will use any floating-point operations, to simplify support on devices without an adequate FPU. <simplesect kind="warning"><para>HTTPS streams may be be vulnerable to truncation attacks if you do not check the error return code from <ref refid="group__stream__decoding_1ga73493002d84a234f5e19b70f1dddbe2a" kindref="member">op_read_float()</ref> or its associated functions. If the remote peer does not close the connection gracefully (with a TLS &quot;close notify&quot; message), these functions will return <ref refid="group__error__codes_1ga3ad48a4f99b1bed72acec552296dfc08" kindref="member">OP_EREAD</ref> instead of 0 when they reach the end of the file. If you are reading from an &lt;https:&gt; URL (particularly if seeking is not supported), you should make sure to check for this error and warn the user appropriately. </para></simplesect>
 </para></description>
       <memberdef kind="typedef" id="group__stream__decoding_1ga81a50874a82484034c22dfeddce177e1" prot="public" static="no">
         <type>int(*</type>
@@ -78,7 +78,7 @@
 <parametername>0</parametername>
 </parameternamelist>
 <parameterdescription>
-<para>Decoding was successful. The application has filled the buffer with exactly _nsamples _nchannels samples in the requested format. </para></parameterdescription>
+<para>Decoding was successful. The application has filled the buffer with exactly _nsamples and _nchannels samples in the requested format. </para></parameterdescription>
 </parameteritem>
 <parameteritem>
 <parameternamelist>
@@ -91,7 +91,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="includes/personnal/opusfile.h" line="1727" column="1" bodyfile="includes/personnal/opusfile.h" bodystart="1727" bodyend="-1"/>
+        <location file="includes/personnal/opusfile.h" line="1697" column="1" bodyfile="includes/personnal/opusfile.h" bodystart="1697" bodyend="-1"/>
       </memberdef>
       <memberdef kind="function" id="group__stream__decoding_1gae0d5b986dff23a82b6002915268ee3d1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -138,7 +138,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="includes/personnal/opusfile.h" line="1743" column="1"/>
+        <location file="includes/personnal/opusfile.h" line="1713" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group__stream__decoding_1ga7df927613ccf57996319678e08513289" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -195,7 +195,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="includes/personnal/opusfile.h" line="1776" column="1"/>
+        <location file="includes/personnal/opusfile.h" line="1746" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group__stream__decoding_1gac1de9480ad0fa65de778d9c88f62f6f3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -231,7 +231,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="includes/personnal/opusfile.h" line="1789" column="1"/>
+        <location file="includes/personnal/opusfile.h" line="1759" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group__stream__decoding_1ga963c917749335e29bb2b698c1cb20a10" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>OP_WARN_UNUSED_RESULT int</type>
@@ -379,7 +379,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="includes/personnal/opusfile.h" line="1871" column="1"/>
+        <location file="includes/personnal/opusfile.h" line="1841" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group__stream__decoding_1ga73493002d84a234f5e19b70f1dddbe2a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>OP_WARN_UNUSED_RESULT int</type>
@@ -527,7 +527,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="includes/personnal/opusfile.h" line="1952" column="1"/>
+        <location file="includes/personnal/opusfile.h" line="1922" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group__stream__decoding_1gaaca17ad3fd6430dc8fd43308149428eb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>OP_WARN_UNUSED_RESULT int</type>
@@ -654,7 +654,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="includes/personnal/opusfile.h" line="2013" column="1"/>
+        <location file="includes/personnal/opusfile.h" line="1983" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group__stream__decoding_1ga9736f96563500c0978f56f0fd6bdad83" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>OP_WARN_UNUSED_RESULT int</type>
@@ -781,7 +781,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="includes/personnal/opusfile.h" line="2074" column="1"/>
+        <location file="includes/personnal/opusfile.h" line="2044" column="1"/>
       </memberdef>
       <memberdef kind="define" id="group__stream__decoding_1ga55ed1cb616d856a47d618fa099c742aa" prot="public" static="no">
         <name>OP_DEC_FORMAT_SHORT</name>
@@ -792,7 +792,7 @@
 <para>Indicates that the decoding callback should produce signed 16-bit native-endian output samples. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="includes/personnal/opusfile.h" line="1689" column="9" bodyfile="includes/personnal/opusfile.h" bodystart="1689" bodyend="-1"/>
+        <location file="includes/personnal/opusfile.h" line="1659" column="9" bodyfile="includes/personnal/opusfile.h" bodystart="1659" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group__stream__decoding_1gac5c6e0837a5d747fd909aff905f5da3f" prot="public" static="no">
         <name>OP_DEC_FORMAT_FLOAT</name>
@@ -803,7 +803,7 @@
 <para>Indicates that the decoding callback should produce 32-bit native-endian float samples. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="includes/personnal/opusfile.h" line="1692" column="9" bodyfile="includes/personnal/opusfile.h" bodystart="1692" bodyend="-1"/>
+        <location file="includes/personnal/opusfile.h" line="1662" column="9" bodyfile="includes/personnal/opusfile.h" bodystart="1662" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group__stream__decoding_1gaf421eba19d82d5b0c170b548b8ff79f1" prot="public" static="no">
         <name>OP_DEC_USE_DEFAULT</name>
@@ -814,7 +814,7 @@
 <para>Indicates that the decoding callback did not decode anything, and that <computeroutput>libopusfile</computeroutput> should decode normally instead. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="includes/personnal/opusfile.h" line="1696" column="9" bodyfile="includes/personnal/opusfile.h" bodystart="1696" bodyend="-1"/>
+        <location file="includes/personnal/opusfile.h" line="1666" column="9" bodyfile="includes/personnal/opusfile.h" bodystart="1666" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group__stream__decoding_1ga846edba35e7470251a6a95b1e2364855" prot="public" static="no">
         <name>OP_HEADER_GAIN</name>
@@ -825,7 +825,7 @@
 <para>Gain offset type that indicates that the provided offset is relative to the header gain. This is the default. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="includes/personnal/opusfile.h" line="1749" column="9" bodyfile="includes/personnal/opusfile.h" bodystart="1749" bodyend="-1"/>
+        <location file="includes/personnal/opusfile.h" line="1719" column="9" bodyfile="includes/personnal/opusfile.h" bodystart="1719" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group__stream__decoding_1ga51082f7c661488bce9bfdf0e5401fabf" prot="public" static="no">
         <name>OP_TRACK_GAIN</name>
@@ -836,7 +836,7 @@
 <para>Gain offset type that indicates that the provided offset is relative to the R128_TRACK_GAIN value (if any), in addition to the header gain. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="includes/personnal/opusfile.h" line="1753" column="9" bodyfile="includes/personnal/opusfile.h" bodystart="1753" bodyend="-1"/>
+        <location file="includes/personnal/opusfile.h" line="1723" column="9" bodyfile="includes/personnal/opusfile.h" bodystart="1723" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group__stream__decoding_1ga4215354abbd19df9eab5a5380dd96cb0" prot="public" static="no">
         <name>OP_ABSOLUTE_GAIN</name>
@@ -847,7 +847,7 @@
 <para>Gain offset type that indicates that the provided offset should be used as the gain directly, without applying any the header or track gains. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="includes/personnal/opusfile.h" line="1757" column="9" bodyfile="includes/personnal/opusfile.h" bodystart="1757" bodyend="-1"/>
+        <location file="includes/personnal/opusfile.h" line="1727" column="9" bodyfile="includes/personnal/opusfile.h" bodystart="1727" bodyend="-1"/>
       </memberdef>
       </sectiondef>
     <briefdescription>

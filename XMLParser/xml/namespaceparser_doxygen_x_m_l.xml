@@ -18,7 +18,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="parserDoxygenXML.py" line="11" column="1" bodyfile="parserDoxygenXML.py" bodystart="11" bodyend="21"/>
+        <location file="parserDoxygenXML.py" line="12" column="1" bodyfile="parserDoxygenXML.py" bodystart="12" bodyend="22"/>
       </memberdef>
       <memberdef kind="function" id="namespaceparser_doxygen_x_m_l_1a53ef231d32bd621e91bfbd205885af34" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>def</type>
@@ -31,7 +31,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="parserDoxygenXML.py" line="22" column="1" bodyfile="parserDoxygenXML.py" bodystart="22" bodyend="50"/>
+        <location file="parserDoxygenXML.py" line="23" column="1" bodyfile="parserDoxygenXML.py" bodystart="23" bodyend="53"/>
       </memberdef>
       </sectiondef>
     <briefdescription>

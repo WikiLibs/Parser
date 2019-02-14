@@ -15,7 +15,7 @@
 <para>A request did not succeed. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="includes/personnal/opusfile.h" line="160" column="9" bodyfile="includes/personnal/opusfile.h" bodystart="160" bodyend="-1"/>
+        <location file="includes/personnal/opusfile.h" line="146" column="9" bodyfile="includes/personnal/opusfile.h" bodystart="146" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group__error__codes_1ga3fdffc8ee880969d99fc862d53c0efd2" prot="public" static="no">
         <name>OP_EOF</name>
@@ -26,7 +26,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="includes/personnal/opusfile.h" line="162" column="9" bodyfile="includes/personnal/opusfile.h" bodystart="162" bodyend="-1"/>
+        <location file="includes/personnal/opusfile.h" line="148" column="9" bodyfile="includes/personnal/opusfile.h" bodystart="148" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group__error__codes_1ga2ac03d35986d3505305d468dd2138b72" prot="public" static="no">
         <name>OP_HOLE</name>
@@ -37,7 +37,7 @@
 <para>There was a hole in the page sequence numbers (e.g., a page was corrupt or missing). </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="includes/personnal/opusfile.h" line="165" column="9" bodyfile="includes/personnal/opusfile.h" bodystart="165" bodyend="-1"/>
+        <location file="includes/personnal/opusfile.h" line="151" column="9" bodyfile="includes/personnal/opusfile.h" bodystart="151" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group__error__codes_1ga3ad48a4f99b1bed72acec552296dfc08" prot="public" static="no">
         <name>OP_EREAD</name>
@@ -48,7 +48,7 @@
 <para>An underlying read, seek, or tell operation failed when it should have succeeded. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="includes/personnal/opusfile.h" line="168" column="9" bodyfile="includes/personnal/opusfile.h" bodystart="168" bodyend="-1"/>
+        <location file="includes/personnal/opusfile.h" line="154" column="9" bodyfile="includes/personnal/opusfile.h" bodystart="154" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group__error__codes_1ga2ddb887c0bb55c74ea6be391fabcba59" prot="public" static="no">
         <name>OP_EFAULT</name>
@@ -59,7 +59,7 @@
 <para>A <computeroutput>NULL</computeroutput> pointer was passed where one was unexpected, or an internal memory allocation failed, or an internal library error was encountered. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="includes/personnal/opusfile.h" line="172" column="9" bodyfile="includes/personnal/opusfile.h" bodystart="172" bodyend="-1"/>
+        <location file="includes/personnal/opusfile.h" line="158" column="9" bodyfile="includes/personnal/opusfile.h" bodystart="158" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group__error__codes_1gaeea27378f826033ca23584d8403665d3" prot="public" static="no">
         <name>OP_EIMPL</name>
@@ -70,7 +70,7 @@
 <para>The stream used a feature that is not implemented, such as an unsupported channel family. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="includes/personnal/opusfile.h" line="175" column="9" bodyfile="includes/personnal/opusfile.h" bodystart="175" bodyend="-1"/>
+        <location file="includes/personnal/opusfile.h" line="161" column="9" bodyfile="includes/personnal/opusfile.h" bodystart="161" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group__error__codes_1gae0879acafe9cc0ab72462d291fdb6fb6" prot="public" static="no">
         <name>OP_EINVAL</name>
@@ -81,7 +81,7 @@
 <para>One or more parameters to a function were invalid. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="includes/personnal/opusfile.h" line="177" column="9" bodyfile="includes/personnal/opusfile.h" bodystart="177" bodyend="-1"/>
+        <location file="includes/personnal/opusfile.h" line="163" column="9" bodyfile="includes/personnal/opusfile.h" bodystart="163" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group__error__codes_1gafca3ae244d24e10b2851c77379453220" prot="public" static="no">
         <name>OP_ENOTFORMAT</name>
@@ -92,7 +92,7 @@
 <para>A purported Ogg Opus stream did not begin with an Ogg page, a purported header packet did not start with one of the required strings, &quot;OpusHead&quot; or &quot;OpusTags&quot;, or a link in a chained file was encountered that did not contain any logical Opus streams. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="includes/personnal/opusfile.h" line="182" column="9" bodyfile="includes/personnal/opusfile.h" bodystart="182" bodyend="-1"/>
+        <location file="includes/personnal/opusfile.h" line="168" column="9" bodyfile="includes/personnal/opusfile.h" bodystart="168" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group__error__codes_1ga534f1b45c8733a2928434e482b38869f" prot="public" static="no">
         <name>OP_EBADHEADER</name>
@@ -103,7 +103,7 @@
 <para>A required header packet was not properly formatted, contained illegal values, or was missing altogether. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="includes/personnal/opusfile.h" line="185" column="9" bodyfile="includes/personnal/opusfile.h" bodystart="185" bodyend="-1"/>
+        <location file="includes/personnal/opusfile.h" line="171" column="9" bodyfile="includes/personnal/opusfile.h" bodystart="171" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group__error__codes_1gaa9ae4494f623f3c0609f0b4bd99b8f32" prot="public" static="no">
         <name>OP_EVERSION</name>
@@ -114,7 +114,7 @@
 <para>The ID header contained an unrecognized version number. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="includes/personnal/opusfile.h" line="187" column="9" bodyfile="includes/personnal/opusfile.h" bodystart="187" bodyend="-1"/>
+        <location file="includes/personnal/opusfile.h" line="173" column="9" bodyfile="includes/personnal/opusfile.h" bodystart="173" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group__error__codes_1ga3a2a6cb4837030d240f326e17dda3c0e" prot="public" static="no">
         <name>OP_ENOTAUDIO</name>
@@ -125,7 +125,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="includes/personnal/opusfile.h" line="189" column="9" bodyfile="includes/personnal/opusfile.h" bodystart="189" bodyend="-1"/>
+        <location file="includes/personnal/opusfile.h" line="175" column="9" bodyfile="includes/personnal/opusfile.h" bodystart="175" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group__error__codes_1gaa3fa0a3e6facc4f47924271e65bb21ff" prot="public" static="no">
         <name>OP_EBADPACKET</name>
@@ -136,7 +136,7 @@
 <para>An audio packet failed to decode properly. This is usually caused by a multistream Ogg packet where the durations of the individual Opus packets contained in it are not all the same. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="includes/personnal/opusfile.h" line="193" column="9" bodyfile="includes/personnal/opusfile.h" bodystart="193" bodyend="-1"/>
+        <location file="includes/personnal/opusfile.h" line="179" column="9" bodyfile="includes/personnal/opusfile.h" bodystart="179" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group__error__codes_1gaf7b58a439a471366e9eb5b8f2a8cd041" prot="public" static="no">
         <name>OP_EBADLINK</name>
@@ -147,7 +147,7 @@
 <para>We failed to find data we had seen before, or the bitstream structure was sufficiently malformed that seeking to the target destination was impossible. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="includes/personnal/opusfile.h" line="197" column="9" bodyfile="includes/personnal/opusfile.h" bodystart="197" bodyend="-1"/>
+        <location file="includes/personnal/opusfile.h" line="183" column="9" bodyfile="includes/personnal/opusfile.h" bodystart="183" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group__error__codes_1gadd54f4d82cfabedb5963331fbe0bc99c" prot="public" static="no">
         <name>OP_ENOSEEK</name>
@@ -158,7 +158,7 @@
 <para>An operation that requires seeking was requested on an unseekable stream. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="includes/personnal/opusfile.h" line="199" column="9" bodyfile="includes/personnal/opusfile.h" bodystart="199" bodyend="-1"/>
+        <location file="includes/personnal/opusfile.h" line="185" column="9" bodyfile="includes/personnal/opusfile.h" bodystart="185" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group__error__codes_1gaf82657fc888f1dcf2e0d8f066b8a6cc7" prot="public" static="no">
         <name>OP_EBADTIMESTAMP</name>
@@ -169,7 +169,7 @@
 <para>The first or last granule position of a link failed basic validity checks. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="includes/personnal/opusfile.h" line="201" column="9" bodyfile="includes/personnal/opusfile.h" bodystart="201" bodyend="-1"/>
+        <location file="includes/personnal/opusfile.h" line="187" column="9" bodyfile="includes/personnal/opusfile.h" bodystart="187" bodyend="-1"/>
       </memberdef>
       </sectiondef>
     <briefdescription>

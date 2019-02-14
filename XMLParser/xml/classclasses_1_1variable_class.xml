@@ -72,34 +72,16 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/classes.py" line="2" column="1" bodyfile="src/classes.py" bodystart="2" bodyend="7"/>
-      </memberdef>
-      <memberdef kind="function" id="classclasses_1_1variable_class_1a96434da5daa4c2d746eb516c86e9f392" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>def</type>
-        <definition>def classes.variableClass.__str__</definition>
-        <argsstring>(self)</argsstring>
-        <name>__str__</name>
-        <param>
-          <type>self</type>
-          <defname>self</defname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="src/classes.py" line="8" column="1" bodyfile="src/classes.py" bodystart="8" bodyend="10"/>
+        <location file="src/classes.py" line="2" column="1" bodyfile="src/classes.py" bodystart="2" bodyend="8"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="src/classes.py" line="1" column="1" bodyfile="src/classes.py" bodystart="1" bodyend="11"/>
+    <location file="src/classes.py" line="1" column="1" bodyfile="src/classes.py" bodystart="1" bodyend="9"/>
     <listofallmembers>
       <member refid="classclasses_1_1variable_class_1ab9ce12feb3b441feb13f74fa88b960a9" prot="public" virt="non-virtual"><scope>classes::variableClass</scope><name>__init__</name></member>
-      <member refid="classclasses_1_1variable_class_1a96434da5daa4c2d746eb516c86e9f392" prot="public" virt="non-virtual"><scope>classes::variableClass</scope><name>__str__</name></member>
       <member refid="classclasses_1_1variable_class_1aa52a6ed2f0a47fef4214612fb3569a8c" prot="public" virt="non-virtual"><scope>classes::variableClass</scope><name>desc</name></member>
       <member refid="classclasses_1_1variable_class_1a4774b68fd6348891fb5b67c1c78ed11d" prot="public" virt="non-virtual"><scope>classes::variableClass</scope><name>name</name></member>
       <member refid="classclasses_1_1variable_class_1ae6d8fcd25b5346f8d971b26cace99499" prot="public" virt="non-virtual"><scope>classes::variableClass</scope><name>type</name></member>

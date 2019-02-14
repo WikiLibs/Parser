@@ -6,10 +6,7 @@
     <member refid="classclasses_1_1define_class_1a4f3f8d11c9cefed2f729e14f6ab14111" kind="variable"><name>params</name></member>
     <member refid="classclasses_1_1define_class_1a1b72ba9a30129be4f2e33a7622b61388" kind="variable"><name>briefDesc</name></member>
     <member refid="classclasses_1_1define_class_1aa72bc08ac33298c1812fce162ad27084" kind="variable"><name>detailedDesc</name></member>
-    <member refid="classclasses_1_1define_class_1a30e75afb1fdec1f07bb4105c713efbc1" kind="variable"><name>sourceFile</name></member>
-    <member refid="classclasses_1_1define_class_1a731dc5ccbe04884fa247e6e42a75be93" kind="variable"><name>sourceLine</name></member>
     <member refid="classclasses_1_1define_class_1ac4df770bf6538843683da30d64e392a3" kind="function"><name>__init__</name></member>
-    <member refid="classclasses_1_1define_class_1af93bff1de7dae8cfbce695e15ccea3dd" kind="function"><name>__str__</name></member>
   </compound>
   <compound refid="classclasses_1_1function_class" kind="class"><name>classes::functionClass</name>
     <member refid="classclasses_1_1function_class_1acf4d1582a93a50f242c6b14dae5d28db" kind="variable"><name>name</name></member>
@@ -72,7 +69,6 @@
     <member refid="classclasses_1_1struct_class_1a7de7efed02922a58fdd215ef7deb8123" kind="variable"><name>briefDesc</name></member>
     <member refid="classclasses_1_1struct_class_1a47891a86a8a1f6637efd6964d0621400" kind="variable"><name>detailedDesc</name></member>
     <member refid="classclasses_1_1struct_class_1a6d87e3bdcf233d643eec7338a5b58b5b" kind="function"><name>__init__</name></member>
-    <member refid="classclasses_1_1struct_class_1a511d5556eb5d4f2c2c6845e8b368ae1e" kind="function"><name>__str__</name></member>
   </compound>
   <compound refid="classclasses_1_1typedef_class" kind="class"><name>classes::typedefClass</name>
     <member refid="classclasses_1_1typedef_class_1abff9aeab2d8d41836bf302fdd905681a" kind="variable"><name>tdType</name></member>
@@ -94,18 +90,11 @@
     <member refid="classclasses_1_1variable_class_1a7fbf53b10fb02bb61eab1f6803cc69c2" kind="variable"><name>value</name></member>
     <member refid="classclasses_1_1variable_class_1aa52a6ed2f0a47fef4214612fb3569a8c" kind="variable"><name>desc</name></member>
     <member refid="classclasses_1_1variable_class_1ab9ce12feb3b441feb13f74fa88b960a9" kind="function"><name>__init__</name></member>
-    <member refid="classclasses_1_1variable_class_1a96434da5daa4c2d746eb516c86e9f392" kind="function"><name>__str__</name></member>
   </compound>
   <compound refid="namespaceclasses" kind="namespace"><name>classes</name>
   </compound>
   <compound refid="namespaceget_define" kind="namespace"><name>getDefine</name>
-    <member refid="namespaceget_define_1a4014fd5d91ff7abfe1de89e5ac2d0c79" kind="function"><name>getName</name></member>
-    <member refid="namespaceget_define_1a309c503ed0bd25a6c924bd8109c6e42a" kind="function"><name>getInitializer</name></member>
     <member refid="namespaceget_define_1ad5eaac7f08335da4643a5926090aae17" kind="function"><name>getParams</name></member>
-    <member refid="namespaceget_define_1a3b2ae770d360d22cc85bac9a80a921ba" kind="function"><name>getBriefDefinition</name></member>
-    <member refid="namespaceget_define_1a78bc62de787207bc5371392688e6d89c" kind="function"><name>getDetailedDefinition</name></member>
-    <member refid="namespaceget_define_1a5ad593def60e933ef33853dc4c3cd0cf" kind="function"><name>getSourceFile</name></member>
-    <member refid="namespaceget_define_1af7fe9248f3304dda71d9f9f5389952ff" kind="function"><name>getSourceLine</name></member>
     <member refid="namespaceget_define_1a5d4073a9c6078cb1ca51aa5ec3f07426" kind="function"><name>getDefine</name></member>
   </compound>
   <compound refid="namespaceget_function" kind="namespace"><name>getFunction</name>
@@ -118,8 +107,9 @@
     <member refid="namespacegetters_1a5a4e0b8ef1e198bf09f55cf1f3ca4969" kind="function"><name>getCompoundName</name></member>
     <member refid="namespacegetters_1ab686be8e788eea39ec4ef84128a88a0b" kind="function"><name>getName</name></member>
     <member refid="namespacegetters_1a39272bb9ef7300476aca1f53006677b5" kind="function"><name>getType</name></member>
-    <member refid="namespacegetters_1a02e86fac14e2b462948f5e5599f973e0" kind="function"><name>getDetailedDesc</name></member>
-    <member refid="namespacegetters_1a9d6063032743b5bf92368821930225c4" kind="function"><name>getBriefDesc</name></member>
+    <member refid="namespacegetters_1afa259fcdc01cb230a43a1bfb7b0b56c3" kind="function"><name>getInitializer</name></member>
+    <member refid="namespacegetters_1a32cfdf99e2a5b7b29b925ea6a302d066" kind="function"><name>getDetailedDesc</name></member>
+    <member refid="namespacegetters_1a53689bce0eee28ef626487f1cf872769" kind="function"><name>getBriefDesc</name></member>
     <member refid="namespacegetters_1a0092c5ff469b38e4ac393177849a6ab0" kind="function"><name>getParams</name></member>
     <member refid="namespacegetters_1a73d5fc0273d2cb200bd4db66070d3f84" kind="function"><name>getReturnComment</name></member>
   </compound>
@@ -133,8 +123,13 @@
     <member refid="namespaceparser_doxygen_x_m_l_1a4fad5210f7a1a81df6bdfd0d2b6f283e" kind="function"><name>getFilePath</name></member>
     <member refid="namespaceparser_doxygen_x_m_l_1a53ef231d32bd621e91bfbd205885af34" kind="function"><name>main</name></member>
   </compound>
+  <compound refid="namespaceprint_data" kind="namespace"><name>printData</name>
+    <member refid="namespaceprint_data_1a3df1bf7f3e643e386ff6d796145b975c" kind="function"><name>printStructures</name></member>
+    <member refid="namespaceprint_data_1a75b9c367305374e42426b500dce2a221" kind="function"><name>printDefines</name></member>
+  </compound>
   <compound refid="namespacestr_operations" kind="namespace"><name>strOperations</name>
     <member refid="namespacestr_operations_1a9df94d8eef52c6bca1702bb2007599a5" kind="function"><name>epurStr</name></member>
+    <member refid="namespacestr_operations_1ab92055c8d7ef30fb008023a6e3f128ef" kind="function"><name>removePointerSpace</name></member>
   </compound>
   <compound refid="opusfile_8h" kind="file"><name>opusfile.h</name>
     <member refid="group__error__codes_1ga4fd28e64a5cbe5e0ba163916199611a5" kind="define"><name>OP_FALSE</name></member>
@@ -251,6 +246,8 @@
   <compound refid="get_typedef_8py" kind="file"><name>getTypedef.py</name>
   </compound>
   <compound refid="get_union_8py" kind="file"><name>getUnion.py</name>
+  </compound>
+  <compound refid="print_data_8py" kind="file"><name>printData.py</name>
   </compound>
   <compound refid="str_operations_8py" kind="file"><name>strOperations.py</name>
   </compound>

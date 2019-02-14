@@ -1687,10 +1687,9 @@ int op_pcm_seek(OggOpusFile *_of,ogg_int64_t _pcm_offset) OP_ARG_NONNULL(1);
    \return A non-negative value on success, or a negative value on error.
            The error codes should be the same as those returned by
             opus_multistream_decode() or opus_multistream_decode_float().
-   \retval 0                   Decoding was successful.
-                               The application has filled the buffer with
-                                exactly <code>\a _nsamples*\a
-                                _nchannels</code> samples in the requested
+   \retval 0                   Decoding was successful. The application has filled 
+                               the buffer with exactly _nsamples and
+                                _nchannels samples in the requested
                                 format.
    \retval #OP_DEC_USE_DEFAULT No decoding was done.
                                <tt>libopusfile</tt> should decode normally

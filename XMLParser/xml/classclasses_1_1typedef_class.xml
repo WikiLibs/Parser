@@ -14,7 +14,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/classes.py" line="52" column="1" bodyfile="src/classes.py" bodystart="52" bodyend="-1"/>
+        <location file="src/classes.py" line="46" column="1" bodyfile="src/classes.py" bodystart="46" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classclasses_1_1typedef_class_1aae694f86f8812da5187ef7ad78ad5d82" prot="public" static="no" mutable="no">
         <type></type>
@@ -27,7 +27,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/classes.py" line="53" column="1" bodyfile="src/classes.py" bodystart="53" bodyend="-1"/>
+        <location file="src/classes.py" line="47" column="1" bodyfile="src/classes.py" bodystart="47" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classclasses_1_1typedef_class_1a6bd4586f7266c655f2d4dac6df5f504e" prot="public" static="no" mutable="no">
         <type></type>
@@ -40,7 +40,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/classes.py" line="54" column="1" bodyfile="src/classes.py" bodystart="54" bodyend="-1"/>
+        <location file="src/classes.py" line="48" column="1" bodyfile="src/classes.py" bodystart="48" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classclasses_1_1typedef_class_1a95a559d81f91772ceb55472281b99541" prot="public" static="no" mutable="no">
         <type></type>
@@ -53,7 +53,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/classes.py" line="55" column="1" bodyfile="src/classes.py" bodystart="55" bodyend="-1"/>
+        <location file="src/classes.py" line="49" column="1" bodyfile="src/classes.py" bodystart="49" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -72,14 +72,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/classes.py" line="51" column="1" bodyfile="src/classes.py" bodystart="51" bodyend="55"/>
+        <location file="src/classes.py" line="45" column="1" bodyfile="src/classes.py" bodystart="45" bodyend="49"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="src/classes.py" line="50" column="1" bodyfile="src/classes.py" bodystart="50" bodyend="55"/>
+    <location file="src/classes.py" line="44" column="1" bodyfile="src/classes.py" bodystart="44" bodyend="49"/>
     <listofallmembers>
       <member refid="classclasses_1_1typedef_class_1a666550bf803875c9f08ff3e79e69e234" prot="public" virt="non-virtual"><scope>classes::typedefClass</scope><name>__init__</name></member>
       <member refid="classclasses_1_1typedef_class_1a6bd4586f7266c655f2d4dac6df5f504e" prot="public" virt="non-virtual"><scope>classes::typedefClass</scope><name>briefDesc</name></member>

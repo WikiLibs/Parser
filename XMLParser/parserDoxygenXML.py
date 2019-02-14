@@ -34,8 +34,8 @@ def main():
         kind = elem.get('kind')
         if kind == 'define':
             defines.append(getDefine(elem))
-        #if kind == 'function':
-        #    functions.append(getFunction(elem))
+        if kind == 'function':
+            functions.append(getFunction(elem))
         if kind == 'typedef':
             typedefs.append(getTypedef(elem))
 
@@ -46,7 +46,9 @@ def main():
         if "union" in refid:
             unions.append(getUnion("xml/" + refid + ".xml"))
     
-    printData.printStructures(structs)
+    #printData.printStructures(structs)
+    #printData.printDefines(defines)
+    #printData.printFunctions(functions)
     
 
 if __name__ == '__main__':

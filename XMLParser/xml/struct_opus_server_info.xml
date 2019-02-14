@@ -15,7 +15,7 @@
 <para>The name of the server (icy-name/ice-name). This is <computeroutput>NULL</computeroutput> if there was no <computeroutput>icy-name</computeroutput> or <computeroutput>ice-name</computeroutput> header. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="includes/personnal/opusfile.h" line="673" column="1" bodyfile="includes/personnal/opusfile.h" bodystart="673" bodyend="-1"/>
+        <location file="includes/personnal/opusfile.h" line="654" column="1" bodyfile="includes/personnal/opusfile.h" bodystart="654" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="struct_opus_server_info_1ab16d58f0d67d6473e12629676e2641ca" prot="public" static="no" mutable="no">
         <type>char *</type>
@@ -28,7 +28,7 @@
 <para>A short description of the server (icy-description/ice-description). This is <computeroutput>NULL</computeroutput> if there was no <computeroutput>icy-description</computeroutput> or <computeroutput>ice-description</computeroutput> header. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="includes/personnal/opusfile.h" line="677" column="1" bodyfile="includes/personnal/opusfile.h" bodystart="677" bodyend="-1"/>
+        <location file="includes/personnal/opusfile.h" line="658" column="1" bodyfile="includes/personnal/opusfile.h" bodystart="658" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="struct_opus_server_info_1a293431ddf20c3baa3a4751ad08f518bb" prot="public" static="no" mutable="no">
         <type>char *</type>
@@ -41,7 +41,7 @@
 <para>The genre the server falls under (icy-genre/ice-genre). This is <computeroutput>NULL</computeroutput> if there was no <computeroutput>icy-genre</computeroutput> or <computeroutput>ice-genre</computeroutput> header. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="includes/personnal/opusfile.h" line="681" column="1" bodyfile="includes/personnal/opusfile.h" bodystart="681" bodyend="-1"/>
+        <location file="includes/personnal/opusfile.h" line="662" column="1" bodyfile="includes/personnal/opusfile.h" bodystart="662" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="struct_opus_server_info_1a7f9aef47413c849bb240ef70394401b1" prot="public" static="no" mutable="no">
         <type>char *</type>
@@ -54,7 +54,7 @@
 <para>The homepage for the server (icy-url/ice-url). This is <computeroutput>NULL</computeroutput> if there was no <computeroutput>icy-url</computeroutput> or <computeroutput>ice-url</computeroutput> header. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="includes/personnal/opusfile.h" line="685" column="1" bodyfile="includes/personnal/opusfile.h" bodystart="685" bodyend="-1"/>
+        <location file="includes/personnal/opusfile.h" line="666" column="1" bodyfile="includes/personnal/opusfile.h" bodystart="666" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="struct_opus_server_info_1a7aa583abd214ca9cefab6c1c99097202" prot="public" static="no" mutable="no">
         <type>char *</type>
@@ -67,7 +67,7 @@
 <para>The software used by the origin server (Server). This is <computeroutput>NULL</computeroutput> if there was no <computeroutput>Server</computeroutput> header. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="includes/personnal/opusfile.h" line="688" column="1" bodyfile="includes/personnal/opusfile.h" bodystart="688" bodyend="-1"/>
+        <location file="includes/personnal/opusfile.h" line="669" column="1" bodyfile="includes/personnal/opusfile.h" bodystart="669" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="struct_opus_server_info_1a5f0120b006af1122cbdc72f3cbb68fd7" prot="public" static="no" mutable="no">
         <type>char *</type>
@@ -80,7 +80,7 @@
 <para>The media type of the entity sent to the recepient (Content-Type). This is <computeroutput>NULL</computeroutput> if there was no <computeroutput>Content-Type</computeroutput> header. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="includes/personnal/opusfile.h" line="692" column="1" bodyfile="includes/personnal/opusfile.h" bodystart="692" bodyend="-1"/>
+        <location file="includes/personnal/opusfile.h" line="673" column="1" bodyfile="includes/personnal/opusfile.h" bodystart="673" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="struct_opus_server_info_1a1cf5db210f1cad5cf809bf54ddff68de" prot="public" static="no" mutable="no">
         <type>opus_int32</type>
@@ -93,7 +93,7 @@
 <para>The nominal stream bitrate in kbps (icy-br/ice-bitrate). This is <computeroutput>-1</computeroutput> if there was no <computeroutput>icy-br</computeroutput> or <computeroutput>ice-bitrate</computeroutput> header. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="includes/personnal/opusfile.h" line="696" column="1" bodyfile="includes/personnal/opusfile.h" bodystart="696" bodyend="-1"/>
+        <location file="includes/personnal/opusfile.h" line="677" column="1" bodyfile="includes/personnal/opusfile.h" bodystart="677" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="struct_opus_server_info_1a9e81d2992f3009847c30bb4b0dc5c7de" prot="public" static="no" mutable="no">
         <type>int</type>
@@ -106,7 +106,7 @@
 <para>Flag indicating whether the server is public (<computeroutput>1</computeroutput>) or not (<computeroutput>0</computeroutput>) (icy-pub/ice-public). This is <computeroutput>-1</computeroutput> if there was no <computeroutput>icy-pub</computeroutput> or <computeroutput>ice-public</computeroutput> header. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="includes/personnal/opusfile.h" line="701" column="1" bodyfile="includes/personnal/opusfile.h" bodystart="701" bodyend="-1"/>
+        <location file="includes/personnal/opusfile.h" line="682" column="1" bodyfile="includes/personnal/opusfile.h" bodystart="682" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="struct_opus_server_info_1a3bce31c0a77548625a4d8125251e9b11" prot="public" static="no" mutable="no">
         <type>int</type>
@@ -119,14 +119,14 @@
 <para>Flag indicating whether the server is using HTTPS instead of HTTP. This is <computeroutput>0</computeroutput> unless HTTPS is being used. This may not match the protocol used in the original URL if there were redirections. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="includes/personnal/opusfile.h" line="706" column="1" bodyfile="includes/personnal/opusfile.h" bodystart="706" bodyend="-1"/>
+        <location file="includes/personnal/opusfile.h" line="687" column="1" bodyfile="includes/personnal/opusfile.h" bodystart="687" bodyend="-1"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
 <para>HTTP/Shoutcast/Icecast server information associated with a URL. </para>    </detaileddescription>
-    <location file="includes/personnal/opusfile.h" line="669" column="1" bodyfile="includes/personnal/opusfile.h" bodystart="669" bodyend="707"/>
+    <location file="includes/personnal/opusfile.h" line="650" column="1" bodyfile="includes/personnal/opusfile.h" bodystart="650" bodyend="688"/>
     <listofallmembers>
       <member refid="struct_opus_server_info_1a1cf5db210f1cad5cf809bf54ddff68de" prot="public" virt="non-virtual"><scope>OpusServerInfo</scope><name>bitrate_kbps</name></member>
       <member refid="struct_opus_server_info_1a5f0120b006af1122cbdc72f3cbb68fd7" prot="public" virt="non-virtual"><scope>OpusServerInfo</scope><name>content_type</name></member>

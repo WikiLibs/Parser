@@ -41,7 +41,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="includes/personnal/opusfile.h" line="826" column="1" bodyfile="includes/personnal/opusfile.h" bodystart="826" bodyend="-1"/>
+        <location file="includes/personnal/opusfile.h" line="807" column="1" bodyfile="includes/personnal/opusfile.h" bodystart="807" bodyend="-1"/>
       </memberdef>
       <memberdef kind="typedef" id="group__stream__callbacks_1gae57cb396d1f193d3f4e7e56ddad7760e" prot="public" static="no">
         <type>int(*</type>
@@ -69,7 +69,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="includes/personnal/opusfile.h" line="837" column="1" bodyfile="includes/personnal/opusfile.h" bodystart="837" bodyend="-1"/>
+        <location file="includes/personnal/opusfile.h" line="818" column="1" bodyfile="includes/personnal/opusfile.h" bodystart="818" bodyend="-1"/>
       </memberdef>
       <memberdef kind="typedef" id="group__stream__callbacks_1gaca012812dea4bc3a27b0c23575efecaf" prot="public" static="no">
         <type>opus_int64(*</type>
@@ -83,7 +83,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="includes/personnal/opusfile.h" line="841" column="1" bodyfile="includes/personnal/opusfile.h" bodystart="841" bodyend="-1"/>
+        <location file="includes/personnal/opusfile.h" line="822" column="1" bodyfile="includes/personnal/opusfile.h" bodystart="822" bodyend="-1"/>
       </memberdef>
       <memberdef kind="typedef" id="group__stream__callbacks_1ga16c914ec90d301f125cdbeaa1ff57c2d" prot="public" static="no">
         <type>int(*</type>
@@ -111,7 +111,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="includes/personnal/opusfile.h" line="847" column="1" bodyfile="includes/personnal/opusfile.h" bodystart="847" bodyend="-1"/>
+        <location file="includes/personnal/opusfile.h" line="828" column="1" bodyfile="includes/personnal/opusfile.h" bodystart="828" bodyend="-1"/>
       </memberdef>
       <memberdef kind="function" id="group__stream__callbacks_1ga8b3714e33b1459b43445b99b55cbe75f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>OP_WARN_UNUSED_RESULT void *</type>
@@ -159,7 +159,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="includes/personnal/opusfile.h" line="890" column="1"/>
+        <location file="includes/personnal/opusfile.h" line="871" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group__stream__callbacks_1gac1843b587e14570e616f8cc7c4501961" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>OP_WARN_UNUSED_RESULT void *</type>
@@ -207,7 +207,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="includes/personnal/opusfile.h" line="907" column="1"/>
+        <location file="includes/personnal/opusfile.h" line="888" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group__stream__callbacks_1gae63ceff71d9602c68f4db1c91b480fde" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>OP_WARN_UNUSED_RESULT void *</type>
@@ -266,7 +266,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="includes/personnal/opusfile.h" line="929" column="1"/>
+        <location file="includes/personnal/opusfile.h" line="910" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group__stream__callbacks_1ga83231f1733af83c7940b0262f1a1ffb5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>OP_WARN_UNUSED_RESULT void *</type>
@@ -314,7 +314,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="includes/personnal/opusfile.h" line="943" column="1"/>
+        <location file="includes/personnal/opusfile.h" line="924" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group__stream__callbacks_1ga33bf9edd6949f8125456b2c8a1591010" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>OP_WARN_UNUSED_RESULT void *</type>
@@ -363,7 +363,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="includes/personnal/opusfile.h" line="969" column="1"/>
+        <location file="includes/personnal/opusfile.h" line="950" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group__stream__callbacks_1ga5c588fac7542057282b50a5bd2dbb35a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>OP_WARN_UNUSED_RESULT void *</type>
@@ -411,7 +411,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="includes/personnal/opusfile.h" line="991" column="1"/>
+        <location file="includes/personnal/opusfile.h" line="972" column="1"/>
       </memberdef>
       </sectiondef>
     <briefdescription>

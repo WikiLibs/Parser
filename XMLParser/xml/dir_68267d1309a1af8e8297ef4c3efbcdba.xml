@@ -9,6 +9,7 @@
     <innerfile refid="getters_8py">getters.py</innerfile>
     <innerfile refid="get_typedef_8py">getTypedef.py</innerfile>
     <innerfile refid="get_union_8py">getUnion.py</innerfile>
+    <innerfile refid="print_data_8py">printData.py</innerfile>
     <innerfile refid="str_operations_8py">strOperations.py</innerfile>
     <briefdescription>
     </briefdescription>

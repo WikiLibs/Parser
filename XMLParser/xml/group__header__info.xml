@@ -17,7 +17,7 @@
 <para>The MIME type was not recognized, or the image data did not match the declared MIME type. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="includes/personnal/opusfile.h" line="317" column="9" bodyfile="includes/personnal/opusfile.h" bodystart="317" bodyend="-1"/>
+        <location file="includes/personnal/opusfile.h" line="299" column="9" bodyfile="includes/personnal/opusfile.h" bodystart="299" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group__header__info_1gaac4ef30a33caf090b9b1a5ada8f48204" prot="public" static="no">
         <name>OP_PIC_FORMAT_URL</name>
@@ -28,7 +28,7 @@
 <para>The MIME type indicates the image data is really a URL. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="includes/personnal/opusfile.h" line="319" column="9" bodyfile="includes/personnal/opusfile.h" bodystart="319" bodyend="-1"/>
+        <location file="includes/personnal/opusfile.h" line="301" column="9" bodyfile="includes/personnal/opusfile.h" bodystart="301" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group__header__info_1gaf75ae037b78a4a048359261439395450" prot="public" static="no">
         <name>OP_PIC_FORMAT_JPEG</name>
@@ -39,7 +39,7 @@
 <para>The image is a JPEG. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="includes/personnal/opusfile.h" line="321" column="9" bodyfile="includes/personnal/opusfile.h" bodystart="321" bodyend="-1"/>
+        <location file="includes/personnal/opusfile.h" line="303" column="9" bodyfile="includes/personnal/opusfile.h" bodystart="303" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group__header__info_1ga703554b177ae75bd6999bbd30d485d3f" prot="public" static="no">
         <name>OP_PIC_FORMAT_PNG</name>
@@ -50,7 +50,7 @@
 <para>The image is a PNG. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="includes/personnal/opusfile.h" line="323" column="9" bodyfile="includes/personnal/opusfile.h" bodystart="323" bodyend="-1"/>
+        <location file="includes/personnal/opusfile.h" line="305" column="9" bodyfile="includes/personnal/opusfile.h" bodystart="305" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group__header__info_1gaa7d5e8cb675cb2da840f258b761e7781" prot="public" static="no">
         <name>OP_PIC_FORMAT_GIF</name>
@@ -61,7 +61,7 @@
 <para>The image is a GIF. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="includes/personnal/opusfile.h" line="325" column="9" bodyfile="includes/personnal/opusfile.h" bodystart="325" bodyend="-1"/>
+        <location file="includes/personnal/opusfile.h" line="307" column="9" bodyfile="includes/personnal/opusfile.h" bodystart="307" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="user-defined">
@@ -158,7 +158,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="includes/personnal/opusfile.h" line="427" column="1"/>
+        <location file="includes/personnal/opusfile.h" line="408" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group__header__info_1gaac9c6e1916fba6e53152b936055d3db0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>ogg_int64_t</type>
@@ -195,7 +195,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="includes/personnal/opusfile.h" line="444" column="1"/>
+        <location file="includes/personnal/opusfile.h" line="425" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group__header__info_1gaed7c41a177cc7338ffec1e7ae57c59b1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>OP_WARN_UNUSED_RESULT int</type>
@@ -271,7 +271,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="includes/personnal/opusfile.h" line="461" column="1"/>
+        <location file="includes/personnal/opusfile.h" line="442" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group__header__info_1gaceda528fa8f9f9ad1443df2eeeeaa8bf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -322,7 +322,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="includes/personnal/opusfile.h" line="471" column="1"/>
+        <location file="includes/personnal/opusfile.h" line="452" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group__header__info_1ga35f993f5a8f11337a6503a2f43996fea" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -347,7 +347,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="includes/personnal/opusfile.h" line="477" column="1"/>
+        <location file="includes/personnal/opusfile.h" line="458" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group__header__info_1ga42bc0321740b618271c4cd0ae076d29a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -404,7 +404,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="includes/personnal/opusfile.h" line="490" column="1"/>
+        <location file="includes/personnal/opusfile.h" line="471" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group__header__info_1ga76ac5425d8c2ca9a994f84adfcc6cb98" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -450,7 +450,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="includes/personnal/opusfile.h" line="503" column="1"/>
+        <location file="includes/personnal/opusfile.h" line="484" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group__header__info_1gad43a7ed5844debd7d4025335f096bc27" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>const char *</type>
@@ -506,7 +506,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="includes/personnal/opusfile.h" line="521" column="1"/>
+        <location file="includes/personnal/opusfile.h" line="502" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group__header__info_1ga6e0bbe5a717115180bf4aa596bd0b2d1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -543,7 +543,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="includes/personnal/opusfile.h" line="531" column="1"/>
+        <location file="includes/personnal/opusfile.h" line="512" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group__header__info_1ga093ce83b90c68951f2e6aedc66344ce5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -588,7 +588,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="includes/personnal/opusfile.h" line="549" column="1"/>
+        <location file="includes/personnal/opusfile.h" line="530" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group__header__info_1ga16d4f85561a965d56e0c5177fa129c35" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -613,7 +613,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="includes/personnal/opusfile.h" line="557" column="1"/>
+        <location file="includes/personnal/opusfile.h" line="538" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group__header__info_1gaad7582aee9be320d26b13f77e7b54106" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -651,7 +651,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="includes/personnal/opusfile.h" line="568" column="1"/>
+        <location file="includes/personnal/opusfile.h" line="549" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group__header__info_1gabf02fa65e49fde045ef787e42ef7b8c0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -700,7 +700,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="includes/personnal/opusfile.h" line="583" column="1"/>
+        <location file="includes/personnal/opusfile.h" line="564" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group__header__info_1ga6487af1d21fe87f4815567d85a27989a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>OP_WARN_UNUSED_RESULT int</type>
@@ -752,7 +752,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="includes/personnal/opusfile.h" line="615" column="1"/>
+        <location file="includes/personnal/opusfile.h" line="596" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group__header__info_1ga09b9724bb7a9abd1d78680bd7d420ec2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -777,7 +777,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="includes/personnal/opusfile.h" line="622" column="1"/>
+        <location file="includes/personnal/opusfile.h" line="603" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group__header__info_1ga26a732722fc74274d76b855020822852" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -802,7 +802,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="includes/personnal/opusfile.h" line="629" column="1"/>
+        <location file="includes/personnal/opusfile.h" line="610" column="1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="define">
@@ -815,7 +815,7 @@
 <para>The maximum number of channels in an Ogg Opus stream. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="includes/personnal/opusfile.h" line="210" column="9" bodyfile="includes/personnal/opusfile.h" bodystart="210" bodyend="-1"/>
+        <location file="includes/personnal/opusfile.h" line="196" column="9" bodyfile="includes/personnal/opusfile.h" bodystart="196" bodyend="-1"/>
       </memberdef>
       </sectiondef>
     <briefdescription>

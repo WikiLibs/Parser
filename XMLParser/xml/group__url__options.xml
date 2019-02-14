@@ -31,7 +31,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="includes/personnal/opusfile.h" line="713" column="1"/>
+        <location file="includes/personnal/opusfile.h" line="694" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group__url__options_1ga096536e460277fe890acb265d8fdbd63" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -57,7 +57,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="includes/personnal/opusfile.h" line="721" column="1"/>
+        <location file="includes/personnal/opusfile.h" line="702" column="1"/>
       </memberdef>
       <memberdef kind="define" id="group__url__options_1ga71080150b55e223be2710a0307108b72" prot="public" static="no">
         <name>OP_SSL_SKIP_CERTIFICATE_CHECK</name>
@@ -76,7 +76,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="includes/personnal/opusfile.h" line="729" column="9" bodyfile="includes/personnal/opusfile.h" bodystart="729" bodyend="-1"/>
+        <location file="includes/personnal/opusfile.h" line="710" column="9" bodyfile="includes/personnal/opusfile.h" bodystart="710" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group__url__options_1gab3b517acdb74c0d0b51800af86a58876" prot="public" static="no">
         <name>OP_HTTP_PROXY_HOST</name>
@@ -95,7 +95,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="includes/personnal/opusfile.h" line="740" column="9" bodyfile="includes/personnal/opusfile.h" bodystart="740" bodyend="-1"/>
+        <location file="includes/personnal/opusfile.h" line="721" column="9" bodyfile="includes/personnal/opusfile.h" bodystart="721" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group__url__options_1ga838d23878f4135691684203baa75ed0c" prot="public" static="no">
         <name>OP_HTTP_PROXY_PORT</name>
@@ -114,7 +114,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="includes/personnal/opusfile.h" line="753" column="9" bodyfile="includes/personnal/opusfile.h" bodystart="753" bodyend="-1"/>
+        <location file="includes/personnal/opusfile.h" line="734" column="9" bodyfile="includes/personnal/opusfile.h" bodystart="734" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group__url__options_1gaf0ce8d761ff48697fa0c44a62a445842" prot="public" static="no">
         <name>OP_HTTP_PROXY_USER</name>
@@ -133,7 +133,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="includes/personnal/opusfile.h" line="766" column="9" bodyfile="includes/personnal/opusfile.h" bodystart="766" bodyend="-1"/>
+        <location file="includes/personnal/opusfile.h" line="747" column="9" bodyfile="includes/personnal/opusfile.h" bodystart="747" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group__url__options_1gaad96c33557407e406cca89477b2e7892" prot="public" static="no">
         <name>OP_HTTP_PROXY_PASS</name>
@@ -152,7 +152,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="includes/personnal/opusfile.h" line="779" column="9" bodyfile="includes/personnal/opusfile.h" bodystart="779" bodyend="-1"/>
+        <location file="includes/personnal/opusfile.h" line="760" column="9" bodyfile="includes/personnal/opusfile.h" bodystart="760" bodyend="-1"/>
       </memberdef>
       <memberdef kind="define" id="group__url__options_1gacc2e4b086bee832d5d66caf18fd7d659" prot="public" static="no">
         <name>OP_GET_SERVER_INFO</name>
@@ -171,7 +171,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="includes/personnal/opusfile.h" line="800" column="9" bodyfile="includes/personnal/opusfile.h" bodystart="800" bodyend="-1"/>
+        <location file="includes/personnal/opusfile.h" line="781" column="9" bodyfile="includes/personnal/opusfile.h" bodystart="781" bodyend="-1"/>
       </memberdef>
       </sectiondef>
     <briefdescription>

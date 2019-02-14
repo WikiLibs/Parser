@@ -5,7 +5,7 @@
     <title>Stream Information</title>
       <sectiondef kind="user-defined">
       <header>Functions for obtaining information about streams</header>
-      <description><para>These functions allow you to get basic information about a stream, including seekability, the number of links (for chained streams), plus the size, duration, bitrate, header parameters, and meta information for each link (or, where available, the stream as a whole). Some of these (size, duration) are only available for seekable streams. You can also query the current stream position, link, and playback time, and instantaneous bitrate during playback.</para><para>Some of these functions may be used successfully on the partially open streams returned by <ref refid="group__stream__open__close_1gafe0e84414bbd1b511b494b5c5cef3c0f" kindref="member">op_test_callbacks()</ref> or one of the associated convenience functions. Their documention will indicate so explicitly. </para></description>
+      <description><para>These functions allow you to get basic information about a stream, including seekability, the number of links (for chained streams), plus the size, duration, bitrate, header parameters, and meta information for each link (or, where available, the stream as a whole). Some of these (size, duration) are only available for seekable streams. You can also query the current stream position, link, and playback time, and instantaneous bitrate during playback. Some of these functions may be used successfully on the partially open streams returned by <ref refid="group__stream__open__close_1gafe0e84414bbd1b511b494b5c5cef3c0f" kindref="member">op_test_callbacks()</ref> or one of the associated convenience functions. Their documention will indicate so explicitly. </para></description>
       <memberdef kind="function" id="group__stream__info_1ga9272a4a6ac9e01fbc549008f5ff58b4c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
         <definition>int op_seekable</definition>
@@ -38,7 +38,7 @@ This function may be called on partially-opened streams. <parameterlist kind="pa
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="includes/personnal/opusfile.h" line="1409" column="1"/>
+        <location file="includes/personnal/opusfile.h" line="1386" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group__stream__info_1gaaf6ff40725a8bc7e73c9d396ab91837d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -64,7 +64,7 @@ This function may be called on partially-opened streams. <parameterlist kind="pa
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="includes/personnal/opusfile.h" line="1419" column="1"/>
+        <location file="includes/personnal/opusfile.h" line="1396" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group__stream__info_1ga41992ce6f066e07609e5fe2ccd961f40" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>opus_uint32</type>
@@ -101,7 +101,7 @@ This function may be called on partially-opened streams. <parameterlist kind="pa
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="includes/personnal/opusfile.h" line="1434" column="1"/>
+        <location file="includes/personnal/opusfile.h" line="1411" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group__stream__info_1ga42c829e67c0ce8359bfbfc31a45c04f4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -138,7 +138,7 @@ This function may be called on partially-opened streams. <parameterlist kind="pa
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="includes/personnal/opusfile.h" line="1451" column="1"/>
+        <location file="includes/personnal/opusfile.h" line="1428" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group__stream__info_1gaa433bdeab96315d315269b60ba52b877" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>opus_int64</type>
@@ -183,7 +183,7 @@ This function may be called on partially-opened streams. <parameterlist kind="pa
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="includes/personnal/opusfile.h" line="1469" column="1"/>
+        <location file="includes/personnal/opusfile.h" line="1446" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group__stream__info_1ga8c228c3d95f2c903ad6cfd2b78d8dad6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>ogg_int64_t</type>
@@ -228,7 +228,7 @@ This function may be called on partially-opened streams. <parameterlist kind="pa
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="includes/personnal/opusfile.h" line="1487" column="1"/>
+        <location file="includes/personnal/opusfile.h" line="1464" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group__stream__info_1gabae95dfa8a278a305213332e295443bb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>const <ref refid="struct_opus_head" kindref="compound">OpusHead</ref> *</type>
@@ -265,7 +265,7 @@ This function may be called on partially-opened streams. <parameterlist kind="pa
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="includes/personnal/opusfile.h" line="1503" column="1"/>
+        <location file="includes/personnal/opusfile.h" line="1480" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group__stream__info_1ga4b9b8b62a9fb04aee64c288e106a4822" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>const <ref refid="struct_opus_tags" kindref="compound">OpusTags</ref> *</type>
@@ -302,7 +302,7 @@ This function may be called on partially-opened streams. <parameterlist kind="pa
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="includes/personnal/opusfile.h" line="1521" column="1"/>
+        <location file="includes/personnal/opusfile.h" line="1498" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group__stream__info_1gabd97a260a6740ea7c2c59ca9ecd592bf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -336,7 +336,7 @@ This function may be called on partially-opened streams. <parameterlist kind="pa
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="includes/personnal/opusfile.h" line="1538" column="1"/>
+        <location file="includes/personnal/opusfile.h" line="1515" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group__stream__info_1ga2778b161df6d07abdd642f1a4802cc1c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>opus_int32</type>
@@ -381,7 +381,7 @@ This function may be called on partially-opened streams. <parameterlist kind="pa
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="includes/personnal/opusfile.h" line="1551" column="1"/>
+        <location file="includes/personnal/opusfile.h" line="1528" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group__stream__info_1ga7e9e871615055673d5e3c7b4c1dfce80" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>opus_int32</type>
@@ -422,7 +422,7 @@ This function may be called on partially-opened streams. <parameterlist kind="pa
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="includes/personnal/opusfile.h" line="1564" column="1"/>
+        <location file="includes/personnal/opusfile.h" line="1541" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group__stream__info_1gab857684ab149c6225884ad94c3787561" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>opus_int64</type>
@@ -456,7 +456,7 @@ This function may be called on partially-opened streams. <parameterlist kind="pa
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="includes/personnal/opusfile.h" line="1570" column="1"/>
+        <location file="includes/personnal/opusfile.h" line="1547" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group__stream__info_1gae07b8e40d883cd2a43edfec8c5bfa205" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>ogg_int64_t</type>
@@ -490,7 +490,7 @@ This function may be called on partially-opened streams. <parameterlist kind="pa
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="includes/personnal/opusfile.h" line="1579" column="1"/>
+        <location file="includes/personnal/opusfile.h" line="1556" column="1"/>
       </memberdef>
       </sectiondef>
     <briefdescription>

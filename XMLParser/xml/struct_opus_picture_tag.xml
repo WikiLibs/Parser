@@ -59,7 +59,7 @@
 Others are reserved and should not be used. There may only be one each of picture type 1 and 2 in a file. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="includes/personnal/opusfile.h" line="357" column="1" bodyfile="includes/personnal/opusfile.h" bodystart="357" bodyend="-1"/>
+        <location file="includes/personnal/opusfile.h" line="339" column="1" bodyfile="includes/personnal/opusfile.h" bodystart="339" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="struct_opus_picture_tag_1ace7f4978d815b186f6aebefed938c9e2" prot="public" static="no" mutable="no">
         <type>char *</type>
@@ -72,7 +72,7 @@ Others are reserved and should not be used. There may only be one each of pictur
 <para>The MIME type of the picture, in printable ASCII characters 0x20-0x7E. The MIME type may also be <computeroutput>&quot;--&gt;&quot;</computeroutput> to signify that the data part is a URL pointing to the picture instead of the picture data itself. In this case, a terminating NUL is appended to the URL string in <ref refid="struct_opus_picture_tag_1a0514cb1431547c8b3042b9f3bc9b694f" kindref="member">data</ref>, but <ref refid="struct_opus_picture_tag_1aaa458d48cd3c9c86b54614389f5b726d" kindref="member">data_length</ref> is set to the length of the string excluding that terminating NUL. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="includes/personnal/opusfile.h" line="364" column="1" bodyfile="includes/personnal/opusfile.h" bodystart="364" bodyend="-1"/>
+        <location file="includes/personnal/opusfile.h" line="346" column="1" bodyfile="includes/personnal/opusfile.h" bodystart="346" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="struct_opus_picture_tag_1aa32d8bfcd831aa218b0de6d6af92dc08" prot="public" static="no" mutable="no">
         <type>char *</type>
@@ -85,7 +85,7 @@ Others are reserved and should not be used. There may only be one each of pictur
 <para>The description of the picture, in UTF-8. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="includes/personnal/opusfile.h" line="366" column="1" bodyfile="includes/personnal/opusfile.h" bodystart="366" bodyend="-1"/>
+        <location file="includes/personnal/opusfile.h" line="348" column="1" bodyfile="includes/personnal/opusfile.h" bodystart="348" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="struct_opus_picture_tag_1a805d4de3372bac983cadbd916350ddd6" prot="public" static="no" mutable="no">
         <type>opus_uint32</type>
@@ -98,7 +98,7 @@ Others are reserved and should not be used. There may only be one each of pictur
 <para>The width of the picture in pixels. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="includes/personnal/opusfile.h" line="368" column="1" bodyfile="includes/personnal/opusfile.h" bodystart="368" bodyend="-1"/>
+        <location file="includes/personnal/opusfile.h" line="350" column="1" bodyfile="includes/personnal/opusfile.h" bodystart="350" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="struct_opus_picture_tag_1a2de29a7eef41d13031c70786665eb638" prot="public" static="no" mutable="no">
         <type>opus_uint32</type>
@@ -111,7 +111,7 @@ Others are reserved and should not be used. There may only be one each of pictur
 <para>The height of the picture in pixels. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="includes/personnal/opusfile.h" line="370" column="1" bodyfile="includes/personnal/opusfile.h" bodystart="370" bodyend="-1"/>
+        <location file="includes/personnal/opusfile.h" line="352" column="1" bodyfile="includes/personnal/opusfile.h" bodystart="352" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="struct_opus_picture_tag_1a9af23c314edf9a995c95a4d28f49eac0" prot="public" static="no" mutable="no">
         <type>opus_uint32</type>
@@ -124,7 +124,7 @@ Others are reserved and should not be used. There may only be one each of pictur
 <para>The color depth of the picture in bits-per-pixel (<emphasis>not</emphasis> bits-per-channel). </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="includes/personnal/opusfile.h" line="373" column="1" bodyfile="includes/personnal/opusfile.h" bodystart="373" bodyend="-1"/>
+        <location file="includes/personnal/opusfile.h" line="355" column="1" bodyfile="includes/personnal/opusfile.h" bodystart="355" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="struct_opus_picture_tag_1a6fe2f98151fa32a8e2fd13f9309bd1a2" prot="public" static="no" mutable="no">
         <type>opus_uint32</type>
@@ -137,7 +137,7 @@ Others are reserved and should not be used. There may only be one each of pictur
 <para>For indexed-color pictures (e.g., GIF), the number of colors used, or 0 for non-indexed pictures. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="includes/personnal/opusfile.h" line="376" column="1" bodyfile="includes/personnal/opusfile.h" bodystart="376" bodyend="-1"/>
+        <location file="includes/personnal/opusfile.h" line="358" column="1" bodyfile="includes/personnal/opusfile.h" bodystart="358" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="struct_opus_picture_tag_1aaa458d48cd3c9c86b54614389f5b726d" prot="public" static="no" mutable="no">
         <type>opus_uint32</type>
@@ -150,7 +150,7 @@ Others are reserved and should not be used. There may only be one each of pictur
 <para>The length of the picture data in bytes. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="includes/personnal/opusfile.h" line="378" column="1" bodyfile="includes/personnal/opusfile.h" bodystart="378" bodyend="-1"/>
+        <location file="includes/personnal/opusfile.h" line="360" column="1" bodyfile="includes/personnal/opusfile.h" bodystart="360" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="struct_opus_picture_tag_1a0514cb1431547c8b3042b9f3bc9b694f" prot="public" static="no" mutable="no">
         <type>unsigned char *</type>
@@ -163,7 +163,7 @@ Others are reserved and should not be used. There may only be one each of pictur
 <para>The binary picture data. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="includes/personnal/opusfile.h" line="380" column="1" bodyfile="includes/personnal/opusfile.h" bodystart="380" bodyend="-1"/>
+        <location file="includes/personnal/opusfile.h" line="362" column="1" bodyfile="includes/personnal/opusfile.h" bodystart="362" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="struct_opus_picture_tag_1aba2d71a09ecf0999cf5faf7c2276fb37" prot="public" static="no" mutable="no">
         <type>int</type>
@@ -188,14 +188,14 @@ Others are reserved and should not be used. There may only be one each of pictur
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="includes/personnal/opusfile.h" line="390" column="1" bodyfile="includes/personnal/opusfile.h" bodystart="390" bodyend="-1"/>
+        <location file="includes/personnal/opusfile.h" line="372" column="1" bodyfile="includes/personnal/opusfile.h" bodystart="372" bodyend="-1"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
 <para>The contents of a METADATA_BLOCK_PICTURE tag. </para>    </detaileddescription>
-    <location file="includes/personnal/opusfile.h" line="330" column="1" bodyfile="includes/personnal/opusfile.h" bodystart="330" bodyend="391"/>
+    <location file="includes/personnal/opusfile.h" line="312" column="1" bodyfile="includes/personnal/opusfile.h" bodystart="312" bodyend="373"/>
     <listofallmembers>
       <member refid="struct_opus_picture_tag_1a6fe2f98151fa32a8e2fd13f9309bd1a2" prot="public" virt="non-virtual"><scope>OpusPictureTag</scope><name>colors</name></member>
       <member refid="struct_opus_picture_tag_1a0514cb1431547c8b3042b9f3bc9b694f" prot="public" virt="non-virtual"><scope>OpusPictureTag</scope><name>data</name></member>

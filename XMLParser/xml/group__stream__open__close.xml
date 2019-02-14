@@ -95,7 +95,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="includes/personnal/opusfile.h" line="1037" column="1"/>
+        <location file="includes/personnal/opusfile.h" line="1017" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group__stream__open__close_1ga15866bd0cd7ac77162db3b0428962e75" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>OP_WARN_UNUSED_RESULT OggOpusFile *</type>
@@ -132,7 +132,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="includes/personnal/opusfile.h" line="1049" column="1"/>
+        <location file="includes/personnal/opusfile.h" line="1029" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group__stream__open__close_1gaffc5769a1e5977f186f77a1fb08cb248" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>OP_WARN_UNUSED_RESULT OggOpusFile *</type>
@@ -180,7 +180,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="includes/personnal/opusfile.h" line="1060" column="1"/>
+        <location file="includes/personnal/opusfile.h" line="1040" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group__stream__open__close_1ga9a0c2a744653a559b84a5be8f551fe8a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>OP_WARN_UNUSED_RESULT OggOpusFile *</type>
@@ -229,7 +229,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="includes/personnal/opusfile.h" line="1089" column="1"/>
+        <location file="includes/personnal/opusfile.h" line="1069" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group__stream__open__close_1gace8a90b60d492f3488ee3f14a7276ddf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>OP_WARN_UNUSED_RESULT OggOpusFile *</type>
@@ -277,7 +277,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="includes/personnal/opusfile.h" line="1111" column="1"/>
+        <location file="includes/personnal/opusfile.h" line="1091" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group__stream__open__close_1ga5b81c0b685f3d3c9c7d7091e5536c759" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>OP_WARN_UNUSED_RESULT OggOpusFile *</type>
@@ -367,7 +367,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="includes/personnal/opusfile.h" line="1191" column="1"/>
+        <location file="includes/personnal/opusfile.h" line="1171" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group__stream__open__close_1ga3b12533b35cd3ac0d273c1e0efa35b6f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>OP_WARN_UNUSED_RESULT OggOpusFile *</type>
@@ -405,7 +405,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="includes/personnal/opusfile.h" line="1205" column="1"/>
+        <location file="includes/personnal/opusfile.h" line="1185" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group__stream__open__close_1gae093e19e16871f4cb53532fe1f0c1039" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>OP_WARN_UNUSED_RESULT OggOpusFile *</type>
@@ -454,7 +454,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="includes/personnal/opusfile.h" line="1217" column="1"/>
+        <location file="includes/personnal/opusfile.h" line="1197" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group__stream__open__close_1ga93b438960ec52e13e7c77446f754d016" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>OP_WARN_UNUSED_RESULT OggOpusFile *</type>
@@ -505,7 +505,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="includes/personnal/opusfile.h" line="1248" column="1"/>
+        <location file="includes/personnal/opusfile.h" line="1228" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group__stream__open__close_1ga8272aa50f50ac63b20333f0a114bb247" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>OP_WARN_UNUSED_RESULT OggOpusFile *</type>
@@ -554,7 +554,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="includes/personnal/opusfile.h" line="1272" column="1"/>
+        <location file="includes/personnal/opusfile.h" line="1252" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group__stream__open__close_1gafe0e84414bbd1b511b494b5c5cef3c0f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>OP_WARN_UNUSED_RESULT OggOpusFile *</type>
@@ -584,7 +584,7 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
-<para>Partially open a stream using the given set of callbacks to access it. This tests for Opusness and loads the headers for the first link. It does not seek (although it tests for seekability). You can query a partially open stream for the few pieces of basic information returned by <ref refid="group__stream__info_1ga41992ce6f066e07609e5fe2ccd961f40" kindref="member">op_serialno()</ref>, <ref refid="group__stream__info_1ga42c829e67c0ce8359bfbfc31a45c04f4" kindref="member">op_channel_count()</ref>, <ref refid="group__stream__info_1gabae95dfa8a278a305213332e295443bb" kindref="member">op_head()</ref>, and <ref refid="group__stream__info_1ga4b9b8b62a9fb04aee64c288e106a4822" kindref="member">op_tags()</ref> (but only for the first link). You may also determine if it is seekable via a call to <ref refid="group__stream__info_1ga9272a4a6ac9e01fbc549008f5ff58b4c" kindref="member">op_seekable()</ref>. You cannot read audio from the stream, seek, get the size or duration, get information from links other than the first one, or even get the total number of links until you finish opening the stream with <ref refid="group__stream__open__close_1ga7b7f1c778ce6ced5538ce66e292d894d" kindref="member">op_test_open()</ref>. If you do not need to do any of these things, you can dispose of it with <ref refid="group__stream__open__close_1gaf494ef9aa761647d8167c49507560d1c" kindref="member">op_free()</ref> instead.</para><para>This function is provided mostly to simplify porting existing code that used <computeroutput>libvorbisfile</computeroutput>. For new code, you are likely better off using <ref refid="group__stream__open__close_1ga54158ed1570a0062cb674115cd3699ab" kindref="member">op_test()</ref> instead, which is less resource-intensive, requires less data to succeed, and imposes a hard limit on the amount of data it examines (important for unseekable sources, where all such data must be buffered until you are sure of the stream type). <parameterlist kind="param"><parameteritem>
+<para>Partially open a stream using the given set of callbacks to access it. This tests for Opusness and loads the headers for the first link. It does not seek (although it tests for seekability). You can query a partially open stream for the few pieces of basic information returned by <ref refid="group__stream__info_1ga41992ce6f066e07609e5fe2ccd961f40" kindref="member">op_serialno()</ref>, <ref refid="group__stream__info_1ga42c829e67c0ce8359bfbfc31a45c04f4" kindref="member">op_channel_count()</ref>, <ref refid="group__stream__info_1gabae95dfa8a278a305213332e295443bb" kindref="member">op_head()</ref>, and <ref refid="group__stream__info_1ga4b9b8b62a9fb04aee64c288e106a4822" kindref="member">op_tags()</ref> (but only for the first link). You may also determine if it is seekable via a call to <ref refid="group__stream__info_1ga9272a4a6ac9e01fbc549008f5ff58b4c" kindref="member">op_seekable()</ref>. You cannot read audio from the stream, seek, get the size or duration, get information from links other than the first one, or even get the total number of links until you finish opening the stream with <ref refid="group__stream__open__close_1ga7b7f1c778ce6ced5538ce66e292d894d" kindref="member">op_test_open()</ref>. If you do not need to do any of these things, you can dispose of it with <ref refid="group__stream__open__close_1gaf494ef9aa761647d8167c49507560d1c" kindref="member">op_free()</ref> instead. This function is provided mostly to simplify porting existing code that used <computeroutput>libvorbisfile</computeroutput>. For new code, you are likely better off using <ref refid="group__stream__open__close_1ga54158ed1570a0062cb674115cd3699ab" kindref="member">op_test()</ref> instead, which is less resource-intensive, requires less data to succeed, and imposes a hard limit on the amount of data it examines (important for unseekable sources, where all such data must be buffered until you are sure of the stream type). <parameterlist kind="param"><parameteritem>
 <parameternamelist>
 <parametername>_source</parametername>
 </parameternamelist>
@@ -624,7 +624,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="includes/personnal/opusfile.h" line="1338" column="1"/>
+        <location file="includes/personnal/opusfile.h" line="1317" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group__stream__open__close_1ga7b7f1c778ce6ced5538ce66e292d894d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -714,7 +714,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="includes/personnal/opusfile.h" line="1368" column="1"/>
+        <location file="includes/personnal/opusfile.h" line="1347" column="1"/>
       </memberdef>
       <memberdef kind="function" id="group__stream__open__close_1gaf494ef9aa761647d8167c49507560d1c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -739,7 +739,7 @@
 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="includes/personnal/opusfile.h" line="1372" column="1"/>
+        <location file="includes/personnal/opusfile.h" line="1351" column="1"/>
       </memberdef>
       </sectiondef>
     <briefdescription>

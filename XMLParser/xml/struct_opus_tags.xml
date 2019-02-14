@@ -15,7 +15,7 @@
 <para>The array of comment string vectors. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="includes/personnal/opusfile.h" line="302" column="1" bodyfile="includes/personnal/opusfile.h" bodystart="302" bodyend="-1"/>
+        <location file="includes/personnal/opusfile.h" line="284" column="1" bodyfile="includes/personnal/opusfile.h" bodystart="284" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="struct_opus_tags_1aa99547abb03d7dbe0cd7095d8b706170" prot="public" static="no" mutable="no">
         <type>int *</type>
@@ -28,7 +28,7 @@
 <para>An array of the corresponding length of each vector, in bytes. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="includes/personnal/opusfile.h" line="304" column="1" bodyfile="includes/personnal/opusfile.h" bodystart="304" bodyend="-1"/>
+        <location file="includes/personnal/opusfile.h" line="286" column="1" bodyfile="includes/personnal/opusfile.h" bodystart="286" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="struct_opus_tags_1a65c37166930a1f5d682fa6c863fc28c6" prot="public" static="no" mutable="no">
         <type>int</type>
@@ -41,7 +41,7 @@
 <para>The total number of comment streams. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="includes/personnal/opusfile.h" line="306" column="1" bodyfile="includes/personnal/opusfile.h" bodystart="306" bodyend="-1"/>
+        <location file="includes/personnal/opusfile.h" line="288" column="1" bodyfile="includes/personnal/opusfile.h" bodystart="288" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="struct_opus_tags_1af6ff133dfd801934d981bc5905dae0bd" prot="public" static="no" mutable="no">
         <type>char *</type>
@@ -54,15 +54,15 @@
 <para>The null-terminated vendor string. This identifies the software used to encode the stream. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="includes/personnal/opusfile.h" line="309" column="1" bodyfile="includes/personnal/opusfile.h" bodystart="309" bodyend="-1"/>
+        <location file="includes/personnal/opusfile.h" line="291" column="1" bodyfile="includes/personnal/opusfile.h" bodystart="291" bodyend="-1"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
-<para>The metadata from an Ogg Opus stream.</para><para>This structure holds the in-stream metadata corresponding to the &apos;comment&apos; header packet of an Ogg Opus stream. The comment header is meant to be used much like someone jotting a quick note on the label of a CD. It should be a short, to the point text note that can be more than a couple words, but not more than a short paragraph.</para><para>The metadata is stored as a series of (tag, value) pairs, in length-encoded string vectors, using the same format as Vorbis (without the final &quot;framing
- bit&quot;), Theora, and Speex, except for the packet header. The first occurrence of the &apos;=&apos; character delimits the tag and value. A particular tag may occur more than once, and order is significant. The character set encoding for the strings is always UTF-8, but the tag names are limited to ASCII, and treated as case-insensitive. See <ulink url="http://www.xiph.org/vorbis/doc/v-comment.html">the Vorbis comment header specification</ulink> for details.</para><para>In filling in this structure, <computeroutput>libopusfile</computeroutput> will null-terminate the <ref refid="struct_opus_tags_1ad53d571bd8b23691089242e4e161358a" kindref="member">user_comments</ref> strings for safety. However, the bitstream format itself treats them as 8-bit clean vectors, possibly containing NUL characters, so the <ref refid="struct_opus_tags_1aa99547abb03d7dbe0cd7095d8b706170" kindref="member">comment_lengths</ref> array should be treated as their authoritative length.</para><para>This structure is binary and source-compatible with a <computeroutput>vorbis_comment</computeroutput>, and pointers to it may be freely cast to <computeroutput>vorbis_comment</computeroutput> pointers, and vice versa. It is provided as a separate type to avoid introducing a compile-time dependency on the libvorbis headers. </para>    </detaileddescription>
-    <location file="includes/personnal/opusfile.h" line="300" column="1" bodyfile="includes/personnal/opusfile.h" bodystart="300" bodyend="310"/>
+<para>The metadata from an Ogg Opus stream. This structure holds the in-stream metadata corresponding to the &apos;comment&apos; header packet of an Ogg Opus stream. The comment header is meant to be used much like someone jotting a quick note on the label of a CD. It should be a short, to the point text note that can be more than a couple words, but not more than a short paragraph. The metadata is stored as a series of (tag, value) pairs, in length-encoded string vectors, using the same format as Vorbis (without the final &quot;framing
+ bit&quot;), Theora, and Speex, except for the packet header. The first occurrence of the &apos;=&apos; character delimits the tag and value. A particular tag may occur more than once, and order is significant. The character set encoding for the strings is always UTF-8, but the tag names are limited to ASCII, and treated as case-insensitive. See <ulink url="http://www.xiph.org/vorbis/doc/v-comment.html">the Vorbis comment header specification</ulink> for details. In filling in this structure, <computeroutput>libopusfile</computeroutput> will null-terminate the <ref refid="struct_opus_tags_1ad53d571bd8b23691089242e4e161358a" kindref="member">user_comments</ref> strings for safety. However, the bitstream format itself treats them as 8-bit clean vectors, possibly containing NUL characters, so the <ref refid="struct_opus_tags_1aa99547abb03d7dbe0cd7095d8b706170" kindref="member">comment_lengths</ref> array should be treated as their authoritative length. This structure is binary and source-compatible with astruct <computeroutput>vorbis_comment</computeroutput>, and pointers to it may be freely cast to <computeroutput>vorbis_comment</computeroutput> pointers, and vice versa. It is provided as a separate type to avoid introducing a compile-time dependency on the libvorbis headers. </para>    </detaileddescription>
+    <location file="includes/personnal/opusfile.h" line="282" column="1" bodyfile="includes/personnal/opusfile.h" bodystart="282" bodyend="292"/>
     <listofallmembers>
       <member refid="struct_opus_tags_1aa99547abb03d7dbe0cd7095d8b706170" prot="public" virt="non-virtual"><scope>OpusTags</scope><name>comment_lengths</name></member>
       <member refid="struct_opus_tags_1a65c37166930a1f5d682fa6c863fc28c6" prot="public" virt="non-virtual"><scope>OpusTags</scope><name>comments</name></member>
