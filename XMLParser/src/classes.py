@@ -46,3 +46,10 @@ class functionClass:
         self.params = []
         self.briefDesc = ""
         self.detailedDesc = ""
+
+class typedefClass:
+    def __init__(self):
+        self.tdType = ""
+        self.tdName = ""
+        self.briefDesc = ""
+        self.detailedDesc = ""

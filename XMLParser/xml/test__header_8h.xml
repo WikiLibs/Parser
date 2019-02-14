@@ -1,128 +1,219 @@
-<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
-  <compounddef id="test__header_8h" kind="file" language="C++">
-    <compoundname>test_header.h</compoundname>
-    <includes local="no">stdio.h</includes>
-    <incdepgraph>
-      <node id="0">
-        <label>includes/personnal/test_header.h</label>
-        <link refid="test__header_8h"/>
-        <childnode refid="1" relation="include">
-        </childnode>
-      </node>
-      <node id="1">
-        <label>stdio.h</label>
-      </node>
-    </incdepgraph>
-    <innerclass refid="structapple" prot="public">apple</innerclass>
-    <innerclass refid="unionbox" prot="public">box</innerclass>
-      <sectiondef kind="define">
-      <memberdef kind="define" id="test__header_8h_1aa8cecfc5c5c054d2875c03e77b7be15d" prot="public" static="no">
-        <name>TRUE</name>
-        <initializer>1</initializer>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="includes/personnal/test_header.h" line="6" column="9" bodyfile="includes/personnal/test_header.h" bodystart="6" bodyend="-1"/>
-      </memberdef>
-      <memberdef kind="define" id="test__header_8h_1aa93f0eb578d23995850d61f7d61c55c1" prot="public" static="no">
-        <name>FALSE</name>
-        <initializer>0</initializer>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="includes/personnal/test_header.h" line="7" column="9" bodyfile="includes/personnal/test_header.h" bodystart="7" bodyend="-1"/>
-      </memberdef>
-      <memberdef kind="define" id="test__header_8h_1ad1be640ccb547db273fc7da0cfd4a919" prot="public" static="no">
-        <name>IS_POSITIVE</name>
-        <param><defname>t</defname></param>
-        <initializer>(t &gt;= 0)</initializer>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="includes/personnal/test_header.h" line="8" column="9" bodyfile="includes/personnal/test_header.h" bodystart="8" bodyend="-1"/>
-      </memberdef>
-      <memberdef kind="define" id="test__header_8h_1ad8857751a02006f83537657e19f1dfdb" prot="public" static="no">
-        <name>SUM</name>
-        <param><defname>x</defname></param>
-        <param><defname>y</defname></param>
-        <initializer>(x + y)</initializer>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-<para>Sums the given numbers </para>        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="includes/personnal/test_header.h" line="12" column="9" bodyfile="includes/personnal/test_header.h" bodystart="12" bodyend="-1"/>
-      </memberdef>
-      </sectiondef>
-      <sectiondef kind="typedef">
-      <memberdef kind="typedef" id="test__header_8h_1a050c65e107f0c828f856a231f4b4e788" prot="public" static="no">
-        <type>int</type>
-        <definition>typedef int BOOL</definition>
-        <argsstring></argsstring>
-        <name>BOOL</name>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="includes/personnal/test_header.h" line="14" column="1" bodyfile="includes/personnal/test_header.h" bodystart="14" bodyend="-1"/>
-      </memberdef>
-      </sectiondef>
-      <sectiondef kind="func">
-      <memberdef kind="function" id="test__header_8h_1aa4f2ea658757153ad4fdce0d5e3f6bc4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="test__header_8h_1a050c65e107f0c828f856a231f4b4e788" kindref="member">BOOL</ref></type>
-        <definition>BOOL manger</definition>
-        <argsstring>(box unionVar, int value)</argsstring>
-        <name>manger</name>
-        <param>
-          <type><ref refid="unionbox" kindref="compound">box</ref></type>
-          <declname>unionVar</declname>
-        </param>
-        <param>
-          <type>int</type>
-          <declname>value</declname>
-        </param>
-        <briefdescription>
-<para>manger function </para>        </briefdescription>
-        <detaileddescription>
-<para>function used to eat <parameterlist kind="param"><parameteritem>
-<parameternamelist>
-<parametername>unionVar</parametername>
-</parameternamelist>
-<parameterdescription>
-<para>box containing food </para></parameterdescription>
-</parameteritem>
-<parameteritem>
-<parameternamelist>
-<parametername>value</parametername>
-</parameternamelist>
-<parameterdescription>
-<para>random value </para></parameterdescription>
-</parameteritem>
-</parameterlist>
-<simplesect kind="return"><para>boolean indicating if has eaten </para></simplesect>
-</para>        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="includes/personnal/test_header.h" line="38" column="1" bodyfile="includes/personnal/test_header.h" bodystart="38" bodyend="41"/>
-      </memberdef>
-      </sectiondef>
-    <briefdescription>
-    </briefdescription>
-    <detaileddescription>
-    </detaileddescription>
-    <location file="includes/personnal/test_header.h"/>
-  </compounddef>
+	<compounddef id="test__header_8h" kind="file" language="C++">
+		<compoundname>
+			test_header.h
+		</compoundname>
+		<includes local="no">
+			stdio.h
+		</includes>
+		<incdepgraph>
+			<node id="0">
+				<label>
+					includes/personnal/test_header.h
+				</label>
+				<link refid="test__header_8h" />
+				<childnode refid="1" relation="include">
+				</childnode>
+			</node>
+			<node id="1">
+				<label>
+					stdio.h
+				</label>
+			</node>
+		</incdepgraph>
+		<innerclass refid="structapple" prot="public">
+			apple
+		</innerclass>
+		<innerclass refid="unionbox" prot="public">
+			box
+		</innerclass>
+		<sectiondef kind="define">
+			<memberdef kind="define" id="test__header_8h_1aa8cecfc5c5c054d2875c03e77b7be15d" prot="public" static="no">
+				<name>
+					TRUE
+				</name>
+				<initializer>
+					1
+				</initializer>
+				<briefdescription>
+				</briefdescription>
+				<detaileddescription>
+				</detaileddescription>
+				<inbodydescription>
+				</inbodydescription>
+				<location file="includes/personnal/test_header.h" line="6" column="9" bodyfile="includes/personnal/test_header.h" bodystart="6" bodyend="-1" />
+			</memberdef>
+			<memberdef kind="define" id="test__header_8h_1aa93f0eb578d23995850d61f7d61c55c1" prot="public" static="no">
+				<name>
+					FALSE
+				</name>
+				<initializer>
+					0
+				</initializer>
+				<briefdescription>
+				</briefdescription>
+				<detaileddescription>
+				</detaileddescription>
+				<inbodydescription>
+				</inbodydescription>
+				<location file="includes/personnal/test_header.h" line="7" column="9" bodyfile="includes/personnal/test_header.h" bodystart="7" bodyend="-1" />
+			</memberdef>
+			<memberdef kind="define" id="test__header_8h_1ad1be640ccb547db273fc7da0cfd4a919" prot="public" static="no">
+				<name>
+					IS_POSITIVE
+				</name>
+				<param>
+					<defname>
+						t
+					</defname>
+				</param>
+				<initializer>
+					(t &gt;= 0)
+				</initializer>
+				<briefdescription>
+				</briefdescription>
+				<detaileddescription>
+				</detaileddescription>
+				<inbodydescription>
+				</inbodydescription>
+				<location file="includes/personnal/test_header.h" line="8" column="9" bodyfile="includes/personnal/test_header.h" bodystart="8" bodyend="-1" />
+			</memberdef>
+			<memberdef kind="define" id="test__header_8h_1ad8857751a02006f83537657e19f1dfdb" prot="public" static="no">
+				<name>
+					SUM
+				</name>
+				<param>
+					<defname>
+						x
+					</defname>
+				</param>
+				<param>
+					<defname>
+						y
+					</defname>
+				</param>
+				<initializer>
+					(x + y)
+				</initializer>
+				<briefdescription>
+				</briefdescription>
+				<detaileddescription>
+					<para>
+						Sums the given numbers
+					</para>
+				</detaileddescription>
+				<inbodydescription>
+				</inbodydescription>
+				<location file="includes/personnal/test_header.h" line="12" column="9" bodyfile="includes/personnal/test_header.h" bodystart="12" bodyend="-1" />
+			</memberdef>
+		</sectiondef>
+		<sectiondef kind="typedef">
+			<memberdef kind="typedef" id="test__header_8h_1a050c65e107f0c828f856a231f4b4e788" prot="public" static="no">
+				<type>
+					int
+				</type>
+				<definition>
+					typedef int BOOL
+				</definition>
+				<argsstring>
+				</argsstring>
+				<name>
+					BOOL
+				</name>
+				<briefdescription>
+				</briefdescription>
+				<detaileddescription>
+				</detaileddescription>
+				<inbodydescription>
+				</inbodydescription>
+				<location file="includes/personnal/test_header.h" line="14" column="1" bodyfile="includes/personnal/test_header.h" bodystart="14" bodyend="-1" />
+			</memberdef>
+		</sectiondef>
+		<sectiondef kind="func">
+			<memberdef kind="function" id="test__header_8h_1aa4f2ea658757153ad4fdce0d5e3f6bc4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+				<type>
+					<ref refid="test__header_8h_1a050c65e107f0c828f856a231f4b4e788" kindref="member">
+						BOOL
+					</ref>
+				</type>
+				<definition>
+					BOOL manger
+				</definition>
+				<argsstring>
+					(box unionVar, int value)
+				</argsstring>
+				<name>
+					manger
+				</name>
+				<param>
+					<type>
+						<ref refid="unionbox" kindref="compound">
+							box
+						</ref>
+					</type>
+					<declname>
+						unionVar
+					</declname>
+				</param>
+				<param>
+					<type>
+						int
+					</type>
+					<declname>
+						value
+					</declname>
+				</param>
+				<briefdescription>
+					<para>
+						manger function
+					</para>
+				</briefdescription>
+				<detaileddescription>
+					<para>
+						function used to eat
+						<parameterlist kind="param">
+							<parameteritem>
+								<parameternamelist>
+									<parametername>
+										unionVar
+									</parametername>
+								</parameternamelist>
+								<parameterdescription>
+									<para>
+										box containing food
+									</para>
+								</parameterdescription>
+							</parameteritem>
+							<parameteritem>
+								<parameternamelist>
+									<parametername>
+										value
+									</parametername>
+								</parameternamelist>
+								<parameterdescription>
+									<para>
+										random value
+									</para>
+								</parameterdescription>
+							</parameteritem>
+						</parameterlist>
+						<simplesect kind="return">
+							<para>
+								boolean indicating if has eaten
+							</para>
+						</simplesect>
+					</para>
+				</detaileddescription>
+				<inbodydescription>
+				</inbodydescription>
+				<location file="includes/personnal/test_header.h" line="38" column="1" bodyfile="includes/personnal/test_header.h" bodystart="38" bodyend="41" />
+			</memberdef>
+		</sectiondef>
+		<briefdescription>
+		</briefdescription>
+		<detaileddescription>
+		</detaileddescription>
+		<location file="includes/personnal/test_header.h" />
+	</compounddef>
 </doxygen>

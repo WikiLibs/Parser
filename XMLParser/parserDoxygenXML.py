@@ -6,6 +6,7 @@ from src.getDefine import getDefine
 from src.getStruct import getStruct
 from src.getUnion import getUnion
 from src.getFunction import getFunction
+from src.getTypedef import getTypedef
 
 def getFilePath(root):
     try:
@@ -23,6 +24,7 @@ def main():
     structs = []
     unions = []
     functions = []
+    typedefs = []
     root = ET.parse(av[1]).getroot()
 
     path = getFilePath(root)
@@ -33,6 +35,8 @@ def main():
             defines.append(getDefine(elem))
         if kind == 'function':
             functions.append(getFunction(elem))
+        if kind == 'typedef':
+            typedefs.append(getTypedef(elem))
 
     for elem in root.iter('innerclass'):
         refid = elem.get("refid")

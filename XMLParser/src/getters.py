@@ -6,7 +6,7 @@ def getCompoundName(elem):
     return strOp.epurStr(elem.find("compounddef/compoundname").text)
 
 def getName(elem):
-    return elem.find("name").text
+    return strOp.epurStr(elem.find("name").text)
 
 def getType(elem):
     try:
