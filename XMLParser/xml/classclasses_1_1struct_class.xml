@@ -14,7 +14,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/classes.py" line="27" column="1" bodyfile="src/classes.py" bodystart="27" bodyend="-1"/>
+        <location file="src/classes.py" line="26" column="1" bodyfile="src/classes.py" bodystart="26" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classclasses_1_1struct_class_1a2549c0243d8490ddcb2bc2bf3a3aeab4" prot="public" static="no" mutable="no">
         <type></type>
@@ -27,7 +27,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/classes.py" line="28" column="1" bodyfile="src/classes.py" bodystart="28" bodyend="-1"/>
+        <location file="src/classes.py" line="27" column="1" bodyfile="src/classes.py" bodystart="27" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classclasses_1_1struct_class_1a7de7efed02922a58fdd215ef7deb8123" prot="public" static="no" mutable="no">
         <type></type>
@@ -40,7 +40,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/classes.py" line="29" column="1" bodyfile="src/classes.py" bodystart="29" bodyend="-1"/>
+        <location file="src/classes.py" line="28" column="1" bodyfile="src/classes.py" bodystart="28" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="classclasses_1_1struct_class_1a47891a86a8a1f6637efd6964d0621400" prot="public" static="no" mutable="no">
         <type></type>
@@ -53,7 +53,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/classes.py" line="30" column="1" bodyfile="src/classes.py" bodystart="30" bodyend="-1"/>
+        <location file="src/classes.py" line="29" column="1" bodyfile="src/classes.py" bodystart="29" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -72,7 +72,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/classes.py" line="26" column="1" bodyfile="src/classes.py" bodystart="26" bodyend="31"/>
+        <location file="src/classes.py" line="25" column="1" bodyfile="src/classes.py" bodystart="25" bodyend="30"/>
       </memberdef>
       <memberdef kind="function" id="classclasses_1_1struct_class_1a511d5556eb5d4f2c2c6845e8b368ae1e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>def</type>
@@ -89,14 +89,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="src/classes.py" line="32" column="1" bodyfile="src/classes.py" bodystart="32" bodyend="34"/>
+        <location file="src/classes.py" line="31" column="1" bodyfile="src/classes.py" bodystart="31" bodyend="33"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="src/classes.py" line="25" column="1" bodyfile="src/classes.py" bodystart="25" bodyend="35"/>
+    <location file="src/classes.py" line="24" column="1" bodyfile="src/classes.py" bodystart="24" bodyend="34"/>
     <listofallmembers>
       <member refid="classclasses_1_1struct_class_1a6d87e3bdcf233d643eec7338a5b58b5b" prot="public" virt="non-virtual"><scope>classes::structClass</scope><name>__init__</name></member>
       <member refid="classclasses_1_1struct_class_1a511d5556eb5d4f2c2c6845e8b368ae1e" prot="public" virt="non-virtual"><scope>classes::structClass</scope><name>__str__</name></member>

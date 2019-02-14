@@ -7,6 +7,7 @@ from src.getStruct import getStruct
 from src.getUnion import getUnion
 from src.getFunction import getFunction
 from src.getTypedef import getTypedef
+import src.printData as printData
 
 def getFilePath(root):
     try:
@@ -33,8 +34,8 @@ def main():
         kind = elem.get('kind')
         if kind == 'define':
             defines.append(getDefine(elem))
-        if kind == 'function':
-            functions.append(getFunction(elem))
+        #if kind == 'function':
+        #    functions.append(getFunction(elem))
         if kind == 'typedef':
             typedefs.append(getTypedef(elem))
 
@@ -44,7 +45,9 @@ def main():
             structs.append(getStruct("xml/" + refid + ".xml"))
         if "union" in refid:
             unions.append(getUnion("xml/" + refid + ".xml"))
-        
+    
+    printData.printStructures(structs)
+    
 
 if __name__ == '__main__':
     main()

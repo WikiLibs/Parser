@@ -5,6 +5,7 @@
     <innerclass refid="classclasses_1_1define_class" prot="public">classes::defineClass</innerclass>
     <innerclass refid="classclasses_1_1function_class" prot="public">classes::functionClass</innerclass>
     <innerclass refid="classclasses_1_1struct_class" prot="public">classes::structClass</innerclass>
+    <innerclass refid="classclasses_1_1typedef_class" prot="public">classes::typedefClass</innerclass>
     <innerclass refid="classclasses_1_1union_class" prot="public">classes::unionClass</innerclass>
     <innerclass refid="classclasses_1_1variable_class" prot="public">classes::variableClass</innerclass>
     <briefdescription>

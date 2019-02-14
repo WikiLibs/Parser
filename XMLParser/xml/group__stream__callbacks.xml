@@ -1,0 +1,422 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="group__stream__callbacks" kind="group">
+    <compoundname>stream_callbacks</compoundname>
+    <title>Abstract Stream Reading Interface</title>
+    <innerclass refid="struct_opus_file_callbacks" prot="public">OpusFileCallbacks</innerclass>
+      <sectiondef kind="user-defined">
+      <header>Functions for reading from streams</header>
+      <description><para>These functions define the interface used to read from and seek in a stream of data. A stream does not need to implement seeking, but the decoder will not be able to seek if it does not do so. These functions also include some convenience routines for working with standard <computeroutput>FILE</computeroutput> pointers, complete streams stored in a single block of memory, or URLs. </para></description>
+      <memberdef kind="typedef" id="group__stream__callbacks_1ga9ffca429db1f3b77f2f303f1942188c3" prot="public" static="no">
+        <type>int(*</type>
+        <definition>typedef int(* op_read_func) (void *_stream, unsigned char *_ptr, int _nbytes)</definition>
+        <argsstring>)(void *_stream, unsigned char *_ptr, int _nbytes)</argsstring>
+        <name>op_read_func</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Reads up to <emphasis>_nbytes</emphasis> bytes of data from <emphasis>_stream</emphasis>. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>_stream</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The stream to read from. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">_ptr</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The buffer to store the data in. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>_nbytes</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The maximum number of bytes to read. This function may return fewer, though it will not return zero unless it reaches end-of-file. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The number of bytes successfully read, or a negative value on error. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="includes/personnal/opusfile.h" line="826" column="1" bodyfile="includes/personnal/opusfile.h" bodystart="826" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="group__stream__callbacks_1gae57cb396d1f193d3f4e7e56ddad7760e" prot="public" static="no">
+        <type>int(*</type>
+        <definition>typedef int(* op_seek_func) (void *_stream, opus_int64 _offset, int _whence)</definition>
+        <argsstring>)(void *_stream, opus_int64 _offset, int _whence)</argsstring>
+        <name>op_seek_func</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets the position indicator for <emphasis>_stream</emphasis>. The new position, measured in bytes, is obtained by adding <emphasis>_offset</emphasis> bytes to the position specified by <emphasis>_whence</emphasis>. If <emphasis>_whence</emphasis> is set to <computeroutput>SEEK_SET</computeroutput>, <computeroutput>SEEK_CUR</computeroutput>, or <computeroutput>SEEK_END</computeroutput>, the offset is relative to the start of the stream, the current position indicator, or end-of-file, respectively. <parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Success. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>-1</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Seeking is not supported or an error occurred. <computeroutput>errno</computeroutput> need not be set. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="includes/personnal/opusfile.h" line="837" column="1" bodyfile="includes/personnal/opusfile.h" bodystart="837" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="group__stream__callbacks_1gaca012812dea4bc3a27b0c23575efecaf" prot="public" static="no">
+        <type>opus_int64(*</type>
+        <definition>typedef opus_int64(* op_tell_func) (void *_stream)</definition>
+        <argsstring>)(void *_stream)</argsstring>
+        <name>op_tell_func</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Obtains the current value of the position indicator for <emphasis>_stream</emphasis>. <simplesect kind="return"><para>The current position indicator. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="includes/personnal/opusfile.h" line="841" column="1" bodyfile="includes/personnal/opusfile.h" bodystart="841" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="group__stream__callbacks_1ga16c914ec90d301f125cdbeaa1ff57c2d" prot="public" static="no">
+        <type>int(*</type>
+        <definition>typedef int(* op_close_func) (void *_stream)</definition>
+        <argsstring>)(void *_stream)</argsstring>
+        <name>op_close_func</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Closes the underlying stream. <parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Success. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>EOF</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>An error occurred. <computeroutput>errno</computeroutput> need not be set. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="includes/personnal/opusfile.h" line="847" column="1" bodyfile="includes/personnal/opusfile.h" bodystart="847" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__stream__callbacks_1ga8b3714e33b1459b43445b99b55cbe75f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>OP_WARN_UNUSED_RESULT void *</type>
+        <definition>OP_WARN_UNUSED_RESULT void* op_fopen</definition>
+        <argsstring>(OpusFileCallbacks *_cb, const char *_path, const char *_mode) OP_ARG_NONNULL(1) OP_ARG_NONNULL(2) OP_ARG_NONNULL(3)</argsstring>
+        <name>op_fopen</name>
+        <param>
+          <type><ref refid="struct_opus_file_callbacks" kindref="compound">OpusFileCallbacks</ref> *</type>
+          <declname>_cb</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>_path</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>_mode</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Opens a stream with <computeroutput>fopen()</computeroutput> and fills in a set of callbacks that can be used to access it. This is useful to avoid writing your own portable 64-bit seeking wrappers, and also avoids cross-module linking issues on Windows, where a <computeroutput>FILE *</computeroutput> must be accessed by routines defined in the same module that opened it. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="out">_cb</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The callbacks to use for this file. If there is an error opening the file, nothing will be filled in here. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>_path</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The path to the file to open. On Windows, this string must be UTF-8 (to allow access to files whose names cannot be represented in the current MBCS code page). All other systems use the native character encoding. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>_mode</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The mode to open the file in. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A stream handle to use with the callbacks, or <computeroutput>NULL</computeroutput> on error. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="includes/personnal/opusfile.h" line="890" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__stream__callbacks_1gac1843b587e14570e616f8cc7c4501961" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>OP_WARN_UNUSED_RESULT void *</type>
+        <definition>OP_WARN_UNUSED_RESULT void* op_fdopen</definition>
+        <argsstring>(OpusFileCallbacks *_cb, int _fd, const char *_mode) OP_ARG_NONNULL(1) OP_ARG_NONNULL(3)</argsstring>
+        <name>op_fdopen</name>
+        <param>
+          <type><ref refid="struct_opus_file_callbacks" kindref="compound">OpusFileCallbacks</ref> *</type>
+          <declname>_cb</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>_fd</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>_mode</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Opens a stream with <computeroutput>fdopen()</computeroutput> and fills in a set of callbacks that can be used to access it. This is useful to avoid writing your own portable 64-bit seeking wrappers, and also avoids cross-module linking issues on Windows, where a <computeroutput>FILE *</computeroutput> must be accessed by routines defined in the same module that opened it. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="out">_cb</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The callbacks to use for this file. If there is an error opening the file, nothing will be filled in here. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>_fd</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The file descriptor to open. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>_mode</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The mode to open the file in. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A stream handle to use with the callbacks, or <computeroutput>NULL</computeroutput> on error. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="includes/personnal/opusfile.h" line="907" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__stream__callbacks_1gae63ceff71d9602c68f4db1c91b480fde" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>OP_WARN_UNUSED_RESULT void *</type>
+        <definition>OP_WARN_UNUSED_RESULT void* op_freopen</definition>
+        <argsstring>(OpusFileCallbacks *_cb, const char *_path, const char *_mode, void *_stream) OP_ARG_NONNULL(1) OP_ARG_NONNULL(2) OP_ARG_NONNULL(3) OP_ARG_NONNULL(4)</argsstring>
+        <name>op_freopen</name>
+        <param>
+          <type><ref refid="struct_opus_file_callbacks" kindref="compound">OpusFileCallbacks</ref> *</type>
+          <declname>_cb</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>_path</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>_mode</declname>
+        </param>
+        <param>
+          <type>void *</type>
+          <declname>_stream</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Opens a stream with <computeroutput>freopen()</computeroutput> and fills in a set of callbacks that can be used to access it. This is useful to avoid writing your own portable 64-bit seeking wrappers, and also avoids cross-module linking issues on Windows, where a <computeroutput>FILE *</computeroutput> must be accessed by routines defined in the same module that opened it. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="out">_cb</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The callbacks to use for this file. If there is an error opening the file, nothing will be filled in here. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>_path</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The path to the file to open. On Windows, this string must be UTF-8 (to allow access to files whose names cannot be represented in the current MBCS code page). All other systems use the native character encoding. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>_mode</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The mode to open the file in. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>_stream</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A stream previously returned by <ref refid="group__stream__callbacks_1ga8b3714e33b1459b43445b99b55cbe75f" kindref="member">op_fopen()</ref>, <ref refid="group__stream__callbacks_1gac1843b587e14570e616f8cc7c4501961" kindref="member">op_fdopen()</ref>, or <ref refid="group__stream__callbacks_1gae63ceff71d9602c68f4db1c91b480fde" kindref="member">op_freopen()</ref>. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A stream handle to use with the callbacks, or <computeroutput>NULL</computeroutput> on error. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="includes/personnal/opusfile.h" line="929" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__stream__callbacks_1ga83231f1733af83c7940b0262f1a1ffb5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>OP_WARN_UNUSED_RESULT void *</type>
+        <definition>OP_WARN_UNUSED_RESULT void* op_mem_stream_create</definition>
+        <argsstring>(OpusFileCallbacks *_cb, const unsigned char *_data, size_t _size) OP_ARG_NONNULL(1)</argsstring>
+        <name>op_mem_stream_create</name>
+        <param>
+          <type><ref refid="struct_opus_file_callbacks" kindref="compound">OpusFileCallbacks</ref> *</type>
+          <declname>_cb</declname>
+        </param>
+        <param>
+          <type>const unsigned char *</type>
+          <declname>_data</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>_size</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Creates a stream that reads from the given block of memory. This block of memory must contain the complete stream to decode. This is useful for caching small streams (e.g., sound effects) in RAM. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="out">_cb</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The callbacks to use for this stream. If there is an error creating the stream, nothing will be filled in here. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>_data</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The block of memory to read from. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>_size</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The size of the block of memory. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A stream handle to use with the callbacks, or <computeroutput>NULL</computeroutput> on error. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="includes/personnal/opusfile.h" line="943" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__stream__callbacks_1ga33bf9edd6949f8125456b2c8a1591010" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>OP_WARN_UNUSED_RESULT void *</type>
+        <definition>OP_WARN_UNUSED_RESULT void* op_url_stream_vcreate</definition>
+        <argsstring>(OpusFileCallbacks *_cb, const char *_url, va_list _ap) OP_ARG_NONNULL(1) OP_ARG_NONNULL(2)</argsstring>
+        <name>op_url_stream_vcreate</name>
+        <param>
+          <type><ref refid="struct_opus_file_callbacks" kindref="compound">OpusFileCallbacks</ref> *</type>
+          <declname>_cb</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>_url</declname>
+        </param>
+        <param>
+          <type>va_list</type>
+          <declname>_ap</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Creates a stream that reads from the given URL. This function behaves identically to <ref refid="group__stream__callbacks_1ga5c588fac7542057282b50a5bd2dbb35a" kindref="member">op_url_stream_create()</ref>, except that it takes a va_list instead of a variable number of arguments. It does not call the <computeroutput>va_end</computeroutput> macro, and because it invokes the <computeroutput>va_arg</computeroutput> macro, the value of <emphasis>_ap</emphasis> is undefined after the call. <simplesect kind="note"><para>If you use this function, you must link against <computeroutput>libopusurl</computeroutput>. </para></simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="out">_cb</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The callbacks to use for this stream. If there is an error creating the stream, nothing will be filled in here. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>_url</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The URL to read from. Currently only the &lt;file:&gt;, &lt;http:&gt;, and &lt;https:&gt; schemes are supported. Both &lt;http:&gt; and &lt;https:&gt; may be disabled at compile time, in which case opening such URLs will always fail. Currently this only supports URIs. IRIs should be converted to UTF-8 and URL-escaped, with internationalized domain names encoded in punycode, before passing them to this function. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="inout">_ap</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A list of the <ref refid="group__url__options" kindref="compound">optional flags</ref> to use. This is a variable-length list of options terminated with <computeroutput>NULL</computeroutput>. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A stream handle to use with the callbacks, or <computeroutput>NULL</computeroutput> on error. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="includes/personnal/opusfile.h" line="969" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__stream__callbacks_1ga5c588fac7542057282b50a5bd2dbb35a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>OP_WARN_UNUSED_RESULT void *</type>
+        <definition>OP_WARN_UNUSED_RESULT void* op_url_stream_create</definition>
+        <argsstring>(OpusFileCallbacks *_cb, const char *_url,...) OP_ARG_NONNULL(1) OP_ARG_NONNULL(2)</argsstring>
+        <name>op_url_stream_create</name>
+        <param>
+          <type><ref refid="struct_opus_file_callbacks" kindref="compound">OpusFileCallbacks</ref> *</type>
+          <declname>_cb</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>_url</declname>
+        </param>
+        <param>
+          <type>...</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Creates a stream that reads from the given URL. <simplesect kind="note"><para>If you use this function, you must link against <computeroutput>libopusurl</computeroutput>. </para></simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="out">_cb</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The callbacks to use for this stream. If there is an error creating the stream, nothing will be filled in here. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>_url</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The URL to read from. Currently only the &lt;file:&gt;, &lt;http:&gt;, and &lt;https:&gt; schemes are supported. Both &lt;http:&gt; and &lt;https:&gt; may be disabled at compile time, in which case opening such URLs will always fail. Currently this only supports URIs. IRIs should be converted to UTF-8 and URL-escaped, with internationalized domain names encoded in punycode, before passing them to this function. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>...</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The <ref refid="group__url__options" kindref="compound">optional flags</ref> to use. This is a variable-length list of options terminated with <computeroutput>NULL</computeroutput>. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A stream handle to use with the callbacks, or <computeroutput>NULL</computeroutput> on error. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="includes/personnal/opusfile.h" line="991" column="1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

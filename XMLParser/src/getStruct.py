@@ -17,8 +17,7 @@ def getStruct(fileName):
         tmpVar = variableClass()
         tmpVar.name = getters.getName(elem)
         tmpVar.type = getters.getType(elem)
-        tmpVar.briefDesc = getters.getBriefDesc(elem)
-        tmpVar.detailedDesc = getters.getDetailedDesc(elem)
+        tmpVar.desc = getters.getDetailedDesc(elem)
         tmpStruct.members.append(tmpVar)
 
     return tmpStruct

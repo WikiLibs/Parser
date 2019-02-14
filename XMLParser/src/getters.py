@@ -13,32 +13,30 @@ def getType(elem):
         elemType = ""
         for token in elem.find("type").itertext():
             elemType += token
-        elemType = strOp.epurStr(elemType)
+        elemType = strOp.removePointerSpace(strOp.epurStr(elemType))
+        return elemType
     except:
         return ""
-    return elemType
 
 
-def getDetailedDesc(param):
+def getDetailedDesc(elem):
     try:
-        detailedDesc = strOp.epurStr(param.find("detaileddescription/para").text)
+        detailedDesc = ""
+        for token in elem.find("detaileddescription").itertext():
+            detailedDesc += token
+        return strOp.epurStr(detailedDesc)
     except:
-        try:
-            detailedDesc = strOp.epurStr(param.find("detaileddescription").text)
-        except:
-            return ""
-    return detailedDesc
+        return ""
 
 
-def getBriefDesc(param):
+def getBriefDesc(elem):
     try:
-        briefDesc = strOp.epurStr(param.find("briefdescription/para").text)
+        briefDesc = ""
+        for token in elem.find("briefdescription").itertext():
+            briefDesc += token
+        return strOp.epurStr(briefDesc)
     except:
-        try:
-            briefDesc = strOp.epurStr(param.find("briefdescription").text)
-        except:
-            return ""
-    return briefDesc
+        return ""
 
 def getParams(elem):
     allVars = []
