@@ -4,7 +4,14 @@ from sys import argv as av
 
 
 
-def parserRefid(path, extend):
+def getRefid(langage, path):
+    dicoLang = {}
+    dicoLang["langage=C"] = ['.h', '.c']
+    dicoLang["langage=Python"] = ['.py']
+    parserRefid(dicoLang.get(langage), path)
+
+
+def parserRefid(extend, path):
     name = []
     root = ET.parse(path).getroot()
     for child in root:
@@ -20,8 +27,7 @@ def parserRefid(path, extend):
 
 # ./pazerRefid opusfile8h.xml
 # def main():
-#     extend = ['.h', '.c']
-#     parserRefid(av[1], extend)
+#     getRefid("langage=C", av[1])
 
 
 
