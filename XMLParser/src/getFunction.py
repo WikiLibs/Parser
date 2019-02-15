@@ -8,7 +8,7 @@ def getFunction(elem):
     tmpFunction.name = getters.getName(elem)
     tmpFunction.returnType = getters.getType(elem)
     tmpFunction.returnComment = getters.getReturnComment(elem)
-    tmpFunction.params = getters.getParams(elem)
+    params = getters.getParams(elem)
     tmpFunction.briefDesc = getters.getBriefDesc(elem)
     tmpFunction.detailedDesc = getters.removeFromDetailedDescParams(getters.getDetailedDesc(elem), getters.getParamsName(elem))
     
