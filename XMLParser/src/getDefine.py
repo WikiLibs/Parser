@@ -1,7 +1,7 @@
 import re
-import src.strOperations as strOp
-from src.classes import defineClass
-import src.getters as getters
+import strOperations as strOp
+from classes import defineClass
+import getters as getters
 
 
 def getDefine(define):

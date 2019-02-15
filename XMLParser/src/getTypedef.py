@@ -1,5 +1,5 @@
-from src.classes import typedefClass
-import src.getters as getters
+from classes import typedefClass
+import getters as getters
 
 def getTypedef(elem):
     tmpTypedef = typedefClass()

@@ -1,6 +1,6 @@
-from src.classes import functionClass
-import src.getters as getters
-import src.strOperations as strOp
+from classes import functionClass
+import getters as getters
+import strOperations as strOp
 
 def getFunction(elem):
     tmpFunction = functionClass()

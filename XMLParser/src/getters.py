@@ -1,5 +1,5 @@
-import src.strOperations as strOp
-from src.classes import variableClass
+import strOperations as strOp
+from classes import variableClass
 
 
 def getCompoundName(elem):

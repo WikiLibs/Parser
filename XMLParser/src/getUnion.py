@@ -1,8 +1,8 @@
 import xml.etree.ElementTree as ET
-from src.classes import unionClass
-from src.classes import variableClass
-import src.strOperations as strOp
-import src.getters as getters
+from classes import unionClass
+from classes import variableClass
+import strOperations as strOp
+import getters as getters
 
 
 def getUnion(fileName):
