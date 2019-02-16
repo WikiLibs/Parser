@@ -49,26 +49,6 @@ def getBriefDesc(elem):
         return ""
 
 
-'''def getParams(elem):
-    allVars = []
-    i = 0
-
-    for token in elem.findall("param"):
-        try:
-            tmpVar = variableClass()
-            tmpVar.name = strOp.epurStr(token.find("declname").text)
-            tmpVar.type = strOp.epurStr(token.find("type").text)
-            try:
-                tmpVar.desc = elem.findall("./detaileddescription/para/parameterlist/parameteritem")[i].find("./parameterdescription/para").text
-            except:
-                pass
-            allVars.append(tmpVar)
-            i += 1
-        except:
-            pass
-    return allVars'''
-
-
 def getReturnDesc(elem):
     try:
         tmp = ""
