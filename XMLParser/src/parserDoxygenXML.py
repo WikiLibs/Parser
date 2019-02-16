@@ -33,5 +33,5 @@ def parseXMLFile(filename):
             unions.append(getUnion("xml/" + refid + ".xml"))
     
     #printData.printStructures(structs)
-    #printData.printDefines(defines)
-    printData.printFunctions(functions)
+    printData.printDefines(defines)
+    #printData.printFunctions(functions)

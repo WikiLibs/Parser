@@ -34,11 +34,12 @@ class unionClass:
 class functionClass:
     def __init__(self):
         self.name = ""
-        self.returnType = ""
-        self.returnComment = ""
-        self.params = []
         self.briefDesc = ""
         self.detailedDesc = ""
+        self.params = []
+        self.returnType = ""
+        self.returnDesc = ""
+        self.returnValues = []
 
 
 class typedefClass:

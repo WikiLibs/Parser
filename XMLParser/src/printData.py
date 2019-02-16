@@ -19,7 +19,7 @@ def printDefines(defines):
         print("brief desc =", elem.briefDesc)
         print("detailed desc =", elem.detailedDesc)
         for param in elem.params:
-            print("\t-", param)
+            print("\t-", param.name)
         print()
 
 def printFunctions(functions):
@@ -27,9 +27,14 @@ def printFunctions(functions):
 
     for elem in functions:
         print("name =", elem.name)
-        print("return type =", elem.returnType)
         print("brief desc =", elem.briefDesc)
         print("detailed desc =", elem.detailedDesc)
+        print("parameters :")
         for param in elem.params:
-            print("\t-", param.type, param.name)
+            print("\t-", param.type, param.name, "(", param.desc, ")")
+        print("return type =", elem.returnType)
+        print("return =", elem.returnDesc)
+        print("return values :")
+        for val in elem.returnValues:
+            print("\t-", val.value, "(", val.desc, ")")
         print()

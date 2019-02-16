@@ -6,10 +6,11 @@ def getFunction(elem):
     tmpFunction = functionClass()
 
     tmpFunction.name = getters.getName(elem)
-    tmpFunction.returnType = getters.getType(elem)
-    tmpFunction.returnComment = getters.getReturnComment(elem)
-    params = getters.getParams(elem)
+    tmpFunction.params = getters.getParamDesc(elem, getters.getParams(elem))
     tmpFunction.briefDesc = getters.getBriefDesc(elem)
-    tmpFunction.detailedDesc = getters.removeFromDetailedDescParams(getters.getDetailedDesc(elem), getters.getParamsName(elem))
+    tmpFunction.detailedDesc = getters.removeFromDetailedDescParams(getters.getDetailedDesc(elem), tmpFunction.params)
+    tmpFunction.returnType = getters.getType(elem)
+    tmpFunction.returnDesc = getters.getReturnDesc(elem)
+    tmpFunction.returnValues = getters.getRetvals(elem)
     
     return tmpFunction
