@@ -26,7 +26,7 @@ def parseXMLFile(filename):
             useful.printVerbose("\tFound function \'" + functions[-1].name + "\'")
         if kind == 'typedef':
             typedefs.append(getTypedef(elem))
-            useful.printVerbose("\tFound typedef \'" + typedefs[-1].tdType + "\'"
+            useful.printVerbose("\tFound typedef \'" + typedefs[-1].tdType + "\'")
 
     for elem in root.iter('innerclass'):
         refid = elem.get("refid")
