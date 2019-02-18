@@ -1,7 +1,7 @@
 import re
 
 def epurStr(string):
-    return re.sub(' +', ' ', string.strip()).strip().replace('\n', '').replace('\r', '')
+    return re.sub(' +', ' ', string.strip()).strip().replace('\n', '').replace('\r', '').replace('\t', '')
 
 def removePointerSpace(string):
     
