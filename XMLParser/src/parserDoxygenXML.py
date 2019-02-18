@@ -7,6 +7,7 @@ from getFunction import getFunction
 from getTypedef import getTypedef
 import printData
 import useful
+from JSONRequestCrafter import JSONRequestCrafter
 
 def parseXMLFile(filename):
     defines = []
@@ -36,7 +37,15 @@ def parseXMLFile(filename):
         if "union" in refid:
             unions.append(getUnion("xml/" + refid + ".xml"))
             useful.printVerbose("\tFound union \'" + unions[-1].name + "\'")
-    
+
+    list = []
+    list.append(defines)
+    list.append(structs)
+    list.append(unions)
+    list.append(functions)
+    list.append(typedefs)
+    JSONRequestCrafter("C", "MyLib", list)
+
     #printData.printStructures(structs)
     #printData.printDefines(defines)
     #printData.printFunctions(functions)
