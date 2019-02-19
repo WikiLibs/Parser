@@ -5,12 +5,15 @@ import os
 import argparse
 import parserDoxygenXML
 import useful
+from tkinter import *
+import PySimpleGUI as sg
 
 
 DESCRIPTION = 'This program will parse a library and send it to the WikiLibs API.'
 LANGUAGE_HELP = 'sets the language used in the library (please check WikiLibs documentation to check the currently supported languages)'
 NAME_HELP = 'sets the name of the library to be send'
 VERBOSE_HELP = 'shows more infos in the output'
+GUI_HELP = 'set this option to use the GUI version'
 
 dicoLang = {
     "C" : [ '.h', '.c' ],
@@ -51,20 +54,28 @@ def getDoxyfileAndRun():
 def deleteFiles():
     os.system('rm -rf Doxyfile xml')
 
-def main():
+def parserArgs():
     argParser = argparse.ArgumentParser(description=DESCRIPTION)
     argParser.add_argument('language', help=LANGUAGE_HELP)
     argParser.add_argument('library_name', help=NAME_HELP)
     argParser.add_argument('-v', '--verbose', help=VERBOSE_HELP, action='store_true')
+    argParser.add_argument('-g', '--gui', help=VERBOSE_HELP, action='store_true')
     args = argParser.parse_args()
 
     if args.verbose:
         useful.verbose = args.verbose
+    if args.gui:
+        event, (args.language, args.library_name,) = sg.Window('WikiLibs Parser').Layout([[sg.Text('Language')], [sg.InputCombo(['C', 'Python'], size=(20, 3))], [sg.Text('Library name')], [sg.InputText('')], [sg.OK(), sg.Cancel()] ]).Read()
     useful.printVerbose("Language = " + args.language)
     useful.printVerbose("Library name = " + args.library_name + "\n")
-
-    getDoxyfileAndRun()
     
+    return args
+
+def main():
+
+    args = parserArgs()    
+    getDoxyfileAndRun()
+
     files = getAllFiles(args.language)
     for filename in files:
         useful.printVerbose("Starting parsing \'" + filename.ogFilename + "\'")
