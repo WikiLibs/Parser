@@ -2,14 +2,12 @@
 
 import sys
 from JSONClasses import SymbolUpdate, SymbolPrototype, SymbolParam, SymbolPath
+from AIClient import AIClient
 
 g_lang = ""
 g_lib = ""
 
-def pushSymbol(path, json) :
-    print(json)
-
-def craftStructRequest(structs) :
+def craftStructRequest(client, structs) :
     global g_lang
     global g_lib
 
@@ -30,32 +28,36 @@ def craftStructRequest(structs) :
             mem_proto.setDescription(member.desc)
             mem_proto.setPrototype(member.type + " " + member.name)
             mem.appendPrototypes(mem_proto)
-            print(g_lang + "/" + g_lib + "/" + struct.name + "/" + member.name)
-            print(mem.get_JSON() + "\n")
-        print(g_lang + "/" + g_lib + "/" + struct.name)
-        print(sym.get_JSON() + "\n")
+            path = g_lang + "/" + g_lib + "/" + struct.name + "/" + member.name
+            client.PushSymbol(path, mem)
+            # print(mem.get_JSON() + "\n")
+        path = g_lang + "/" + g_lib + "/" + struct.name
+        client.PushSymbol(path, sym)
+        # print(sym.get_JSON() + "\n")
 
-def craftDefineRequest(defines) :
+def craftDefineRequest(client, defines) :
     global g_lang
     global g_lib
 
+# enlever le define de protextion
     for define in defines :
         sym = SymbolUpdate(define.name)
         sym.setLang(g_lang)
         sym.setType("macro")
         sym_proto = SymbolPrototype(define.name)
         sym_proto.setDescription(define.detailedDesc)
-        sym_proto.setPrototype("define " + define.name)
+        sym_proto.setPrototype("#define " + define.name + " " + define.initializer)
         for param in define.params :
             sym_param = SymbolParam(param.name)
             sym_param.setPrototype(param.name)
             sym_param.setDescription(param.desc)
             sym_proto.appendParameters(sym_param)
         sym.appendPrototypes(sym_proto)
-        print(g_lang + "/" + g_lib + "/" + define.name)
-        print(sym.get_JSON() + "\n")
+        path = g_lang + "/" + g_lib + "/" + define.name
+        client.PushSymbol(path, sym)
+        # print(sym.get_JSON() + "\n")
 
-def craftUnionRequest(unions) :
+def craftUnionRequest(client, unions) :
     global g_lang
     global g_lib
 
@@ -76,12 +78,14 @@ def craftUnionRequest(unions) :
             mem_proto.setDescription(member.desc)
             mem_proto.setPrototype(member.type + " " + member.name)
             mem.appendPrototypes(mem_proto)
-            print(g_lang + "/" + g_lib + "/" + union.name + "/" + member.name)
-            print(mem.get_JSON() + "\n")
-        print(g_lang + "/" + g_lib + "/" + union.name)
-        print(sym.get_JSON() + "\n")
+            path = g_lang + "/" + g_lib + "/" + union.name + "/" + member.name
+            client.PushSymbol(path, mem)
+            # print(mem.get_JSON() + "\n")
+        path = g_lang + "/" + g_lib + "/" + union.name
+        client.PushSymbol(path, sym)
+        # print(sym.get_JSON() + "\n")
 
-def craftFunctionRequest(functions) :
+def craftFunctionRequest(client, functions) :
     global g_lang
     global g_lib
 
@@ -93,9 +97,9 @@ def craftFunctionRequest(functions) :
         sym_proto.setDescription(function.detailedDesc)
         buf = function.returnType + " " + function.name + "("
         for i in range(0, len(function.params)) :
-                if i != 0 :
-                        buf += ", "
-                buf += function.params[i].type + " " + function.params[i].name
+            if i != 0 :
+                buf += ", "
+            buf += function.params[i].type + " " + function.params[i].name
         buf += ")"
         sym_proto.setPrototype(buf)
         par_proto = SymbolParam("return")
@@ -103,16 +107,17 @@ def craftFunctionRequest(functions) :
         par_proto.setPrototype("return")
         sym_proto.appendParameters(par_proto)
         for param in function.params :
-                par_proto = SymbolParam(param.name)
-                par_proto.setDescription(param.desc)
-                par_proto.setPrototype(param.type + " " + param.name)
-                # par_proto.setPath(g_lang + "/" + g_lib + "/" + function.name + "/" + param.name)
-                sym_proto.appendParameters(par_proto)
+            par_proto = SymbolParam(param.name)
+            par_proto.setDescription(param.desc)
+            par_proto.setPrototype(param.type + " " + param.name)
+            # par_proto.setPath(g_lang + "/" + g_lib + "/" + function.name + "/" + param.name)
+            sym_proto.appendParameters(par_proto)
         sym.appendPrototypes(sym_proto)
-        print(g_lang + "/" + g_lib + "/" + function.name)
-        print(sym.get_JSON() + "\n")
+        path = g_lang + "/" + g_lib + "/" + function.name
+        client.PushSymbol(path, sym)
+        # print(sym.get_JSON() + "\n")
 
-def craftTypedefRequest(typedefs) :
+def craftTypedefRequest(client, typedefs) :
     global g_lang
     global g_lib
 
@@ -124,8 +129,9 @@ def craftTypedefRequest(typedefs) :
         sym_proto.setDescription(typedef.detailedDesc)
         sym_proto.setPrototype("typedef " + typedef.tdName + " " + typedef.tdType)
         sym.appendPrototypes(sym_proto)
-        print(g_lang + "/" + g_lib + "/" + typedef.tdName)
-        print(sym.get_JSON() + "\n")
+        path = g_lang + "/" + g_lib + "/" + typedef.tdName
+        client.PushSymbol(path, sym)
+        # print(sym.get_JSON() + "\n")
 
 def JSONRequestCrafter(lang, lib, rawData) :
     global g_lang
@@ -133,8 +139,9 @@ def JSONRequestCrafter(lang, lib, rawData) :
 
     g_lang = lang
     g_lib = lib
-    craftDefineRequest(rawData[0])
-    craftStructRequest(rawData[1])
-    craftUnionRequest(rawData[2])
-    craftFunctionRequest(rawData[3])
-    craftTypedefRequest(rawData[4])
+    client = rawData[0]
+    craftDefineRequest(client, rawData[1])
+    craftStructRequest(client, rawData[2])
+    craftUnionRequest(client, rawData[3])
+    craftFunctionRequest(client, rawData[4])
+    craftTypedefRequest(client, rawData[5])
