@@ -9,7 +9,7 @@ import printData
 import useful
 from JSONRequestCrafter import JSONRequestCrafter
 
-def parseXMLFile(filename):
+def parseXMLFile(filename, lang, libname):
     defines = []
     structs = []
     unions = []
@@ -44,7 +44,7 @@ def parseXMLFile(filename):
     list.append(unions)
     list.append(functions)
     list.append(typedefs)
-    #JSONRequestCrafter("C", "MyLib", list)
+    #JSONRequestCrafter(lang, libname, list)
 
     #printData.printStructures(structs)
     #printData.printDefines(defines)

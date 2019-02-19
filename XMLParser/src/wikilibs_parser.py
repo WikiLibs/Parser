@@ -68,7 +68,7 @@ def main():
     files = getAllFiles(args.language)
     for filename in files:
         useful.printVerbose("Starting parsing \'" + filename.ogFilename + "\'")
-        parserDoxygenXML.parseXMLFile(filename.xmlFilename)
+        parserDoxygenXML.parseXMLFile(filename.xmlFilename, args.language, args.library_name)
     
     deleteFiles()
 
