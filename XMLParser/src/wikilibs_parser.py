@@ -1,8 +1,11 @@
 #!/usr/bin/env python3.6
 import xml.etree.ElementTree as ET
+from urllib.request import urlopen
+import os
 import argparse
 import parserDoxygenXML
 import useful
+
 
 DESCRIPTION = 'This program will parse a library and send it to the WikiLibs API.'
 LANGUAGE_HELP = 'sets the language used in the library (please check WikiLibs documentation to check the currently supported languages)'
@@ -39,6 +42,14 @@ def getAllFiles(language):
     useful.printVerbose("")
     return files
 
+def getDoxyfileAndRun():
+    url = 'https://yuristudio.net/Doxyfile'
+    with open('./Doxyfile', 'wb') as fd:
+        fd.write(urlopen(url).read())
+    os.system('doxygen Doxyfile > /dev/null')
+
+def deleteFiles():
+    os.system('rm -rf Doxyfile xml')
 
 def main():
     argParser = argparse.ArgumentParser(description=DESCRIPTION)
@@ -52,10 +63,14 @@ def main():
     useful.printVerbose("Language = " + args.language)
     useful.printVerbose("Library name = " + args.library_name + "\n")
 
+    getDoxyfileAndRun()
+    
     files = getAllFiles(args.language)
     for filename in files:
         useful.printVerbose("Starting parsing \'" + filename.ogFilename + "\'")
         parserDoxygenXML.parseXMLFile(filename.xmlFilename)
+    
+    deleteFiles()
 
 if __name__ == '__main__':
     main()

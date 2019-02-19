@@ -44,7 +44,7 @@ def parseXMLFile(filename):
     list.append(unions)
     list.append(functions)
     list.append(typedefs)
-    JSONRequestCrafter("C", "MyLib", list)
+    #JSONRequestCrafter("C", "MyLib", list)
 
     #printData.printStructures(structs)
     #printData.printDefines(defines)
