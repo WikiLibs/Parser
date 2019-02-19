@@ -1,0 +1,491 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.8.13">
+  <compound refid="class_a_i_client_1_1_a_i_client" kind="class"><name>AIClient::AIClient</name>
+    <member refid="class_a_i_client_1_1_a_i_client_1ac24f7996b11bfe41fdb56dc11518310b" kind="variable"><name>x</name></member>
+    <member refid="class_a_i_client_1_1_a_i_client_1a9f284ae2be30ea461cf851f3a4461d2a" kind="variable"><name>y</name></member>
+    <member refid="class_a_i_client_1_1_a_i_client_1aaad861aaf7a11d5e94318f58f035db23" kind="variable"><name>headers</name></member>
+    <member refid="class_a_i_client_1_1_a_i_client_1aced0b8aa6c29b76c1904395854234865" kind="variable"><name>res</name></member>
+    <member refid="class_a_i_client_1_1_a_i_client_1a4f93dc2e04657dd744ff324eb3cd64e7" kind="variable"><name>token</name></member>
+    <member refid="class_a_i_client_1_1_a_i_client_1ac5b23c0debc1a63af186b0ee15eb05c5" kind="variable"><name>User</name></member>
+    <member refid="class_a_i_client_1_1_a_i_client_1a95fa53b7916f77f46cf3bf8af5957133" kind="variable"><name>Pass</name></member>
+    <member refid="class_a_i_client_1_1_a_i_client_1a22a95809d87b522de99d9d743e63a9b7" kind="function"><name>__init__</name></member>
+    <member refid="class_a_i_client_1_1_a_i_client_1aaf0ea6bba93ab159c736e4b2b14b5f6f" kind="function"><name>PushSymbol</name></member>
+  </compound>
+  <compound refid="classclasses_1_1define_class" kind="class"><name>classes::defineClass</name>
+    <member refid="classclasses_1_1define_class_1a55583c36d1ebe6b19cbf25e64d71d1db" kind="variable"><name>name</name></member>
+    <member refid="classclasses_1_1define_class_1a81a43a637686d346f8cebc53ecf193d2" kind="variable"><name>initializer</name></member>
+    <member refid="classclasses_1_1define_class_1a4f3f8d11c9cefed2f729e14f6ab14111" kind="variable"><name>params</name></member>
+    <member refid="classclasses_1_1define_class_1a1b72ba9a30129be4f2e33a7622b61388" kind="variable"><name>briefDesc</name></member>
+    <member refid="classclasses_1_1define_class_1aa72bc08ac33298c1812fce162ad27084" kind="variable"><name>detailedDesc</name></member>
+    <member refid="classclasses_1_1define_class_1ac4df770bf6538843683da30d64e392a3" kind="function"><name>__init__</name></member>
+  </compound>
+  <compound refid="classwikilibs__parser_1_1files_class" kind="class"><name>wikilibs_parser::filesClass</name>
+    <member refid="classwikilibs__parser_1_1files_class_1a784b4ff6d6122ae14f0f1beb8b40050f" kind="variable"><name>ogFilename</name></member>
+    <member refid="classwikilibs__parser_1_1files_class_1a7ed6484ee9e8e481883e12c0eb90dcb2" kind="variable"><name>xmlFilename</name></member>
+  </compound>
+  <compound refid="classclasses_1_1function_class" kind="class"><name>classes::functionClass</name>
+    <member refid="classclasses_1_1function_class_1acf4d1582a93a50f242c6b14dae5d28db" kind="variable"><name>name</name></member>
+    <member refid="classclasses_1_1function_class_1ab92b0ff5792253298283b9486c343943" kind="variable"><name>briefDesc</name></member>
+    <member refid="classclasses_1_1function_class_1a8ee48288f482d44ce27875a60d928ee7" kind="variable"><name>detailedDesc</name></member>
+    <member refid="classclasses_1_1function_class_1ad09fecb0a6ed2d7c0c99d2a651388269" kind="variable"><name>params</name></member>
+    <member refid="classclasses_1_1function_class_1a39d232c0b3ff837c0c62ccaba7b13596" kind="variable"><name>returnType</name></member>
+    <member refid="classclasses_1_1function_class_1a71233077a11f851b3d1cef724a65aa45" kind="variable"><name>returnDesc</name></member>
+    <member refid="classclasses_1_1function_class_1a716492867f070e8b2d620265eeb9533e" kind="variable"><name>returnValues</name></member>
+    <member refid="classclasses_1_1function_class_1a901bdcc29dcf1fb694ff36ca8ed20806" kind="function"><name>__init__</name></member>
+  </compound>
+  <compound refid="struct_opus_file_callbacks" kind="struct"><name>OpusFileCallbacks</name>
+    <member refid="struct_opus_file_callbacks_1a602ea09a84743a8f4fdc76ab7c0b6ee6" kind="variable"><name>read</name></member>
+    <member refid="struct_opus_file_callbacks_1acf98bb1d13f75d3770206a398be05c8f" kind="variable"><name>seek</name></member>
+    <member refid="struct_opus_file_callbacks_1a1464ae2f33850101add14a7eb278ff1c" kind="variable"><name>tell</name></member>
+    <member refid="struct_opus_file_callbacks_1a04548cff8eda8ab0322f47cb702fe889" kind="variable"><name>close</name></member>
+  </compound>
+  <compound refid="struct_opus_head" kind="struct"><name>OpusHead</name>
+    <member refid="struct_opus_head_1a9b0e040fc6404ddc2b1fdbccf505f71e" kind="variable"><name>version</name></member>
+    <member refid="struct_opus_head_1ae3b3fc1a70e6b037c1d1d416fbdf2c8d" kind="variable"><name>channel_count</name></member>
+    <member refid="struct_opus_head_1ab448d3d3289d99f01dca8f19e878d57f" kind="variable"><name>pre_skip</name></member>
+    <member refid="struct_opus_head_1a73b80a913eca33d829f1667caee80d9e" kind="variable"><name>input_sample_rate</name></member>
+    <member refid="struct_opus_head_1a1f1c9e144ab05fe281f088d3e73eeab2" kind="variable"><name>output_gain</name></member>
+    <member refid="struct_opus_head_1a338268b4264e059ae9ede890e6177304" kind="variable"><name>mapping_family</name></member>
+    <member refid="struct_opus_head_1a241b040792d2181f3ff6fa7e9911ac40" kind="variable"><name>stream_count</name></member>
+    <member refid="struct_opus_head_1a0b3e512ec24c989b0374358446197782" kind="variable"><name>coupled_count</name></member>
+    <member refid="struct_opus_head_1ac6372a8a1729b034308bae47253d94b7" kind="variable"><name>mapping</name></member>
+  </compound>
+  <compound refid="struct_opus_picture_tag" kind="struct"><name>OpusPictureTag</name>
+    <member refid="struct_opus_picture_tag_1a6e668caeb395b1ec7d438d4a4a9fa845" kind="variable"><name>type</name></member>
+    <member refid="struct_opus_picture_tag_1ace7f4978d815b186f6aebefed938c9e2" kind="variable"><name>mime_type</name></member>
+    <member refid="struct_opus_picture_tag_1aa32d8bfcd831aa218b0de6d6af92dc08" kind="variable"><name>description</name></member>
+    <member refid="struct_opus_picture_tag_1a805d4de3372bac983cadbd916350ddd6" kind="variable"><name>width</name></member>
+    <member refid="struct_opus_picture_tag_1a2de29a7eef41d13031c70786665eb638" kind="variable"><name>height</name></member>
+    <member refid="struct_opus_picture_tag_1a9af23c314edf9a995c95a4d28f49eac0" kind="variable"><name>depth</name></member>
+    <member refid="struct_opus_picture_tag_1a6fe2f98151fa32a8e2fd13f9309bd1a2" kind="variable"><name>colors</name></member>
+    <member refid="struct_opus_picture_tag_1aaa458d48cd3c9c86b54614389f5b726d" kind="variable"><name>data_length</name></member>
+    <member refid="struct_opus_picture_tag_1a0514cb1431547c8b3042b9f3bc9b694f" kind="variable"><name>data</name></member>
+    <member refid="struct_opus_picture_tag_1aba2d71a09ecf0999cf5faf7c2276fb37" kind="variable"><name>format</name></member>
+  </compound>
+  <compound refid="struct_opus_server_info" kind="struct"><name>OpusServerInfo</name>
+    <member refid="struct_opus_server_info_1a6c1e013bd64991b75709ef1d76f962b6" kind="variable"><name>name</name></member>
+    <member refid="struct_opus_server_info_1ab16d58f0d67d6473e12629676e2641ca" kind="variable"><name>description</name></member>
+    <member refid="struct_opus_server_info_1a293431ddf20c3baa3a4751ad08f518bb" kind="variable"><name>genre</name></member>
+    <member refid="struct_opus_server_info_1a7f9aef47413c849bb240ef70394401b1" kind="variable"><name>url</name></member>
+    <member refid="struct_opus_server_info_1a7aa583abd214ca9cefab6c1c99097202" kind="variable"><name>server</name></member>
+    <member refid="struct_opus_server_info_1a5f0120b006af1122cbdc72f3cbb68fd7" kind="variable"><name>content_type</name></member>
+    <member refid="struct_opus_server_info_1a1cf5db210f1cad5cf809bf54ddff68de" kind="variable"><name>bitrate_kbps</name></member>
+    <member refid="struct_opus_server_info_1a9e81d2992f3009847c30bb4b0dc5c7de" kind="variable"><name>is_public</name></member>
+    <member refid="struct_opus_server_info_1a3bce31c0a77548625a4d8125251e9b11" kind="variable"><name>is_ssl</name></member>
+  </compound>
+  <compound refid="struct_opus_tags" kind="struct"><name>OpusTags</name>
+    <member refid="struct_opus_tags_1ad53d571bd8b23691089242e4e161358a" kind="variable"><name>user_comments</name></member>
+    <member refid="struct_opus_tags_1aa99547abb03d7dbe0cd7095d8b706170" kind="variable"><name>comment_lengths</name></member>
+    <member refid="struct_opus_tags_1a65c37166930a1f5d682fa6c863fc28c6" kind="variable"><name>comments</name></member>
+    <member refid="struct_opus_tags_1af6ff133dfd801934d981bc5905dae0bd" kind="variable"><name>vendor</name></member>
+  </compound>
+  <compound refid="classclasses_1_1struct_class" kind="class"><name>classes::structClass</name>
+    <member refid="classclasses_1_1struct_class_1a7eda33e02de70a47af425ba767e516df" kind="variable"><name>name</name></member>
+    <member refid="classclasses_1_1struct_class_1a2549c0243d8490ddcb2bc2bf3a3aeab4" kind="variable"><name>members</name></member>
+    <member refid="classclasses_1_1struct_class_1a7de7efed02922a58fdd215ef7deb8123" kind="variable"><name>briefDesc</name></member>
+    <member refid="classclasses_1_1struct_class_1a47891a86a8a1f6637efd6964d0621400" kind="variable"><name>detailedDesc</name></member>
+    <member refid="classclasses_1_1struct_class_1a6d87e3bdcf233d643eec7338a5b58b5b" kind="function"><name>__init__</name></member>
+  </compound>
+  <compound refid="class_j_s_o_n_classes_1_1_symbol_param" kind="class"><name>JSONClasses::SymbolParam</name>
+    <member refid="class_j_s_o_n_classes_1_1_symbol_param_1a86f8971441b7eee80ccdb3bf08cffb87" kind="variable"><name>__prototype</name></member>
+    <member refid="class_j_s_o_n_classes_1_1_symbol_param_1a93871ccda6d07f9dfe9c9d4dad34526c" kind="variable"><name>__description</name></member>
+    <member refid="class_j_s_o_n_classes_1_1_symbol_param_1a306c9a51ecce642adb168f1c82a279c7" kind="variable"><name>__path</name></member>
+    <member refid="class_j_s_o_n_classes_1_1_symbol_param_1addab8ce569669cd125f2a11e348ca819" kind="variable"><name>__prototype</name></member>
+    <member refid="class_j_s_o_n_classes_1_1_symbol_param_1ac9747509f21d117e4cd6a8d33e978b43" kind="variable"><name>__description</name></member>
+    <member refid="class_j_s_o_n_classes_1_1_symbol_param_1af81deeff6c3edeb781b5e754fb3ab9f6" kind="variable"><name>__path</name></member>
+    <member refid="class_j_s_o_n_classes_1_1_symbol_param_1a962bd6483aed4f7471a6b00e98a28a53" kind="variable"><name>path</name></member>
+    <member refid="class_j_s_o_n_classes_1_1_symbol_param_1a5396a2b8d02d72bf515d6cddaf954009" kind="function"><name>__init__</name></member>
+    <member refid="class_j_s_o_n_classes_1_1_symbol_param_1a6ef4606dc1ea8a77cb168fdc9a1138ce" kind="function"><name>setPrototype</name></member>
+    <member refid="class_j_s_o_n_classes_1_1_symbol_param_1a4d38454d4df61b0e1401b0a2794e1180" kind="function"><name>setDescription</name></member>
+    <member refid="class_j_s_o_n_classes_1_1_symbol_param_1aca7411ce2654ead368eb305a6837dc2e" kind="function"><name>setPath</name></member>
+    <member refid="class_j_s_o_n_classes_1_1_symbol_param_1a801dff00ecddb8c9f1c8a01036245ea2" kind="function"><name>get_JSON</name></member>
+  </compound>
+  <compound refid="class_j_s_o_n_classes_1_1_symbol_path" kind="class"><name>JSONClasses::SymbolPath</name>
+    <member refid="class_j_s_o_n_classes_1_1_symbol_path_1aeb56a5cbfcd1a6bd96dc8f06da7b9439" kind="variable"><name>__path</name></member>
+    <member refid="class_j_s_o_n_classes_1_1_symbol_path_1a8105365163089368933694245e592c14" kind="variable"><name>__path</name></member>
+    <member refid="class_j_s_o_n_classes_1_1_symbol_path_1aeed1b6b48d642c6aeede9029d2889d8b" kind="function"><name>__init__</name></member>
+    <member refid="class_j_s_o_n_classes_1_1_symbol_path_1a958d5eb37c8bc05c3ff46e7546299ec5" kind="function"><name>setPath</name></member>
+  </compound>
+  <compound refid="class_j_s_o_n_classes_1_1_symbol_prototype" kind="class"><name>JSONClasses::SymbolPrototype</name>
+    <member refid="class_j_s_o_n_classes_1_1_symbol_prototype_1a65b873ae96e8566b6143840007eb8e24" kind="variable"><name>__prototype</name></member>
+    <member refid="class_j_s_o_n_classes_1_1_symbol_prototype_1a94ef423cf53b3640b0cf5e27e6a993cf" kind="variable"><name>__description</name></member>
+    <member refid="class_j_s_o_n_classes_1_1_symbol_prototype_1a4e25fb2a86164baddb59704ea13be6fb" kind="variable"><name>__parameters</name></member>
+    <member refid="class_j_s_o_n_classes_1_1_symbol_prototype_1a1be018ece83d579dda1dba244205ca26" kind="variable"><name>__prototype</name></member>
+    <member refid="class_j_s_o_n_classes_1_1_symbol_prototype_1a20381eed4fbbd2e8e32ac9e040b0f91c" kind="variable"><name>__description</name></member>
+    <member refid="class_j_s_o_n_classes_1_1_symbol_prototype_1a5ed7d9d2db143473d2f08cd13899f03a" kind="variable"><name>__parameters</name></member>
+    <member refid="class_j_s_o_n_classes_1_1_symbol_prototype_1a0570b3aeccaea5b2ea76db53c04480ad" kind="function"><name>__init__</name></member>
+    <member refid="class_j_s_o_n_classes_1_1_symbol_prototype_1ab39c1919d903917297499dd2b093a176" kind="function"><name>setPrototype</name></member>
+    <member refid="class_j_s_o_n_classes_1_1_symbol_prototype_1acd6f9aa94c4ea026fc0b3b6ce92bd39c" kind="function"><name>setDescription</name></member>
+    <member refid="class_j_s_o_n_classes_1_1_symbol_prototype_1aa877e201f45591f761b55bd0234c3f90" kind="function"><name>appendParameters</name></member>
+    <member refid="class_j_s_o_n_classes_1_1_symbol_prototype_1a86be47fe5a98150adcba2dfb098e3351" kind="function"><name>get_JSON</name></member>
+  </compound>
+  <compound refid="class_j_s_o_n_classes_1_1_symbol_update" kind="class"><name>JSONClasses::SymbolUpdate</name>
+    <member refid="class_j_s_o_n_classes_1_1_symbol_update_1a4dcf26a3439a965bfb31d21a7df47ea7" kind="variable"><name>__name</name></member>
+    <member refid="class_j_s_o_n_classes_1_1_symbol_update_1aefe09e539f1cfd94b823d10e12db2830" kind="variable"><name>__lang</name></member>
+    <member refid="class_j_s_o_n_classes_1_1_symbol_update_1a371da8782a4934e63446658058d1a1e6" kind="variable"><name>__type</name></member>
+    <member refid="class_j_s_o_n_classes_1_1_symbol_update_1afbb69bddf8962cb65616206eca1dff29" kind="variable"><name>__prototypes</name></member>
+    <member refid="class_j_s_o_n_classes_1_1_symbol_update_1ac020f6d29f37847f839740fdfa62794e" kind="variable"><name>__symbols</name></member>
+    <member refid="class_j_s_o_n_classes_1_1_symbol_update_1adf6c4df0d119325d14fc5d98def97cb2" kind="variable"><name>__name</name></member>
+    <member refid="class_j_s_o_n_classes_1_1_symbol_update_1a66a321f6d3796da57856f356d062f0cb" kind="variable"><name>__lang</name></member>
+    <member refid="class_j_s_o_n_classes_1_1_symbol_update_1a82991e38b71ae12f313db8683a52429d" kind="variable"><name>__type</name></member>
+    <member refid="class_j_s_o_n_classes_1_1_symbol_update_1a2078d6ed403e2516899c4091c7dc15f6" kind="variable"><name>__prototypes</name></member>
+    <member refid="class_j_s_o_n_classes_1_1_symbol_update_1a3935e07cc883ce08714cda813158bdce" kind="variable"><name>__symbols</name></member>
+    <member refid="class_j_s_o_n_classes_1_1_symbol_update_1a4ca434424403a63ed95f00a569ee2650" kind="function"><name>__init__</name></member>
+    <member refid="class_j_s_o_n_classes_1_1_symbol_update_1a39f4e9d8309c6175d472f38b60f0a979" kind="function"><name>setLang</name></member>
+    <member refid="class_j_s_o_n_classes_1_1_symbol_update_1ad15c826063f7728e70ceb40e2f823cf7" kind="function"><name>setType</name></member>
+    <member refid="class_j_s_o_n_classes_1_1_symbol_update_1a5e040bfdf53cded90a9ddbaf18d7b126" kind="function"><name>appendPrototypes</name></member>
+    <member refid="class_j_s_o_n_classes_1_1_symbol_update_1a60ed6692b1ba503d03278b06bd0e4e09" kind="function"><name>appendSymbols</name></member>
+    <member refid="class_j_s_o_n_classes_1_1_symbol_update_1aabb53a5fe5cadcd936d2b4c45f7cf4f9" kind="function"><name>get_JSON</name></member>
+  </compound>
+  <compound refid="classclasses_1_1typedef_class" kind="class"><name>classes::typedefClass</name>
+    <member refid="classclasses_1_1typedef_class_1abff9aeab2d8d41836bf302fdd905681a" kind="variable"><name>tdType</name></member>
+    <member refid="classclasses_1_1typedef_class_1aae694f86f8812da5187ef7ad78ad5d82" kind="variable"><name>tdName</name></member>
+    <member refid="classclasses_1_1typedef_class_1a6bd4586f7266c655f2d4dac6df5f504e" kind="variable"><name>briefDesc</name></member>
+    <member refid="classclasses_1_1typedef_class_1a95a559d81f91772ceb55472281b99541" kind="variable"><name>detailedDesc</name></member>
+    <member refid="classclasses_1_1typedef_class_1a666550bf803875c9f08ff3e79e69e234" kind="function"><name>__init__</name></member>
+  </compound>
+  <compound refid="classclasses_1_1union_class" kind="class"><name>classes::unionClass</name>
+    <member refid="classclasses_1_1union_class_1a29d6e2caf8c2be6418a645bfd66fdd05" kind="variable"><name>name</name></member>
+    <member refid="classclasses_1_1union_class_1ac08397b90f1ced6637678017a964ab3d" kind="variable"><name>members</name></member>
+    <member refid="classclasses_1_1union_class_1a7581c5de765b6dc0f728577456c852e7" kind="variable"><name>briefDesc</name></member>
+    <member refid="classclasses_1_1union_class_1adfb1fc840931e3014d547394709b5788" kind="variable"><name>detailedDesc</name></member>
+    <member refid="classclasses_1_1union_class_1a0dfbdb622818493cb6c108c15e7ba70b" kind="function"><name>__init__</name></member>
+  </compound>
+  <compound refid="classclasses_1_1variable_class" kind="class"><name>classes::variableClass</name>
+    <member refid="classclasses_1_1variable_class_1a4774b68fd6348891fb5b67c1c78ed11d" kind="variable"><name>name</name></member>
+    <member refid="classclasses_1_1variable_class_1ae6d8fcd25b5346f8d971b26cace99499" kind="variable"><name>type</name></member>
+    <member refid="classclasses_1_1variable_class_1a7fbf53b10fb02bb61eab1f6803cc69c2" kind="variable"><name>value</name></member>
+    <member refid="classclasses_1_1variable_class_1aa52a6ed2f0a47fef4214612fb3569a8c" kind="variable"><name>desc</name></member>
+    <member refid="classclasses_1_1variable_class_1ab9ce12feb3b441feb13f74fa88b960a9" kind="function"><name>__init__</name></member>
+  </compound>
+  <compound refid="namespace_a_i_client" kind="namespace"><name>AIClient</name>
+    <member refid="namespace_a_i_client_1ad88cbbd31a897c385e49dc3e9e130c92" kind="variable"><name>API_URL</name></member>
+    <member refid="namespace_a_i_client_1a7028dbf5baa673429b4c4d54abd47a6a" kind="variable"><name>API_KEY</name></member>
+  </compound>
+  <compound refid="namespaceclasses" kind="namespace"><name>classes</name>
+  </compound>
+  <compound refid="namespaceget_define" kind="namespace"><name>getDefine</name>
+    <member refid="namespaceget_define_1a5d4073a9c6078cb1ca51aa5ec3f07426" kind="function"><name>getDefine</name></member>
+  </compound>
+  <compound refid="namespaceget_function" kind="namespace"><name>getFunction</name>
+    <member refid="namespaceget_function_1a964ea382c42540f7acfbec3e55d4d058" kind="function"><name>getFunction</name></member>
+  </compound>
+  <compound refid="namespaceget_struct" kind="namespace"><name>getStruct</name>
+    <member refid="namespaceget_struct_1ad8434eccf6c50020ef85afcbd55643a1" kind="function"><name>getStruct</name></member>
+  </compound>
+  <compound refid="namespacegetters" kind="namespace"><name>getters</name>
+    <member refid="namespacegetters_1a5a4e0b8ef1e198bf09f55cf1f3ca4969" kind="function"><name>getCompoundName</name></member>
+    <member refid="namespacegetters_1ab686be8e788eea39ec4ef84128a88a0b" kind="function"><name>getName</name></member>
+    <member refid="namespacegetters_1a39272bb9ef7300476aca1f53006677b5" kind="function"><name>getType</name></member>
+    <member refid="namespacegetters_1afa259fcdc01cb230a43a1bfb7b0b56c3" kind="function"><name>getInitializer</name></member>
+    <member refid="namespacegetters_1a32cfdf99e2a5b7b29b925ea6a302d066" kind="function"><name>getDetailedDesc</name></member>
+    <member refid="namespacegetters_1a53689bce0eee28ef626487f1cf872769" kind="function"><name>getBriefDesc</name></member>
+    <member refid="namespacegetters_1a2a26d89e4bb3fae880e89b2d49bc2282" kind="function"><name>getReturnDesc</name></member>
+    <member refid="namespacegetters_1afdba142455f611712c97e4555a0f486b" kind="function"><name>getParams</name></member>
+    <member refid="namespacegetters_1a5eb0b2af61f745f62d246da6abe05a12" kind="function"><name>removeFromDetailedDescParams</name></member>
+    <member refid="namespacegetters_1afb67fb17a8d56970449929769a2e1f2c" kind="function"><name>getParamDesc</name></member>
+    <member refid="namespacegetters_1a41bec2bae913eb0c40864d15f4b5dfb1" kind="function"><name>getRetvals</name></member>
+  </compound>
+  <compound refid="namespaceget_typedef" kind="namespace"><name>getTypedef</name>
+    <member refid="namespaceget_typedef_1a7a41aaae367a4e0bd0ce7cb59be862bd" kind="function"><name>getTypedef</name></member>
+  </compound>
+  <compound refid="namespaceget_union" kind="namespace"><name>getUnion</name>
+    <member refid="namespaceget_union_1ae2486e99ef67a5961ce9f6e33984ade3" kind="function"><name>getUnion</name></member>
+  </compound>
+  <compound refid="namespace_j_s_o_n_classes" kind="namespace"><name>JSONClasses</name>
+  </compound>
+  <compound refid="namespace_j_s_o_n_request_crafter" kind="namespace"><name>JSONRequestCrafter</name>
+    <member refid="namespace_j_s_o_n_request_crafter_1a1011f3685fd34d112db4665461daecb0" kind="variable"><name>g_lang</name></member>
+    <member refid="namespace_j_s_o_n_request_crafter_1a16e28998c2c72e926861e32c40b5df9d" kind="variable"><name>g_lib</name></member>
+    <member refid="namespace_j_s_o_n_request_crafter_1a1c3a16f9a0ecfc60fc4e0685d25a8fde" kind="function"><name>craftStructRequest</name></member>
+    <member refid="namespace_j_s_o_n_request_crafter_1a1c5a694acbbb0cef99f8d72771e08a3e" kind="function"><name>craftDefineRequest</name></member>
+    <member refid="namespace_j_s_o_n_request_crafter_1aa6a5d554b4244792bcfec23d01c0207f" kind="function"><name>craftUnionRequest</name></member>
+    <member refid="namespace_j_s_o_n_request_crafter_1a95888b9a45db1b690df6e19beeb0e476" kind="function"><name>craftFunctionRequest</name></member>
+    <member refid="namespace_j_s_o_n_request_crafter_1aa1a128fc30df1c3521e56782da8f177d" kind="function"><name>craftTypedefRequest</name></member>
+    <member refid="namespace_j_s_o_n_request_crafter_1aa1213f00c2602dab23124520dce9acd1" kind="function"><name>JSONRequestCrafter</name></member>
+  </compound>
+  <compound refid="namespaceparser_doxygen_x_m_l" kind="namespace"><name>parserDoxygenXML</name>
+    <member refid="namespaceparser_doxygen_x_m_l_1afb2dfd0d7eec656e3a6adccafcacd648" kind="function"><name>parseXMLFile</name></member>
+  </compound>
+  <compound refid="namespaceprint_data" kind="namespace"><name>printData</name>
+    <member refid="namespaceprint_data_1a3df1bf7f3e643e386ff6d796145b975c" kind="function"><name>printStructures</name></member>
+    <member refid="namespaceprint_data_1a75b9c367305374e42426b500dce2a221" kind="function"><name>printDefines</name></member>
+    <member refid="namespaceprint_data_1a2748c5815631c5d0754c5139c4fa3c7b" kind="function"><name>printFunctions</name></member>
+    <member refid="namespaceprint_data_1a5dd5eeec860ebac272cef66c257d0609" kind="function"><name>printTypedefs</name></member>
+    <member refid="namespaceprint_data_1af3c868d4cd1924e94c4a8e36863997e4" kind="function"><name>printUnions</name></member>
+  </compound>
+  <compound refid="namespacestr_operations" kind="namespace"><name>strOperations</name>
+    <member refid="namespacestr_operations_1a9df94d8eef52c6bca1702bb2007599a5" kind="function"><name>epurStr</name></member>
+    <member refid="namespacestr_operations_1ab92055c8d7ef30fb008023a6e3f128ef" kind="function"><name>removePointerSpace</name></member>
+  </compound>
+  <compound refid="namespacetkinter" kind="namespace"><name>tkinter</name>
+  </compound>
+  <compound refid="namespaceuseful" kind="namespace"><name>useful</name>
+    <member refid="namespaceuseful_1a29099e4111f2412c3e64c26fe0da7e7d" kind="variable"><name>verbose</name></member>
+    <member refid="namespaceuseful_1a4203af0d12f594f60c7a416f0c166f2a" kind="function"><name>printVerbose</name></member>
+  </compound>
+  <compound refid="namespacewikilibs__parser" kind="namespace"><name>wikilibs_parser</name>
+    <member refid="namespacewikilibs__parser_1a1587da3cf0f4a2a189358bc3d726fe63" kind="variable"><name>DESCRIPTION</name></member>
+    <member refid="namespacewikilibs__parser_1a0bb0cb0e04df639ad310493bfcfb4db0" kind="variable"><name>LANGUAGE_HELP</name></member>
+    <member refid="namespacewikilibs__parser_1a600466aa1d9c0799e89af3b76e2bac0b" kind="variable"><name>NAME_HELP</name></member>
+    <member refid="namespacewikilibs__parser_1af09e4d35cfc44131d98faf34fb86aab5" kind="variable"><name>VERBOSE_HELP</name></member>
+    <member refid="namespacewikilibs__parser_1a9618f60233260b2cf0b2bd2a548a1a88" kind="variable"><name>GUI_HELP</name></member>
+    <member refid="namespacewikilibs__parser_1af52b9c5afb6fe3a6bd37118bab92cb1f" kind="variable"><name>dicoLang</name></member>
+    <member refid="namespacewikilibs__parser_1a0a1a553b93f9ce5a609a361956c56fd9" kind="function"><name>getAllFiles</name></member>
+    <member refid="namespacewikilibs__parser_1a929079d2b21ee527bfa5128568641ec1" kind="function"><name>getDoxyfileAndRun</name></member>
+    <member refid="namespacewikilibs__parser_1af64e6879aea43882e577cd9d603966d5" kind="function"><name>deleteFiles</name></member>
+    <member refid="namespacewikilibs__parser_1a51cc5489b111ebdf5375ed827ea4f3b6" kind="function"><name>parserArgs</name></member>
+    <member refid="namespacewikilibs__parser_1a8f4559af4c852050782b4ffbccb6da05" kind="function"><name>main</name></member>
+  </compound>
+  <compound refid="opusfile_8h" kind="file"><name>opusfile.h</name>
+    <member refid="group__error__codes_1ga4fd28e64a5cbe5e0ba163916199611a5" kind="define"><name>OP_FALSE</name></member>
+    <member refid="group__error__codes_1ga3fdffc8ee880969d99fc862d53c0efd2" kind="define"><name>OP_EOF</name></member>
+    <member refid="group__error__codes_1ga2ac03d35986d3505305d468dd2138b72" kind="define"><name>OP_HOLE</name></member>
+    <member refid="group__error__codes_1ga3ad48a4f99b1bed72acec552296dfc08" kind="define"><name>OP_EREAD</name></member>
+    <member refid="group__error__codes_1ga2ddb887c0bb55c74ea6be391fabcba59" kind="define"><name>OP_EFAULT</name></member>
+    <member refid="group__error__codes_1gaeea27378f826033ca23584d8403665d3" kind="define"><name>OP_EIMPL</name></member>
+    <member refid="group__error__codes_1gae0879acafe9cc0ab72462d291fdb6fb6" kind="define"><name>OP_EINVAL</name></member>
+    <member refid="group__error__codes_1gafca3ae244d24e10b2851c77379453220" kind="define"><name>OP_ENOTFORMAT</name></member>
+    <member refid="group__error__codes_1ga534f1b45c8733a2928434e482b38869f" kind="define"><name>OP_EBADHEADER</name></member>
+    <member refid="group__error__codes_1gaa9ae4494f623f3c0609f0b4bd99b8f32" kind="define"><name>OP_EVERSION</name></member>
+    <member refid="group__error__codes_1ga3a2a6cb4837030d240f326e17dda3c0e" kind="define"><name>OP_ENOTAUDIO</name></member>
+    <member refid="group__error__codes_1gaa3fa0a3e6facc4f47924271e65bb21ff" kind="define"><name>OP_EBADPACKET</name></member>
+    <member refid="group__error__codes_1gaf7b58a439a471366e9eb5b8f2a8cd041" kind="define"><name>OP_EBADLINK</name></member>
+    <member refid="group__error__codes_1gadd54f4d82cfabedb5963331fbe0bc99c" kind="define"><name>OP_ENOSEEK</name></member>
+    <member refid="group__error__codes_1gaf82657fc888f1dcf2e0d8f066b8a6cc7" kind="define"><name>OP_EBADTIMESTAMP</name></member>
+    <member refid="group__header__info_1gade2f09dce6330529fc3c96d1740df653" kind="define"><name>OP_PIC_FORMAT_UNKNOWN</name></member>
+    <member refid="group__header__info_1gaac4ef30a33caf090b9b1a5ada8f48204" kind="define"><name>OP_PIC_FORMAT_URL</name></member>
+    <member refid="group__header__info_1gaf75ae037b78a4a048359261439395450" kind="define"><name>OP_PIC_FORMAT_JPEG</name></member>
+    <member refid="group__header__info_1ga703554b177ae75bd6999bbd30d485d3f" kind="define"><name>OP_PIC_FORMAT_PNG</name></member>
+    <member refid="group__header__info_1gaa7d5e8cb675cb2da840f258b761e7781" kind="define"><name>OP_PIC_FORMAT_GIF</name></member>
+    <member refid="group__header__info_1gac3259b44ac8dfac93c7adf708de96d78" kind="function"><name>opus_head_parse</name></member>
+    <member refid="group__header__info_1gaac9c6e1916fba6e53152b936055d3db0" kind="function"><name>opus_granule_sample</name></member>
+    <member refid="group__header__info_1gaed7c41a177cc7338ffec1e7ae57c59b1" kind="function"><name>opus_tags_parse</name></member>
+    <member refid="group__header__info_1gaceda528fa8f9f9ad1443df2eeeeaa8bf" kind="function"><name>opus_tags_copy</name></member>
+    <member refid="group__header__info_1ga35f993f5a8f11337a6503a2f43996fea" kind="function"><name>opus_tags_init</name></member>
+    <member refid="group__header__info_1ga42bc0321740b618271c4cd0ae076d29a" kind="function"><name>opus_tags_add</name></member>
+    <member refid="group__header__info_1ga76ac5425d8c2ca9a994f84adfcc6cb98" kind="function"><name>opus_tags_add_comment</name></member>
+    <member refid="group__header__info_1gad43a7ed5844debd7d4025335f096bc27" kind="function"><name>opus_tags_query</name></member>
+    <member refid="group__header__info_1ga6e0bbe5a717115180bf4aa596bd0b2d1" kind="function"><name>opus_tags_query_count</name></member>
+    <member refid="group__header__info_1ga093ce83b90c68951f2e6aedc66344ce5" kind="function"><name>opus_tags_get_track_gain</name></member>
+    <member refid="group__header__info_1ga16d4f85561a965d56e0c5177fa129c35" kind="function"><name>opus_tags_clear</name></member>
+    <member refid="group__header__info_1gaad7582aee9be320d26b13f77e7b54106" kind="function"><name>opus_tagcompare</name></member>
+    <member refid="group__header__info_1gabf02fa65e49fde045ef787e42ef7b8c0" kind="function"><name>opus_tagncompare</name></member>
+    <member refid="group__header__info_1ga6487af1d21fe87f4815567d85a27989a" kind="function"><name>opus_picture_tag_parse</name></member>
+    <member refid="group__header__info_1ga09b9724bb7a9abd1d78680bd7d420ec2" kind="function"><name>opus_picture_tag_init</name></member>
+    <member refid="group__header__info_1ga26a732722fc74274d76b855020822852" kind="function"><name>opus_picture_tag_clear</name></member>
+    <member refid="group__url__options_1ga71080150b55e223be2710a0307108b72" kind="define"><name>OP_SSL_SKIP_CERTIFICATE_CHECK</name></member>
+    <member refid="group__url__options_1gab3b517acdb74c0d0b51800af86a58876" kind="define"><name>OP_HTTP_PROXY_HOST</name></member>
+    <member refid="group__url__options_1ga838d23878f4135691684203baa75ed0c" kind="define"><name>OP_HTTP_PROXY_PORT</name></member>
+    <member refid="group__url__options_1gaf0ce8d761ff48697fa0c44a62a445842" kind="define"><name>OP_HTTP_PROXY_USER</name></member>
+    <member refid="group__url__options_1gaad96c33557407e406cca89477b2e7892" kind="define"><name>OP_HTTP_PROXY_PASS</name></member>
+    <member refid="group__url__options_1gacc2e4b086bee832d5d66caf18fd7d659" kind="define"><name>OP_GET_SERVER_INFO</name></member>
+    <member refid="group__url__options_1ga8a8c97266e46504e064bba1a70495738" kind="function"><name>opus_server_info_init</name></member>
+    <member refid="group__url__options_1ga096536e460277fe890acb265d8fdbd63" kind="function"><name>opus_server_info_clear</name></member>
+    <member refid="group__stream__callbacks_1ga9ffca429db1f3b77f2f303f1942188c3" kind="typedef"><name>op_read_func</name></member>
+    <member refid="group__stream__callbacks_1gae57cb396d1f193d3f4e7e56ddad7760e" kind="typedef"><name>op_seek_func</name></member>
+    <member refid="group__stream__callbacks_1gaca012812dea4bc3a27b0c23575efecaf" kind="typedef"><name>op_tell_func</name></member>
+    <member refid="group__stream__callbacks_1ga16c914ec90d301f125cdbeaa1ff57c2d" kind="typedef"><name>op_close_func</name></member>
+    <member refid="group__stream__callbacks_1ga8b3714e33b1459b43445b99b55cbe75f" kind="function"><name>op_fopen</name></member>
+    <member refid="group__stream__callbacks_1gac1843b587e14570e616f8cc7c4501961" kind="function"><name>op_fdopen</name></member>
+    <member refid="group__stream__callbacks_1gae63ceff71d9602c68f4db1c91b480fde" kind="function"><name>op_freopen</name></member>
+    <member refid="group__stream__callbacks_1ga83231f1733af83c7940b0262f1a1ffb5" kind="function"><name>op_mem_stream_create</name></member>
+    <member refid="group__stream__callbacks_1ga33bf9edd6949f8125456b2c8a1591010" kind="function"><name>op_url_stream_vcreate</name></member>
+    <member refid="group__stream__callbacks_1ga5c588fac7542057282b50a5bd2dbb35a" kind="function"><name>op_url_stream_create</name></member>
+    <member refid="group__stream__open__close_1ga54158ed1570a0062cb674115cd3699ab" kind="function"><name>op_test</name></member>
+    <member refid="group__stream__open__close_1ga15866bd0cd7ac77162db3b0428962e75" kind="function"><name>op_open_file</name></member>
+    <member refid="group__stream__open__close_1gaffc5769a1e5977f186f77a1fb08cb248" kind="function"><name>op_open_memory</name></member>
+    <member refid="group__stream__open__close_1ga9a0c2a744653a559b84a5be8f551fe8a" kind="function"><name>op_vopen_url</name></member>
+    <member refid="group__stream__open__close_1gace8a90b60d492f3488ee3f14a7276ddf" kind="function"><name>op_open_url</name></member>
+    <member refid="group__stream__open__close_1ga5b81c0b685f3d3c9c7d7091e5536c759" kind="function"><name>op_open_callbacks</name></member>
+    <member refid="group__stream__open__close_1ga3b12533b35cd3ac0d273c1e0efa35b6f" kind="function"><name>op_test_file</name></member>
+    <member refid="group__stream__open__close_1gae093e19e16871f4cb53532fe1f0c1039" kind="function"><name>op_test_memory</name></member>
+    <member refid="group__stream__open__close_1ga93b438960ec52e13e7c77446f754d016" kind="function"><name>op_vtest_url</name></member>
+    <member refid="group__stream__open__close_1ga8272aa50f50ac63b20333f0a114bb247" kind="function"><name>op_test_url</name></member>
+    <member refid="group__stream__open__close_1gafe0e84414bbd1b511b494b5c5cef3c0f" kind="function"><name>op_test_callbacks</name></member>
+    <member refid="group__stream__open__close_1ga7b7f1c778ce6ced5538ce66e292d894d" kind="function"><name>op_test_open</name></member>
+    <member refid="group__stream__open__close_1gaf494ef9aa761647d8167c49507560d1c" kind="function"><name>op_free</name></member>
+    <member refid="group__stream__info_1ga9272a4a6ac9e01fbc549008f5ff58b4c" kind="function"><name>op_seekable</name></member>
+    <member refid="group__stream__info_1gaaf6ff40725a8bc7e73c9d396ab91837d" kind="function"><name>op_link_count</name></member>
+    <member refid="group__stream__info_1ga41992ce6f066e07609e5fe2ccd961f40" kind="function"><name>op_serialno</name></member>
+    <member refid="group__stream__info_1ga42c829e67c0ce8359bfbfc31a45c04f4" kind="function"><name>op_channel_count</name></member>
+    <member refid="group__stream__info_1gaa433bdeab96315d315269b60ba52b877" kind="function"><name>op_raw_total</name></member>
+    <member refid="group__stream__info_1ga8c228c3d95f2c903ad6cfd2b78d8dad6" kind="function"><name>op_pcm_total</name></member>
+    <member refid="group__stream__info_1gabae95dfa8a278a305213332e295443bb" kind="function"><name>op_head</name></member>
+    <member refid="group__stream__info_1ga4b9b8b62a9fb04aee64c288e106a4822" kind="function"><name>op_tags</name></member>
+    <member refid="group__stream__info_1gabd97a260a6740ea7c2c59ca9ecd592bf" kind="function"><name>op_current_link</name></member>
+    <member refid="group__stream__info_1ga2778b161df6d07abdd642f1a4802cc1c" kind="function"><name>op_bitrate</name></member>
+    <member refid="group__stream__info_1ga7e9e871615055673d5e3c7b4c1dfce80" kind="function"><name>op_bitrate_instant</name></member>
+    <member refid="group__stream__info_1gab857684ab149c6225884ad94c3787561" kind="function"><name>op_raw_tell</name></member>
+    <member refid="group__stream__info_1gae07b8e40d883cd2a43edfec8c5bfa205" kind="function"><name>op_pcm_tell</name></member>
+    <member refid="group__stream__seeking_1gaf83b0fc6cdf94508876a206ab980851a" kind="function"><name>op_raw_seek</name></member>
+    <member refid="group__stream__seeking_1gad4f20d0601c2bab8d724f647673ae92c" kind="function"><name>op_pcm_seek</name></member>
+    <member refid="group__stream__decoding_1ga55ed1cb616d856a47d618fa099c742aa" kind="define"><name>OP_DEC_FORMAT_SHORT</name></member>
+    <member refid="group__stream__decoding_1gac5c6e0837a5d747fd909aff905f5da3f" kind="define"><name>OP_DEC_FORMAT_FLOAT</name></member>
+    <member refid="group__stream__decoding_1gaf421eba19d82d5b0c170b548b8ff79f1" kind="define"><name>OP_DEC_USE_DEFAULT</name></member>
+    <member refid="group__stream__decoding_1ga846edba35e7470251a6a95b1e2364855" kind="define"><name>OP_HEADER_GAIN</name></member>
+    <member refid="group__stream__decoding_1ga51082f7c661488bce9bfdf0e5401fabf" kind="define"><name>OP_TRACK_GAIN</name></member>
+    <member refid="group__stream__decoding_1ga4215354abbd19df9eab5a5380dd96cb0" kind="define"><name>OP_ABSOLUTE_GAIN</name></member>
+    <member refid="group__stream__decoding_1ga81a50874a82484034c22dfeddce177e1" kind="typedef"><name>op_decode_cb_func</name></member>
+    <member refid="group__stream__decoding_1gae0d5b986dff23a82b6002915268ee3d1" kind="function"><name>op_set_decode_callback</name></member>
+    <member refid="group__stream__decoding_1ga7df927613ccf57996319678e08513289" kind="function"><name>op_set_gain_offset</name></member>
+    <member refid="group__stream__decoding_1gac1de9480ad0fa65de778d9c88f62f6f3" kind="function"><name>op_set_dither_enabled</name></member>
+    <member refid="group__stream__decoding_1ga963c917749335e29bb2b698c1cb20a10" kind="function"><name>op_read</name></member>
+    <member refid="group__stream__decoding_1ga73493002d84a234f5e19b70f1dddbe2a" kind="function"><name>op_read_float</name></member>
+    <member refid="group__stream__decoding_1gaaca17ad3fd6430dc8fd43308149428eb" kind="function"><name>op_read_stereo</name></member>
+    <member refid="group__stream__decoding_1ga9736f96563500c0978f56f0fd6bdad83" kind="function"><name>op_read_float_stereo</name></member>
+    <member refid="opusfile_8h_1a7345887d51c7eb440d45438539e85406" kind="define"><name>_opusfile_h</name></member>
+    <member refid="group__header__info_1gad6f0329582430a828244045ac85a5417" kind="define"><name>OPUS_CHANNEL_COUNT_MAX</name></member>
+  </compound>
+  <compound refid="_a_i_client_8py" kind="file"><name>AIClient.py</name>
+  </compound>
+  <compound refid="classes_8py" kind="file"><name>classes.py</name>
+  </compound>
+  <compound refid="get_define_8py" kind="file"><name>getDefine.py</name>
+  </compound>
+  <compound refid="get_function_8py" kind="file"><name>getFunction.py</name>
+  </compound>
+  <compound refid="get_struct_8py" kind="file"><name>getStruct.py</name>
+  </compound>
+  <compound refid="getters_8py" kind="file"><name>getters.py</name>
+  </compound>
+  <compound refid="get_typedef_8py" kind="file"><name>getTypedef.py</name>
+  </compound>
+  <compound refid="get_union_8py" kind="file"><name>getUnion.py</name>
+  </compound>
+  <compound refid="_j_s_o_n_classes_8py" kind="file"><name>JSONClasses.py</name>
+  </compound>
+  <compound refid="_j_s_o_n_request_crafter_8py" kind="file"><name>JSONRequestCrafter.py</name>
+  </compound>
+  <compound refid="parser_doxygen_x_m_l_8py" kind="file"><name>parserDoxygenXML.py</name>
+  </compound>
+  <compound refid="print_data_8py" kind="file"><name>printData.py</name>
+  </compound>
+  <compound refid="str_operations_8py" kind="file"><name>strOperations.py</name>
+  </compound>
+  <compound refid="useful_8py" kind="file"><name>useful.py</name>
+  </compound>
+  <compound refid="wikilibs__parser_8py" kind="file"><name>wikilibs_parser.py</name>
+  </compound>
+  <compound refid="group__error__codes" kind="group"><name>error_codes</name>
+    <member refid="group__error__codes_1ga4fd28e64a5cbe5e0ba163916199611a5" kind="define"><name>OP_FALSE</name></member>
+    <member refid="group__error__codes_1ga3fdffc8ee880969d99fc862d53c0efd2" kind="define"><name>OP_EOF</name></member>
+    <member refid="group__error__codes_1ga2ac03d35986d3505305d468dd2138b72" kind="define"><name>OP_HOLE</name></member>
+    <member refid="group__error__codes_1ga3ad48a4f99b1bed72acec552296dfc08" kind="define"><name>OP_EREAD</name></member>
+    <member refid="group__error__codes_1ga2ddb887c0bb55c74ea6be391fabcba59" kind="define"><name>OP_EFAULT</name></member>
+    <member refid="group__error__codes_1gaeea27378f826033ca23584d8403665d3" kind="define"><name>OP_EIMPL</name></member>
+    <member refid="group__error__codes_1gae0879acafe9cc0ab72462d291fdb6fb6" kind="define"><name>OP_EINVAL</name></member>
+    <member refid="group__error__codes_1gafca3ae244d24e10b2851c77379453220" kind="define"><name>OP_ENOTFORMAT</name></member>
+    <member refid="group__error__codes_1ga534f1b45c8733a2928434e482b38869f" kind="define"><name>OP_EBADHEADER</name></member>
+    <member refid="group__error__codes_1gaa9ae4494f623f3c0609f0b4bd99b8f32" kind="define"><name>OP_EVERSION</name></member>
+    <member refid="group__error__codes_1ga3a2a6cb4837030d240f326e17dda3c0e" kind="define"><name>OP_ENOTAUDIO</name></member>
+    <member refid="group__error__codes_1gaa3fa0a3e6facc4f47924271e65bb21ff" kind="define"><name>OP_EBADPACKET</name></member>
+    <member refid="group__error__codes_1gaf7b58a439a471366e9eb5b8f2a8cd041" kind="define"><name>OP_EBADLINK</name></member>
+    <member refid="group__error__codes_1gadd54f4d82cfabedb5963331fbe0bc99c" kind="define"><name>OP_ENOSEEK</name></member>
+    <member refid="group__error__codes_1gaf82657fc888f1dcf2e0d8f066b8a6cc7" kind="define"><name>OP_EBADTIMESTAMP</name></member>
+  </compound>
+  <compound refid="group__header__info" kind="group"><name>header_info</name>
+    <member refid="group__header__info_1gade2f09dce6330529fc3c96d1740df653" kind="define"><name>OP_PIC_FORMAT_UNKNOWN</name></member>
+    <member refid="group__header__info_1gaac4ef30a33caf090b9b1a5ada8f48204" kind="define"><name>OP_PIC_FORMAT_URL</name></member>
+    <member refid="group__header__info_1gaf75ae037b78a4a048359261439395450" kind="define"><name>OP_PIC_FORMAT_JPEG</name></member>
+    <member refid="group__header__info_1ga703554b177ae75bd6999bbd30d485d3f" kind="define"><name>OP_PIC_FORMAT_PNG</name></member>
+    <member refid="group__header__info_1gaa7d5e8cb675cb2da840f258b761e7781" kind="define"><name>OP_PIC_FORMAT_GIF</name></member>
+    <member refid="group__header__info_1gac3259b44ac8dfac93c7adf708de96d78" kind="function"><name>opus_head_parse</name></member>
+    <member refid="group__header__info_1gaac9c6e1916fba6e53152b936055d3db0" kind="function"><name>opus_granule_sample</name></member>
+    <member refid="group__header__info_1gaed7c41a177cc7338ffec1e7ae57c59b1" kind="function"><name>opus_tags_parse</name></member>
+    <member refid="group__header__info_1gaceda528fa8f9f9ad1443df2eeeeaa8bf" kind="function"><name>opus_tags_copy</name></member>
+    <member refid="group__header__info_1ga35f993f5a8f11337a6503a2f43996fea" kind="function"><name>opus_tags_init</name></member>
+    <member refid="group__header__info_1ga42bc0321740b618271c4cd0ae076d29a" kind="function"><name>opus_tags_add</name></member>
+    <member refid="group__header__info_1ga76ac5425d8c2ca9a994f84adfcc6cb98" kind="function"><name>opus_tags_add_comment</name></member>
+    <member refid="group__header__info_1gad43a7ed5844debd7d4025335f096bc27" kind="function"><name>opus_tags_query</name></member>
+    <member refid="group__header__info_1ga6e0bbe5a717115180bf4aa596bd0b2d1" kind="function"><name>opus_tags_query_count</name></member>
+    <member refid="group__header__info_1ga093ce83b90c68951f2e6aedc66344ce5" kind="function"><name>opus_tags_get_track_gain</name></member>
+    <member refid="group__header__info_1ga16d4f85561a965d56e0c5177fa129c35" kind="function"><name>opus_tags_clear</name></member>
+    <member refid="group__header__info_1gaad7582aee9be320d26b13f77e7b54106" kind="function"><name>opus_tagcompare</name></member>
+    <member refid="group__header__info_1gabf02fa65e49fde045ef787e42ef7b8c0" kind="function"><name>opus_tagncompare</name></member>
+    <member refid="group__header__info_1ga6487af1d21fe87f4815567d85a27989a" kind="function"><name>opus_picture_tag_parse</name></member>
+    <member refid="group__header__info_1ga09b9724bb7a9abd1d78680bd7d420ec2" kind="function"><name>opus_picture_tag_init</name></member>
+    <member refid="group__header__info_1ga26a732722fc74274d76b855020822852" kind="function"><name>opus_picture_tag_clear</name></member>
+    <member refid="group__header__info_1gad6f0329582430a828244045ac85a5417" kind="define"><name>OPUS_CHANNEL_COUNT_MAX</name></member>
+  </compound>
+  <compound refid="group__url__options" kind="group"><name>url_options</name>
+    <member refid="group__url__options_1ga8a8c97266e46504e064bba1a70495738" kind="function"><name>opus_server_info_init</name></member>
+    <member refid="group__url__options_1ga096536e460277fe890acb265d8fdbd63" kind="function"><name>opus_server_info_clear</name></member>
+    <member refid="group__url__options_1ga71080150b55e223be2710a0307108b72" kind="define"><name>OP_SSL_SKIP_CERTIFICATE_CHECK</name></member>
+    <member refid="group__url__options_1gab3b517acdb74c0d0b51800af86a58876" kind="define"><name>OP_HTTP_PROXY_HOST</name></member>
+    <member refid="group__url__options_1ga838d23878f4135691684203baa75ed0c" kind="define"><name>OP_HTTP_PROXY_PORT</name></member>
+    <member refid="group__url__options_1gaf0ce8d761ff48697fa0c44a62a445842" kind="define"><name>OP_HTTP_PROXY_USER</name></member>
+    <member refid="group__url__options_1gaad96c33557407e406cca89477b2e7892" kind="define"><name>OP_HTTP_PROXY_PASS</name></member>
+    <member refid="group__url__options_1gacc2e4b086bee832d5d66caf18fd7d659" kind="define"><name>OP_GET_SERVER_INFO</name></member>
+  </compound>
+  <compound refid="group__stream__callbacks" kind="group"><name>stream_callbacks</name>
+    <member refid="group__stream__callbacks_1ga9ffca429db1f3b77f2f303f1942188c3" kind="typedef"><name>op_read_func</name></member>
+    <member refid="group__stream__callbacks_1gae57cb396d1f193d3f4e7e56ddad7760e" kind="typedef"><name>op_seek_func</name></member>
+    <member refid="group__stream__callbacks_1gaca012812dea4bc3a27b0c23575efecaf" kind="typedef"><name>op_tell_func</name></member>
+    <member refid="group__stream__callbacks_1ga16c914ec90d301f125cdbeaa1ff57c2d" kind="typedef"><name>op_close_func</name></member>
+    <member refid="group__stream__callbacks_1ga8b3714e33b1459b43445b99b55cbe75f" kind="function"><name>op_fopen</name></member>
+    <member refid="group__stream__callbacks_1gac1843b587e14570e616f8cc7c4501961" kind="function"><name>op_fdopen</name></member>
+    <member refid="group__stream__callbacks_1gae63ceff71d9602c68f4db1c91b480fde" kind="function"><name>op_freopen</name></member>
+    <member refid="group__stream__callbacks_1ga83231f1733af83c7940b0262f1a1ffb5" kind="function"><name>op_mem_stream_create</name></member>
+    <member refid="group__stream__callbacks_1ga33bf9edd6949f8125456b2c8a1591010" kind="function"><name>op_url_stream_vcreate</name></member>
+    <member refid="group__stream__callbacks_1ga5c588fac7542057282b50a5bd2dbb35a" kind="function"><name>op_url_stream_create</name></member>
+  </compound>
+  <compound refid="group__stream__open__close" kind="group"><name>stream_open_close</name>
+    <member refid="group__stream__open__close_1ga54158ed1570a0062cb674115cd3699ab" kind="function"><name>op_test</name></member>
+    <member refid="group__stream__open__close_1ga15866bd0cd7ac77162db3b0428962e75" kind="function"><name>op_open_file</name></member>
+    <member refid="group__stream__open__close_1gaffc5769a1e5977f186f77a1fb08cb248" kind="function"><name>op_open_memory</name></member>
+    <member refid="group__stream__open__close_1ga9a0c2a744653a559b84a5be8f551fe8a" kind="function"><name>op_vopen_url</name></member>
+    <member refid="group__stream__open__close_1gace8a90b60d492f3488ee3f14a7276ddf" kind="function"><name>op_open_url</name></member>
+    <member refid="group__stream__open__close_1ga5b81c0b685f3d3c9c7d7091e5536c759" kind="function"><name>op_open_callbacks</name></member>
+    <member refid="group__stream__open__close_1ga3b12533b35cd3ac0d273c1e0efa35b6f" kind="function"><name>op_test_file</name></member>
+    <member refid="group__stream__open__close_1gae093e19e16871f4cb53532fe1f0c1039" kind="function"><name>op_test_memory</name></member>
+    <member refid="group__stream__open__close_1ga93b438960ec52e13e7c77446f754d016" kind="function"><name>op_vtest_url</name></member>
+    <member refid="group__stream__open__close_1ga8272aa50f50ac63b20333f0a114bb247" kind="function"><name>op_test_url</name></member>
+    <member refid="group__stream__open__close_1gafe0e84414bbd1b511b494b5c5cef3c0f" kind="function"><name>op_test_callbacks</name></member>
+    <member refid="group__stream__open__close_1ga7b7f1c778ce6ced5538ce66e292d894d" kind="function"><name>op_test_open</name></member>
+    <member refid="group__stream__open__close_1gaf494ef9aa761647d8167c49507560d1c" kind="function"><name>op_free</name></member>
+  </compound>
+  <compound refid="group__stream__info" kind="group"><name>stream_info</name>
+    <member refid="group__stream__info_1ga9272a4a6ac9e01fbc549008f5ff58b4c" kind="function"><name>op_seekable</name></member>
+    <member refid="group__stream__info_1gaaf6ff40725a8bc7e73c9d396ab91837d" kind="function"><name>op_link_count</name></member>
+    <member refid="group__stream__info_1ga41992ce6f066e07609e5fe2ccd961f40" kind="function"><name>op_serialno</name></member>
+    <member refid="group__stream__info_1ga42c829e67c0ce8359bfbfc31a45c04f4" kind="function"><name>op_channel_count</name></member>
+    <member refid="group__stream__info_1gaa433bdeab96315d315269b60ba52b877" kind="function"><name>op_raw_total</name></member>
+    <member refid="group__stream__info_1ga8c228c3d95f2c903ad6cfd2b78d8dad6" kind="function"><name>op_pcm_total</name></member>
+    <member refid="group__stream__info_1gabae95dfa8a278a305213332e295443bb" kind="function"><name>op_head</name></member>
+    <member refid="group__stream__info_1ga4b9b8b62a9fb04aee64c288e106a4822" kind="function"><name>op_tags</name></member>
+    <member refid="group__stream__info_1gabd97a260a6740ea7c2c59ca9ecd592bf" kind="function"><name>op_current_link</name></member>
+    <member refid="group__stream__info_1ga2778b161df6d07abdd642f1a4802cc1c" kind="function"><name>op_bitrate</name></member>
+    <member refid="group__stream__info_1ga7e9e871615055673d5e3c7b4c1dfce80" kind="function"><name>op_bitrate_instant</name></member>
+    <member refid="group__stream__info_1gab857684ab149c6225884ad94c3787561" kind="function"><name>op_raw_tell</name></member>
+    <member refid="group__stream__info_1gae07b8e40d883cd2a43edfec8c5bfa205" kind="function"><name>op_pcm_tell</name></member>
+  </compound>
+  <compound refid="group__stream__seeking" kind="group"><name>stream_seeking</name>
+    <member refid="group__stream__seeking_1gaf83b0fc6cdf94508876a206ab980851a" kind="function"><name>op_raw_seek</name></member>
+    <member refid="group__stream__seeking_1gad4f20d0601c2bab8d724f647673ae92c" kind="function"><name>op_pcm_seek</name></member>
+  </compound>
+  <compound refid="group__stream__decoding" kind="group"><name>stream_decoding</name>
+    <member refid="group__stream__decoding_1ga81a50874a82484034c22dfeddce177e1" kind="typedef"><name>op_decode_cb_func</name></member>
+    <member refid="group__stream__decoding_1gae0d5b986dff23a82b6002915268ee3d1" kind="function"><name>op_set_decode_callback</name></member>
+    <member refid="group__stream__decoding_1ga7df927613ccf57996319678e08513289" kind="function"><name>op_set_gain_offset</name></member>
+    <member refid="group__stream__decoding_1gac1de9480ad0fa65de778d9c88f62f6f3" kind="function"><name>op_set_dither_enabled</name></member>
+    <member refid="group__stream__decoding_1ga963c917749335e29bb2b698c1cb20a10" kind="function"><name>op_read</name></member>
+    <member refid="group__stream__decoding_1ga73493002d84a234f5e19b70f1dddbe2a" kind="function"><name>op_read_float</name></member>
+    <member refid="group__stream__decoding_1gaaca17ad3fd6430dc8fd43308149428eb" kind="function"><name>op_read_stereo</name></member>
+    <member refid="group__stream__decoding_1ga9736f96563500c0978f56f0fd6bdad83" kind="function"><name>op_read_float_stereo</name></member>
+    <member refid="group__stream__decoding_1ga55ed1cb616d856a47d618fa099c742aa" kind="define"><name>OP_DEC_FORMAT_SHORT</name></member>
+    <member refid="group__stream__decoding_1gac5c6e0837a5d747fd909aff905f5da3f" kind="define"><name>OP_DEC_FORMAT_FLOAT</name></member>
+    <member refid="group__stream__decoding_1gaf421eba19d82d5b0c170b548b8ff79f1" kind="define"><name>OP_DEC_USE_DEFAULT</name></member>
+    <member refid="group__stream__decoding_1ga846edba35e7470251a6a95b1e2364855" kind="define"><name>OP_HEADER_GAIN</name></member>
+    <member refid="group__stream__decoding_1ga51082f7c661488bce9bfdf0e5401fabf" kind="define"><name>OP_TRACK_GAIN</name></member>
+    <member refid="group__stream__decoding_1ga4215354abbd19df9eab5a5380dd96cb0" kind="define"><name>OP_ABSOLUTE_GAIN</name></member>
+  </compound>
+  <compound refid="dir_09e761304027c904456130627fd4dcf5" kind="dir"><name>includes</name>
+  </compound>
+  <compound refid="dir_1c05a73b73ff0e3e0a232ff83f04730b" kind="dir"><name>includes/personnal</name>
+  </compound>
+  <compound refid="dir_68267d1309a1af8e8297ef4c3efbcdba" kind="dir"><name>src</name>
+  </compound>
+  <compound refid="indexpage" kind="page"><name>index</name>
+  </compound>
+</doxygenindex>

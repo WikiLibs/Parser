@@ -17,7 +17,7 @@ class AIClient:
     def PushSymbol(self, path, obj):
     #     if (path != "C/MyLib/_opusfile_h") :
     #         return
-        print(path)
+        print("HERE", path)
 
         x =  obj.get_JSON()
         y = json.loads(x)

@@ -1,0 +1,26 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="dir_68267d1309a1af8e8297ef4c3efbcdba" kind="dir">
+    <compoundname>src</compoundname>
+    <innerfile refid="_a_i_client_8py">AIClient.py</innerfile>
+    <innerfile refid="classes_8py">classes.py</innerfile>
+    <innerfile refid="get_define_8py">getDefine.py</innerfile>
+    <innerfile refid="get_function_8py">getFunction.py</innerfile>
+    <innerfile refid="get_struct_8py">getStruct.py</innerfile>
+    <innerfile refid="getters_8py">getters.py</innerfile>
+    <innerfile refid="get_typedef_8py">getTypedef.py</innerfile>
+    <innerfile refid="get_union_8py">getUnion.py</innerfile>
+    <innerfile refid="_j_s_o_n_classes_8py">JSONClasses.py</innerfile>
+    <innerfile refid="_j_s_o_n_request_crafter_8py">JSONRequestCrafter.py</innerfile>
+    <innerfile refid="parser_doxygen_x_m_l_8py">parserDoxygenXML.py</innerfile>
+    <innerfile refid="print_data_8py">printData.py</innerfile>
+    <innerfile refid="str_operations_8py">strOperations.py</innerfile>
+    <innerfile refid="useful_8py">useful.py</innerfile>
+    <innerfile refid="wikilibs__parser_8py">wikilibs_parser.py</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/"/>
+  </compounddef>
+</doxygen>

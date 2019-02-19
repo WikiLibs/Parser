@@ -1,0 +1,858 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="group__stream__decoding" kind="group">
+    <compoundname>stream_decoding</compoundname>
+    <title>Decoding</title>
+      <sectiondef kind="user-defined">
+      <header>Functions for decoding audio data</header>
+      <description><para>These functions retrieve actual decoded audio data from the stream. The general functions, <ref refid="group__stream__decoding_1ga963c917749335e29bb2b698c1cb20a10" kindref="member">op_read()</ref> and <ref refid="group__stream__decoding_1ga73493002d84a234f5e19b70f1dddbe2a" kindref="member">op_read_float()</ref> return 16-bit or floating-point output, both using native endian ordering. The number of channels returned can change from link to link in a chained stream. There are special functions, <ref refid="group__stream__decoding_1gaaca17ad3fd6430dc8fd43308149428eb" kindref="member">op_read_stereo()</ref> and <ref refid="group__stream__decoding_1ga9736f96563500c0978f56f0fd6bdad83" kindref="member">op_read_float_stereo()</ref>, which always output two channels, to simplify applications which do not wish to handle multichannel audio. These downmix multichannel files to two channels, so they can always return samples in the same format for every link in a chained file. If the rest of your audio processing chain can handle floating point, those routines should be preferred, as floating point output avoids introducing clipping and other issues which might be avoided entirely if, e.g., you scale down the volume at some other stage. However, if you intend to direct consume 16-bit samples, the conversion in <computeroutput>libopusfile</computeroutput> provides noise-shaping dithering and, if compiled against <computeroutput>libopus</computeroutput><nonbreakablespace/>1.1 or later, soft-clipping prevention. <computeroutput>libopusfile</computeroutput> can also be configured at compile time to use the fixed-point <computeroutput>libopus</computeroutput> API. If so, <computeroutput>libopusfile</computeroutput>&apos;s floating-point API may also be disabled. In that configuration, nothing in <computeroutput>libopusfile</computeroutput> will use any floating-point operations, to simplify support on devices without an adequate FPU. <simplesect kind="warning"><para>HTTPS streams may be be vulnerable to truncation attacks if you do not check the error return code from <ref refid="group__stream__decoding_1ga73493002d84a234f5e19b70f1dddbe2a" kindref="member">op_read_float()</ref> or its associated functions. If the remote peer does not close the connection gracefully (with a TLS &quot;close notify&quot; message), these functions will return <ref refid="group__error__codes_1ga3ad48a4f99b1bed72acec552296dfc08" kindref="member">OP_EREAD</ref> instead of 0 when they reach the end of the file. If you are reading from an &lt;https:&gt; URL (particularly if seeking is not supported), you should make sure to check for this error and warn the user appropriately. </para></simplesect>
+</para></description>
+      <memberdef kind="typedef" id="group__stream__decoding_1ga81a50874a82484034c22dfeddce177e1" prot="public" static="no">
+        <type>int(*</type>
+        <definition>typedef int(* op_decode_cb_func) (void *_ctx, OpusMSDecoder *_decoder, void *_pcm, const ogg_packet *_op, int _nsamples, int _nchannels, int _format, int _li)</definition>
+        <argsstring>)(void *_ctx, OpusMSDecoder *_decoder, void *_pcm, const ogg_packet *_op, int _nsamples, int _nchannels, int _format, int _li)</argsstring>
+        <name>op_decode_cb_func</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Called to decode an Opus packet. This should invoke the functional equivalent of opus_multistream_decode() or opus_multistream_decode_float(), except that it returns 0 on success instead of the number of decoded samples (which is known a priori). <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>_ctx</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The application-provided callback context. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>_decoder</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The decoder to use to decode the packet. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">_pcm</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The buffer to decode into. This will always have enough room for <emphasis>_nchannels</emphasis> of <emphasis>_nsamples</emphasis> samples, which should be placed into this buffer interleaved. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>_op</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The packet to decode. This will always have its granule position set to a valid value. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>_nsamples</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The number of samples expected from the packet. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>_nchannels</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The number of channels expected from the packet. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>_format</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The desired sample output format. This is either <ref refid="group__stream__decoding_1ga55ed1cb616d856a47d618fa099c742aa" kindref="member">OP_DEC_FORMAT_SHORT</ref> or <ref refid="group__stream__decoding_1gac5c6e0837a5d747fd909aff905f5da3f" kindref="member">OP_DEC_FORMAT_FLOAT</ref>. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>_li</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The index of the link from which this packet was decoded. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A non-negative value on success, or a negative value on error. The error codes should be the same as those returned by opus_multistream_decode() or opus_multistream_decode_float(). </para></simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Decoding was successful. The application has filled the buffer with exactly _nsamples and _nchannels samples in the requested format. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername><ref refid="group__stream__decoding_1gaf421eba19d82d5b0c170b548b8ff79f1" kindref="member">OP_DEC_USE_DEFAULT</ref></parametername>
+</parameternamelist>
+<parameterdescription>
+<para>No decoding was done. <computeroutput>libopusfile</computeroutput> should decode normally instead. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="includes/personnal/opusfile.h" line="1697" column="1" bodyfile="includes/personnal/opusfile.h" bodystart="1697" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__stream__decoding_1gae0d5b986dff23a82b6002915268ee3d1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void op_set_decode_callback</definition>
+        <argsstring>(OggOpusFile *_of, op_decode_cb_func _decode_cb, void *_ctx) OP_ARG_NONNULL(1)</argsstring>
+        <name>op_set_decode_callback</name>
+        <param>
+          <type>OggOpusFile *</type>
+          <declname>_of</declname>
+        </param>
+        <param>
+          <type><ref refid="group__stream__decoding_1ga81a50874a82484034c22dfeddce177e1" kindref="member">op_decode_cb_func</ref></type>
+          <declname>_decode_cb</declname>
+        </param>
+        <param>
+          <type>void *</type>
+          <declname>_ctx</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets the packet decode callback function. This is called once for each packet that needs to be decoded. A call to this function is no guarantee that the audio will eventually be delivered to the application. Some or all of the data from the packet may be discarded (i.e., at the beginning or end of a link, or after a seek), however the callback is required to provide all of it. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>_of</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The <computeroutput>OggOpusFile</computeroutput> on which to set the decode callback. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>_decode_cb</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The callback function to call. This may be <computeroutput>NULL</computeroutput> to disable calling the callback. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>_ctx</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The application-provided context pointer to pass to the callback on each call. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="includes/personnal/opusfile.h" line="1713" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__stream__decoding_1ga7df927613ccf57996319678e08513289" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int op_set_gain_offset</definition>
+        <argsstring>(OggOpusFile *_of, int _gain_type, opus_int32 _gain_offset_q8) OP_ARG_NONNULL(1)</argsstring>
+        <name>op_set_gain_offset</name>
+        <param>
+          <type>OggOpusFile *</type>
+          <declname>_of</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>_gain_type</declname>
+        </param>
+        <param>
+          <type>opus_int32</type>
+          <declname>_gain_offset_q8</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets the gain to be used for decoded output. By default, the gain in the header is applied with no additional offset. The total gain (including header gain and/or track gain, if applicable, and this offset), will be clamped to [-32768,32767]/256 dB. This is more than enough to saturate or underflow 16-bit PCM. <simplesect kind="note"><para>The new gain will not be applied to any already buffered, decoded output. This means you cannot change it sample-by-sample, as at best it will be updated packet-by-packet. It is meant for setting a target volume level, rather than applying smooth fades, etc. </para></simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>_of</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The <computeroutput>OggOpusFile</computeroutput> on which to set the gain offset. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>_gain_type</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>One of <ref refid="group__stream__decoding_1ga846edba35e7470251a6a95b1e2364855" kindref="member">OP_HEADER_GAIN</ref>, <ref refid="group__stream__decoding_1ga51082f7c661488bce9bfdf0e5401fabf" kindref="member">OP_TRACK_GAIN</ref>, or <ref refid="group__stream__decoding_1ga4215354abbd19df9eab5a5380dd96cb0" kindref="member">OP_ABSOLUTE_GAIN</ref>. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>_gain_offset_q8</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The gain offset to apply, in 1/256ths of a dB. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>0 on success or a negative value on error. </para></simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername><ref refid="group__error__codes_1gae0879acafe9cc0ab72462d291fdb6fb6" kindref="member">OP_EINVAL</ref></parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The <emphasis>_gain_type</emphasis> was unrecognized. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="includes/personnal/opusfile.h" line="1746" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__stream__decoding_1gac1de9480ad0fa65de778d9c88f62f6f3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void op_set_dither_enabled</definition>
+        <argsstring>(OggOpusFile *_of, int _enabled) OP_ARG_NONNULL(1)</argsstring>
+        <name>op_set_dither_enabled</name>
+        <param>
+          <type>OggOpusFile *</type>
+          <declname>_of</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>_enabled</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets whether or not dithering is enabled for 16-bit decoding. By default, when <computeroutput>libopusfile</computeroutput> is compiled to use floating-point internally, calling <ref refid="group__stream__decoding_1ga963c917749335e29bb2b698c1cb20a10" kindref="member">op_read()</ref> or <ref refid="group__stream__decoding_1gaaca17ad3fd6430dc8fd43308149428eb" kindref="member">op_read_stereo()</ref> will first decode to float, and then convert to fixed-point using noise-shaping dithering. This flag can be used to disable that dithering. When the application uses <ref refid="group__stream__decoding_1ga73493002d84a234f5e19b70f1dddbe2a" kindref="member">op_read_float()</ref> or <ref refid="group__stream__decoding_1ga9736f96563500c0978f56f0fd6bdad83" kindref="member">op_read_float_stereo()</ref>, or when the library has been compiled to decode directly to fixed point, this flag has no effect. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>_of</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The <computeroutput>OggOpusFile</computeroutput> on which to enable or disable dithering. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>_enabled</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A non-zero value to enable dithering, or 0 to disable it. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="includes/personnal/opusfile.h" line="1759" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__stream__decoding_1ga963c917749335e29bb2b698c1cb20a10" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>OP_WARN_UNUSED_RESULT int</type>
+        <definition>OP_WARN_UNUSED_RESULT int op_read</definition>
+        <argsstring>(OggOpusFile *_of, opus_int16 *_pcm, int _buf_size, int *_li) OP_ARG_NONNULL(1)</argsstring>
+        <name>op_read</name>
+        <param>
+          <type>OggOpusFile *</type>
+          <declname>_of</declname>
+        </param>
+        <param>
+          <type>opus_int16 *</type>
+          <declname>_pcm</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>_buf_size</declname>
+        </param>
+        <param>
+          <type>int *</type>
+          <declname>_li</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Reads more samples from the stream. <simplesect kind="note"><para>Although <emphasis>_buf_size</emphasis> must indicate the total number of values that can be stored in <emphasis>_pcm</emphasis>, the return value is the number of samples <emphasis>per channel</emphasis>. This is done because <orderedlist>
+<listitem>
+<para>The channel count cannot be known a priori (reading more samples might advance us into the next link, with a different channel count), so <emphasis>_buf_size</emphasis> cannot also be in units of samples per channel, </para></listitem>
+<listitem>
+<para>Returning the samples per channel matches the <computeroutput>libopus</computeroutput> API as closely as we&apos;re able, </para></listitem>
+<listitem>
+<para>Returning the total number of values instead of samples per channel would mean the caller would need a division to compute the samples per channel, and might worry about the possibility of getting back samples for some channels and not others, and </para></listitem>
+<listitem>
+<para>This approach is relatively fool-proof: if an application passes too small a value to <emphasis>_buf_size</emphasis>, they will simply get fewer samples back, and if they assume the return value is the total number of values, then they will simply read too few (rather than reading too many and going off the end of the buffer). </para></listitem>
+</orderedlist>
+</para></simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>_of</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The <computeroutput>OggOpusFile</computeroutput> from which to read. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">_pcm</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A buffer in which to store the output PCM samples, as signed native-endian 16-bit values at 48<nonbreakablespace/>kHz with a nominal range of <computeroutput>[-32768,32767)</computeroutput>. Multiple channels are interleaved using the <ulink url="http://www.xiph.org/vorbis/doc/Vorbis_I_spec.html#x1-800004.3.9">Vorbis channel ordering</ulink>. This must have room for at least <emphasis>_buf_size</emphasis> values. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>_buf_size</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The number of values that can be stored in <emphasis>_pcm</emphasis>. It is recommended that this be large enough for at least 120 ms of data at 48 kHz per channel (5760 values per channel). Smaller buffers will simply return less data, possibly consuming more memory to buffer the data internally. <computeroutput>libopusfile</computeroutput> may return less data than requested. If so, there is no guarantee that the remaining data in <emphasis>_pcm</emphasis> will be unmodified. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">_li</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The index of the link this data was decoded from. You may pass <computeroutput>NULL</computeroutput> if you do not need this information. If this function fails (returning a negative value), this parameter is left unset. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The number of samples read per channel on success, or a negative value on failure. The channel count can be retrieved on success by calling <computeroutput>op_head(_of,*_li)</computeroutput>. The number of samples returned may be 0 if the buffer was too small to store even a single sample for all channels, or if end-of-file was reached. The list of possible failure codes follows. Most of them can only be returned by unseekable, chained streams that encounter a new link. </para></simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername><ref refid="group__error__codes_1ga2ac03d35986d3505305d468dd2138b72" kindref="member">OP_HOLE</ref></parametername>
+</parameternamelist>
+<parameterdescription>
+<para>There was a hole in the data, and some samples may have been skipped. Call this function again to continue decoding past the hole. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername><ref refid="group__error__codes_1ga3ad48a4f99b1bed72acec552296dfc08" kindref="member">OP_EREAD</ref></parametername>
+</parameternamelist>
+<parameterdescription>
+<para>An underlying read operation failed. This may signal a truncation attack from an &lt;https:&gt; source. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername><ref refid="group__error__codes_1ga2ddb887c0bb55c74ea6be391fabcba59" kindref="member">OP_EFAULT</ref></parametername>
+</parameternamelist>
+<parameterdescription>
+<para>An internal memory allocation failed. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername><ref refid="group__error__codes_1gaeea27378f826033ca23584d8403665d3" kindref="member">OP_EIMPL</ref></parametername>
+</parameternamelist>
+<parameterdescription>
+<para>An unseekable stream encountered a new link that used a feature that is not implemented, such as an unsupported channel family. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername><ref refid="group__error__codes_1gae0879acafe9cc0ab72462d291fdb6fb6" kindref="member">OP_EINVAL</ref></parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The stream was only partially open. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername><ref refid="group__error__codes_1gafca3ae244d24e10b2851c77379453220" kindref="member">OP_ENOTFORMAT</ref></parametername>
+</parameternamelist>
+<parameterdescription>
+<para>An unseekable stream encountered a new link that did not have any logical Opus streams in it. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername><ref refid="group__error__codes_1ga534f1b45c8733a2928434e482b38869f" kindref="member">OP_EBADHEADER</ref></parametername>
+</parameternamelist>
+<parameterdescription>
+<para>An unseekable stream encountered a new link with a required header packet that was not properly formatted, contained illegal values, or was missing altogether. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername><ref refid="group__error__codes_1gaa9ae4494f623f3c0609f0b4bd99b8f32" kindref="member">OP_EVERSION</ref></parametername>
+</parameternamelist>
+<parameterdescription>
+<para>An unseekable stream encountered a new link with an ID header that contained an unrecognized version number. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername><ref refid="group__error__codes_1gaa3fa0a3e6facc4f47924271e65bb21ff" kindref="member">OP_EBADPACKET</ref></parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Failed to properly decode the next packet. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername><ref refid="group__error__codes_1gaf7b58a439a471366e9eb5b8f2a8cd041" kindref="member">OP_EBADLINK</ref></parametername>
+</parameternamelist>
+<parameterdescription>
+<para>We failed to find data we had seen before. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername><ref refid="group__error__codes_1gaf82657fc888f1dcf2e0d8f066b8a6cc7" kindref="member">OP_EBADTIMESTAMP</ref></parametername>
+</parameternamelist>
+<parameterdescription>
+<para>An unseekable stream encountered a new link with a starting timestamp that failed basic validity checks. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="includes/personnal/opusfile.h" line="1841" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__stream__decoding_1ga73493002d84a234f5e19b70f1dddbe2a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>OP_WARN_UNUSED_RESULT int</type>
+        <definition>OP_WARN_UNUSED_RESULT int op_read_float</definition>
+        <argsstring>(OggOpusFile *_of, float *_pcm, int _buf_size, int *_li) OP_ARG_NONNULL(1)</argsstring>
+        <name>op_read_float</name>
+        <param>
+          <type>OggOpusFile *</type>
+          <declname>_of</declname>
+        </param>
+        <param>
+          <type>float *</type>
+          <declname>_pcm</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>_buf_size</declname>
+        </param>
+        <param>
+          <type>int *</type>
+          <declname>_li</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Reads more samples from the stream. <simplesect kind="note"><para>Although <emphasis>_buf_size</emphasis> must indicate the total number of values that can be stored in <emphasis>_pcm</emphasis>, the return value is the number of samples <emphasis>per channel</emphasis>. <orderedlist>
+<listitem>
+<para>The channel count cannot be known a priori (reading more samples might advance us into the next link, with a different channel count), so <emphasis>_buf_size</emphasis> cannot also be in units of samples per channel, </para></listitem>
+<listitem>
+<para>Returning the samples per channel matches the <computeroutput>libopus</computeroutput> API as closely as we&apos;re able, </para></listitem>
+<listitem>
+<para>Returning the total number of values instead of samples per channel would mean the caller would need a division to compute the samples per channel, and might worry about the possibility of getting back samples for some channels and not others, and </para></listitem>
+<listitem>
+<para>This approach is relatively fool-proof: if an application passes too small a value to <emphasis>_buf_size</emphasis>, they will simply get fewer samples back, and if they assume the return value is the total number of values, then they will simply read too few (rather than reading too many and going off the end of the buffer). </para></listitem>
+</orderedlist>
+</para></simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>_of</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The <computeroutput>OggOpusFile</computeroutput> from which to read. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">_pcm</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A buffer in which to store the output PCM samples as signed floats at 48<nonbreakablespace/>kHz with a nominal range of <computeroutput>[-1.0,1.0]</computeroutput>. Multiple channels are interleaved using the <ulink url="http://www.xiph.org/vorbis/doc/Vorbis_I_spec.html#x1-800004.3.9">Vorbis channel ordering</ulink>. This must have room for at least <emphasis>_buf_size</emphasis> floats. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>_buf_size</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The number of floats that can be stored in <emphasis>_pcm</emphasis>. It is recommended that this be large enough for at least 120 ms of data at 48 kHz per channel (5760 samples per channel). Smaller buffers will simply return less data, possibly consuming more memory to buffer the data internally. If less than <emphasis>_buf_size</emphasis> values are returned, <computeroutput>libopusfile</computeroutput> makes no guarantee that the remaining data in <emphasis>_pcm</emphasis> will be unmodified. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">_li</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The index of the link this data was decoded from. You may pass <computeroutput>NULL</computeroutput> if you do not need this information. If this function fails (returning a negative value), this parameter is left unset. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The number of samples read per channel on success, or a negative value on failure. The channel count can be retrieved on success by calling <computeroutput>op_head(_of,*_li)</computeroutput>. The number of samples returned may be 0 if the buffer was too small to store even a single sample for all channels, or if end-of-file was reached. The list of possible failure codes follows. Most of them can only be returned by unseekable, chained streams that encounter a new link. </para></simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername><ref refid="group__error__codes_1ga2ac03d35986d3505305d468dd2138b72" kindref="member">OP_HOLE</ref></parametername>
+</parameternamelist>
+<parameterdescription>
+<para>There was a hole in the data, and some samples may have been skipped. Call this function again to continue decoding past the hole. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername><ref refid="group__error__codes_1ga3ad48a4f99b1bed72acec552296dfc08" kindref="member">OP_EREAD</ref></parametername>
+</parameternamelist>
+<parameterdescription>
+<para>An underlying read operation failed. This may signal a truncation attack from an &lt;https:&gt; source. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername><ref refid="group__error__codes_1ga2ddb887c0bb55c74ea6be391fabcba59" kindref="member">OP_EFAULT</ref></parametername>
+</parameternamelist>
+<parameterdescription>
+<para>An internal memory allocation failed. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername><ref refid="group__error__codes_1gaeea27378f826033ca23584d8403665d3" kindref="member">OP_EIMPL</ref></parametername>
+</parameternamelist>
+<parameterdescription>
+<para>An unseekable stream encountered a new link that used a feature that is not implemented, such as an unsupported channel family. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername><ref refid="group__error__codes_1gae0879acafe9cc0ab72462d291fdb6fb6" kindref="member">OP_EINVAL</ref></parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The stream was only partially open. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername><ref refid="group__error__codes_1gafca3ae244d24e10b2851c77379453220" kindref="member">OP_ENOTFORMAT</ref></parametername>
+</parameternamelist>
+<parameterdescription>
+<para>An unseekable stream encountered a new link that did not have any logical Opus streams in it. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername><ref refid="group__error__codes_1ga534f1b45c8733a2928434e482b38869f" kindref="member">OP_EBADHEADER</ref></parametername>
+</parameternamelist>
+<parameterdescription>
+<para>An unseekable stream encountered a new link with a required header packet that was not properly formatted, contained illegal values, or was missing altogether. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername><ref refid="group__error__codes_1gaa9ae4494f623f3c0609f0b4bd99b8f32" kindref="member">OP_EVERSION</ref></parametername>
+</parameternamelist>
+<parameterdescription>
+<para>An unseekable stream encountered a new link with an ID header that contained an unrecognized version number. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername><ref refid="group__error__codes_1gaa3fa0a3e6facc4f47924271e65bb21ff" kindref="member">OP_EBADPACKET</ref></parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Failed to properly decode the next packet. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername><ref refid="group__error__codes_1gaf7b58a439a471366e9eb5b8f2a8cd041" kindref="member">OP_EBADLINK</ref></parametername>
+</parameternamelist>
+<parameterdescription>
+<para>We failed to find data we had seen before. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername><ref refid="group__error__codes_1gaf82657fc888f1dcf2e0d8f066b8a6cc7" kindref="member">OP_EBADTIMESTAMP</ref></parametername>
+</parameternamelist>
+<parameterdescription>
+<para>An unseekable stream encountered a new link with a starting timestamp that failed basic validity checks. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="includes/personnal/opusfile.h" line="1922" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__stream__decoding_1gaaca17ad3fd6430dc8fd43308149428eb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>OP_WARN_UNUSED_RESULT int</type>
+        <definition>OP_WARN_UNUSED_RESULT int op_read_stereo</definition>
+        <argsstring>(OggOpusFile *_of, opus_int16 *_pcm, int _buf_size) OP_ARG_NONNULL(1)</argsstring>
+        <name>op_read_stereo</name>
+        <param>
+          <type>OggOpusFile *</type>
+          <declname>_of</declname>
+        </param>
+        <param>
+          <type>opus_int16 *</type>
+          <declname>_pcm</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>_buf_size</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Reads more samples from the stream and downmixes to stereo, if necessary. This function is intended for simple players that want a uniform output format, even if the channel count changes between links in a chained stream. <simplesect kind="note"><para><emphasis>_buf_size</emphasis> indicates the total number of values that can be stored in <emphasis>_pcm</emphasis>, while the return value is the number of samples <emphasis>per channel</emphasis>, even though the channel count is known, for consistency with <ref refid="group__stream__decoding_1ga963c917749335e29bb2b698c1cb20a10" kindref="member">op_read()</ref>. </para></simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>_of</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The <computeroutput>OggOpusFile</computeroutput> from which to read. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">_pcm</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A buffer in which to store the output PCM samples, as signed native-endian 16-bit values at 48<nonbreakablespace/>kHz with a nominal range of <computeroutput>[-32768,32767)</computeroutput>. The left and right channels are interleaved in the buffer. This must have room for at least <emphasis>_buf_size</emphasis> values. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>_buf_size</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The number of values that can be stored in <emphasis>_pcm</emphasis>. It is recommended that this be large enough for at least 120 ms of data at 48 kHz per channel (11520 values total). Smaller buffers will simply return less data, possibly consuming more memory to buffer the data internally. If less than <emphasis>_buf_size</emphasis> values are returned, <computeroutput>libopusfile</computeroutput> makes no guarantee that the remaining data in <emphasis>_pcm</emphasis> will be unmodified. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The number of samples read per channel on success, or a negative value on failure. The number of samples returned may be 0 if the buffer was too small to store even a single sample for both channels, or if end-of-file was reached. The list of possible failure codes follows. Most of them can only be returned by unseekable, chained streams that encounter a new link. </para></simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername><ref refid="group__error__codes_1ga2ac03d35986d3505305d468dd2138b72" kindref="member">OP_HOLE</ref></parametername>
+</parameternamelist>
+<parameterdescription>
+<para>There was a hole in the data, and some samples may have been skipped. Call this function again to continue decoding past the hole. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername><ref refid="group__error__codes_1ga3ad48a4f99b1bed72acec552296dfc08" kindref="member">OP_EREAD</ref></parametername>
+</parameternamelist>
+<parameterdescription>
+<para>An underlying read operation failed. This may signal a truncation attack from an &lt;https:&gt; source. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername><ref refid="group__error__codes_1ga2ddb887c0bb55c74ea6be391fabcba59" kindref="member">OP_EFAULT</ref></parametername>
+</parameternamelist>
+<parameterdescription>
+<para>An internal memory allocation failed. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername><ref refid="group__error__codes_1gaeea27378f826033ca23584d8403665d3" kindref="member">OP_EIMPL</ref></parametername>
+</parameternamelist>
+<parameterdescription>
+<para>An unseekable stream encountered a new link that used a feature that is not implemented, such as an unsupported channel family. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername><ref refid="group__error__codes_1gae0879acafe9cc0ab72462d291fdb6fb6" kindref="member">OP_EINVAL</ref></parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The stream was only partially open. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername><ref refid="group__error__codes_1gafca3ae244d24e10b2851c77379453220" kindref="member">OP_ENOTFORMAT</ref></parametername>
+</parameternamelist>
+<parameterdescription>
+<para>An unseekable stream encountered a new link that did not have any logical Opus streams in it. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername><ref refid="group__error__codes_1ga534f1b45c8733a2928434e482b38869f" kindref="member">OP_EBADHEADER</ref></parametername>
+</parameternamelist>
+<parameterdescription>
+<para>An unseekable stream encountered a new link with a required header packet that was not properly formatted, contained illegal values, or was missing altogether. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername><ref refid="group__error__codes_1gaa9ae4494f623f3c0609f0b4bd99b8f32" kindref="member">OP_EVERSION</ref></parametername>
+</parameternamelist>
+<parameterdescription>
+<para>An unseekable stream encountered a new link with an ID header that contained an unrecognized version number. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername><ref refid="group__error__codes_1gaa3fa0a3e6facc4f47924271e65bb21ff" kindref="member">OP_EBADPACKET</ref></parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Failed to properly decode the next packet. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername><ref refid="group__error__codes_1gaf7b58a439a471366e9eb5b8f2a8cd041" kindref="member">OP_EBADLINK</ref></parametername>
+</parameternamelist>
+<parameterdescription>
+<para>We failed to find data we had seen before. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername><ref refid="group__error__codes_1gaf82657fc888f1dcf2e0d8f066b8a6cc7" kindref="member">OP_EBADTIMESTAMP</ref></parametername>
+</parameternamelist>
+<parameterdescription>
+<para>An unseekable stream encountered a new link with a starting timestamp that failed basic validity checks. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="includes/personnal/opusfile.h" line="1983" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__stream__decoding_1ga9736f96563500c0978f56f0fd6bdad83" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>OP_WARN_UNUSED_RESULT int</type>
+        <definition>OP_WARN_UNUSED_RESULT int op_read_float_stereo</definition>
+        <argsstring>(OggOpusFile *_of, float *_pcm, int _buf_size) OP_ARG_NONNULL(1)</argsstring>
+        <name>op_read_float_stereo</name>
+        <param>
+          <type>OggOpusFile *</type>
+          <declname>_of</declname>
+        </param>
+        <param>
+          <type>float *</type>
+          <declname>_pcm</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>_buf_size</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Reads more samples from the stream and downmixes to stereo, if necessary. This function is intended for simple players that want a uniform output format, even if the channel count changes between links in a chained stream. <simplesect kind="note"><para><emphasis>_buf_size</emphasis> indicates the total number of values that can be stored in <emphasis>_pcm</emphasis>, while the return value is the number of samples <emphasis>per channel</emphasis>, even though the channel count is known, for consistency with <ref refid="group__stream__decoding_1ga73493002d84a234f5e19b70f1dddbe2a" kindref="member">op_read_float()</ref>. </para></simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>_of</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The <computeroutput>OggOpusFile</computeroutput> from which to read. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">_pcm</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A buffer in which to store the output PCM samples, as signed floats at 48<nonbreakablespace/>kHz with a nominal range of <computeroutput>[-1.0,1.0]</computeroutput>. The left and right channels are interleaved in the buffer. This must have room for at least <emphasis>_buf_size</emphasis> values. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>_buf_size</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The number of values that can be stored in <emphasis>_pcm</emphasis>. It is recommended that this be large enough for at least 120 ms of data at 48 kHz per channel (11520 values total). Smaller buffers will simply return less data, possibly consuming more memory to buffer the data internally. If less than <emphasis>_buf_size</emphasis> values are returned, <computeroutput>libopusfile</computeroutput> makes no guarantee that the remaining data in <emphasis>_pcm</emphasis> will be unmodified. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The number of samples read per channel on success, or a negative value on failure. The number of samples returned may be 0 if the buffer was too small to store even a single sample for both channels, or if end-of-file was reached. The list of possible failure codes follows. Most of them can only be returned by unseekable, chained streams that encounter a new link. </para></simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername><ref refid="group__error__codes_1ga2ac03d35986d3505305d468dd2138b72" kindref="member">OP_HOLE</ref></parametername>
+</parameternamelist>
+<parameterdescription>
+<para>There was a hole in the data, and some samples may have been skipped. Call this function again to continue decoding past the hole. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername><ref refid="group__error__codes_1ga3ad48a4f99b1bed72acec552296dfc08" kindref="member">OP_EREAD</ref></parametername>
+</parameternamelist>
+<parameterdescription>
+<para>An underlying read operation failed. This may signal a truncation attack from an &lt;https:&gt; source. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername><ref refid="group__error__codes_1ga2ddb887c0bb55c74ea6be391fabcba59" kindref="member">OP_EFAULT</ref></parametername>
+</parameternamelist>
+<parameterdescription>
+<para>An internal memory allocation failed. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername><ref refid="group__error__codes_1gaeea27378f826033ca23584d8403665d3" kindref="member">OP_EIMPL</ref></parametername>
+</parameternamelist>
+<parameterdescription>
+<para>An unseekable stream encountered a new link that used a feature that is not implemented, such as an unsupported channel family. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername><ref refid="group__error__codes_1gae0879acafe9cc0ab72462d291fdb6fb6" kindref="member">OP_EINVAL</ref></parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The stream was only partially open. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername><ref refid="group__error__codes_1gafca3ae244d24e10b2851c77379453220" kindref="member">OP_ENOTFORMAT</ref></parametername>
+</parameternamelist>
+<parameterdescription>
+<para>An unseekable stream encountered a new link that that did not have any logical Opus streams in it. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername><ref refid="group__error__codes_1ga534f1b45c8733a2928434e482b38869f" kindref="member">OP_EBADHEADER</ref></parametername>
+</parameternamelist>
+<parameterdescription>
+<para>An unseekable stream encountered a new link with a required header packet that was not properly formatted, contained illegal values, or was missing altogether. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername><ref refid="group__error__codes_1gaa9ae4494f623f3c0609f0b4bd99b8f32" kindref="member">OP_EVERSION</ref></parametername>
+</parameternamelist>
+<parameterdescription>
+<para>An unseekable stream encountered a new link with an ID header that contained an unrecognized version number. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername><ref refid="group__error__codes_1gaa3fa0a3e6facc4f47924271e65bb21ff" kindref="member">OP_EBADPACKET</ref></parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Failed to properly decode the next packet. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername><ref refid="group__error__codes_1gaf7b58a439a471366e9eb5b8f2a8cd041" kindref="member">OP_EBADLINK</ref></parametername>
+</parameternamelist>
+<parameterdescription>
+<para>We failed to find data we had seen before. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername><ref refid="group__error__codes_1gaf82657fc888f1dcf2e0d8f066b8a6cc7" kindref="member">OP_EBADTIMESTAMP</ref></parametername>
+</parameternamelist>
+<parameterdescription>
+<para>An unseekable stream encountered a new link with a starting timestamp that failed basic validity checks. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="includes/personnal/opusfile.h" line="2044" column="1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__stream__decoding_1ga55ed1cb616d856a47d618fa099c742aa" prot="public" static="no">
+        <name>OP_DEC_FORMAT_SHORT</name>
+        <initializer>(7008)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Indicates that the decoding callback should produce signed 16-bit native-endian output samples. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="includes/personnal/opusfile.h" line="1659" column="9" bodyfile="includes/personnal/opusfile.h" bodystart="1659" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__stream__decoding_1gac5c6e0837a5d747fd909aff905f5da3f" prot="public" static="no">
+        <name>OP_DEC_FORMAT_FLOAT</name>
+        <initializer>(7040)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Indicates that the decoding callback should produce 32-bit native-endian float samples. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="includes/personnal/opusfile.h" line="1662" column="9" bodyfile="includes/personnal/opusfile.h" bodystart="1662" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__stream__decoding_1gaf421eba19d82d5b0c170b548b8ff79f1" prot="public" static="no">
+        <name>OP_DEC_USE_DEFAULT</name>
+        <initializer>(6720)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Indicates that the decoding callback did not decode anything, and that <computeroutput>libopusfile</computeroutput> should decode normally instead. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="includes/personnal/opusfile.h" line="1666" column="9" bodyfile="includes/personnal/opusfile.h" bodystart="1666" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__stream__decoding_1ga846edba35e7470251a6a95b1e2364855" prot="public" static="no">
+        <name>OP_HEADER_GAIN</name>
+        <initializer>(0)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Gain offset type that indicates that the provided offset is relative to the header gain. This is the default. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="includes/personnal/opusfile.h" line="1719" column="9" bodyfile="includes/personnal/opusfile.h" bodystart="1719" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__stream__decoding_1ga51082f7c661488bce9bfdf0e5401fabf" prot="public" static="no">
+        <name>OP_TRACK_GAIN</name>
+        <initializer>(3008)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Gain offset type that indicates that the provided offset is relative to the R128_TRACK_GAIN value (if any), in addition to the header gain. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="includes/personnal/opusfile.h" line="1723" column="9" bodyfile="includes/personnal/opusfile.h" bodystart="1723" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__stream__decoding_1ga4215354abbd19df9eab5a5380dd96cb0" prot="public" static="no">
+        <name>OP_ABSOLUTE_GAIN</name>
+        <initializer>(3009)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Gain offset type that indicates that the provided offset should be used as the gain directly, without applying any the header or track gains. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="includes/personnal/opusfile.h" line="1727" column="9" bodyfile="includes/personnal/opusfile.h" bodystart="1727" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

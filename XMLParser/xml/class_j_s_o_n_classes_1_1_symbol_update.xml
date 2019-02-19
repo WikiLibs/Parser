@@ -1,0 +1,292 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="class_j_s_o_n_classes_1_1_symbol_update" kind="class" language="Python" prot="public">
+    <compoundname>JSONClasses::SymbolUpdate</compoundname>
+      <sectiondef kind="private-static-attrib">
+      <memberdef kind="variable" id="class_j_s_o_n_classes_1_1_symbol_update_1a4dcf26a3439a965bfb31d21a7df47ea7" prot="private" static="yes" mutable="no">
+        <type>string</type>
+        <definition>string JSONClasses.SymbolUpdate::__name</definition>
+        <argsstring></argsstring>
+        <name>__name</name>
+        <initializer>=  &apos;&apos;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/JSONClasses.py" line="76" column="1" bodyfile="src/JSONClasses.py" bodystart="76" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_j_s_o_n_classes_1_1_symbol_update_1aefe09e539f1cfd94b823d10e12db2830" prot="private" static="yes" mutable="no">
+        <type>string</type>
+        <definition>string JSONClasses.SymbolUpdate::__lang</definition>
+        <argsstring></argsstring>
+        <name>__lang</name>
+        <initializer>=  &apos;&apos;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/JSONClasses.py" line="77" column="1" bodyfile="src/JSONClasses.py" bodystart="77" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_j_s_o_n_classes_1_1_symbol_update_1a371da8782a4934e63446658058d1a1e6" prot="private" static="yes" mutable="no">
+        <type>string</type>
+        <definition>string JSONClasses.SymbolUpdate::__type</definition>
+        <argsstring></argsstring>
+        <name>__type</name>
+        <initializer>=  &apos;&apos;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/JSONClasses.py" line="78" column="1" bodyfile="src/JSONClasses.py" bodystart="78" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_j_s_o_n_classes_1_1_symbol_update_1afbb69bddf8962cb65616206eca1dff29" prot="private" static="yes" mutable="no">
+        <type>list</type>
+        <definition>list JSONClasses.SymbolUpdate::__prototypes</definition>
+        <argsstring></argsstring>
+        <name>__prototypes</name>
+        <initializer>=  []</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/JSONClasses.py" line="79" column="1" bodyfile="src/JSONClasses.py" bodystart="79" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_j_s_o_n_classes_1_1_symbol_update_1ac020f6d29f37847f839740fdfa62794e" prot="private" static="yes" mutable="no">
+        <type>list</type>
+        <definition>list JSONClasses.SymbolUpdate::__symbols</definition>
+        <argsstring></argsstring>
+        <name>__symbols</name>
+        <initializer>=  []</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/JSONClasses.py" line="80" column="1" bodyfile="src/JSONClasses.py" bodystart="80" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_j_s_o_n_classes_1_1_symbol_update_1adf6c4df0d119325d14fc5d98def97cb2" prot="private" static="no" mutable="no">
+        <type></type>
+        <definition>JSONClasses.SymbolUpdate::__name</definition>
+        <argsstring></argsstring>
+        <name>__name</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/JSONClasses.py" line="83" column="1" bodyfile="src/JSONClasses.py" bodystart="83" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_j_s_o_n_classes_1_1_symbol_update_1a66a321f6d3796da57856f356d062f0cb" prot="private" static="no" mutable="no">
+        <type></type>
+        <definition>JSONClasses.SymbolUpdate::__lang</definition>
+        <argsstring></argsstring>
+        <name>__lang</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/JSONClasses.py" line="84" column="1" bodyfile="src/JSONClasses.py" bodystart="84" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_j_s_o_n_classes_1_1_symbol_update_1a82991e38b71ae12f313db8683a52429d" prot="private" static="no" mutable="no">
+        <type></type>
+        <definition>JSONClasses.SymbolUpdate::__type</definition>
+        <argsstring></argsstring>
+        <name>__type</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/JSONClasses.py" line="85" column="1" bodyfile="src/JSONClasses.py" bodystart="85" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_j_s_o_n_classes_1_1_symbol_update_1a2078d6ed403e2516899c4091c7dc15f6" prot="private" static="no" mutable="no">
+        <type></type>
+        <definition>JSONClasses.SymbolUpdate::__prototypes</definition>
+        <argsstring></argsstring>
+        <name>__prototypes</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/JSONClasses.py" line="86" column="1" bodyfile="src/JSONClasses.py" bodystart="86" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_j_s_o_n_classes_1_1_symbol_update_1a3935e07cc883ce08714cda813158bdce" prot="private" static="no" mutable="no">
+        <type></type>
+        <definition>JSONClasses.SymbolUpdate::__symbols</definition>
+        <argsstring></argsstring>
+        <name>__symbols</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/JSONClasses.py" line="87" column="1" bodyfile="src/JSONClasses.py" bodystart="87" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_j_s_o_n_classes_1_1_symbol_update_1a4ca434424403a63ed95f00a569ee2650" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def JSONClasses.SymbolUpdate.__init__</definition>
+        <argsstring>(self, name)</argsstring>
+        <name>__init__</name>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type>name</type>
+          <defname>name</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/JSONClasses.py" line="82" column="1" bodyfile="src/JSONClasses.py" bodystart="82" bodyend="88"/>
+      </memberdef>
+      <memberdef kind="function" id="class_j_s_o_n_classes_1_1_symbol_update_1a39f4e9d8309c6175d472f38b60f0a979" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def JSONClasses.SymbolUpdate.setLang</definition>
+        <argsstring>(self, lang)</argsstring>
+        <name>setLang</name>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type>lang</type>
+          <defname>lang</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/JSONClasses.py" line="89" column="1" bodyfile="src/JSONClasses.py" bodystart="89" bodyend="91"/>
+      </memberdef>
+      <memberdef kind="function" id="class_j_s_o_n_classes_1_1_symbol_update_1ad15c826063f7728e70ceb40e2f823cf7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def JSONClasses.SymbolUpdate.setType</definition>
+        <argsstring>(self, type)</argsstring>
+        <name>setType</name>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type>type</type>
+          <defname>type</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/JSONClasses.py" line="92" column="1" bodyfile="src/JSONClasses.py" bodystart="92" bodyend="94"/>
+      </memberdef>
+      <memberdef kind="function" id="class_j_s_o_n_classes_1_1_symbol_update_1a5e040bfdf53cded90a9ddbaf18d7b126" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def JSONClasses.SymbolUpdate.appendPrototypes</definition>
+        <argsstring>(self, prototype)</argsstring>
+        <name>appendPrototypes</name>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type>prototype</type>
+          <defname>prototype</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/JSONClasses.py" line="95" column="1" bodyfile="src/JSONClasses.py" bodystart="95" bodyend="97"/>
+      </memberdef>
+      <memberdef kind="function" id="class_j_s_o_n_classes_1_1_symbol_update_1a60ed6692b1ba503d03278b06bd0e4e09" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def JSONClasses.SymbolUpdate.appendSymbols</definition>
+        <argsstring>(self, symbol)</argsstring>
+        <name>appendSymbols</name>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type>symbol</type>
+          <defname>symbol</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/JSONClasses.py" line="98" column="1" bodyfile="src/JSONClasses.py" bodystart="98" bodyend="100"/>
+      </memberdef>
+      <memberdef kind="function" id="class_j_s_o_n_classes_1_1_symbol_update_1aabb53a5fe5cadcd936d2b4c45f7cf4f9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def JSONClasses.SymbolUpdate.get_JSON</definition>
+        <argsstring>(self)</argsstring>
+        <name>get_JSON</name>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/JSONClasses.py" line="101" column="1" bodyfile="src/JSONClasses.py" bodystart="101" bodyend="116"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/JSONClasses.py" line="75" column="1" bodyfile="src/JSONClasses.py" bodystart="75" bodyend="116"/>
+    <listofallmembers>
+      <member refid="class_j_s_o_n_classes_1_1_symbol_update_1a4ca434424403a63ed95f00a569ee2650" prot="public" virt="non-virtual"><scope>JSONClasses::SymbolUpdate</scope><name>__init__</name></member>
+      <member refid="class_j_s_o_n_classes_1_1_symbol_update_1aefe09e539f1cfd94b823d10e12db2830" prot="private" virt="non-virtual"><scope>JSONClasses::SymbolUpdate</scope><name>__lang</name></member>
+      <member refid="class_j_s_o_n_classes_1_1_symbol_update_1a66a321f6d3796da57856f356d062f0cb" prot="private" virt="non-virtual"><scope>JSONClasses::SymbolUpdate</scope><name>__lang</name></member>
+      <member refid="class_j_s_o_n_classes_1_1_symbol_update_1a4dcf26a3439a965bfb31d21a7df47ea7" prot="private" virt="non-virtual"><scope>JSONClasses::SymbolUpdate</scope><name>__name</name></member>
+      <member refid="class_j_s_o_n_classes_1_1_symbol_update_1adf6c4df0d119325d14fc5d98def97cb2" prot="private" virt="non-virtual"><scope>JSONClasses::SymbolUpdate</scope><name>__name</name></member>
+      <member refid="class_j_s_o_n_classes_1_1_symbol_update_1afbb69bddf8962cb65616206eca1dff29" prot="private" virt="non-virtual"><scope>JSONClasses::SymbolUpdate</scope><name>__prototypes</name></member>
+      <member refid="class_j_s_o_n_classes_1_1_symbol_update_1a2078d6ed403e2516899c4091c7dc15f6" prot="private" virt="non-virtual"><scope>JSONClasses::SymbolUpdate</scope><name>__prototypes</name></member>
+      <member refid="class_j_s_o_n_classes_1_1_symbol_update_1ac020f6d29f37847f839740fdfa62794e" prot="private" virt="non-virtual"><scope>JSONClasses::SymbolUpdate</scope><name>__symbols</name></member>
+      <member refid="class_j_s_o_n_classes_1_1_symbol_update_1a3935e07cc883ce08714cda813158bdce" prot="private" virt="non-virtual"><scope>JSONClasses::SymbolUpdate</scope><name>__symbols</name></member>
+      <member refid="class_j_s_o_n_classes_1_1_symbol_update_1a371da8782a4934e63446658058d1a1e6" prot="private" virt="non-virtual"><scope>JSONClasses::SymbolUpdate</scope><name>__type</name></member>
+      <member refid="class_j_s_o_n_classes_1_1_symbol_update_1a82991e38b71ae12f313db8683a52429d" prot="private" virt="non-virtual"><scope>JSONClasses::SymbolUpdate</scope><name>__type</name></member>
+      <member refid="class_j_s_o_n_classes_1_1_symbol_update_1a5e040bfdf53cded90a9ddbaf18d7b126" prot="public" virt="non-virtual"><scope>JSONClasses::SymbolUpdate</scope><name>appendPrototypes</name></member>
+      <member refid="class_j_s_o_n_classes_1_1_symbol_update_1a60ed6692b1ba503d03278b06bd0e4e09" prot="public" virt="non-virtual"><scope>JSONClasses::SymbolUpdate</scope><name>appendSymbols</name></member>
+      <member refid="class_j_s_o_n_classes_1_1_symbol_update_1aabb53a5fe5cadcd936d2b4c45f7cf4f9" prot="public" virt="non-virtual"><scope>JSONClasses::SymbolUpdate</scope><name>get_JSON</name></member>
+      <member refid="class_j_s_o_n_classes_1_1_symbol_update_1a39f4e9d8309c6175d472f38b60f0a979" prot="public" virt="non-virtual"><scope>JSONClasses::SymbolUpdate</scope><name>setLang</name></member>
+      <member refid="class_j_s_o_n_classes_1_1_symbol_update_1ad15c826063f7728e70ceb40e2f823cf7" prot="public" virt="non-virtual"><scope>JSONClasses::SymbolUpdate</scope><name>setType</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

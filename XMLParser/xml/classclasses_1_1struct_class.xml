@@ -1,0 +1,91 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="classclasses_1_1struct_class" kind="class" language="Python" prot="public">
+    <compoundname>classes::structClass</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classclasses_1_1struct_class_1a7eda33e02de70a47af425ba767e516df" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>classes.structClass::name</definition>
+        <argsstring></argsstring>
+        <name>name</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/classes.py" line="20" column="1" bodyfile="src/classes.py" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classclasses_1_1struct_class_1a2549c0243d8490ddcb2bc2bf3a3aeab4" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>classes.structClass::members</definition>
+        <argsstring></argsstring>
+        <name>members</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/classes.py" line="21" column="1" bodyfile="src/classes.py" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classclasses_1_1struct_class_1a7de7efed02922a58fdd215ef7deb8123" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>classes.structClass::briefDesc</definition>
+        <argsstring></argsstring>
+        <name>briefDesc</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/classes.py" line="22" column="1" bodyfile="src/classes.py" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classclasses_1_1struct_class_1a47891a86a8a1f6637efd6964d0621400" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>classes.structClass::detailedDesc</definition>
+        <argsstring></argsstring>
+        <name>detailedDesc</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/classes.py" line="23" column="1" bodyfile="src/classes.py" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classclasses_1_1struct_class_1a6d87e3bdcf233d643eec7338a5b58b5b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def classes.structClass.__init__</definition>
+        <argsstring>(self)</argsstring>
+        <name>__init__</name>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/classes.py" line="19" column="1" bodyfile="src/classes.py" bodystart="19" bodyend="25"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/classes.py" line="18" column="1" bodyfile="src/classes.py" bodystart="18" bodyend="26"/>
+    <listofallmembers>
+      <member refid="classclasses_1_1struct_class_1a6d87e3bdcf233d643eec7338a5b58b5b" prot="public" virt="non-virtual"><scope>classes::structClass</scope><name>__init__</name></member>
+      <member refid="classclasses_1_1struct_class_1a7de7efed02922a58fdd215ef7deb8123" prot="public" virt="non-virtual"><scope>classes::structClass</scope><name>briefDesc</name></member>
+      <member refid="classclasses_1_1struct_class_1a47891a86a8a1f6637efd6964d0621400" prot="public" virt="non-virtual"><scope>classes::structClass</scope><name>detailedDesc</name></member>
+      <member refid="classclasses_1_1struct_class_1a2549c0243d8490ddcb2bc2bf3a3aeab4" prot="public" virt="non-virtual"><scope>classes::structClass</scope><name>members</name></member>
+      <member refid="classclasses_1_1struct_class_1a7eda33e02de70a47af425ba767e516df" prot="public" virt="non-virtual"><scope>classes::structClass</scope><name>name</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>
