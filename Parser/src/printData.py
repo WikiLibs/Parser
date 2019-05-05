@@ -10,6 +10,7 @@ def printStructures(structures):
         print()
     print()
 
+
 def printDefines(defines):
     print("\033[1mMacros:\033[0m\n")
 
@@ -21,6 +22,7 @@ def printDefines(defines):
         for param in elem.params:
             print("\t-", param.name, "(", param.desc, ")")
         print()
+
 
 def printFunctions(functions):
     print("\033[1mFunctions:\033[0m\n")
@@ -38,6 +40,7 @@ def printFunctions(functions):
         for val in elem.returnValues:
             print("\t-", val.value, "(", val.desc, ")")
         print()
+
 
 def printTypedefs(typedefs):
     print("\033[1mTypedefs:\033[0m\n")

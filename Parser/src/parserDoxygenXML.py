@@ -10,6 +10,7 @@ import useful
 from AIClient import AIClient
 from JSONRequestCrafter import JSONRequestCrafter
 
+
 def parseXMLFile(filename, lang, libname):
     defines = []
     structs = []
@@ -49,8 +50,8 @@ def parseXMLFile(filename, lang, libname):
     list.append(typedefs)
     JSONRequestCrafter(lang, libname, list)
 
-    #printData.printStructures(structs)
-    #printData.printDefines(defines)
-    #printData.printFunctions(functions)
-    #printData.printTypedefs(typedefs)
-    #printData.printUnions(unions)
+    # printData.printStructures(structs)
+    # printData.printDefines(defines)
+    # printData.printFunctions(functions)
+    # printData.printTypedefs(typedefs)
+    # printData.printUnions(unions)

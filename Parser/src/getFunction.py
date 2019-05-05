@@ -1,6 +1,6 @@
 from classes import functionClass
 import getters as getters
-import strOperations as strOp
+
 
 def getFunction(elem):
     tmpFunction = functionClass()
@@ -12,5 +12,5 @@ def getFunction(elem):
     tmpFunction.returnType = getters.getType(elem)
     tmpFunction.returnDesc = getters.getReturnDesc(elem)
     tmpFunction.returnValues = getters.getRetvals(elem)
-    
+
     return tmpFunction

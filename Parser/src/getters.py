@@ -1,4 +1,5 @@
 import strOperations as strOp
+import useful
 from classes import variableClass
 
 
@@ -17,7 +18,8 @@ def getType(elem):
             elemType += token
         elemType = strOp.removePointerSpace(strOp.epurStr(elemType))
         return elemType
-    except:
+    except Exception as error:
+        useful.printExceptionVerbose(error)
         return ""
 
 
@@ -25,7 +27,8 @@ def getInitializer(define):
     try:
         init = strOp.epurStr(define.find("initializer").text)
         return init
-    except:
+    except Exception as error:
+        useful.printExceptionVerbose(error)
         return ""
 
 
@@ -35,7 +38,8 @@ def getDetailedDesc(elem):
         for token in elem.find("detaileddescription").itertext():
             detailedDesc += " " + token.replace('\n', '').replace('\t', '')
         return strOp.epurStr(detailedDesc)
-    except:
+    except Exception as error:
+        useful.printExceptionVerbose(error)
         return ""
 
 
@@ -45,7 +49,8 @@ def getBriefDesc(elem):
         for token in elem.find("briefdescription").itertext():
             briefDesc += token
         return strOp.epurStr(briefDesc)
-    except:
+    except Exception as error:
+        useful.printExceptionVerbose(error)
         return ""
 
 
@@ -58,7 +63,8 @@ def getReturnDesc(elem):
                     tmp += " " + strOp.epurStr(ret)
         tmp = strOp.epurStr(tmp)
         return tmp
-    except:
+    except Exception as error:
+        useful.printExceptionVerbose(error)
         return ""
 
 
@@ -69,15 +75,18 @@ def getParams(define):
             tmpParam = variableClass()
             try:
                 tmpParam.name = strOp.epurStr(param.find("defname").text)
-            except:
+            except Exception as error:
+                useful.printExceptionVerbose(error)
                 tmpParam.name = strOp.epurStr(param.find("declname").text)
             try:
                 tmpParam.type = getType(param)
-            except:
+            except Exception as error:
+                useful.printExceptionVerbose(error)
                 pass
             params.append(tmpParam)
         return params
-    except:
+    except Exception as error:
+        useful.printExceptionVerbose(error)
         return params
 
 
@@ -86,6 +95,7 @@ def removeFromDetailedDescParams(desc, params):
         index = desc.find(params[0].name)
         desc = desc[:index]
     return desc
+
 
 def getParamDesc(elem, params):
     try:
@@ -99,8 +109,10 @@ def getParamDesc(elem, params):
                     param.desc = strOp.epurStr(tmp)
                     break
         return params
-    except:
+    except Exception as error:
+        useful.printExceptionVerbose(error)
         return params
+
 
 def getRetvals(elem):
     retvals = []
@@ -119,5 +131,6 @@ def getRetvals(elem):
                     tmp.desc = strOp.epurStr(tmpDesc)
                     retvals.append(tmp)
         return retvals
-    except:
+    except Exception as error:
+        useful.printExceptionVerbose(error)
         return retvals

@@ -6,6 +6,7 @@ import json
 API_URL = "https://localhost:8080"
 API_KEY = "7ad19ee2-db3f-4d1f-95d1-58311c3caf11"
 
+
 class AIClient:
     # Create a new AIClient
     # @param user the email address of the AI account on WikiLibs
@@ -15,11 +16,7 @@ class AIClient:
         self.Pass = passwd
 
     def PushSymbol(self, path, obj):
-    #     if (path != "C/MyLib/_opusfile_h") :
-    #         return
-        print("HERE", path)
-
-        x =  obj.get_JSON()
+        x = obj.get_JSON()
         y = json.loads(x)
 
         headers = {
@@ -36,7 +33,7 @@ class AIClient:
             "Authorization": "Bearer " + token,
             "path": path
         }
-        res = requests.post(API_URL + "/symbol", headers = headers, json = y, verify=False)
+        res = requests.post(API_URL + "/symbol", headers=headers, json=y, verify=False)
         if (res.status_code == 401):
             raise ConnectionError("Authorization token rejected")
         elif (res.status_code == 400):

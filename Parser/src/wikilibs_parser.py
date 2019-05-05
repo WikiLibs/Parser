@@ -5,7 +5,6 @@ import os
 import argparse
 import parserDoxygenXML
 import useful
-from tkinter import *
 import PySimpleGUI as sg
 
 
@@ -16,13 +15,15 @@ VERBOSE_HELP = 'shows more infos in the output'
 GUI_HELP = 'set this option to use the GUI version'
 
 dicoLang = {
-    "C" : [ '.h', '.c' ],
-    "Python" : [ '.py' ]
+    "C": ['.h', '.c'],
+    "Python": ['.py']
 }
+
 
 class filesClass:
     ogFilename = ""
     xmlFilename = ""
+
 
 def getAllFiles(language):
     global dicoLang
@@ -45,14 +46,17 @@ def getAllFiles(language):
     useful.printVerbose("")
     return files
 
+
 def getDoxyfileAndRun():
     url = 'https://yuristudio.net/Doxyfile'
     with open('./Doxyfile', 'wb') as fd:
         fd.write(urlopen(url).read())
     os.system('doxygen Doxyfile > /dev/null')
 
+
 def deleteFiles():
     os.system('rm -rf Doxyfile xml')
+
 
 def parserArgs():
     argParser = argparse.ArgumentParser(description=DESCRIPTION)
@@ -68,8 +72,9 @@ def parserArgs():
         event, (args.language, args.library_name,) = sg.Window('WikiLibs Parser').Layout([[sg.Text('Language')], [sg.InputCombo(['C', 'Python'], size=(20, 3))], [sg.Text('Library name')], [sg.InputText('')], [sg.OK(), sg.Cancel()] ]).Read()
     useful.printVerbose("Language = " + args.language)
     useful.printVerbose("Library name = " + args.library_name + "\n")
-    
+
     return args
+
 
 def main():
 
@@ -80,8 +85,9 @@ def main():
     for filename in files:
         useful.printVerbose("Starting parsing \'" + filename.ogFilename + "\'")
         parserDoxygenXML.parseXMLFile(filename.xmlFilename, args.language, args.library_name)
-    
+
     deleteFiles()
+
 
 if __name__ == '__main__':
     main()

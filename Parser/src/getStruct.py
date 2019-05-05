@@ -1,7 +1,6 @@
 import xml.etree.ElementTree as ET
 from classes import structClass
 from classes import variableClass
-import strOperations as strOp
 import getters as getters
 
 
