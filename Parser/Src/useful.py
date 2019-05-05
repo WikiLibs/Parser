@@ -1,4 +1,6 @@
 verbose = False
+upload = True
+exceptions = False
 
 
 def printVerbose(message):
@@ -9,5 +11,5 @@ def printVerbose(message):
 
 def printExceptionVerbose(error):
     global verbose
-    if verbose:
+    if verbose and exceptions:
         print("Exception:", error)

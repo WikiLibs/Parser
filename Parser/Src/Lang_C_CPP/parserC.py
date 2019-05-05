@@ -1,14 +1,22 @@
 #!/usr/bin/env python3.6
 import xml.etree.ElementTree as ET
-from getDefine import getDefine
-from getStruct import getStruct
-from getUnion import getUnion
-from getFunction import getFunction
-from getTypedef import getTypedef
-import printData
+from Lang_C_CPP.getDefine import getDefine
+from Lang_C_CPP.getStruct import getStruct
+from Lang_C_CPP.getUnion import getUnion
+from Lang_C_CPP.getFunction import getFunction
+from Lang_C_CPP.getTypedef import getTypedef
+import Lang_C_CPP.printData as printData
 import useful
-from AIClient import AIClient
-from JSONRequestCrafter import JSONRequestCrafter
+from aiClient import AIClient
+from jsonRequestCrafter import JSONRequestCrafter
+
+
+def printParsedData(data):
+    printData.printStructures(data['structs'])
+    printData.printDefines(data['defines'])
+    printData.printFunctions(data['functions'])
+    printData.printTypedefs(data['typedefs'])
+    printData.printUnions(data['unions'])
 
 
 def parseXMLFile(filename, lang, libname):
@@ -18,7 +26,6 @@ def parseXMLFile(filename, lang, libname):
     functions = []
     typedefs = []
     root = ET.parse(filename).getroot()
-    client = AIClient("root@root.com", "12Poissons2hOt4U")
 
     for elem in root.iter('memberdef'):
         kind = elem.get('kind')
@@ -41,17 +48,23 @@ def parseXMLFile(filename, lang, libname):
             unions.append(getUnion("xml/" + refid + ".xml"))
             useful.printVerbose("\tFound union \'" + unions[-1].name + "\'")
 
-    list = []
-    list.append(client)
-    list.append(defines)
-    list.append(structs)
-    list.append(unions)
-    list.append(functions)
-    list.append(typedefs)
-    JSONRequestCrafter(lang, libname, list)
+    if useful.verbose:
+        data = {
+            'structs': structs,
+            'defines': defines,
+            'functions': functions,
+            'typedefs': typedefs,
+            'unions': unions
+        }
+        printParsedData(data)
 
-    # printData.printStructures(structs)
-    # printData.printDefines(defines)
-    # printData.printFunctions(functions)
-    # printData.printTypedefs(typedefs)
-    # printData.printUnions(unions)
+    if useful.upload:
+        client = AIClient("root@root.com", "12Poissons2hOt4U")
+        list = []
+        list.append(client)
+        list.append(defines)
+        list.append(structs)
+        list.append(unions)
+        list.append(functions)
+        list.append(typedefs)
+        JSONRequestCrafter(lang, libname, list)

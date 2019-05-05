@@ -2,17 +2,20 @@
 import xml.etree.ElementTree as ET
 from urllib.request import urlopen
 import os
+import sys
 import argparse
-import parserDoxygenXML
 import useful
-import PySimpleGUI as sg
+
+import Lang_C_CPP.parserC as parserC
 
 
 DESCRIPTION = 'This program will parse a library and send it to the WikiLibs API.'
 LANGUAGE_HELP = 'sets the language used in the library (please check WikiLibs documentation to check the currently supported languages)'
 NAME_HELP = 'sets the name of the library to be send'
 VERBOSE_HELP = 'shows more infos in the output'
+EXCEPTION_HELP = 'shows parser exception'
 GUI_HELP = 'set this option to use the GUI version'
+NO_UPLOAD_HELP = 'set this option to disable upload to API (useful for degug)'
 
 dicoLang = {
     "C": ['.h', '.c'],
@@ -63,28 +66,48 @@ def parserArgs():
     argParser.add_argument('language', help=LANGUAGE_HELP)
     argParser.add_argument('library_name', help=NAME_HELP)
     argParser.add_argument('-v', '--verbose', help=VERBOSE_HELP, action='store_true')
-    argParser.add_argument('-g', '--gui', help=VERBOSE_HELP, action='store_true')
+    argParser.add_argument('-e', '--exception', help=EXCEPTION_HELP, action='store_true')
+    argParser.add_argument('-g', '--gui', help=GUI_HELP, action='store_true')
+    argParser.add_argument('-n', '--noUpload', help=NO_UPLOAD_HELP, action='store_true')
     args = argParser.parse_args()
+
+    args.language = args.language.upper()
 
     if args.verbose:
         useful.verbose = args.verbose
     if args.gui:
-        event, (args.language, args.library_name,) = sg.Window('WikiLibs Parser').Layout([[sg.Text('Language')], [sg.InputCombo(['C', 'Python'], size=(20, 3))], [sg.Text('Library name')], [sg.InputText('')], [sg.OK(), sg.Cancel()] ]).Read()
-    useful.printVerbose("Language = " + args.language)
-    useful.printVerbose("Library name = " + args.library_name + "\n")
+        useful.printVerbose("Launch GUI mode")
+    if args.noUpload:
+        useful.upload = False
+    if args.exception:
+        useful.exceptions = True
+
+    if dicoLang.get(args.language) is None:
+        print('Error: unsupported language \'{}\''.format(args.language))
+        sys.exit(84)
+
+    useful.printVerbose('Language = ' + args.language)
+    useful.printVerbose('Library name = ' + args.library_name + '\n')
 
     return args
 
 
-def main():
+def getFunctionsLang():
+    dispatch = {
+        'C': parserC.parseXMLFile
+    }
+    return dispatch
 
-    args = parserArgs()    
+
+def main():
+    args = parserArgs()
     getDoxyfileAndRun()
 
     files = getAllFiles(args.language)
+    dispatch = getFunctionsLang()
     for filename in files:
-        useful.printVerbose("Starting parsing \'" + filename.ogFilename + "\'")
-        parserDoxygenXML.parseXMLFile(filename.xmlFilename, args.language, args.library_name)
+        useful.printVerbose('Starting parsing \'' + filename.ogFilename + '\'')
+        dispatch[args.language](filename.xmlFilename, args.language, args.library_name)
 
     deleteFiles()
 

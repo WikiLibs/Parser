@@ -1,6 +1,6 @@
 #!/usr/bin/python3.6
 
-from JSONClasses import SymbolUpdate, SymbolPrototype, SymbolParam
+from jsonClasses import SymbolUpdate, SymbolPrototype, SymbolParam
 
 g_lang = ""
 g_lib = ""
