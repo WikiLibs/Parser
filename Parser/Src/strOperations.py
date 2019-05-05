@@ -6,7 +6,7 @@ def epurStr(string):
     return re.sub(' +', ' ', string.strip()).strip().replace('\n', '').replace('\r', '').replace('\t', '')
 
 
-def removePointerSpace(string):    
+def removePointerSpace(string):
     tmp = [m.start() for m in re.finditer(r'\*', string)]
     for index in tmp:
         try:

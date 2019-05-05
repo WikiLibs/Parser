@@ -4,6 +4,7 @@ from classes import variableClass
 
 
 def getCompoundName(elem):
+    print(type(elem))
     return strOp.epurStr(elem.find("compounddef/compoundname").text)
 
 
