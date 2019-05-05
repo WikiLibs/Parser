@@ -1,0 +1,182 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="group__url__options" kind="group">
+    <compoundname>url_options</compoundname>
+    <title>URL Reading Options</title>
+    <innerclass refid="struct_opus_server_info" prot="public">OpusServerInfo</innerclass>
+      <sectiondef kind="user-defined">
+      <header>URL reading options</header>
+      <description><para>Options for <ref refid="group__stream__callbacks_1ga5c588fac7542057282b50a5bd2dbb35a" kindref="member">op_url_stream_create()</ref> and associated functions. These allow you to provide proxy configuration parameters, skip SSL certificate checks, etc. Options are processed in order, and if the same option is passed multiple times, only the value specified by the last occurrence has an effect (unless otherwise specified). They may be expanded in the future. </para></description>
+      <memberdef kind="function" id="group__url__options_1ga8a8c97266e46504e064bba1a70495738" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void opus_server_info_init</definition>
+        <argsstring>(OpusServerInfo *_info) OP_ARG_NONNULL(1)</argsstring>
+        <name>opus_server_info_init</name>
+        <param>
+          <type><ref refid="struct_opus_server_info" kindref="compound">OpusServerInfo</ref> *</type>
+          <declname>_info</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Initializes an <ref refid="struct_opus_server_info" kindref="compound">OpusServerInfo</ref> structure. All fields are set as if the corresponding header was not available. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>_info</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The <ref refid="struct_opus_server_info" kindref="compound">OpusServerInfo</ref> structure to initialize. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="note"><para>If you use this function, you must link against <computeroutput>libopusurl</computeroutput>. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="includes/personnal/opusfile.h" line="694" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__url__options_1ga096536e460277fe890acb265d8fdbd63" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void opus_server_info_clear</definition>
+        <argsstring>(OpusServerInfo *_info) OP_ARG_NONNULL(1)</argsstring>
+        <name>opus_server_info_clear</name>
+        <param>
+          <type><ref refid="struct_opus_server_info" kindref="compound">OpusServerInfo</ref> *</type>
+          <declname>_info</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Clears the <ref refid="struct_opus_server_info" kindref="compound">OpusServerInfo</ref> structure. This should be called on an <ref refid="struct_opus_server_info" kindref="compound">OpusServerInfo</ref> structure after it is no longer needed. It will free all memory used by the structure members. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>_info</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The <ref refid="struct_opus_server_info" kindref="compound">OpusServerInfo</ref> structure to clear. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="note"><para>If you use this function, you must link against <computeroutput>libopusurl</computeroutput>. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="includes/personnal/opusfile.h" line="702" column="1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__url__options_1ga71080150b55e223be2710a0307108b72" prot="public" static="no">
+        <name>OP_SSL_SKIP_CERTIFICATE_CHECK</name>
+        <param><defname>_b</defname></param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Skip the certificate check when connecting via TLS/SSL (https). <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>_b</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><computeroutput>opus_int32</computeroutput>: Whether or not to skip the certificate check. The check will be skipped if <emphasis>_b</emphasis> is non-zero, and will not be skipped if <emphasis>_b</emphasis> is zero. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="includes/personnal/opusfile.h" line="710" column="9" bodyfile="includes/personnal/opusfile.h" bodystart="710" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__url__options_1gab3b517acdb74c0d0b51800af86a58876" prot="public" static="no">
+        <name>OP_HTTP_PROXY_HOST</name>
+        <param><defname>_host</defname></param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Proxy connections through the given host. If no port is specified via <ref refid="group__url__options_1ga838d23878f4135691684203baa75ed0c" kindref="member">OP_HTTP_PROXY_PORT</ref>, the port number defaults to 8080 (http-alt). All proxy parameters are ignored for non-http and non-https URLs. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>_host</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><computeroutput>const char *</computeroutput>: The proxy server hostname. This may be <computeroutput>NULL</computeroutput> to disable the use of a proxy server. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="includes/personnal/opusfile.h" line="721" column="9" bodyfile="includes/personnal/opusfile.h" bodystart="721" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__url__options_1ga838d23878f4135691684203baa75ed0c" prot="public" static="no">
+        <name>OP_HTTP_PROXY_PORT</name>
+        <param><defname>_port</defname></param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Use the given port when proxying connections. This option only has an effect if <ref refid="group__url__options_1gab3b517acdb74c0d0b51800af86a58876" kindref="member">OP_HTTP_PROXY_HOST</ref> is specified with a non-<computeroutput>NULL</computeroutput> <emphasis>_host</emphasis>. If this option is not provided, the proxy port number defaults to 8080 (http-alt). All proxy parameters are ignored for non-http and non-https URLs. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>_port</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><computeroutput>opus_int32</computeroutput>: The proxy server port. This must be in the range 0...65535 (inclusive), or the URL function this is passed to will fail. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="includes/personnal/opusfile.h" line="734" column="9" bodyfile="includes/personnal/opusfile.h" bodystart="734" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__url__options_1gaf0ce8d761ff48697fa0c44a62a445842" prot="public" static="no">
+        <name>OP_HTTP_PROXY_USER</name>
+        <param><defname>_user</defname></param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Use the given user name for authentication when proxying connections. All proxy parameters are ignored for non-http and non-https URLs. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>_user</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>const char *: The proxy server user name. This may be <computeroutput>NULL</computeroutput> to disable proxy authentication. A non-<computeroutput>NULL</computeroutput> value only has an effect if <ref refid="group__url__options_1gab3b517acdb74c0d0b51800af86a58876" kindref="member">OP_HTTP_PROXY_HOST</ref> and <ref refid="group__url__options_1gaad96c33557407e406cca89477b2e7892" kindref="member">OP_HTTP_PROXY_PASS</ref> are also specified with non-<computeroutput>NULL</computeroutput> arguments. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="includes/personnal/opusfile.h" line="747" column="9" bodyfile="includes/personnal/opusfile.h" bodystart="747" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__url__options_1gaad96c33557407e406cca89477b2e7892" prot="public" static="no">
+        <name>OP_HTTP_PROXY_PASS</name>
+        <param><defname>_pass</defname></param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Use the given password for authentication when proxying connections. All proxy parameters are ignored for non-http and non-https URLs. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>_pass</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>const char *: The proxy server password. This may be <computeroutput>NULL</computeroutput> to disable proxy authentication. A non-<computeroutput>NULL</computeroutput> value only has an effect if <ref refid="group__url__options_1gab3b517acdb74c0d0b51800af86a58876" kindref="member">OP_HTTP_PROXY_HOST</ref> and <ref refid="group__url__options_1gaf0ce8d761ff48697fa0c44a62a445842" kindref="member">OP_HTTP_PROXY_USER</ref> are also specified with non-<computeroutput>NULL</computeroutput> arguments. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="includes/personnal/opusfile.h" line="760" column="9" bodyfile="includes/personnal/opusfile.h" bodystart="760" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__url__options_1gacc2e4b086bee832d5d66caf18fd7d659" prot="public" static="no">
+        <name>OP_GET_SERVER_INFO</name>
+        <param><defname>_info</defname></param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Parse information about the streaming server (if any) and return it. Very little validation is done. In particular, <ref refid="struct_opus_server_info_1a7f9aef47413c849bb240ef70394401b1" kindref="member">OpusServerInfo::url</ref> may not be a valid URL, <ref refid="struct_opus_server_info_1a1cf5db210f1cad5cf809bf54ddff68de" kindref="member">OpusServerInfo::bitrate_kbps</ref> may not really be in kbps, and <ref refid="struct_opus_server_info_1a5f0120b006af1122cbdc72f3cbb68fd7" kindref="member">OpusServerInfo::content_type</ref> may not be a valid MIME type. The character set of the string fields is not specified anywhere, and should not be assumed to be valid UTF-8. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>_info</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><ref refid="struct_opus_server_info" kindref="compound">OpusServerInfo</ref> *: Returns information about the server. If there is any error opening the stream, the contents of this structure remain unmodified. On success, fills in the structure with the server information that was available, if any. After a successful return, the contents of this structure should be freed by calling <ref refid="group__url__options_1ga096536e460277fe890acb265d8fdbd63" kindref="member">opus_server_info_clear()</ref>. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="includes/personnal/opusfile.h" line="781" column="9" bodyfile="includes/personnal/opusfile.h" bodystart="781" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

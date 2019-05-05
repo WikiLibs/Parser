@@ -1,0 +1,91 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="classclasses_1_1union_class" kind="class" language="Python" prot="public">
+    <compoundname>classes::unionClass</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classclasses_1_1union_class_1a29d6e2caf8c2be6418a645bfd66fdd05" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>classes.unionClass::name</definition>
+        <argsstring></argsstring>
+        <name>name</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/classes.py" line="28" column="1" bodyfile="src/classes.py" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classclasses_1_1union_class_1ac08397b90f1ced6637678017a964ab3d" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>classes.unionClass::members</definition>
+        <argsstring></argsstring>
+        <name>members</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/classes.py" line="29" column="1" bodyfile="src/classes.py" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classclasses_1_1union_class_1a7581c5de765b6dc0f728577456c852e7" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>classes.unionClass::briefDesc</definition>
+        <argsstring></argsstring>
+        <name>briefDesc</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/classes.py" line="30" column="1" bodyfile="src/classes.py" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classclasses_1_1union_class_1adfb1fc840931e3014d547394709b5788" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>classes.unionClass::detailedDesc</definition>
+        <argsstring></argsstring>
+        <name>detailedDesc</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/classes.py" line="31" column="1" bodyfile="src/classes.py" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classclasses_1_1union_class_1a0dfbdb622818493cb6c108c15e7ba70b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def classes.unionClass.__init__</definition>
+        <argsstring>(self)</argsstring>
+        <name>__init__</name>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/classes.py" line="27" column="1" bodyfile="src/classes.py" bodystart="27" bodyend="33"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/classes.py" line="26" column="1" bodyfile="src/classes.py" bodystart="26" bodyend="34"/>
+    <listofallmembers>
+      <member refid="classclasses_1_1union_class_1a0dfbdb622818493cb6c108c15e7ba70b" prot="public" virt="non-virtual"><scope>classes::unionClass</scope><name>__init__</name></member>
+      <member refid="classclasses_1_1union_class_1a7581c5de765b6dc0f728577456c852e7" prot="public" virt="non-virtual"><scope>classes::unionClass</scope><name>briefDesc</name></member>
+      <member refid="classclasses_1_1union_class_1adfb1fc840931e3014d547394709b5788" prot="public" virt="non-virtual"><scope>classes::unionClass</scope><name>detailedDesc</name></member>
+      <member refid="classclasses_1_1union_class_1ac08397b90f1ced6637678017a964ab3d" prot="public" virt="non-virtual"><scope>classes::unionClass</scope><name>members</name></member>
+      <member refid="classclasses_1_1union_class_1a29d6e2caf8c2be6418a645bfd66fdd05" prot="public" virt="non-virtual"><scope>classes::unionClass</scope><name>name</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

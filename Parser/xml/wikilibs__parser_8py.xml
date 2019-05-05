@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="wikilibs__parser_8py" kind="file" language="Python">
+    <compoundname>wikilibs_parser.py</compoundname>
+    <innerclass refid="classwikilibs__parser_1_1files_class" prot="public">wikilibs_parser::filesClass</innerclass>
+    <innernamespace refid="namespacewikilibs__parser">wikilibs_parser</innernamespace>
+    <innernamespace refid="namespacetkinter">tkinter</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/wikilibs_parser.py"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,105 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="classclasses_1_1define_class" kind="class" language="Python" prot="public">
+    <compoundname>classes::defineClass</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classclasses_1_1define_class_1a55583c36d1ebe6b19cbf25e64d71d1db" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>classes.defineClass::name</definition>
+        <argsstring></argsstring>
+        <name>name</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/classes.py" line="11" column="1" bodyfile="src/classes.py" bodystart="11" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classclasses_1_1define_class_1a81a43a637686d346f8cebc53ecf193d2" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>classes.defineClass::initializer</definition>
+        <argsstring></argsstring>
+        <name>initializer</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/classes.py" line="12" column="1" bodyfile="src/classes.py" bodystart="12" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classclasses_1_1define_class_1a4f3f8d11c9cefed2f729e14f6ab14111" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>classes.defineClass::params</definition>
+        <argsstring></argsstring>
+        <name>params</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/classes.py" line="13" column="1" bodyfile="src/classes.py" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classclasses_1_1define_class_1a1b72ba9a30129be4f2e33a7622b61388" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>classes.defineClass::briefDesc</definition>
+        <argsstring></argsstring>
+        <name>briefDesc</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/classes.py" line="14" column="1" bodyfile="src/classes.py" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classclasses_1_1define_class_1aa72bc08ac33298c1812fce162ad27084" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>classes.defineClass::detailedDesc</definition>
+        <argsstring></argsstring>
+        <name>detailedDesc</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/classes.py" line="15" column="1" bodyfile="src/classes.py" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classclasses_1_1define_class_1ac4df770bf6538843683da30d64e392a3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def classes.defineClass.__init__</definition>
+        <argsstring>(self)</argsstring>
+        <name>__init__</name>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/classes.py" line="10" column="1" bodyfile="src/classes.py" bodystart="10" bodyend="17"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/classes.py" line="9" column="1" bodyfile="src/classes.py" bodystart="9" bodyend="18"/>
+    <listofallmembers>
+      <member refid="classclasses_1_1define_class_1ac4df770bf6538843683da30d64e392a3" prot="public" virt="non-virtual"><scope>classes::defineClass</scope><name>__init__</name></member>
+      <member refid="classclasses_1_1define_class_1a1b72ba9a30129be4f2e33a7622b61388" prot="public" virt="non-virtual"><scope>classes::defineClass</scope><name>briefDesc</name></member>
+      <member refid="classclasses_1_1define_class_1aa72bc08ac33298c1812fce162ad27084" prot="public" virt="non-virtual"><scope>classes::defineClass</scope><name>detailedDesc</name></member>
+      <member refid="classclasses_1_1define_class_1a81a43a637686d346f8cebc53ecf193d2" prot="public" virt="non-virtual"><scope>classes::defineClass</scope><name>initializer</name></member>
+      <member refid="classclasses_1_1define_class_1a55583c36d1ebe6b19cbf25e64d71d1db" prot="public" virt="non-virtual"><scope>classes::defineClass</scope><name>name</name></member>
+      <member refid="classclasses_1_1define_class_1a4f3f8d11c9cefed2f729e14f6ab14111" prot="public" virt="non-virtual"><scope>classes::defineClass</scope><name>params</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

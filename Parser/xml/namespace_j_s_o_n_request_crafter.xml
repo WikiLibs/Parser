@@ -1,0 +1,173 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="namespace_j_s_o_n_request_crafter" kind="namespace" language="Python">
+    <compoundname>JSONRequestCrafter</compoundname>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="namespace_j_s_o_n_request_crafter_1a1011f3685fd34d112db4665461daecb0" prot="public" static="no" mutable="no">
+        <type>string</type>
+        <definition>string JSONRequestCrafter.g_lang</definition>
+        <argsstring></argsstring>
+        <name>g_lang</name>
+        <initializer>=  &quot;&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/JSONRequestCrafter.py" line="7" column="1" bodyfile="src/JSONRequestCrafter.py" bodystart="7" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespace_j_s_o_n_request_crafter_1a16e28998c2c72e926861e32c40b5df9d" prot="public" static="no" mutable="no">
+        <type>string</type>
+        <definition>string JSONRequestCrafter.g_lib</definition>
+        <argsstring></argsstring>
+        <name>g_lib</name>
+        <initializer>=  &quot;&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/JSONRequestCrafter.py" line="8" column="1" bodyfile="src/JSONRequestCrafter.py" bodystart="8" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="namespace_j_s_o_n_request_crafter_1a1c3a16f9a0ecfc60fc4e0685d25a8fde" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def JSONRequestCrafter.craftStructRequest</definition>
+        <argsstring>(client, structs)</argsstring>
+        <name>craftStructRequest</name>
+        <param>
+          <type>client</type>
+          <defname>client</defname>
+        </param>
+        <param>
+          <type>structs</type>
+          <defname>structs</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/JSONRequestCrafter.py" line="10" column="1" bodyfile="src/JSONRequestCrafter.py" bodystart="10" bodyend="37"/>
+      </memberdef>
+      <memberdef kind="function" id="namespace_j_s_o_n_request_crafter_1a1c5a694acbbb0cef99f8d72771e08a3e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def JSONRequestCrafter.craftDefineRequest</definition>
+        <argsstring>(client, defines)</argsstring>
+        <name>craftDefineRequest</name>
+        <param>
+          <type>client</type>
+          <defname>client</defname>
+        </param>
+        <param>
+          <type>defines</type>
+          <defname>defines</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/JSONRequestCrafter.py" line="38" column="1" bodyfile="src/JSONRequestCrafter.py" bodystart="38" bodyend="59"/>
+      </memberdef>
+      <memberdef kind="function" id="namespace_j_s_o_n_request_crafter_1aa6a5d554b4244792bcfec23d01c0207f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def JSONRequestCrafter.craftUnionRequest</definition>
+        <argsstring>(client, unions)</argsstring>
+        <name>craftUnionRequest</name>
+        <param>
+          <type>client</type>
+          <defname>client</defname>
+        </param>
+        <param>
+          <type>unions</type>
+          <defname>unions</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/JSONRequestCrafter.py" line="60" column="1" bodyfile="src/JSONRequestCrafter.py" bodystart="60" bodyend="87"/>
+      </memberdef>
+      <memberdef kind="function" id="namespace_j_s_o_n_request_crafter_1a95888b9a45db1b690df6e19beeb0e476" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def JSONRequestCrafter.craftFunctionRequest</definition>
+        <argsstring>(client, functions)</argsstring>
+        <name>craftFunctionRequest</name>
+        <param>
+          <type>client</type>
+          <defname>client</defname>
+        </param>
+        <param>
+          <type>functions</type>
+          <defname>functions</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/JSONRequestCrafter.py" line="88" column="1" bodyfile="src/JSONRequestCrafter.py" bodystart="88" bodyend="119"/>
+      </memberdef>
+      <memberdef kind="function" id="namespace_j_s_o_n_request_crafter_1aa1a128fc30df1c3521e56782da8f177d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def JSONRequestCrafter.craftTypedefRequest</definition>
+        <argsstring>(client, typedefs)</argsstring>
+        <name>craftTypedefRequest</name>
+        <param>
+          <type>client</type>
+          <defname>client</defname>
+        </param>
+        <param>
+          <type>typedefs</type>
+          <defname>typedefs</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/JSONRequestCrafter.py" line="120" column="1" bodyfile="src/JSONRequestCrafter.py" bodystart="120" bodyend="135"/>
+      </memberdef>
+      <memberdef kind="function" id="namespace_j_s_o_n_request_crafter_1aa1213f00c2602dab23124520dce9acd1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def JSONRequestCrafter.JSONRequestCrafter</definition>
+        <argsstring>(lang, lib, rawData)</argsstring>
+        <name>JSONRequestCrafter</name>
+        <param>
+          <type>lang</type>
+          <defname>lang</defname>
+        </param>
+        <param>
+          <type>lib</type>
+          <defname>lib</defname>
+        </param>
+        <param>
+          <type>rawData</type>
+          <defname>rawData</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/JSONRequestCrafter.py" line="136" column="1" bodyfile="src/JSONRequestCrafter.py" bodystart="136" bodyend="148"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/JSONRequestCrafter.py" line="1" column="1"/>
+  </compounddef>
+</doxygen>

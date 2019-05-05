@@ -1,0 +1,178 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="class_a_i_client_1_1_a_i_client" kind="class" language="Python" prot="public">
+    <compoundname>AIClient::AIClient</compoundname>
+      <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="class_a_i_client_1_1_a_i_client_1ac24f7996b11bfe41fdb56dc11518310b" prot="public" static="yes" mutable="no">
+        <type></type>
+        <definition>AIClient.AIClient::x</definition>
+        <argsstring></argsstring>
+        <name>x</name>
+        <initializer>=   obj.get_JSON()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/AIClient.py" line="22" column="1" bodyfile="src/AIClient.py" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_a_i_client_1_1_a_i_client_1a9f284ae2be30ea461cf851f3a4461d2a" prot="public" static="yes" mutable="no">
+        <type></type>
+        <definition>AIClient.AIClient::y</definition>
+        <argsstring></argsstring>
+        <name>y</name>
+        <initializer>=  json.loads(<ref refid="class_a_i_client_1_1_a_i_client_1ac24f7996b11bfe41fdb56dc11518310b" kindref="member">x</ref>)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/AIClient.py" line="23" column="1" bodyfile="src/AIClient.py" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_a_i_client_1_1_a_i_client_1aaad861aaf7a11d5e94318f58f035db23" prot="public" static="yes" mutable="no">
+        <type>dictionary</type>
+        <definition>dictionary AIClient.AIClient::headers</definition>
+        <argsstring></argsstring>
+        <name>headers</name>
+        <initializer>=  {
+            &quot;Authorization&quot;: API_KEY,
+            &quot;email&quot;: self.User,
+            &quot;password&quot;: self.Pass
+        }</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/AIClient.py" line="25" column="1" bodyfile="src/AIClient.py" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_a_i_client_1_1_a_i_client_1aced0b8aa6c29b76c1904395854234865" prot="public" static="yes" mutable="no">
+        <type></type>
+        <definition>AIClient.AIClient::res</definition>
+        <argsstring></argsstring>
+        <name>res</name>
+        <initializer>=  requests.post(<ref refid="namespace_a_i_client_1ad88cbbd31a897c385e49dc3e9e130c92" kindref="member">API_URL</ref> + &quot;/user/login&quot;, headers=<ref refid="class_a_i_client_1_1_a_i_client_1aaad861aaf7a11d5e94318f58f035db23" kindref="member">headers</ref>, verify=False)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/AIClient.py" line="30" column="1" bodyfile="src/AIClient.py" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_a_i_client_1_1_a_i_client_1a4f93dc2e04657dd744ff324eb3cd64e7" prot="public" static="yes" mutable="no">
+        <type></type>
+        <definition>AIClient.AIClient::token</definition>
+        <argsstring></argsstring>
+        <name>token</name>
+        <initializer>=  res.text[1:-1]</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/AIClient.py" line="33" column="1" bodyfile="src/AIClient.py" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="class_a_i_client_1_1_a_i_client_1ac5b23c0debc1a63af186b0ee15eb05c5" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>AIClient.AIClient::User</definition>
+        <argsstring></argsstring>
+        <name>User</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/AIClient.py" line="14" column="1" bodyfile="src/AIClient.py" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_a_i_client_1_1_a_i_client_1a95fa53b7916f77f46cf3bf8af5957133" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>AIClient.AIClient::Pass</definition>
+        <argsstring></argsstring>
+        <name>Pass</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/AIClient.py" line="15" column="1" bodyfile="src/AIClient.py" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_a_i_client_1_1_a_i_client_1a22a95809d87b522de99d9d743e63a9b7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def AIClient.AIClient.__init__</definition>
+        <argsstring>(self, user, passwd)</argsstring>
+        <name>__init__</name>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type>user</type>
+          <defname>user</defname>
+        </param>
+        <param>
+          <type>passwd</type>
+          <defname>passwd</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/AIClient.py" line="13" column="1" bodyfile="src/AIClient.py" bodystart="13" bodyend="16"/>
+      </memberdef>
+      <memberdef kind="function" id="class_a_i_client_1_1_a_i_client_1aaf0ea6bba93ab159c736e4b2b14b5f6f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def AIClient.AIClient.PushSymbol</definition>
+        <argsstring>(self, path, obj)</argsstring>
+        <name>PushSymbol</name>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <param>
+          <type>path</type>
+          <defname>path</defname>
+        </param>
+        <param>
+          <type>obj</type>
+          <defname>obj</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/AIClient.py" line="17" column="1" bodyfile="src/AIClient.py" bodystart="17" bodyend="17"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/AIClient.py" line="9" column="1" bodyfile="src/AIClient.py" bodystart="9" bodyend="46"/>
+    <listofallmembers>
+      <member refid="class_a_i_client_1_1_a_i_client_1a22a95809d87b522de99d9d743e63a9b7" prot="public" virt="non-virtual"><scope>AIClient::AIClient</scope><name>__init__</name></member>
+      <member refid="class_a_i_client_1_1_a_i_client_1aaad861aaf7a11d5e94318f58f035db23" prot="public" virt="non-virtual"><scope>AIClient::AIClient</scope><name>headers</name></member>
+      <member refid="class_a_i_client_1_1_a_i_client_1a95fa53b7916f77f46cf3bf8af5957133" prot="public" virt="non-virtual"><scope>AIClient::AIClient</scope><name>Pass</name></member>
+      <member refid="class_a_i_client_1_1_a_i_client_1aaf0ea6bba93ab159c736e4b2b14b5f6f" prot="public" virt="non-virtual"><scope>AIClient::AIClient</scope><name>PushSymbol</name></member>
+      <member refid="class_a_i_client_1_1_a_i_client_1aced0b8aa6c29b76c1904395854234865" prot="public" virt="non-virtual"><scope>AIClient::AIClient</scope><name>res</name></member>
+      <member refid="class_a_i_client_1_1_a_i_client_1a4f93dc2e04657dd744ff324eb3cd64e7" prot="public" virt="non-virtual"><scope>AIClient::AIClient</scope><name>token</name></member>
+      <member refid="class_a_i_client_1_1_a_i_client_1ac5b23c0debc1a63af186b0ee15eb05c5" prot="public" virt="non-virtual"><scope>AIClient::AIClient</scope><name>User</name></member>
+      <member refid="class_a_i_client_1_1_a_i_client_1ac24f7996b11bfe41fdb56dc11518310b" prot="public" virt="non-virtual"><scope>AIClient::AIClient</scope><name>x</name></member>
+      <member refid="class_a_i_client_1_1_a_i_client_1a9f284ae2be30ea461cf851f3a4461d2a" prot="public" virt="non-virtual"><scope>AIClient::AIClient</scope><name>y</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

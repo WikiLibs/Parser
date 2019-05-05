@@ -1,0 +1,91 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="classclasses_1_1variable_class" kind="class" language="Python" prot="public">
+    <compoundname>classes::variableClass</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="classclasses_1_1variable_class_1a4774b68fd6348891fb5b67c1c78ed11d" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>classes.variableClass::name</definition>
+        <argsstring></argsstring>
+        <name>name</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/classes.py" line="3" column="1" bodyfile="src/classes.py" bodystart="3" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classclasses_1_1variable_class_1ae6d8fcd25b5346f8d971b26cace99499" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>classes.variableClass::type</definition>
+        <argsstring></argsstring>
+        <name>type</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/classes.py" line="4" column="1" bodyfile="src/classes.py" bodystart="4" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classclasses_1_1variable_class_1a7fbf53b10fb02bb61eab1f6803cc69c2" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>classes.variableClass::value</definition>
+        <argsstring></argsstring>
+        <name>value</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/classes.py" line="5" column="1" bodyfile="src/classes.py" bodystart="5" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classclasses_1_1variable_class_1aa52a6ed2f0a47fef4214612fb3569a8c" prot="public" static="no" mutable="no">
+        <type></type>
+        <definition>classes.variableClass::desc</definition>
+        <argsstring></argsstring>
+        <name>desc</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/classes.py" line="6" column="1" bodyfile="src/classes.py" bodystart="6" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classclasses_1_1variable_class_1ab9ce12feb3b441feb13f74fa88b960a9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>def</type>
+        <definition>def classes.variableClass.__init__</definition>
+        <argsstring>(self)</argsstring>
+        <name>__init__</name>
+        <param>
+          <type>self</type>
+          <defname>self</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/classes.py" line="2" column="1" bodyfile="src/classes.py" bodystart="2" bodyend="8"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/classes.py" line="1" column="1" bodyfile="src/classes.py" bodystart="1" bodyend="9"/>
+    <listofallmembers>
+      <member refid="classclasses_1_1variable_class_1ab9ce12feb3b441feb13f74fa88b960a9" prot="public" virt="non-virtual"><scope>classes::variableClass</scope><name>__init__</name></member>
+      <member refid="classclasses_1_1variable_class_1aa52a6ed2f0a47fef4214612fb3569a8c" prot="public" virt="non-virtual"><scope>classes::variableClass</scope><name>desc</name></member>
+      <member refid="classclasses_1_1variable_class_1a4774b68fd6348891fb5b67c1c78ed11d" prot="public" virt="non-virtual"><scope>classes::variableClass</scope><name>name</name></member>
+      <member refid="classclasses_1_1variable_class_1ae6d8fcd25b5346f8d971b26cace99499" prot="public" virt="non-virtual"><scope>classes::variableClass</scope><name>type</name></member>
+      <member refid="classclasses_1_1variable_class_1a7fbf53b10fb02bb61eab1f6803cc69c2" prot="public" virt="non-virtual"><scope>classes::variableClass</scope><name>value</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>
