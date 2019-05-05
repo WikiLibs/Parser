@@ -1,6 +1,0 @@
-<tr>
-    <tr mdr>
-        mdr7
-    </tr>
-    mdr8
-</tr>
