@@ -1,6 +1,6 @@
 import unittest
 
-import Parser.Src.strOperations as strOperations
+import Parser.strOperations as strOperations
 
 
 class Test_StrOperations(unittest.TestCase):

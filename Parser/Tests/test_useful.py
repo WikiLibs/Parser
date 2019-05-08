@@ -4,7 +4,7 @@ from unittest.mock import patch
 import sys
 import io
 
-import Parser.Src.useful as useful
+import Parser.useful as useful
 
 
 class Test_Useful(unittest.TestCase):
@@ -16,7 +16,7 @@ class Test_Useful(unittest.TestCase):
         sys.stdout = sys.__stdout__  # reset stdout
         self.assertEqual(capturedOutput.getvalue(), '')
 
-    @patch('Parser.Src.useful.verbose', True)  # modify value of global variable
+    @patch('Parser.useful.verbose', True)  # modify value of global variable
     def test_verbose_true(self):
         '''it should print hello as verbose is enabled'''
         capturedOutput = io.StringIO()  # setup an io
@@ -33,8 +33,8 @@ class Test_Useful(unittest.TestCase):
         sys.stdout = sys.__stdout__  # reset stdout
         self.assertEqual(capturedOutput.getvalue(), '')
 
-    @patch('Parser.Src.useful.verbose', True)
-    @patch('Parser.Src.useful.exceptions', True)
+    @patch('Parser.useful.verbose', True)
+    @patch('Parser.useful.exceptions', True)
     def test_exception_verbose_true(self):
         '''it should not print the exception as exceptions is not enabled'''
         capturedOutput = io.StringIO()  # setup an io

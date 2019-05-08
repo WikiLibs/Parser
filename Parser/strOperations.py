@@ -1,5 +1,4 @@
 import re
-import useful
 
 
 def epurStr(string):
@@ -9,10 +8,6 @@ def epurStr(string):
 def removePointerSpace(string):
     tmp = [m.start() for m in re.finditer(r'\*', string)]
     for index in tmp:
-        try:
-            if string[index - 1] == ' ':
-                string = string[:index - 1] + string[index:]
-        except Exception as error:
-            useful.printExceptionVerbose(error)
-            pass
+        if string[index - 1] == ' ':
+            string = string[:index - 1] + string[index:]
     return string
