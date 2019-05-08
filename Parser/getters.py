@@ -78,11 +78,7 @@ def getParams(define):
             except Exception as error:
                 useful.printExceptionVerbose(error)
                 tmpParam.name = strOp.epurStr(param.find("declname").text)
-            try:
-                tmpParam.type = getType(param)
-            except Exception as error:
-                useful.printExceptionVerbose(error)
-                pass
+            tmpParam.type = getType(param)
             params.append(tmpParam)
         return params
     except Exception as error:
