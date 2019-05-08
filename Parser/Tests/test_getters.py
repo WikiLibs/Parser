@@ -1,7 +1,9 @@
 import unittest
 import xml.etree.ElementTree as ET
+import copy
 
 import Parser.getters as getters
+import Parser.classes as classes
 
 
 class Test_Getters(unittest.TestCase):
@@ -95,3 +97,143 @@ class Test_Getters(unittest.TestCase):
         '''
         result = getters.getReturnDesc(None)
         self.assertEqual(result, '', 'Should be empty')
+
+    def test_getParams_errorEmpty(self):
+        '''
+        it should return an empty list
+        '''
+        result = getters.getParams(None)
+        self.assertEqual(result, [], 'Should return an empty list')
+
+    def test_getParams(self):
+        '''
+        it should return the parameters
+        '''
+        obj = ET.ElementTree(ET.fromstring(
+            '<root> \
+                <param> \
+                    <type>const \
+                        <ref refid=\"struct_opus_head\" kindref=\"compound\">OpusHead</ref> * \
+                    </type> \
+                    <declname>_head</declname> \
+                </param> \
+                <param> \
+                    <type>ogg_int64_t</type> \
+                    <declname>_gp</declname> \
+                </param> \
+            </root>'
+        )).getroot()
+
+        firstParam = classes.variableClass()
+        firstParam.name = '_head'
+        firstParam.type = 'const OpusHead*'
+        secondParam = classes.variableClass()
+        secondParam.name = '_gp'
+        secondParam.type = 'ogg_int64_t'
+        expected = [firstParam, secondParam]
+
+        received = getters.getParams(obj)
+        self.assertEqual(expected[0].name, received[0].name, 'Should be equal')
+        self.assertEqual(expected[0].type, received[0].type, 'Should be equal')
+        self.assertEqual(expected[0].desc, received[0].desc, 'Should be equal')
+        self.assertEqual(expected[0].value, received[0].value, 'Should be equal')
+        self.assertEqual(expected[1].name, received[1].name, 'Should be equal')
+        self.assertEqual(expected[1].type, received[1].type, 'Should be equal')
+        self.assertEqual(expected[1].desc, received[1].desc, 'Should be equal')
+        self.assertEqual(expected[1].value, received[1].value, 'Should be equal')
+
+    def test_removeFromDetailedDescParams(self):
+        '''
+        it should return the expected
+        '''
+        expected = 'This is the description '
+
+        param = classes.variableClass()
+        param.name = 'awesome_parameter'
+        received = getters.removeFromDetailedDescParams('This is the description awesome_parameter', [param])
+        self.assertEqual(expected, received, 'Should be equal')
+
+    def test_getParamDesc(self):
+        '''
+        it should return the list completed
+        '''
+        obj = ET.ElementTree(ET.fromstring(
+            '<root> \
+                <detaileddescription> \
+                    <para> \
+                        <parameterlist kind=\"param\"> \
+                            <parameteritem> \
+                                <parameternamelist> \
+                                    <parametername>_info</parametername> \
+                                </parameternamelist> \
+                                <parameterdescription> \
+                                    <para> \
+                                        <ref refid=\"struct_opus_server_info\" kindref=\"compound\">OpusServerInfo</ref> *: Returns information about the server. If there is any error opening the stream, the contents of this structure remain unmodified. On success, fills in the structure with the server information that was available, if any. After a successful return, the contents of this structure should be freed by calling \
+                                        <ref refid=\"group__url__options_1ga096536e460277fe890acb265d8fdbd63\" kindref=\"member\">opus_server_info_clear()</ref>. \
+                                    </para> \
+                                </parameterdescription> \
+                            </parameteritem> \
+                        </parameterlist> \
+                    </para> \
+                </detaileddescription> \
+            </root>'
+        )).getroot()
+
+        firstParam = classes.variableClass()
+        firstParam.name = '_info'
+        expected = [firstParam]
+
+        received = getters.getParamDesc(obj, copy.deepcopy(expected))
+        expected[0].desc = 'OpusServerInfo *: Returns information about the server. If there is any error opening the stream, the contents of this structure remain unmodified. On success, fills in the structure with the server information that was available, if any. After a successful return, the contents of this structure should be freed by calling opus_server_info_clear() .'
+        self.assertEqual(expected[0].desc, received[0].desc, 'Should be equal')
+
+    def test_getParamDesc_error(self):
+        '''
+        it should return the same list
+        '''
+        firstParam = classes.variableClass()
+        firstParam.name = '_head'
+        expected = [firstParam]
+
+        obj = None
+        received = getters.getParamDesc(obj, expected)
+        self.assertEqual(expected, received)
+
+    def test_getRetvals(self):
+        '''
+        it should return the ret value
+        '''
+        obj = ET.ElementTree(ET.fromstring(
+            '<root> \
+                <detaileddescription> \
+                    <para> \
+                        <parameterlist kind=\"retval\"> \
+                            <parameteritem> \
+                                <parameternamelist> \
+                                    <parametername>0</parametername> \
+                                </parameternamelist> \
+                                <parameterdescription> \
+                                    <para>Success. </para> \
+                                </parameterdescription> \
+                            </parameteritem> \
+                        </parameterlist> \
+                    </para> \
+                </detaileddescription> \
+            </root>'
+        )).getroot()
+
+        tmpVar = classes.variableClass()
+        tmpVar.value = '0'
+        tmpVar.desc = 'Success.'
+        expected = [tmpVar]
+
+        received = getters.getRetvals(obj)
+        self.assertEqual(expected[0].value, received[0].value, 'Should be equal')
+        self.assertEqual(expected[0].desc, received[0].desc, 'Should be equal')
+
+    def test_getRetvals_error(self):
+        '''
+        it should return an empty list
+        '''
+        received = getters.getRetvals(None)
+        self.assertEqual(received, [], 'Should be equal')
