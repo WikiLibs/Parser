@@ -9,36 +9,44 @@ import Parser.useful as useful
 
 class Test_Useful(unittest.TestCase):
     def test_verbose_false(self):
-        '''it should not print hello as verbose isn't enabled'''
+        '''
+        it should not print hello as verbose isn't enabled
+        '''
         capturedOutput = io.StringIO()  # setup an io
         sys.stdout = capturedOutput  # redirect stdout
         useful.printVerbose('hello')
         sys.stdout = sys.__stdout__  # reset stdout
-        self.assertEqual(capturedOutput.getvalue(), '')
+        self.assertEqual(capturedOutput.getvalue(), '', 'Should print nothing')
 
     @patch('Parser.useful.verbose', True)  # modify value of global variable
     def test_verbose_true(self):
-        '''it should print hello as verbose is enabled'''
+        '''
+        it should print hello as verbose is enabled
+        '''
         capturedOutput = io.StringIO()  # setup an io
         sys.stdout = capturedOutput  # redirect stdout
         useful.printVerbose('hello')
         sys.stdout = sys.__stdout__  # reset stdout
-        self.assertEqual(capturedOutput.getvalue(), 'hello\n')
+        self.assertEqual(capturedOutput.getvalue(), 'hello\n', 'Should print \'hello\'')
 
     def test_exception_verbose_false(self):
-        '''it should not print the exception as exceptions is not enabled'''
+        '''
+        it should not print the exception as exceptions is not enabled
+        '''
         capturedOutput = io.StringIO()  # setup an io
         sys.stdout = capturedOutput  # redirect stdout
         useful.printExceptionVerbose('hello')
         sys.stdout = sys.__stdout__  # reset stdout
-        self.assertEqual(capturedOutput.getvalue(), '')
+        self.assertEqual(capturedOutput.getvalue(), '', 'Should print nothing')
 
     @patch('Parser.useful.verbose', True)
     @patch('Parser.useful.exceptions', True)
     def test_exception_verbose_true(self):
-        '''it should not print the exception as exceptions is not enabled'''
+        '''
+        it should print the exception as exceptions is enabled by both variables
+        '''
         capturedOutput = io.StringIO()  # setup an io
         sys.stdout = capturedOutput  # redirect stdout
         useful.printExceptionVerbose('hello')
         sys.stdout = sys.__stdout__  # reset stdout
-        self.assertEqual(capturedOutput.getvalue(), 'Exception: hello\n')
+        self.assertEqual(capturedOutput.getvalue(), 'Exception: hello\n', 'Should print \'Exception: hello\'')
