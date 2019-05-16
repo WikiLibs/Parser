@@ -28,8 +28,7 @@ def craftStructRequest(client, structs):
             mem = SymbolUpdate(member.name)
             mem.setLang(g_lang)
             mem.setType("attribute")
-            sym.appendSymbols
-            (g_lang + "/" + g_lib + "/" + struct.name + "/" + member.name)
+            sym.appendSymbols(g_lang + "/" + g_lib + "/" + struct.name + "/" + member.name)
             mem_proto = SymbolPrototype(member.name)
             mem_proto.setDescription(member.desc)
             mem_proto.setPrototype(member.type + " " + member.name)
@@ -59,8 +58,7 @@ def craftDefineRequest(client, defines):
         sym.setType("macro")
         sym_proto = SymbolPrototype(define.name)
         sym_proto.setDescription(define.detailedDesc)
-        sym_proto.setPrototype
-        ("#define " + define.name + " " + define.initializer)
+        sym_proto.setPrototype("#define " + define.name + " " + define.initializer)
         useful.printVerbose("Crafting" + define.name + "is done")
         useful.printVerbose("Now Getting" + define.name + "parametters")
         for param in define.params:
@@ -99,8 +97,7 @@ def craftUnionRequest(client, unions):
             mem = SymbolUpdate(member.name)
             mem.setLang(g_lang)
             mem.setType("attribute")
-            sym.appendSymbols
-            (g_lang + "/" + g_lib + "/" + union.name + "/" + member.name)
+            sym.appendSymbols(g_lang + "/" + g_lib + "/" + union.name + "/" + member.name)
             mem_proto = SymbolPrototype(member.name)
             mem_proto.setDescription(member.desc)
             mem_proto.setPrototype(member.type + " " + member.name)
@@ -165,8 +162,7 @@ def craftTypedefRequest(client, typedefs):
         sym.setType("typedef")
         sym_proto = SymbolPrototype(typedef.tdName)
         sym_proto.setDescription(typedef.detailedDesc)
-        sym_proto.setPrototype
-        ("typedef " + typedef.tdName + " " + typedef.tdType)
+        sym_proto.setPrototype("typedef " + typedef.tdName + " " + typedef.tdType)
         sym.appendPrototypes(sym_proto)
         path = g_lang + "/" + g_lib + "/" + typedef.tdName
         useful.printVerbose("Pushing" + typedef.tdName + "on the Database")
