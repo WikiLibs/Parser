@@ -25,6 +25,11 @@ pip install flake8
 "python.linting.flake8Enabled": true,
 "python.linting.flake8Path": "/usr/local/bin/flake8" (or whatever path)
 ```
+- Modify (or create) your flake8 configuration in ~/.config/flake8
+```
+[flake8]
+max-line-length = 512
+```
 
 # 2. Workflow
 
