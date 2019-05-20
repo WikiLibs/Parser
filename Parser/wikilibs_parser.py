@@ -7,6 +7,7 @@ import argparse
 import useful
 
 import Lang_C_CPP.parserC as parserC
+import Lang_Python.parserPython as parserPython
 
 
 DESCRIPTION = 'This program will parse a library and send it to the WikiLibs API.'
@@ -19,7 +20,7 @@ NO_UPLOAD_HELP = 'set this option to disable upload to API (useful for degug)'
 
 dicoLang = {
     "C": ['.h', '.c'],
-    "Python": ['.py']
+    "PYTHON": ['.py']
 }
 
 
@@ -81,7 +82,7 @@ def parserArgs():
         useful.upload = False
     if args.exception:
         useful.exceptions = True
-
+    
     if dicoLang.get(args.language) is None:
         print('Error: unsupported language \'{}\''.format(args.language))
         sys.exit(84)
@@ -94,7 +95,8 @@ def parserArgs():
 
 def getFunctionsLang():
     dispatch = {
-        'C': parserC.parseXMLFile
+        'C': parserC.parseXMLFile,
+        'PYTHON': parserPython.parseXMLFile
     }
     return dispatch
 
@@ -107,7 +109,7 @@ def main():
     dispatch = getFunctionsLang()
     for filename in files:
         useful.printVerbose('Starting parsing \'' + filename.ogFilename + '\'')
-        dispatch[args.language](filename.xmlFilename, args.language, args.library_name)
+        dispatch[args.language.upper()](filename.xmlFilename, args.language, args.library_name)
 
     deleteFiles()
 
