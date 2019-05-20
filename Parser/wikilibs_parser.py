@@ -82,7 +82,7 @@ def parserArgs():
         useful.upload = False
     if args.exception:
         useful.exceptions = True
-    
+
     if dicoLang.get(args.language) is None:
         print('Error: unsupported language \'{}\''.format(args.language))
         sys.exit(84)
