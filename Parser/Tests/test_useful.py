@@ -50,3 +50,69 @@ class Test_Useful(unittest.TestCase):
         useful.printExceptionVerbose('hello')
         sys.stdout = sys.__stdout__  # reset stdout
         self.assertEqual(capturedOutput.getvalue(), 'Exception: hello\n', 'Should print \'Exception: hello\'')
+
+    def test_log_info_minimal(self):
+        '''
+        it should print the log info without context
+        '''
+        capturedOutput = io.StringIO()  # setup an io
+        sys.stdout = capturedOutput  # redirect stdout
+        useful.logInfo('This is a minimal info')
+        sys.stdout = sys.__stdout__  # reset stdout
+        self.assertEqual(capturedOutput.getvalue(), (useful.GREEN + useful.BOLD + "[INFO]" + useful.RESET + " - This is a minimal info\n"), "Should print the expected")
+
+    def test_log_info_full(self):
+        '''
+        it should print the log info with context
+        '''
+        capturedOutput = io.StringIO()  # setup an io
+        sys.stdout = capturedOutput  # redirect stdout
+        useful.logInfo('This is a full info', 'file', 4)
+        sys.stdout = sys.__stdout__  # reset stdout
+        self.assertEqual(capturedOutput.getvalue(), (useful.GREEN + useful.BOLD + "[INFO]" + useful.RESET + " - This is a full info (file: 4)\n"), "Should print the expected")
+
+    def test_log_warning_minimal(self):
+        '''
+        it should print the log warning without context
+        '''
+        capturedOutput = io.StringIO()  # setup an io
+        sys.stdout = capturedOutput  # redirect stdout
+        useful.logWarning('This is a minimal warning')
+        sys.stdout = sys.__stdout__  # reset stdout
+        self.assertEqual(capturedOutput.getvalue(), (useful.YELLOW + useful.BOLD + "[WARNING]" + useful.RESET + " - This is a minimal warning\n"), "Should print the expected")
+
+    def test_log_warning_full(self):
+        '''
+        it should print the log warning with context
+        '''
+        capturedOutput = io.StringIO()  # setup an io
+        sys.stdout = capturedOutput  # redirect stdout
+        useful.logWarning('This is a full warning', 'file', 4)
+        sys.stdout = sys.__stdout__  # reset stdout
+        self.assertEqual(capturedOutput.getvalue(), (useful.YELLOW + useful.BOLD + "[WARNING]" + useful.RESET + " - This is a full warning (file: 4)\n"), "Should print the expected")
+
+    def test_log_error_minimal(self):
+        '''
+        it should print the log error without context
+        '''
+        with self.assertRaises(SystemExit) as cm:
+            capturedOutput = io.StringIO()  # setup an io
+            sys.stdout = capturedOutput  # redirect stdout
+            useful.logError('This is a minimal error', 34)
+            sys.stdout = sys.__stdout__  # reset stdout
+
+        self.assertEqual(cm.exception.code, 34)  # assert exit code
+        self.assertEqual(capturedOutput.getvalue(), (useful.RED + useful.BOLD + "[ERROR]" + useful.RESET + " - This is a minimal error\n" + useful.BOLD + "[---Exiting program---]" + useful.RESET + "\n"), "Should print the expected")
+
+    def test_log_error_full(self):
+        '''
+        it should print the log error with context
+        '''
+        with self.assertRaises(SystemExit) as cm:
+            capturedOutput = io.StringIO()  # setup an io
+            sys.stdout = capturedOutput  # redirect stdout
+            useful.logError('This is a full error', 34, 'file', 4)
+            sys.stdout = sys.__stdout__  # reset stdout
+
+        self.assertEqual(cm.exception.code, 34)  # assert exit code
+        self.assertEqual(capturedOutput.getvalue(), (useful.RED + useful.BOLD + "[ERROR]" + useful.RESET + " - This is a full error (file: 4)\n" + useful.BOLD + "[---Exiting program---]" + useful.RESET + "\n"), "Should print the expected")
