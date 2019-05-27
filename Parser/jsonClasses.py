@@ -72,6 +72,7 @@ class SymbolPrototype:
 
 class SymbolUpdate:
     __name = ''
+    __path = ''
     __lang = ''
     __type = ''
     __prototypes = []  # list of SymbolPrototype
@@ -79,6 +80,7 @@ class SymbolUpdate:
 
     def __init__(self, name):
         self.__name = name
+        self.__path = ''
         self.__lang = ''
         self.__type = ''
         self.__prototypes = []
@@ -86,6 +88,9 @@ class SymbolUpdate:
 
     def setLang(self, lang):
         self.__lang = lang
+
+    def setPath(self, path):
+        self.__path = path
 
     def setType(self, type):
         self.__type = type
@@ -99,6 +104,7 @@ class SymbolUpdate:
     def get_JSON(self):
         jsonData = {
             "lang": self.__lang,
+            "path": self.__path,
             "type": self.__type,
             "prototypes": [json.loads(self.__prototypes[i].get_JSON()) for i in range(0, len(self.__prototypes))],
             "symbols": self.__symbols
