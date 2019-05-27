@@ -11,7 +11,7 @@ def craftStructRequest(client, structs):
     global g_lang
     global g_lib
 
-    useful.printVerbose("Beginning crafting Struct Request")
+    useful.printVerbose("\n\n/****  Beginning crafting Struct Request  ****/")
     for struct in structs:
         useful.printVerbose("Crafting " + struct.name)
         sym = SymbolUpdate(struct.name)
@@ -50,7 +50,7 @@ def craftDefineRequest(client, defines):
     global g_lib
 
     # enlever le define de protextion
-    useful.printVerbose("Beginning crafting Define Request")
+    useful.printVerbose("\n\n/****  Beginning crafting Define Request  ****/")
     for define in defines:
         useful.printVerbose("Crafting " + define.name)
         sym = SymbolUpdate(define.name)
@@ -81,7 +81,7 @@ def craftUnionRequest(client, unions):
     global g_lang
     global g_lib
 
-    useful.printVerbose("Beginning crafting Union Request")
+    useful.printVerbose("\n\n/****  Beginning crafting Union Request  ****/")
     for union in unions:
         sym = SymbolUpdate(union.name)
         sym.setLang(g_lang)
@@ -117,7 +117,7 @@ def craftFunctionRequest(client, functions):
     global g_lang
     global g_lib
 
-    useful.printVerbose("Beginning crafting Function Request")
+    useful.printVerbose("\n\n/****  Beginning crafting Function Request  ****/")
     for function in functions:
         useful.printVerbose("Setting " + function.name)
         sym = SymbolUpdate(function.name)
@@ -154,7 +154,7 @@ def craftTypedefRequest(client, typedefs):
     global g_lang
     global g_lib
 
-    useful.printVerbose("Beginning crafting Typedef Request")
+    useful.printVerbose("\n\n/****  Beginning crafting Typedef Request  ****/")
     for typedef in typedefs:
         useful.printVerbose("Setting " + typedef.name)
         sym = SymbolUpdate(typedef.tdName)
