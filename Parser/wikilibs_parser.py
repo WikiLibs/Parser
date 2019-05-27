@@ -51,15 +51,20 @@ def getAllFiles(language):
     return files
 
 
-def getDoxyfileAndRun():
-    url = 'https://yuristudio.net/Doxyfile'
+def getDoxyfileAndRun(language):
+    url = 'https://yuristudio.net/doxyfiles/' + language + '/Doxyfile'
     with open('./Doxyfile', 'wb') as fd:
         fd.write(urlopen(url).read())
+
+    if language == 'PYTHON':
+        url = 'https://yuristudio.net/doxyfiles/PYTHON/py_filter'
+        with open('./py_filter', 'wb') as fd:
+            fd.write(urlopen(url).read())
     os.system('doxygen Doxyfile > /dev/null')
 
 
 def deleteFiles():
-    os.system('rm -rf Doxyfile xml')
+    os.system('rm -rf Doxyfile xml py_filter')
 
 
 def parserArgs():
