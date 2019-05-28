@@ -52,14 +52,15 @@ def getAllFiles(language):
 
 
 def getDoxyfileAndRun(language):
-    url = 'https://yuristudio.net/doxyfiles/' + language + '/Doxyfile'
+    url = 'https://wikilibs-parser.azurewebsites.net/doxyfiles/' + language + '/Doxyfile'
     with open('./Doxyfile', 'wb') as fd:
         fd.write(urlopen(url).read())
 
     if language == 'PYTHON':
-        url = 'https://yuristudio.net/doxyfiles/PYTHON/py_filter'
+        url = 'https://wikilibs-parser.azurewebsites.net/doxyfiles/PYTHON/py_filter'
         with open('./py_filter', 'wb') as fd:
             fd.write(urlopen(url).read())
+        os.system('chmod +x py_filter')
     os.system('doxygen Doxyfile > /dev/null')
 
 
@@ -108,7 +109,7 @@ def getFunctionsLang():
 
 def main():
     args = parserArgs()
-    getDoxyfileAndRun()
+    getDoxyfileAndRun(args.language)
 
     files = getAllFiles(args.language)
     dispatch = getFunctionsLang()
