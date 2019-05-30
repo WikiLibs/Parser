@@ -23,9 +23,11 @@ def getType(elem):
         return ""
 
 
-def getInitializer(define):
+def getInitializer(elem):
     try:
-        init = strOp.epurStr(define.find("initializer").text)
+        init = strOp.epurStr(elem.find("initializer").text)
+        if init.startswith('= '):
+            init = init[2:]
         return init
     except Exception as error:
         useful.printExceptionVerbose(error)
