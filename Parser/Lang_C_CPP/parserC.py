@@ -59,7 +59,7 @@ def parseXMLFile(filename, lang, libname):
         printParsedData(data)
 
     if useful.upload:
-        client = AIClient("root@root.com", "12Poissons2hOt4U")
+        client = AIClient()
         list = []
         list.append(client)
         list.append(defines)

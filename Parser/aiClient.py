@@ -1,23 +1,19 @@
 import requests
 import json
+import useful
 
 # WikiLibs AI Client python module
 
 API_URL = "https://wikilibs-dev-api.azurewebsites.net"
 
 class AIClient:
-    # Create a new AIClient
-    # @param apikey the API key to use for authenticating with WikiLibs API Server
-    def __init__(self, apikey):
-        self.APIKey = apikey
-
     def PushSymbol(self, obj):
         x = obj.get_JSON()
         y = json.loads(x)
 
         #Authenticate with the server
         headers = {
-            "Authorization": self.APIKey,
+            "Authorization": useful.apikey,
         }
         loginJson = {
             "email": "wikilibs@yuristudio.net",
