@@ -23,7 +23,7 @@ class AIClient:
             "email": "wikilibs@yuristudio.net",
             "password": "wikilibs-parser"
         }
-        res = requests.post(API_URL + "/user/login", headers=headers, json=loginJson)
+        res = requests.post(API_URL + "/auth/internal/login", headers=headers, json=loginJson)
         if (res.status_code != 200):
             raise ConnectionError("Could not obtain authorization token")
 
