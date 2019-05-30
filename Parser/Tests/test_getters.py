@@ -46,6 +46,14 @@ class Test_Getters(unittest.TestCase):
         result = getters.getInitializer(obj)
         self.assertEqual(result, 'obj_initializer', 'Should return \'obj_initializer\'')
 
+    def test_getInitializerWithEqual(self):
+        '''
+        it should return \'obj_initializer\' without the equal sign
+        '''
+        obj = ET.ElementTree(ET.fromstring('<root><initializer>= obj_initializer</initializer></root>')).getroot()
+        result = getters.getInitializer(obj)
+        self.assertEqual(result, 'obj_initializer', 'Should return \'obj_initializer\'')
+
     def test_getInitializer_error(self):
         '''
         it should return nothing as object is invalid
