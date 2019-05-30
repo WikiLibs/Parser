@@ -7,7 +7,7 @@ import useful
 API_URL = "https://wikilibs-dev-api.azurewebsites.net"
 
 class AIClient:
-    def PushSymbol(self, obj):
+    def PushSymbol(self, path, obj):
         x = obj.get_JSON()
         y = json.loads(x)
 
@@ -30,6 +30,7 @@ class AIClient:
         headers = {
             "Authorization": "Bearer " + token
         }
+        y.path = path #TODO : remove when merging with Vic branch
         res = requests.post(API_URL + "/symbol", headers=headers, json=y)
         if (res.status_code != 200):
             raise IOError(res.text)
