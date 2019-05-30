@@ -76,6 +76,21 @@ class Test_Getters(unittest.TestCase):
         result = getters.getDetailedDesc(None)
         self.assertEqual(result, '', 'Should be empty')
 
+    def test_getFunctionDetailedDesc(self):
+        '''
+        it should return \'obj_dd I\'m a note\'
+        '''
+        obj = ET.ElementTree(ET.fromstring('<root><detaileddescription><para>obj_dd<simplesect kind=\'note\'>I\'m a note</simplesect></para></detaileddescription></root>')).getroot()
+        result = getters.getFunctionDetailedDesc(obj)
+        self.assertEqual(result, 'obj_dd I\'m a note', 'Should return \'obj_dd I\'m a note\'')
+
+    def test_getFunctionDetailedDesc_error(self):
+        '''
+        it should return nothing as object is invalid
+        '''
+        result = getters.getFunctionDetailedDesc(None)
+        self.assertEqual(result, '', 'Should be empty')
+
     def test_getBriefDesc(self):
         '''
         it should return \'obj_bd\'
