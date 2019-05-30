@@ -45,6 +45,19 @@ def getDetailedDesc(elem):
         return ""
 
 
+def getFunctionDetailedDesc(elem):
+    detailedDesc = ""
+    try:
+        detailedDesc += strOp.epurStr(elem.find("detaileddescription/para").text)
+        if elem.find("detaileddescription/para/simplesect").get("kind") == 'note':
+            for token in elem.find("detaileddescription/para/simplesect").itertext():
+                detailedDesc += " " + token.replace('\n', '').replace('\t', '')
+        return strOp.epurStr(detailedDesc)
+    except Exception as error:
+        useful.printExceptionVerbose(error)
+        return detailedDesc
+
+
 def getBriefDesc(elem):
     try:
         briefDesc = ""
