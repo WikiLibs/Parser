@@ -24,7 +24,7 @@ def craftStructRequest(client, structs):
         useful.printVerbose("Crafting " + struct.name + " is done")
         useful.printVerbose("Now Getting " + struct.name + " members")
         for member in struct.members:
-            useful.printVerbose("Setting" + member.name)
+            useful.printVerbose("Setting " + member.name)
             mem = SymbolUpdate(member.name)
             mem.setLang(g_lang)
             mem.setType("attribute")
