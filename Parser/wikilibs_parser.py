@@ -17,6 +17,7 @@ VERBOSE_HELP = 'shows more infos in the output'
 EXCEPTION_HELP = 'shows parser exception'
 GUI_HELP = 'set this option to use the GUI version'
 NO_UPLOAD_HELP = 'set this option to disable upload to API (useful for degug)'
+API_KEY_HELP = 'set the API Key to use for authenticating with the API server'
 
 dicoLang = {
     "C": ['.h', '.c'],
@@ -76,6 +77,7 @@ def parserArgs():
     argParser.add_argument('-e', '--exception', help=EXCEPTION_HELP, action='store_true')
     argParser.add_argument('-g', '--gui', help=GUI_HELP, action='store_true')
     argParser.add_argument('-n', '--noUpload', help=NO_UPLOAD_HELP, action='store_true')
+    argParser.add_argument('-k', '--apikey', help=API_KEY_HELP)
     args = argParser.parse_args()
 
     args.language = args.language.upper()
@@ -89,9 +91,13 @@ def parserArgs():
     if args.exception:
         useful.exceptions = True
 
+    if useful.upload and not(args.apikey):
+        useful.logError('Error: cannot push symbols without an API key', 1)
+    else:
+        useful.apikey = args.apikey
+
     if dicoLang.get(args.language) is None:
-        print('Error: unsupported language \'{}\''.format(args.language))
-        sys.exit(84)
+        useful.logError('Error: unsupported language \'{}\''.format(args.language, 1))
 
     useful.printVerbose('Language = ' + args.language)
     useful.printVerbose('Library name = ' + args.library_name + '\n')

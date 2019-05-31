@@ -3,6 +3,7 @@ import sys
 verbose = False
 upload = True
 exceptions = False
+apikey = ""
 
 GREEN = "\033[0;32m"
 YELLOW = "\u001b[33m"
