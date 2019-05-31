@@ -92,12 +92,12 @@ def parserArgs():
         useful.exceptions = True
 
     if useful.upload and not(args.apikey):
-        useful.logError('Error: cannot push symbols without an API key')
+        useful.logError('Error: cannot push symbols without an API key', 1)
     else:
         useful.apikey = args.apikey
 
     if dicoLang.get(args.language) is None:
-        useful.logError('Error: unsupported language \'{}\''.format(args.language))
+        useful.logError('Error: unsupported language \'{}\''.format(args.language, 1))
 
     useful.printVerbose('Language = ' + args.language)
     useful.printVerbose('Library name = ' + args.library_name + '\n')
