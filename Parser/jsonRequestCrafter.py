@@ -185,6 +185,7 @@ def JSONRequestCrafter(lang, lib, rawData):
 
     g_lang = lang
     g_lib = lib
+    # remove rawData with a better thing
     client = rawData[0]
     useful.printVerbose("Beginning crafting Requests")
     craftDefineRequest(client, rawData[1])
