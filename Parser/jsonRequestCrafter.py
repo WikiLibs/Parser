@@ -34,13 +34,15 @@ def craftStructRequest(client, structs):
             mem_proto.setPrototype(member.type + " " + member.name)
             mem.appendPrototypes(mem_proto)
             path = g_lang + "/" + g_lib + "/" + struct.name + "/" + member.name
+            mem.setPath(path)
             useful.printVerbose("Path is " + path)
-            client.PushSymbol(path, mem)
+            client.PushSymbol(mem)
         useful.printVerbose("Finished getting " + struct.name + " members")
         path = g_lang + "/" + g_lib + "/" + struct.name
+        sym.setPath(path)
         useful.printVerbose("Pushing " + struct.name + " on the Database")
         useful.printVerbose("Path is " + path)
-        client.PushSymbol(path, sym)
+        client.PushSymbol(sym)
         useful.printVerbose("Push done")
     useful.printVerbose("Ended crafting Struct Request")
 
@@ -70,9 +72,10 @@ def craftDefineRequest(client, defines):
         useful.printVerbose("Finished getting " + define.name + " members")
         sym.appendPrototypes(sym_proto)
         path = g_lang + "/" + g_lib + "/" + define.name
+        sym.setPath(path)
         useful.printVerbose("Pushing " + define.name + " on the Database")
         useful.printVerbose("Path is " + path)
-        client.PushSymbol(path, sym)
+        client.PushSymbol(sym)
         useful.printVerbose("Push done")
     useful.printVerbose("Ended crafting Define Request")
 
@@ -103,12 +106,14 @@ def craftUnionRequest(client, unions):
             mem_proto.setPrototype(member.type + " " + member.name)
             mem.appendPrototypes(mem_proto)
             path = g_lang + "/" + g_lib + "/" + union.name + "/" + member.name
-            client.PushSymbol(path, mem)
+            mem.setPath(path)
+            client.PushSymbol(mem)
         useful.printVerbose("Finished getting " + union.name + " members")
         path = g_lang + "/" + g_lib + "/" + union.name
+        sym.setPath(path)
         useful.printVerbose("Pushing " + union.name + " on the Database")
         useful.printVerbose("Path is " + path)
-        client.PushSymbol(path, sym)
+        client.PushSymbol(sym)
         useful.printVerbose("Push done")
     useful.printVerbose("Ended crafting Union Request")
 
@@ -143,9 +148,10 @@ def craftFunctionRequest(client, functions):
             sym_proto.appendParameters(par_proto)
         sym.appendPrototypes(sym_proto)
         path = g_lang + "/" + g_lib + "/" + function.name
+        sym.setPath(path)
         useful.printVerbose("Pushing " + function.name + " on the Database")
         useful.printVerbose("Path is " + path)
-        client.PushSymbol(path, sym)
+        client.PushSymbol(sym)
         useful.printVerbose("Push done")
     useful.printVerbose("Ended crafting Function Request")
 
@@ -156,7 +162,7 @@ def craftTypedefRequest(client, typedefs):
 
     useful.printVerbose("\n\n/****  Beginning crafting Typedef Request  ****/")
     for typedef in typedefs:
-        useful.printVerbose("Setting " + typedef.name)
+        useful.printVerbose("Setting " + typedef.tdname)
         sym = SymbolUpdate(typedef.tdName)
         sym.setLang(g_lang)
         sym.setType("typedef")
@@ -165,9 +171,10 @@ def craftTypedefRequest(client, typedefs):
         sym_proto.setPrototype("typedef " + typedef.tdName + " " + typedef.tdType)
         sym.appendPrototypes(sym_proto)
         path = g_lang + "/" + g_lib + "/" + typedef.tdName
+        sym.setPath(path)
         useful.printVerbose("Pushing " + typedef.tdName + " on the Database")
         useful.printVerbose("Path is " + path)
-        client.PushSymbol(path, sym)
+        client.PushSymbol(sym)
         useful.printVerbose("Push done")
     useful.printVerbose("Ended crafting Typedef Request")
 

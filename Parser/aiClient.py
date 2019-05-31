@@ -6,12 +6,13 @@ import useful
 
 API_URL = "https://wikilibs-dev-api.azurewebsites.net"
 
+
 class AIClient:
-    def PushSymbol(self, path, obj):
+    def PushSymbol(self, obj):
         x = obj.get_JSON()
         y = json.loads(x)
 
-        #Authenticate with the server
+        # Authenticate with the server
         headers = {
             "Authorization": useful.apikey,
         }
@@ -23,14 +24,13 @@ class AIClient:
         if (res.status_code != 200):
             raise ConnectionError("Could not obtain authorization token")
 
-        #Extract bearer token string
+        # Extract bearer token string
         token = res.text[1:-1]
 
-        #Post a new symbol
+        # Post a new symbol
         headers = {
             "Authorization": "Bearer " + token
         }
-        y["path"] = path #TODO : remove when merging with Vic branch
         res = requests.post(API_URL + "/symbol", headers=headers, json=y)
         if (res.status_code != 200):
             raise IOError(res.text)
