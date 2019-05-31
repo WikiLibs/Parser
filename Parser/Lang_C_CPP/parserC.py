@@ -59,6 +59,7 @@ def parseXMLFile(filename, lang, libname):
         printParsedData(data)
 
     if useful.upload:
+        # change this, maybe try association table
         client = AIClient()
         list = []
         list.append(client)
