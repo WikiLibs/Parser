@@ -8,3 +8,13 @@ def printVariables(variables):
         print("description =", elem.desc)
         print()
     print()
+
+
+def printClasses(classes):
+    print("\033[1mClasses:\033[0m\n")
+
+    for elem in classes:
+        print("name =", elem.name)
+        print("description =", elem.description)
+        print("\t", end="")
+        printVariables(elem.variables)
