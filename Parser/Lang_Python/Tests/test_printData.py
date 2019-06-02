@@ -25,3 +25,21 @@ class Test_printData(unittest.TestCase):
         expected = '\033[1mVariables:\033[0m\n\nname = coolName\ntype = coolType\nvalue = coolValue\ndescription = \n\n\n'
 
         self.assertEqual(capturedOutput.getvalue(), expected, 'Should print the variable')
+
+    def test_printFunctions(self):
+        functions = [classes.functionClass()]
+        functions[0].name = 'pythonFunction'
+        variable = classes.variableClass()
+        variable.name = "param1"
+        variable.type = "param1"
+        functions[0].params = [variable]
+        functions[0].returnValues = ''
+
+        captureOutput = io.StringIO()
+        sys.stdout = captureOutput
+        printData.printFunctions(functions)
+        sys.stdout = sys.__stdout__
+
+        expected = '\033[1mFunctions:\033[0m\n\nname = pythonFunction\nbriefDesc = \ndetailedDesc = \n\033[1mVariables:\033[0m\n\nname = param1\ntype = param1\nvalue = \ndescription = \n\n\nreturnType = \nreturnDesc = \nreturnValues = \n\n\n'
+
+        self.assertEqual(captureOutput.getvalue(), expected, 'Should print the variable')
