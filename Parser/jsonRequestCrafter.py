@@ -36,13 +36,13 @@ def craftStructRequest(client, structs):
             path = g_lang + "/" + g_lib + "/" + struct.name + "/" + member.name
             mem.setPath(path)
             useful.printVerbose("Path is " + path)
-            client.PushSymbol(mem)
+            # client.PushSymbol(mem)
         useful.printVerbose("Finished getting " + struct.name + " members")
         path = g_lang + "/" + g_lib + "/" + struct.name
         sym.setPath(path)
         useful.printVerbose("Pushing " + struct.name + " on the Database")
         useful.printVerbose("Path is " + path)
-        client.PushSymbol(sym)
+        # client.PushSymbol(sym)
         useful.printVerbose("Push done")
     useful.printVerbose("Ended crafting Struct Request")
 
@@ -75,7 +75,7 @@ def craftDefineRequest(client, defines):
         sym.setPath(path)
         useful.printVerbose("Pushing " + define.name + " on the Database")
         useful.printVerbose("Path is " + path)
-        client.PushSymbol(sym)
+        # client.PushSymbol(sym)
         useful.printVerbose("Push done")
     useful.printVerbose("Ended crafting Define Request")
 
@@ -107,13 +107,13 @@ def craftUnionRequest(client, unions):
             mem.appendPrototypes(mem_proto)
             path = g_lang + "/" + g_lib + "/" + union.name + "/" + member.name
             mem.setPath(path)
-            client.PushSymbol(mem)
+            # client.PushSymbol(mem)
         useful.printVerbose("Finished getting " + union.name + " members")
         path = g_lang + "/" + g_lib + "/" + union.name
         sym.setPath(path)
         useful.printVerbose("Pushing " + union.name + " on the Database")
         useful.printVerbose("Path is " + path)
-        client.PushSymbol(sym)
+        # client.PushSymbol(sym)
         useful.printVerbose("Push done")
     useful.printVerbose("Ended crafting Union Request")
 
@@ -151,7 +151,7 @@ def craftFunctionRequest(client, functions):
         sym.setPath(path)
         useful.printVerbose("Pushing " + function.name + " on the Database")
         useful.printVerbose("Path is " + path)
-        client.PushSymbol(sym)
+        # client.PushSymbol(sym)
         useful.printVerbose("Push done")
     useful.printVerbose("Ended crafting Function Request")
 
@@ -174,25 +174,35 @@ def craftTypedefRequest(client, typedefs):
         sym.setPath(path)
         useful.printVerbose("Pushing " + typedef.tdName + " on the Database")
         useful.printVerbose("Path is " + path)
-        client.PushSymbol(sym)
+        # client.PushSymbol(sym)
         useful.printVerbose("Push done")
     useful.printVerbose("Ended crafting Typedef Request")
 
+def printWIP():
+    print("This feature is in WIP")
 
-def JSONRequestCrafter(lang, lib, rawData):
+def initDicoFunction():
+    dict = {}
+    dict['struct'] = craftStructRequest
+    dict['define'] = craftDefineRequest
+    dict['union'] = craftUnionRequest
+    dict['function'] = craftFunctionRequest
+    dict['typedef'] = craftTypedefRequest
+    dict['variable'] = printWIP
+    dict['class'] = printWIP
+    return dict
+
+def JSONRequestCrafter(lang, lib, rawData, client):
     global g_lang
     global g_lib
 
     g_lang = lang
     g_lib = lib
-    # remove rawData with a better thing
-    client = rawData[0]
+    dict = initDicoFunction()
     useful.printVerbose("Beginning crafting Requests")
-    craftDefineRequest(client, rawData[1])
-    craftStructRequest(client, rawData[2])
-    craftUnionRequest(client, rawData[3])
-    craftFunctionRequest(client, rawData[4])
-    craftTypedefRequest(client, rawData[5])
+    for key, lists in rawData :
+        if key in dict :
+            dict[key](client, lists)
     useful.printVerbose("Finished crafting Requests")
     useful.printVerbose("Calling optimizer")
     client.CallOptimizer()
