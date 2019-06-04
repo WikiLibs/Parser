@@ -48,3 +48,11 @@ class typedefClass:
         self.tdName = ""
         self.briefDesc = ""
         self.detailedDesc = ""
+
+
+class classClass:
+    def __init__(self):
+        self.name = ""
+        self.description = ""
+        self.variables = []
+        self.functions = []
