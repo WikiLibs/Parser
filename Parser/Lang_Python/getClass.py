@@ -1,5 +1,6 @@
 from classes import classClass
 from Lang_Python.getVariable import getVariable
+from Lang_Python.getFunction import getFunction
 import getters as getters
 
 
@@ -13,6 +14,7 @@ def getClass(classRoot):
         kind = elem.get('kind')
         if kind == 'variable':
             tmpClass.variables.append(getVariable(elem))
-        # if kind == 'function':
+        if kind == 'function':
+            tmpClass.functions.append(getFunction(elem))
 
     return tmpClass
