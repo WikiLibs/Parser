@@ -14,7 +14,7 @@ Using pip (or pip3 depending on your use case), install the following packages :
 
 To use pytest conveniently, you need to setup some environment variables. You'll need to setup these every time you open a new terminal (or setup these in your bashrc or zshrc). You can type the following command : 
 ```
-export PYTHONPATH=$PYTHONPATH:.:./Parser
+source ./DevOps/environment_variables.sh
 ```
 
 # 2. Run tests
