@@ -14,9 +14,11 @@ class Test_ParserPython(unittest.TestCase):
         variable.type = 'string'
         variable.value = 'HELLO'
         variables = [variable]
+        functions = []
 
         data = {
-            'variables': variables
+            'variables': variables,
+            'functions': functions
         }
 
         parserPython.printParsedData(data)
@@ -25,7 +27,9 @@ class Test_ParserPython(unittest.TestCase):
     @patch('Parser.Lang_Python.parserPython.os.path.isfile', return_value=True)
     @patch('Parser.Lang_Python.parserPython.ET.parse')
     @patch('Parser.Lang_Python.parserPython.getVariable')
+    @patch('Parser.Lang_Python.parserPython.getFunction')
     def test_parseXMLFile_with_namespace(self,
+                                         mock_getFunction,
                                          mock_getVariable,
                                          mock_parse,
                                          mock_isfile):  # be careful, patched items come in inverted order
@@ -38,12 +42,24 @@ class Test_ParserPython(unittest.TestCase):
                 <name>RANDOM_VARIABLE</name> \
                 <initializer>=  &apos;HELLO&apos;</initializer> \
             </memberdef> \
+            <memberdef kind="function"> \
+                <name>pythonFunction</name> \
+                <param> \
+                    <type>param1</type> \
+                    <defname>param1</defname> \
+                </param> \
+                <param> \
+                    <type>param2</type> \
+                    <defname>param2</defname> \
+                </param> \
+            </memberdef> \
         </root> \
         '
         mock_parse.return_value = ET.ElementTree(ET.fromstring(obj))
         parserPython.parseXMLFile('./xml/hello__8_.xml', 'PYTHON', 'Test lib')
 
         mock_getVariable.assert_called_once()
+        mock_getFunction.assert_called_once()
 
     @patch('Parser.Lang_Python.parserPython.os.path.isfile', return_value=True)
     @patch('Parser.Lang_Python.parserPython.ET.parse')
