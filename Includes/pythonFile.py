@@ -14,3 +14,7 @@ class pythonClass:
     def normalClassFunction(self, niceParameter):
         tmp = self.param1 + self.param2 + niceParameter
         return tmp
+
+
+def pythonFunction(param1, param2):
+    print('I\'m a test')

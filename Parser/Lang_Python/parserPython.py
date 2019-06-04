@@ -2,6 +2,7 @@ import os
 import xml.etree.ElementTree as ET
 from Lang_Python.getVariable import getVariable
 from Lang_Python.getClass import getClass
+from Lang_Python.getFunction import getFunction
 import Lang_Python.printData as printData
 import useful
 
@@ -9,6 +10,7 @@ import useful
 def printParsedData(data):
     printData.printVariables(data['variables'])
     printData.printClasses(data['classes'])
+    printData.printFunctions(data['functions'])
 
 
 def getClassesFiles(filename):
@@ -19,6 +21,7 @@ def getClassesFiles(filename):
 def parseXMLFile(filename, lang, libname):
     variables = []
     classes = []
+    functions = []
 
     newFilename = filename[6:-8]
     namespaceFilename = './xml/namespace' + newFilename + '.xml'
@@ -32,6 +35,8 @@ def parseXMLFile(filename, lang, libname):
             kind = elem.get('kind')
             if kind == 'variable':
                 variables.append(getVariable(elem))
+            if kind == 'function':
+                functions.append(getFunction(elem))
 
     for classFile in classFilenames:
         classFileRoot = ET.parse(classFile).getroot()
@@ -40,6 +45,7 @@ def parseXMLFile(filename, lang, libname):
     if useful.verbose:
         data = {
             'variables': variables,
-            'classes': classes
+            'classes': classes,
+            'functions': functions
         }
         printParsedData(data)

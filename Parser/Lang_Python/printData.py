@@ -18,3 +18,17 @@ def printClasses(classes):
         print("description =", elem.description)
         print("\t", end="")
         printVariables(elem.variables)
+
+
+def printFunctions(functions):
+    print("\033[1mFunctions:\033[0m\n")
+
+    for elem in functions:
+        print("name =", elem.name)
+        print("briefDesc =", elem.briefDesc)
+        print("detailedDesc =", elem.detailedDesc)
+        print("returnType =", elem.returnType)
+        print("returnDesc =", elem.returnDesc)
+        print("returnValues =", elem.returnValues)
+        print("\t", end="")
+        printVariables(elem.params)
