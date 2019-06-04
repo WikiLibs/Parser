@@ -2,7 +2,6 @@
 import xml.etree.ElementTree as ET
 from urllib.request import urlopen
 import os
-import sys
 import argparse
 import useful
 
@@ -120,7 +119,7 @@ def main():
     files = getAllFiles(args.language)
     dispatch = getFunctionsLang()
     for filename in files:
-        useful.printVerbose('Starting parsing \'' + filename.ogFilename + '\'')
+        useful.logInfo('Starting parsing \'' + filename.ogFilename + '\'')
         dispatch[args.language.upper()](filename.xmlFilename, args.language, args.library_name)
 
     deleteFiles()
