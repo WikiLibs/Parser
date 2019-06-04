@@ -18,6 +18,8 @@ def printClasses(classes):
         print("description =", elem.description)
         print("\t", end="")
         printVariables(elem.variables)
+        print("\t", end="")
+        printFunctions(elem.functions)
 
 
 def printFunctions(functions):
