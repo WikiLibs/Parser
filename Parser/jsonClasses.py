@@ -35,7 +35,7 @@ class SymbolParam:
         jsonData = {
             "prototype": self.__prototype,
             "description": self.__description,
-            "path": self.__path
+            "ref": self.__path
         }
         string = json.dumps(jsonData, indent=4)
         return string
