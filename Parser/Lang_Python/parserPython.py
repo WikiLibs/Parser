@@ -49,3 +49,12 @@ def parseXMLFile(filename, lang, libname):
             'functions': functions
         }
         printParsedData(data)
+
+    if useful.upload:
+        # change this, maybe try association table
+        client = AIClient()
+        list = []
+        list.append('variable', variables)
+        list.append('class', classes)
+        list.append('function', functions)
+        JSONRequestCrafter(lang, libname, list, client)
