@@ -178,8 +178,18 @@ def craftTypedefRequest(client, typedefs):
         useful.printVerbose("Push done")
     useful.printVerbose("Ended crafting Typedef Request")
 
+
+def craftVariableRequest():
+    return
+
+
+def craftClassRequest():
+    return
+
+
 def printWIP():
     print("This feature is in WIP")
+
 
 def initDicoFunction():
     dict = {}
@@ -192,6 +202,7 @@ def initDicoFunction():
     dict['class'] = printWIP
     return dict
 
+
 def JSONRequestCrafter(lang, lib, rawData, client):
     global g_lang
     global g_lib
@@ -200,8 +211,8 @@ def JSONRequestCrafter(lang, lib, rawData, client):
     g_lib = lib
     dict = initDicoFunction()
     useful.printVerbose("Beginning crafting Requests")
-    for key, lists in rawData :
-        if key in dict :
+    for key, lists in rawData:
+        if key in dict:
             dict[key](client, lists)
     useful.printVerbose("Finished crafting Requests")
     useful.printVerbose("Calling optimizer")
