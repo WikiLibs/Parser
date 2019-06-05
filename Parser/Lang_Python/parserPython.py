@@ -5,6 +5,8 @@ from Lang_Python.getClass import getClass
 from Lang_Python.getFunction import getFunction
 import Lang_Python.printData as printData
 import useful
+from aiClient import AIClient
+from jsonRequestCrafter import JSONRequestCrafter
 
 
 def printParsedData(data):
@@ -54,7 +56,8 @@ def parseXMLFile(filename, lang, libname):
         # change this, maybe try association table
         client = AIClient()
         list = []
-        list.append('variable', variables)
-        list.append('class', classes)
-        list.append('function', functions)
-        JSONRequestCrafter(lang, libname, list, client)
+        list.append(('client', client))
+        list.append(('variable', variables))
+        list.append(('class', classes))
+        list.append(('function', functions))
+        JSONRequestCrafter(lang, libname, list)

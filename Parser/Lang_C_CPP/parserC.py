@@ -62,9 +62,10 @@ def parseXMLFile(filename, lang, libname):
         # change this, maybe try association table
         client = AIClient()
         list = []
+        list.append(('client', client))
         list.append(('define', defines))
         list.append(('struct', structs))
         list.append(('union', unions))
         list.append(('function', functions))
         list.append(('typedef', typedefs))
-        JSONRequestCrafter(lang, libname, list, client)
+        JSONRequestCrafter(lang, libname, list)

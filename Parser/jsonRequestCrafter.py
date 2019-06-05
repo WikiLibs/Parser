@@ -187,7 +187,7 @@ def craftClassRequest():
     return
 
 
-def printWIP():
+def printWIP(client, list):
     print("This feature is in WIP")
 
 
@@ -200,20 +200,27 @@ def initDicoFunction():
     dict['typedef'] = craftTypedefRequest
     dict['variable'] = printWIP
     dict['class'] = printWIP
+    dict['client'] = printWIP
     return dict
 
 
-def JSONRequestCrafter(lang, lib, rawData, client):
+def JSONRequestCrafter(lang, lib, rawData):
     global g_lang
     global g_lib
 
     g_lang = lang
     g_lib = lib
     dict = initDicoFunction()
+    for key, val in rawData:
+        if key == 'client':
+            client = val
+            rawData.remove((key, val))
     useful.printVerbose("Beginning crafting Requests")
     for key, lists in rawData:
         if key in dict:
             dict[key](client, lists)
+        else:
+            useful.logError('key ' + key + ' not found in JSONRequestCrafter (line:220)', 1)
     useful.printVerbose("Finished crafting Requests")
     useful.printVerbose("Calling optimizer")
     client.CallOptimizer()
