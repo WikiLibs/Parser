@@ -37,6 +37,10 @@ class SymbolParam:
             "description": self.__description,
             "ref": self.__path
         }
+        if jsonData['description'] == '':
+            del jsonData['description']
+        if jsonData['ref'] == '':
+            del jsonData['ref']
         string = json.dumps(jsonData, indent=4)
         return string
 
@@ -66,6 +70,8 @@ class SymbolPrototype:
             "description": self.__description,
             "parameters": [json.loads(self.__parameters[i].get_JSON()) for i in range(0, len(self.__parameters))]
         }
+        if jsonData['description'] == '':
+            del jsonData['description']
         string = json.dumps(jsonData, indent=4)
         return string
 
