@@ -193,3 +193,5 @@ def JSONRequestCrafter(lang, lib, rawData):
     craftFunctionRequest(client, rawData[4])
     craftTypedefRequest(client, rawData[5])
     useful.printVerbose("Finished crafting Requests")
+    useful.printVerbose("Calling optimizer")
+    client.CallOptimizer()
