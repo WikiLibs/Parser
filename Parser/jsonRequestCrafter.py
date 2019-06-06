@@ -223,5 +223,5 @@ def JSONRequestCrafter(lang, lib, rawData):
             useful.logError('key ' + key + ' not found in JSONRequestCrafter (line:220)', 1)
     useful.printVerbose("Finished crafting Requests")
     useful.printVerbose("Calling optimizer")
-    client.CallOptimizer()
+    # client.CallOptimizer()
     useful.printVerbose("Called optimizer")
