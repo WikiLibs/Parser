@@ -62,30 +62,30 @@ class Test_ParserPython(unittest.TestCase):
     #     mock_getVariable.assert_called_once()
     #     mock_getFunction.assert_called_once()
 
-    @patch('Parser.Lang_Python.parserPython.getClassesFiles')
-    @patch('Parser.Lang_Python.parserPython.ET.parse')
-    @patch('Parser.Lang_Python.parserPython.getClass')
-    def test_parseXMLFile_with_class(self,
-                                     mock_getClasses,
-                                     mock_parse,
-                                     mock_getClassesFiles):  # be careful, patched items come in inverted order
-        obj = '<root></root>'
-        mock_getClassesFiles.return_value = ['./xml/classpython_file_1_1python_class.xml']
-        mock_parse.return_value = ET.ElementTree(ET.fromstring(obj))
-        parserPython.parseXMLFile('./xml/hello__8_.xml', 'PYTHON', 'Test lib')
+    # @patch('Parser.Lang_Python.parserPython.getClassesFiles')
+    # @patch('Parser.Lang_Python.parserPython.ET.parse')
+    # @patch('Parser.Lang_Python.parserPython.getClass')
+    # def test_parseXMLFile_with_class(self,
+    #                                  mock_getClasses,
+    #                                  mock_parse,
+    #                                  mock_getClassesFiles):  # be careful, patched items come in inverted order
+    #     obj = '<root></root>'
+    #     mock_getClassesFiles.return_value = ['./xml/classpython_file_1_1python_class.xml']
+    #     mock_parse.return_value = ET.ElementTree(ET.fromstring(obj))
+    #     parserPython.parseXMLFile('./xml/hello__8_.xml', 'PYTHON', 'Test lib')
 
-        mock_getClasses.assert_called_once()
+    #     mock_getClasses.assert_called_once()
 
-    @patch('Parser.Lang_Python.parserPython.os.path.isfile', return_value=True)
-    @patch('Parser.Lang_Python.parserPython.ET.parse')
-    @patch('Parser.Lang_Python.parserPython.printParsedData')
-    @patch('Parser.Lang_Python.parserPython.useful.verbose', True)  # no mock in parameter
-    def test_parseXMLFile_with_verbose(self,
-                                       mock_printParsedData,
-                                       mock_parse,
-                                       mock_isfile):  # be careful, patched items come in inverted order
-        obj = '<root></root>'
-        mock_parse.return_value = ET.ElementTree(ET.fromstring(obj))
-        parserPython.parseXMLFile('./xml/hello__8_.xml', 'PYTHON', 'Test lib')
+    # @patch('Parser.Lang_Python.parserPython.os.path.isfile', return_value=True)
+    # @patch('Parser.Lang_Python.parserPython.ET.parse')
+    # @patch('Parser.Lang_Python.parserPython.printParsedData')
+    # @patch('Parser.Lang_Python.parserPython.useful.verbose', True)  # no mock in parameter
+    # def test_parseXMLFile_with_verbose(self,
+    #                                    mock_printParsedData,
+    #                                    mock_parse,
+    #                                    mock_isfile):  # be careful, patched items come in inverted order
+    #     obj = '<root></root>'
+    #     mock_parse.return_value = ET.ElementTree(ET.fromstring(obj))
+    #     parserPython.parseXMLFile('./xml/hello__8_.xml', 'PYTHON', 'Test lib')
 
-        mock_printParsedData.assert_called_once()
+    #     mock_printParsedData.assert_called_once()

@@ -18,7 +18,7 @@ class Test_StrOperations(unittest.TestCase):
         client = aiClient
         list = ['crash']
         list2 = [('client', client), ('client', list)]
-        jsonRequestCrafter.JSONRequestCrafter('C', 'Test', list2)
+        jsonRequestCrafter.JSONRequestCrafter('C', 'noOptimize', list2)
         sys.stdout = sys.__stdout__  # reset stdout
         self.assertEqual(capturedOutput.getvalue(), 'This feature is in WIP\n', 'Should print \'This feature is in WIP\'')
 
