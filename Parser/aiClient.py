@@ -1,4 +1,4 @@
-import requests
+import request
 import json
 import useful
 
@@ -20,7 +20,7 @@ class AIClient:
             "email": "wikilibs@yuristudio.net",
             "password": "wikilibs-parser"
         }
-        res = requests.post(API_URL + "/auth/internal/login", headers=headers, json=loginJson)
+        res = request.post(API_URL + "/auth/internal/login", headers=headers, json=loginJson)
         if (res.status_code != 200):
             raise ConnectionError("Could not obtain authorization token")
 
@@ -31,7 +31,7 @@ class AIClient:
         headers = {
             "Authorization": "Bearer " + token
         }
-        res = requests.post(API_URL + "/symbol", headers=headers, json=y)
+        res = request.post(API_URL + "/symbol", headers=headers, json=y)
         if (res.status_code != 200):
             raise IOError(res.text)
 
@@ -43,7 +43,7 @@ class AIClient:
             "email": "wikilibs@yuristudio.net",
             "password": "wikilibs-parser"
         }
-        res = requests.post(API_URL + "/auth/internal/login", headers=headers, json=loginJson)
+        res = request.post(API_URL + "/auth/internal/login", headers=headers, json=loginJson)
         if (res.status_code != 200):
             raise ConnectionError("Could not obtain authorization token")
 
@@ -54,6 +54,6 @@ class AIClient:
         headers = {
             "Authorization": "Bearer " + token
         }
-        res = requests.patch(API_URL + "/symbol/optimize", headers=headers)
+        res = request.patch(API_URL + "/symbol/optimize", headers=headers)
         if (res.status_code != 200):
             raise IOError(res.text)
