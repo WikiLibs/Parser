@@ -195,3 +195,4 @@ def JSONRequestCrafter(lang, lib, rawData):
     useful.printVerbose("Finished crafting Requests")
     useful.printVerbose("Calling optimizer")
     client.CallOptimizer()
+    useful.printVerbose("Called optimizer")
