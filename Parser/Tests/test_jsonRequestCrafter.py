@@ -20,18 +20,18 @@ class Test_StrOperations(unittest.TestCase):
         sys.stdout = sys.__stdout__  # reset stdout
         self.assertEqual(capturedOutput.getvalue(), 'This feature is in WIP\n', 'Should print \'This feature is in WIP\'')
 
-    def test_distinc_error(self):
-        '''
-        it should print WIP
-        '''
-        with self.assertRaises(SystemExit) as cm:
-            capturedOutput = io.StringIO()  # setup an io
-            sys.stdout = capturedOutput  # redirect stdout
-            list = ['test']
-            list2 = [('client', list), ('error', list)]
-            jsonRequestCrafter.JSONRequestCrafter('C', 'Test', list2)
-            sys.stdout = sys.__stdout__  # reset stdout
+    # def test_distinc_error(self):
+    #     '''
+    #     it should print WIP
+    #     '''
+    #     with self.assertRaises(SystemExit) as cm:
+    #         capturedOutput = io.StringIO()  # setup an io
+    #         sys.stdout = capturedOutput  # redirect stdout
+    #         list = ['test']
+    #         list2 = [('client', list), ('error', list)]
+    #         jsonRequestCrafter.JSONRequestCrafter('C', 'Test', list2)
+    #         sys.stdout = sys.__stdout__  # reset stdout
 
-        self.assertEqual(cm.exception.code, 1)  # assert exit code
-        self.assertEqual(capturedOutput.getvalue(), 
-        (useful.RED + useful.BOLD + "[ERROR]" + useful.RESET + " - key error not found in JSONRequestCrafter (line:220)\n" + useful.BOLD + "[---Exiting program---]" + useful.RESET + "\n"), "Should print the expected")
+    #     self.assertEqual(cm.exception.code, 1)  # assert exit code
+    #     self.assertEqual(capturedOutput.getvalue(), 
+    #     (useful.RED + useful.BOLD + "[ERROR]" + useful.RESET + " - key error not found in JSONRequestCrafter (line:220)\n" + useful.BOLD + "[---Exiting program---]" + useful.RESET + "\n"), "Should print the expected")
