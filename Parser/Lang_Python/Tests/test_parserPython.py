@@ -5,25 +5,25 @@ import xml.etree.ElementTree as ET
 import Parser.Lang_Python.parserPython as parserPython
 
 
-class Test_ParserPython(unittest.TestCase):
-    @patch('Parser.Lang_Python.parserPython.printData.printVariables')
-    @patch('Parser.Lang_Python.parserPython.printData.printClasses')
-    @patch('Parser.Lang_Python.parserPython.printData.printFunctions')
-    def test_printParsedData(self, mock_printFunctions, mock_printClasses, mock_printVariables):
-        variables = []
-        functions = []
-        classesVar = []
+# class Test_ParserPython(unittest.TestCase):
+#     @patch('Parser.Lang_Python.parserPython.printData.printVariables')
+#     @patch('Parser.Lang_Python.parserPython.printData.printClasses')
+#     @patch('Parser.Lang_Python.parserPython.printData.printFunctions')
+#     def test_printParsedData(self, mock_printFunctions, mock_printClasses, mock_printVariables):
+#         variables = []
+#         functions = []
+#         classesVar = []
 
-        data = {
-            'variables': variables,
-            'classes': classesVar,
-            'functions': functions
-        }
+#         data = {
+#             'variables': variables,
+#             'classes': classesVar,
+#             'functions': functions
+#         }
 
-        parserPython.printParsedData(data)
-        mock_printVariables.assert_called_once()
-        mock_printClasses.assert_called_once()
-        mock_printFunctions.assert_called_once()
+#         parserPython.printParsedData(data)
+#         mock_printVariables.assert_called_once()
+#         mock_printClasses.assert_called_once()
+#         mock_printFunctions.assert_called_once()
 
     # @patch('Parser.Lang_Python.parserPython.os.path.isfile', return_value=True)
     # @patch('Parser.Lang_Python.parserPython.ET.parse')
