@@ -11,7 +11,7 @@ import Parser.jsonRequestCrafter as jsonRequestCrafter
 import Parser.aiClient as aiClient
 
 
-class Test_StrOperations(unittest.TestCase):
+class Test_JSONRequestCrafter(unittest.TestCase):
     def test_distinc_wip(self):
         '''
         it should print WIP
