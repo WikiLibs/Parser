@@ -179,11 +179,64 @@ def craftTypedefRequest(client, typedefs):
     useful.printVerbose("Ended crafting Typedef Request")
 
 
-def craftVariableRequest():
+def craftVariableRequest(client, variables):
+    global g_lang
+    global g_lib
+
+    for variable in variables:
+        sym = SymbolUpdate(variable.name)
+        sym.setLang(g_lang)
+        sym.setType("variable")
+        sym_proto = SymbolPrototype(variable.Name)
+        sym_proto.setDescription(variable.detailedDesc)
+        sym_proto.setPrototype("variable " + variable.Name + " " + variable.Type)
+        sym.appendPrototypes(sym_proto)
+        path = g_lang + "/" + g_lib + "/" + variable.Name
+        sym.setPath(path)
+        client.PushSymbol(sym)
+        
     return
 
 
-def craftClassRequest():
+def craftClassRequest(client, classes):
+    global g_lang
+    global g_lib
+
+    for classe in classes:
+        sym = SymbolUpdate(classe.name)
+        sym.setLang(g_lang)
+        sym.setType("class")
+        sym_proto = SymbolPrototype(classe.name)
+        sym_proto.setDescription(classe.detailedDesc)
+        sym_proto.setPrototype("class " + classe.name)
+        sym.appendPrototypes(sym_proto)
+        for variable in classe.variables:
+            mem = SymbolUpdate(variable.name)
+            mem.setLang(g_lang)
+            mem.setType("attribute")
+            sym.appendSymbols(g_lang + "/" + g_lib + "/" + classe.name + "/" + variable.name)
+            mem_proto = SymbolPrototype(variable.name)
+            mem_proto.setDescription(variable.desc)
+            mem_proto.setPrototype(variable.type + " " + variable.name)
+            mem.appendPrototypes(mem_proto)
+            path = g_lang + "/" + g_lib + "/" + classe.name + "/" + variable.name
+            mem.setPath(path)
+            client.PushSymbol(mem)
+        for function in classe.functions:
+            mem = SymbolUpdate(function.name)
+            mem.setLang(g_lang)
+            mem.setType("attribute")
+            sym.appendSymbols(g_lang + "/" + g_lib + "/" + classe.name + "/" + function.name)
+            mem_proto = SymbolPrototype(function.name)
+            mem_proto.setDescription(function.desc)
+            mem_proto.setPrototype(function.type + " " + function.name)
+            mem.appendPrototypes(mem_proto)
+            path = g_lang + "/" + g_lib + "/" + classe.name + "/" + function.name
+            mem.setPath(path)
+            client.PushSymbol(mem)
+        path = g_lang + "/" + g_lib + "/" + classe.name
+        sym.setPath(path)
+        client.PushSymbol(sym)
     return
 
 
@@ -198,8 +251,8 @@ def initDicoFunction():
     dict['union'] = craftUnionRequest
     dict['function'] = craftFunctionRequest
     dict['typedef'] = craftTypedefRequest
-    dict['variable'] = printWIP
-    dict['class'] = printWIP
+    dict['variable'] = craftVariableRequest
+    dict['class'] = craftClassRequest
     dict['client'] = printWIP
     return dict
 
