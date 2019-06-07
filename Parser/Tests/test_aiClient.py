@@ -13,18 +13,23 @@ import Parser.aiClient as aiClient
 
 class Test_aiClient(unittest.TestCase):
     res = requests
-    res.status_code = 201
+    res.status_code = 600
     res.text = "test"
 
     res2 = requests
     res2.status_code = 200
     res2.text = "test"
 
-    @patch('requests.post', return_value=res)
+    def test_get_token_error(self):
+        with self.assertRaises(ConnectionError) as cm:
+            capturedOutput = io.StringIO()  # setup an io
+            sys.stdout = capturedOutput  # redirect stdout
+            client = aiClient.AIClient()
+            client.GetToken()
+
     @patch('Parser.aiClient.AIClient.GetToken', return_value="test")
     def test_push_symbol_error(self,
-                               mock_get_token,
-                               mock_request_post):
+                               mock_get_token):
         sym = jsClass.SymbolUpdate("test")
         sym.setLang("test2")
         sym.setPath("test")
@@ -41,22 +46,20 @@ class Test_aiClient(unittest.TestCase):
         sym.appendPrototypes(proto)
         sym.appendPrototypes(proto)
         sym.appendSymbols("test")
-        client = aiClient.AIClient()
-        client.PushSymbol(sym)
+        with self.assertRaises(OSError) as cm:
+            capturedOutput = io.StringIO()  # setup an io
+            sys.stdout = capturedOutput  # redirect stdout
+            client = aiClient.AIClient()
+            client.PushSymbol(sym)
 
-    @patch('requests.post', return_value=res)
-    def test_get_token_error(self,
-                             mock_request_post):
-        client = aiClient.AIClient()
-        client.GetToken()
-
-    @patch('requests.patch', return_value=res)
     @patch('Parser.aiClient.AIClient.GetToken', return_value="test")
     def test_optimize_error_patch(self,
-                                  mock_get_token,
-                                  mock_request_patch):
-        client = aiClient.AIClient()
-        client.CallOptimizer()
+                                  mock_get_token):
+        with self.assertRaises(OSError) as cm:
+            capturedOutput = io.StringIO()  # setup an io
+            sys.stdout = capturedOutput  # redirect stdout
+            client = aiClient.AIClient()
+            client.CallOptimizer()
 
     @patch('requests.post', return_value=res2)
     def test_get_token_no_error(self,
