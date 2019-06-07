@@ -34,3 +34,26 @@ class AIClient:
         res = requests.post(API_URL + "/symbol", headers=headers, json=y)
         if (res.status_code != 200):
             raise IOError(res.text)
+
+    def CallOptimizer(self):
+        headers = {
+            "Authorization": useful.apikey,
+        }
+        loginJson = {
+            "email": "wikilibs@yuristudio.net",
+            "password": "wikilibs-parser"
+        }
+        res = requests.post(API_URL + "/auth/internal/login", headers=headers, json=loginJson)
+        if (res.status_code != 200):
+            raise ConnectionError("Could not obtain authorization token")
+
+        # Extract bearer token string
+        token = res.text[1:-1]
+
+        # Call optimizer
+        headers = {
+            "Authorization": "Bearer " + token
+        }
+        res = requests.patch(API_URL + "/symbol/optimize", headers=headers)
+        if (res.status_code != 200):
+            raise IOError(res.text)
