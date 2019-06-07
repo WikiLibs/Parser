@@ -1,6 +1,3 @@
-#!/usr/bin/python3
-# -*- coding: utf-8 -*-
-
 import unittest
 
 import sys
@@ -81,6 +78,9 @@ class Test_JsonRequestCrafter(unittest.TestCase):
         '''
 
         define = classParser.defineClass()
+        param = classParser.variableClass()
+        define.params.append(param)
+        define.params.append(param)
         defines = [define]
 
         jsonRequestCrafter.craftDefineRequest(aiClient.AIClient, defines)

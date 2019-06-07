@@ -200,7 +200,7 @@ def craftClassRequest(client, classes):
             useful.printVerbose("Setting " + variable.name)
             mem = SymbolUpdate(variable.name)
             mem.setLang(g_lang)
-            mem.setType("attribute")
+            mem.setType("member attribute")
             sym.appendSymbols(g_lang + "/" + g_lib + "/" + classe.name + "/" + variable.name)
             mem_proto = SymbolPrototype(variable.name)
             mem_proto.setDescription(variable.desc)
@@ -216,7 +216,7 @@ def craftClassRequest(client, classes):
             useful.printVerbose("Setting " + function.name)
             sym = SymbolUpdate(function.name)
             sym.setLang(g_lang)
-            sym.setType("function")
+            sym.setType("member function")
             sym_proto = SymbolPrototype(function.name)
             sym_proto.setDescription(function.detailedDesc)
             buf = function.returnType + " " + function.name + "("
@@ -237,7 +237,7 @@ def craftClassRequest(client, classes):
                 par_proto.setPrototype(param.type + " " + param.name)
                 sym_proto.appendParameters(par_proto)
             sym.appendPrototypes(sym_proto)
-            path = g_lang + "/" + g_lib + "/" + function.name
+            path = g_lang + "/" + g_lib + "/" + classe.name + "/" + function.name
             sym.setPath(path)
             useful.printVerbose("Path is " + path)
             client.PushSymbol(sym)
