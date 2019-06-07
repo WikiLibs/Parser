@@ -179,20 +179,52 @@ def craftTypedefRequest(client, typedefs):
     useful.printVerbose("Ended crafting Typedef Request")
 
 
+def craftVariableRequest():
+    return
+
+
+def craftClassRequest():
+    return
+
+
+def printWIP(client, list):
+    print("This feature is in WIP")
+
+
+def initDicoFunction():
+    dict = {}
+    dict['struct'] = craftStructRequest
+    dict['define'] = craftDefineRequest
+    dict['union'] = craftUnionRequest
+    dict['function'] = craftFunctionRequest
+    dict['typedef'] = craftTypedefRequest
+    dict['variable'] = printWIP
+    dict['class'] = printWIP
+    dict['client'] = printWIP
+    return dict
+
+
 def JSONRequestCrafter(lang, lib, rawData):
     global g_lang
     global g_lib
 
     g_lang = lang
     g_lib = lib
+    # remove rawData with a better thing
     client = rawData[0]
+    dict = initDicoFunction()
+    for key, val in rawData:
+        if key == 'client':
+            client = val
+            rawData.remove((key, val))
     useful.printVerbose("Beginning crafting Requests")
-    craftDefineRequest(client, rawData[1])
-    craftStructRequest(client, rawData[2])
-    craftUnionRequest(client, rawData[3])
-    craftFunctionRequest(client, rawData[4])
-    craftTypedefRequest(client, rawData[5])
+    for key, lists in rawData:
+        if key in dict:
+            dict[key](client, lists)
+        else:
+            useful.logError('key ' + key + ' not found in JSONRequestCrafter (line:220)', 1)
     useful.printVerbose("Finished crafting Requests")
     useful.printVerbose("Calling optimizer")
-    client.CallOptimizer()
+    if (lib != 'noOptimize'):
+        client.CallOptimizer()
     useful.printVerbose("Called optimizer")
