@@ -64,6 +64,7 @@ class Test_ParserPython(unittest.TestCase):
 
         mock_getVariable.assert_called_once()
         mock_getFunction.assert_called_once()
+        mock_jsonrequestcrafter.assert_called_once()
 
     @patch('Parser.Lang_Python.parserPython.JSONRequestCrafter')
     @patch('Parser.Lang_Python.parserPython.getClassesFiles')
@@ -80,6 +81,7 @@ class Test_ParserPython(unittest.TestCase):
         parserPython.parseXMLFile('./xml/hello__8_.xml', 'PYTHON', 'Test lib')
 
         mock_getClasses.assert_called_once()
+        mock_jsonrequestcrafter.assert_called_once()
 
     @patch('Parser.Lang_Python.parserPython.JSONRequestCrafter')
     @patch('Parser.Lang_Python.parserPython.os.path.isfile', return_value=True)
@@ -96,3 +98,4 @@ class Test_ParserPython(unittest.TestCase):
         parserPython.parseXMLFile('./xml/hello__8_.xml', 'PYTHON', 'Test lib')
 
         mock_printParsedData.assert_called_once()
+        mock_jsonrequestcrafter.assert_called_once()
