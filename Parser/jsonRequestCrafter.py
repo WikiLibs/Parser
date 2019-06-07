@@ -142,6 +142,7 @@ def craftFunctionRequest(client, functions):
         par_proto.setPrototype("return")
         sym_proto.appendParameters(par_proto)
         for param in function.params:
+            useful.printVerbose("Found param " + param.name)
             par_proto = SymbolParam(param.name)
             par_proto.setDescription(param.desc)
             par_proto.setPrototype(param.type + " " + param.name)
@@ -162,7 +163,7 @@ def craftTypedefRequest(client, typedefs):
 
     useful.printVerbose("\n\n/****  Beginning crafting Typedef Request  ****/")
     for typedef in typedefs:
-        useful.printVerbose("Setting " + typedef.tdname)
+        useful.printVerbose("Setting " + typedef.tdName)
         sym = SymbolUpdate(typedef.tdName)
         sym.setLang(g_lang)
         sym.setType("typedef")
@@ -179,12 +180,98 @@ def craftTypedefRequest(client, typedefs):
     useful.printVerbose("Ended crafting Typedef Request")
 
 
-def craftVariableRequest():
-    return
+def craftClassRequest(client, classes):
+    global g_lang
+    global g_lib
+
+    useful.printVerbose("\n\n/****  Beginning crafting Class Request  ****/")
+    for classe in classes:
+        useful.printVerbose("Setting " + classe.name)
+        sym = SymbolUpdate(classe.name)
+        sym.setLang(g_lang)
+        sym.setType("class")
+        sym_proto = SymbolPrototype(classe.name)
+        sym_proto.setDescription(classe.description)
+        sym_proto.setPrototype("class " + classe.name)
+        sym.appendPrototypes(sym_proto)
+        useful.printVerbose("Crafting " + classe.name + " is done")
+        useful.printVerbose("Now Getting " + classe.name + " variables")
+        for variable in classe.variables:
+            useful.printVerbose("Setting " + variable.name)
+            mem = SymbolUpdate(variable.name)
+            mem.setLang(g_lang)
+            mem.setType("member attribute")
+            sym.appendSymbols(g_lang + "/" + g_lib + "/" + classe.name + "/" + variable.name)
+            mem_proto = SymbolPrototype(variable.name)
+            mem_proto.setDescription(variable.desc)
+            mem_proto.setPrototype(variable.type + " " + variable.name)
+            mem.appendPrototypes(mem_proto)
+            path = g_lang + "/" + g_lib + "/" + classe.name + "/" + variable.name
+            mem.setPath(path)
+            useful.printVerbose("Path is " + path)
+            client.PushSymbol(mem)
+        useful.printVerbose("Finished getting " + classe.name + " variables")
+        useful.printVerbose("Now Getting " + classe.name + " functions")
+        for function in classe.functions:
+            useful.printVerbose("Setting " + function.name)
+            sym = SymbolUpdate(function.name)
+            sym.setLang(g_lang)
+            sym.setType("member function")
+            sym_proto = SymbolPrototype(function.name)
+            sym_proto.setDescription(function.detailedDesc)
+            buf = function.returnType + " " + function.name + "("
+            for i in range(0, len(function.params)):
+                if i != 0:
+                    buf += ", "
+                buf += function.params[i].type + " " + function.params[i].name
+            buf += ")"
+            sym_proto.setPrototype(buf)
+            par_proto = SymbolParam("return")
+            par_proto.setDescription(function.returnDesc)
+            par_proto.setPrototype("return")
+            sym_proto.appendParameters(par_proto)
+            for param in function.params:
+                useful.printVerbose("Found param " + param.name)
+                par_proto = SymbolParam(param.name)
+                par_proto.setDescription(param.desc)
+                par_proto.setPrototype(param.type + " " + param.name)
+                sym_proto.appendParameters(par_proto)
+            sym.appendPrototypes(sym_proto)
+            path = g_lang + "/" + g_lib + "/" + classe.name + "/" + function.name
+            sym.setPath(path)
+            useful.printVerbose("Path is " + path)
+            client.PushSymbol(sym)
+        useful.printVerbose("Finished getting " + classe.name + " functions")
+        path = g_lang + "/" + g_lib + "/" + classe.name
+        sym.setPath(path)
+        useful.printVerbose("Pushing " + classe.name + " on the Database")
+        useful.printVerbose("Path is " + path)
+        client.PushSymbol(sym)
+        useful.printVerbose("Push done")
+    useful.printVerbose("Ended crafting Class Request")
 
 
-def craftClassRequest():
-    return
+def craftVariableRequest(client, variables):
+    global g_lang
+    global g_lib
+
+    useful.printVerbose("\n\n/****  Beginning crafting Variable Request  ****/")
+    for variable in variables:
+        useful.printVerbose("Setting " + variable.name)
+        sym = SymbolUpdate(variable.name)
+        sym.setLang(g_lang)
+        sym.setType("variable")
+        sym_proto = SymbolPrototype(variable.name)
+        sym_proto.setDescription(variable.desc)
+        sym_proto.setPrototype("variable " + variable.name + " " + variable.type)
+        sym.appendPrototypes(sym_proto)
+        path = g_lang + "/" + g_lib + "/" + variable.name
+        sym.setPath(path)
+        useful.printVerbose("Pushing " + variable.name + " on the Database")
+        useful.printVerbose("Path is " + path)
+        client.PushSymbol(sym)
+        useful.printVerbose("Push done")
+    useful.printVerbose("Ended crafting Typedef Request")
 
 
 def printWIP(client, list):
@@ -198,8 +285,8 @@ def initDicoFunction():
     dict['union'] = craftUnionRequest
     dict['function'] = craftFunctionRequest
     dict['typedef'] = craftTypedefRequest
-    dict['variable'] = printWIP
-    dict['class'] = printWIP
+    dict['variable'] = craftVariableRequest
+    dict['class'] = craftClassRequest
     dict['client'] = printWIP
     return dict
 
@@ -225,6 +312,5 @@ def JSONRequestCrafter(lang, lib, rawData):
             useful.logError('key ' + key + ' not found in JSONRequestCrafter (line:220)', 1)
     useful.printVerbose("Finished crafting Requests")
     useful.printVerbose("Calling optimizer")
-    if (lib != 'noOptimize'):
-        client.CallOptimizer()
+    client.CallOptimizer()
     useful.printVerbose("Called optimizer")
