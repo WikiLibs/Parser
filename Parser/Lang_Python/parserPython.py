@@ -5,6 +5,8 @@ from Lang_Python.getClass import getClass
 from Lang_Python.getFunction import getFunction
 import Lang_Python.printData as printData
 import useful
+from aiClient import AIClient
+from jsonRequestCrafter import JSONRequestCrafter
 
 
 def printParsedData(data):
@@ -49,3 +51,12 @@ def parseXMLFile(filename, lang, libname):
             'functions': functions
         }
         printParsedData(data)
+
+    if useful.upload:
+        client = AIClient()
+        list = []
+        list.append(('client', client))
+        list.append(('variable', variables))
+        list.append(('class', classes))
+        list.append(('function', functions))
+        JSONRequestCrafter(lang, libname, list)
