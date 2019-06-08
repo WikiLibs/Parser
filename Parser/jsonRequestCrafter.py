@@ -214,33 +214,33 @@ def craftClassRequest(client, classes):
         useful.printVerbose("Now Getting " + classe.name + " functions")
         for function in classe.functions:
             useful.printVerbose("Setting " + function.name)
-            sym = SymbolUpdate(function.name)
-            sym.setLang(g_lang)
-            sym.setType("member function")
-            sym_proto = SymbolPrototype(function.name)
-            sym_proto.setDescription(function.detailedDesc)
+            func = SymbolUpdate(function.name)
+            func.setLang(g_lang)
+            func.setType("member function")
+            func_proto = SymbolPrototype(function.name)
+            func_proto.setDescription(function.detailedDesc)
             buf = function.returnType + " " + function.name + "("
             for i in range(0, len(function.params)):
                 if i != 0:
                     buf += ", "
                 buf += function.params[i].type + " " + function.params[i].name
             buf += ")"
-            sym_proto.setPrototype(buf)
+            func_proto.setPrototype(buf)
             par_proto = SymbolParam("return")
             par_proto.setDescription(function.returnDesc)
             par_proto.setPrototype("return")
-            sym_proto.appendParameters(par_proto)
+            func_proto.appendParameters(par_proto)
             for param in function.params:
                 useful.printVerbose("Found param " + param.name)
                 par_proto = SymbolParam(param.name)
                 par_proto.setDescription(param.desc)
                 par_proto.setPrototype(param.type + " " + param.name)
-                sym_proto.appendParameters(par_proto)
-            sym.appendPrototypes(sym_proto)
+                func_proto.appendParameters(par_proto)
+            func.appendPrototypes(func_proto)
             path = g_lang + "/" + g_lib + "/" + classe.name + "/" + function.name
-            sym.setPath(path)
+            func.setPath(path)
             useful.printVerbose("Path is " + path)
-            client.PushSymbol(sym)
+            client.PushSymbol(func)
         useful.printVerbose("Finished getting " + classe.name + " functions")
         path = g_lang + "/" + g_lib + "/" + classe.name
         sym.setPath(path)
