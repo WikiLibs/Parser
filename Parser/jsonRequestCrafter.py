@@ -28,17 +28,17 @@ def craftStructRequest(client, structs):
             mem = SymbolUpdate(member.name)
             mem.setLang(g_lang)
             mem.setType("attribute")
-            sym.appendSymbols(g_lang + "/" + g_lib + "/" + struct.name + "/" + member.name)
+            sym.appendSymbols(g_lang + "/" + g_lib + "/struct/" + struct.name + "/" + member.name)
             mem_proto = SymbolPrototype(member.name)
             mem_proto.setDescription(member.desc)
             mem_proto.setPrototype(member.type + " " + member.name)
             mem.appendPrototypes(mem_proto)
-            path = g_lang + "/" + g_lib + "/" + struct.name + "/" + member.name
+            path = g_lang + "/" + g_lib + "/struct/" + struct.name + "/" + member.name
             mem.setPath(path)
             useful.printVerbose("Path is " + path)
             client.PushSymbol(mem)
         useful.printVerbose("Finished getting " + struct.name + " members")
-        path = g_lang + "/" + g_lib + "/" + struct.name
+        path = g_lang + "/" + g_lib + "/struct/" + struct.name
         sym.setPath(path)
         useful.printVerbose("Pushing " + struct.name + " on the Database")
         useful.printVerbose("Path is " + path)
@@ -71,7 +71,7 @@ def craftDefineRequest(client, defines):
             sym_proto.appendParameters(sym_param)
         useful.printVerbose("Finished getting " + define.name + " members")
         sym.appendPrototypes(sym_proto)
-        path = g_lang + "/" + g_lib + "/" + define.name
+        path = g_lang + "/" + g_lib + "/define/" + define.name
         sym.setPath(path)
         useful.printVerbose("Pushing " + define.name + " on the Database")
         useful.printVerbose("Path is " + path)
@@ -100,16 +100,16 @@ def craftUnionRequest(client, unions):
             mem = SymbolUpdate(member.name)
             mem.setLang(g_lang)
             mem.setType("attribute")
-            sym.appendSymbols(g_lang + "/" + g_lib + "/" + union.name + "/" + member.name)
+            sym.appendSymbols(g_lang + "/" + g_lib + "/union/" + union.name + "/" + member.name)
             mem_proto = SymbolPrototype(member.name)
             mem_proto.setDescription(member.desc)
             mem_proto.setPrototype(member.type + " " + member.name)
             mem.appendPrototypes(mem_proto)
-            path = g_lang + "/" + g_lib + "/" + union.name + "/" + member.name
+            path = g_lang + "/" + g_lib + "/union/" + union.name + "/" + member.name
             mem.setPath(path)
             client.PushSymbol(mem)
         useful.printVerbose("Finished getting " + union.name + " members")
-        path = g_lang + "/" + g_lib + "/" + union.name
+        path = g_lang + "/" + g_lib + "/union/" + union.name
         sym.setPath(path)
         useful.printVerbose("Pushing " + union.name + " on the Database")
         useful.printVerbose("Path is " + path)
@@ -148,7 +148,7 @@ def craftFunctionRequest(client, functions):
             par_proto.setPrototype(param.type + " " + param.name)
             sym_proto.appendParameters(par_proto)
         sym.appendPrototypes(sym_proto)
-        path = g_lang + "/" + g_lib + "/" + function.name
+        path = g_lang + "/" + g_lib + "/function/" + function.name
         sym.setPath(path)
         useful.printVerbose("Pushing " + function.name + " on the Database")
         useful.printVerbose("Path is " + path)
@@ -171,7 +171,7 @@ def craftTypedefRequest(client, typedefs):
         sym_proto.setDescription(typedef.detailedDesc)
         sym_proto.setPrototype("typedef " + typedef.tdName + " " + typedef.tdType)
         sym.appendPrototypes(sym_proto)
-        path = g_lang + "/" + g_lib + "/" + typedef.tdName
+        path = g_lang + "/" + g_lib + "/typedef/" + typedef.tdName
         sym.setPath(path)
         useful.printVerbose("Pushing " + typedef.tdName + " on the Database")
         useful.printVerbose("Path is " + path)
@@ -201,12 +201,12 @@ def craftClassRequest(client, classes):
             mem = SymbolUpdate(variable.name)
             mem.setLang(g_lang)
             mem.setType("member attribute")
-            sym.appendSymbols(g_lang + "/" + g_lib + "/" + classe.name + "/" + variable.name)
+            sym.appendSymbols(g_lang + "/" + g_lib + "/class/" + classe.name + "/" + variable.name)
             mem_proto = SymbolPrototype(variable.name)
             mem_proto.setDescription(variable.desc)
             mem_proto.setPrototype(variable.type + " " + variable.name)
             mem.appendPrototypes(mem_proto)
-            path = g_lang + "/" + g_lib + "/" + classe.name + "/" + variable.name
+            path = g_lang + "/" + g_lib + "/class/" + classe.name + "/" + variable.name
             mem.setPath(path)
             useful.printVerbose("Path is " + path)
             client.PushSymbol(mem)
@@ -237,12 +237,12 @@ def craftClassRequest(client, classes):
                 par_proto.setPrototype(param.type + " " + param.name)
                 func_proto.appendParameters(par_proto)
             func.appendPrototypes(func_proto)
-            path = g_lang + "/" + g_lib + "/" + classe.name + "/" + function.name
+            path = g_lang + "/" + g_lib + "/class/" + classe.name + "/" + function.name
             func.setPath(path)
             useful.printVerbose("Path is " + path)
             client.PushSymbol(func)
         useful.printVerbose("Finished getting " + classe.name + " functions")
-        path = g_lang + "/" + g_lib + "/" + classe.name
+        path = g_lang + "/" + g_lib + "/class/" + classe.name
         sym.setPath(path)
         useful.printVerbose("Pushing " + classe.name + " on the Database")
         useful.printVerbose("Path is " + path)
@@ -265,7 +265,7 @@ def craftVariableRequest(client, variables):
         sym_proto.setDescription(variable.desc)
         sym_proto.setPrototype("variable " + variable.name + " " + variable.type)
         sym.appendPrototypes(sym_proto)
-        path = g_lang + "/" + g_lib + "/" + variable.name
+        path = g_lang + "/" + g_lib + "/variable/" + variable.name
         sym.setPath(path)
         useful.printVerbose("Pushing " + variable.name + " on the Database")
         useful.printVerbose("Path is " + path)
