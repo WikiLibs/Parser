@@ -20,7 +20,7 @@ class Test_JsonRequestCrafter(unittest.TestCase):
         capturedOutput = io.StringIO()  # setup an io
         sys.stdout = capturedOutput  # redirect stdout
         list = ['crash']
-        list2 = [('client', aiClient.AIClient()), ('client', list)]
+        list2 = [('client', aiClient.AIClient(aiClient.APP_KEY, aiClient.APP_ID, aiClient.SEC)), ('client', list)]
         jsonRequestCrafter.JSONRequestCrafter('C', 'Test', list2)
         sys.stdout = sys.__stdout__  # reset stdout
         self.assertEqual(capturedOutput.getvalue(), 'This feature is in WIP\n', 'Should print \'This feature is in WIP\'')
@@ -33,7 +33,7 @@ class Test_JsonRequestCrafter(unittest.TestCase):
             capturedOutput = io.StringIO()  # setup an io
             sys.stdout = capturedOutput  # redirect stdout
             list = ['test']
-            list2 = [('client', list), ('error', list)]
+            list2 = [('client', aiClient.AIClient(aiClient.APP_KEY, aiClient.APP_ID, aiClient.SEC)), ('error', list)]
             jsonRequestCrafter.JSONRequestCrafter('C', 'Test', list2)
             sys.stdout = sys.__stdout__  # reset stdout
 
