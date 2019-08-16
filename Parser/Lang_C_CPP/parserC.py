@@ -7,6 +7,7 @@ from Lang_C_CPP.getFunction import getFunction
 from Lang_C_CPP.getTypedef import getTypedef
 import Lang_C_CPP.printData as printData
 import useful
+import aiClient
 from aiClient import AIClient
 from jsonRequestCrafter import JSONRequestCrafter
 
@@ -60,7 +61,7 @@ def parseXMLFile(filename, lang, libname):
 
     if useful.upload:
         # change this, maybe try association table
-        client = AIClient()
+        client = AIClient(useful.apikey, aiClient.APP_ID, aiClient.SEC)
         list = []
         list.append(('client', client))
         list.append(('define', defines))

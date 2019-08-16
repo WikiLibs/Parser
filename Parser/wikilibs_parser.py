@@ -17,6 +17,7 @@ EXCEPTION_HELP = 'shows parser exception'
 GUI_HELP = 'set this option to use the GUI version'
 NO_UPLOAD_HELP = 'set this option to disable upload to API (useful for degug)'
 API_KEY_HELP = 'set the API Key to use for authenticating with the API server'
+SCR_KEY_HELP = 'set the secret Key to use for authenticating with the API server'
 
 dicoLang = {
     "C": ['.h', '.c'],
@@ -77,6 +78,7 @@ def parserArgs():
     argParser.add_argument('-g', '--gui', help=GUI_HELP, action='store_true')
     argParser.add_argument('-n', '--noUpload', help=NO_UPLOAD_HELP, action='store_true')
     argParser.add_argument('-k', '--apikey', help=API_KEY_HELP)
+    argParser.add_argument('-s', '--secret', help=SCR_KEY_HELP)
     args = argParser.parse_args()
 
     args.language = args.language.upper()

@@ -4,6 +4,7 @@ verbose = False
 upload = True
 exceptions = False
 apikey = ""
+secret = ""
 
 GREEN = "\033[0;32m"
 YELLOW = "\u001b[33m"
