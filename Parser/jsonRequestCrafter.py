@@ -298,12 +298,13 @@ def JSONRequestCrafter(lang, lib, rawData):
     g_lang = lang
     g_lib = lib
     # remove rawData with a better thing
-    client = rawData[0]
+    client = ""
     dict = initDicoFunction()
     for key, val in rawData:
         if key == 'client':
             client = val
             rawData.remove((key, val))
+    client.GetToken()
     useful.printVerbose("Beginning crafting Requests")
     for key, lists in rawData:
         if key in dict:
