@@ -4,10 +4,10 @@ from urllib.request import urlopen
 import os
 import argparse
 import useful
+import aiClient
 
 import Lang_C_CPP.parserC as parserC
 import Lang_Python.parserPython as parserPython
-from aiClient import AIClient
 
 
 DESCRIPTION = 'This program will parse a library and send it to the WikiLibs API.'
@@ -115,6 +115,12 @@ def getFunctionsLang():
     return dispatch
 
 
+def callOptimizer():
+    useful.printVerbose("Calling optimizer")
+    aiClient.AIClient.CallOptimizer_ext(useful.apikey)
+    useful.printVerbose("Called optimizer")
+
+
 def main():
     args = parserArgs()
     getDoxyfileAndRun(args.language)
@@ -124,10 +130,7 @@ def main():
     for filename in files:
         useful.logInfo('Starting parsing \'' + filename.ogFilename + '\'')
         dispatch[args.language.upper()](filename.xmlFilename, args.language, args.library_name)
-    useful.printVerbose("Calling optimizer")
-    AIClient.CallOptimizer()
-    useful.printVerbose("Called optimizer")
-
+    callOptimizer()
     deleteFiles()
 
 
