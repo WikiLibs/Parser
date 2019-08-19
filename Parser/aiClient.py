@@ -87,3 +87,30 @@ class AIClient:
         res = requests.patch(API_URL + "/symbol/optimize", headers=headers)
         if (res.status_code != 200):
             raise IOError(res.text)
+
+    @staticmethod
+    def CallOptimizer_ext(apikey):
+        useful.printVerbose("Getting bearer token")
+        # Authenticate with the server
+        headers = {
+            "Authorization": apikey,
+        }
+        loginJson = {
+            "appId": APP_ID,
+            "appSecret": SEC
+        }
+        res = requests.post(API_URL + "/auth/bot", headers=headers, json=loginJson)
+        if (res.status_code != 200):
+            raise ConnectionError("Authorization token rejected")
+
+        # Extract bearer token string
+        token = res.text[1:-1]
+
+        useful.printVerbose("Optimizer is being called")
+        # Call optimizer
+        headers = {
+            "Authorization": "Bearer " + token
+        }
+        res = requests.patch(API_URL + "/symbol/optimize", headers=headers)
+        if (res.status_code != 200):
+            raise IOError(res.text)
