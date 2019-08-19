@@ -8,6 +8,7 @@ import aiClient
 
 import Lang_C_CPP.parserC as parserC
 import Lang_Python.parserPython as parserPython
+from aiClient import AIClient
 
 
 DESCRIPTION = 'This program will parse a library and send it to the WikiLibs API.'
