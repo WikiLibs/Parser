@@ -20,7 +20,7 @@ class Test_aiClient(unittest.TestCase):
     res2.status_code = 200
     res2.text = "test"
 
-    def test_get_token_error(self):
+    def test_get_token_connection_error(self):
         with self.assertRaises(ConnectionError) as cm:
             capturedOutput = io.StringIO()  # setup an io
             sys.stdout = capturedOutput  # redirect stdout
@@ -51,16 +51,6 @@ class Test_aiClient(unittest.TestCase):
             sys.stdout = capturedOutput  # redirect stdout
             client = aiClient.AIClient("what", "", "")
             client.PushSymbol(sym)
-
-    @patch('Parser.aiClient.AIClient.GetToken', return_value="test")
-    def test_optimize_error_patch(self,
-                                  mock_get_token):
-        with self.assertRaises(OSError) as cm:
-            capturedOutput = io.StringIO()  # setup an io
-            sys.stdout = capturedOutput  # redirect stdout
-            client = aiClient.AIClient("what", "", "")
-            client.CallOptimizer()
-            mock_get_token.assert_called()
 
     @patch('requests.post', return_value=res2)
     def test_get_token_no_error(self,
@@ -98,10 +88,37 @@ class Test_aiClient(unittest.TestCase):
             client.GetToken()
             client.PushSymbol(sym)
 
-    def test_optimizer_res_error(self):
+    @patch('Parser.aiClient.AIClient.GetToken', return_value="test")
+    def test_optimize_no_token(self,
+                               mock_get_token):
+        with self.assertRaises(OSError) as cm:
+            capturedOutput = io.StringIO()  # setup an io
+            sys.stdout = capturedOutput  # redirect stdout
+            client = aiClient.AIClient("what", "", "")
+            client.CallOptimizer()
+            mock_get_token.assert_called()
+        
+    def test_optimizer_optimize_error(self):
         with self.assertRaises(IOError) as cm:
             capturedOutput = io.StringIO()  # setup an io
             sys.stdout = capturedOutput  # redirect stdout
             client = aiClient.AIClient(aiClient.APP_KEY, aiClient.APP_ID, aiClient.SEC)
             client._token = "what"
             client.CallOptimizer()
+
+    def test_optimize_ext_connection_error(self):
+        with self.assertRaises(OSError) as cm:
+            capturedOutput = io.StringIO()  # setup an io
+            sys.stdout = capturedOutput  # redirect stdout
+            client = aiClient.AIClient("what", "", "")
+            client.CallOptimizer_ext("")
+
+    @patch('requests.post', return_value=res2)
+    def test_optimize_ext_optimize_error(self,
+                                         req_post):
+        with self.assertRaises(IOError) as cm:
+            capturedOutput = io.StringIO()  # setup an io
+            sys.stdout = capturedOutput  # redirect stdout
+            client = aiClient.AIClient("what", "", "")
+            client.CallOptimizer_ext("what???")
+            req_post.assert_called()
