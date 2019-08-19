@@ -7,6 +7,7 @@ import useful
 
 import Lang_C_CPP.parserC as parserC
 import Lang_Python.parserPython as parserPython
+from aiClient import AIClient
 
 
 DESCRIPTION = 'This program will parse a library and send it to the WikiLibs API.'
@@ -123,6 +124,9 @@ def main():
     for filename in files:
         useful.logInfo('Starting parsing \'' + filename.ogFilename + '\'')
         dispatch[args.language.upper()](filename.xmlFilename, args.language, args.library_name)
+    useful.printVerbose("Calling optimizer")
+    AIClient.CallOptimizer()
+    useful.printVerbose("Called optimizer")
 
     deleteFiles()
 
