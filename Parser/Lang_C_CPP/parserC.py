@@ -10,6 +10,32 @@ import useful
 import aiClient
 from aiClient import AIClient
 from jsonRequestCrafter import JSONRequestCrafter
+from languageInterface import LanguageInterface
+
+
+class parserC(LanguageInterface):
+    def getSymbols(self, filename):
+        root = ET.parse(filename).getroot()
+
+        for elem in root.iter('memberdef'):
+            kind = elem.get('kind')
+            if kind == 'define':
+                super().appendToSymbols('define', getDefine(elem))
+            if kind == 'function':
+                super().appendToSymbols('function', getFunction(elem))
+            if kind == 'typedef':
+                super().appendToSymbols('typedef', getTypedef(elem))
+
+        for elem in root.iter('innerclass'):
+            refid = elem.get('refid')
+            if 'struct' in refid:
+                super().appendToSymbols('struct', getStruct("xml/" + refid + ".xml"))
+            if 'union' in refid:
+                super().appendToSymbols('union', getUnion("xml/" + refid + ".xml"))
+
+######################################
+# Everything below should be removed #
+######################################
 
 
 def printParsedData(data):

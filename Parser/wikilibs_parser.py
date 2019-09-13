@@ -8,11 +8,11 @@ import aiClient
 
 import Lang_C_CPP.parserC as parserC
 import Lang_Python.parserPython as parserPython
-from aiClient import AIClient
 
 
 DESCRIPTION = 'This program will parse a library and send it to the WikiLibs API.'
-LANGUAGE_HELP = 'sets the language used in the library (please check WikiLibs documentation to check the currently supported languages)'
+LANGUAGE_HELP = 'sets the language used in the library (please check WikiLibs documentation to check the currently' \
+    ' supported languages)'
 NAME_HELP = 'sets the name of the library to be send'
 VERBOSE_HELP = 'shows more infos in the output'
 EXCEPTION_HELP = 'shows parser exception'
@@ -110,8 +110,8 @@ def parserArgs():
 
 def getFunctionsLang():
     dispatch = {
-        'C': parserC.parseXMLFile,
-        'PYTHON': parserPython.parseXMLFile
+        'C': parserC.parserC,
+        'PYTHON': parserPython.parserPython
     }
     return dispatch
 
@@ -130,8 +130,10 @@ def main():
     dispatch = getFunctionsLang()
     for filename in files:
         useful.logInfo('Starting parsing \'' + filename.ogFilename + '\'')
-        dispatch[args.language.upper()](filename.xmlFilename, args.language, args.library_name)
-    callOptimizer()
+        obj = dispatch[args.language.upper()](args.language, args.library_name)
+        obj.parseXMLFile(filename.xmlFilename)
+        # dispatch[args.language.upper()](filename.xmlFilename, args.language, args.library_name)
+    # callOptimizer()
     deleteFiles()
 
 

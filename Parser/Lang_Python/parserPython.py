@@ -8,7 +8,32 @@ import useful
 import aiClient
 from aiClient import AIClient
 from jsonRequestCrafter import JSONRequestCrafter
+from languageInterface import LanguageInterface
 
+
+class parserPython(LanguageInterface):
+    def getSymbols(self, filename):
+        newFilename = filename[6:-8]
+        namespaceFilename = './xml/namespace' + newFilename + '.xml'
+
+        classFilenames = getClassesFiles(newFilename)
+
+        if os.path.isfile(namespaceFilename):
+            namespaceRoot = ET.parse(namespaceFilename).getroot()
+
+            for elem in namespaceRoot.iter('memberdef'):
+                kind = elem.get('kind')
+                if kind == 'variable':
+                    super().appendToSymbols('variable', getVariable(elem))
+                if kind == 'function':
+                    super().appendToSymbols('function', getFunction(elem))
+
+        for classFile in classFilenames:
+            classFileRoot = ET.parse(classFile).getroot()
+            super().appendToSymbols('class', getClass(classFileRoot))
+
+
+# Should be removed after this
 
 def printParsedData(data):
     printData.printVariables(data['variables'])

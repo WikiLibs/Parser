@@ -1,7 +1,6 @@
 print('Python', python_version())
 
 print('\ntiming range()')
-%timeit test_range(n)
 
 print('Python', python_version())
 print('Hello, World!')
