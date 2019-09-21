@@ -5,7 +5,6 @@ from Lang_Python.getClass import getClass
 from Lang_Python.getFunction import getFunction
 import Lang_Python.printData as printData
 import useful
-import aiClient
 from aiClient import AIClient
 from jsonRequestCrafter import JSONRequestCrafter
 from languageInterface import LanguageInterface
@@ -79,7 +78,7 @@ def parseXMLFile(filename, lang, libname):
         printParsedData(data)
 
     if useful.upload:
-        client = AIClient(useful.apikey, aiClient.APP_ID, aiClient.SEC)
+        client = AIClient(useful.apikey, AIClient.APP_ID, AIClient.SEC)
         list = []
         list.append(('client', client))
         list.append(('variable', variables))

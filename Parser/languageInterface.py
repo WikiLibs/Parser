@@ -1,4 +1,6 @@
 import useful
+from aiClient import AIClient
+from jsonRequestCrafter import JSONRequestCrafter
 
 
 # This class should be the parent of any new language
@@ -69,6 +71,12 @@ class LanguageInterface:
         This function will upload the symbols to the API
         It should not be overrided
         """
+        symbolsToUpload = []
+        client = AIClient(useful.apikey, AIClient.APP_ID, AIClient.SEC)
+        symbolsToUpload.append(('client', client))
+        for symbol in self.symbols:
+            symbolsToUpload.append(symbol['symbol_type'], symbol['symbol_list'])
+        JSONRequestCrafter(self.language, self.library_name, symbolsToUpload)
         print('TO DO uploadToApi (languageInterface.py)')
 
 
