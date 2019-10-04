@@ -45,4 +45,3 @@ class Test_jsonClasses(unittest.TestCase):
         sym.appendPrototypes(proto)
         sym.appendSymbols("test")
         sym.get_JSON()
-    

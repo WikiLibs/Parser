@@ -117,9 +117,10 @@ def getFunctionsLang():
 
 
 def callOptimizer():
-    useful.printVerbose("Calling optimizer")
-    aiClient.AIClient.CallOptimizer_ext(useful.apikey)
-    useful.printVerbose("Called optimizer")
+    if useful.upload:
+        useful.printVerbose("Calling optimizer")
+        aiClient.AIClient.CallOptimizer_ext(useful.apikey)
+        useful.printVerbose("Called optimizer")
 
 
 def main():
@@ -133,7 +134,7 @@ def main():
         obj = dispatch[args.language.upper()](args.language, args.library_name)
         obj.parseXMLFile(filename.xmlFilename)
         # dispatch[args.language.upper()](filename.xmlFilename, args.language, args.library_name)
-    # callOptimizer()
+    callOptimizer()
     deleteFiles()
 
 

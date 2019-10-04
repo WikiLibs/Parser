@@ -1,4 +1,5 @@
 import useful
+import aiClient
 from aiClient import AIClient
 from jsonRequestCrafter import JSONRequestCrafter
 
@@ -72,12 +73,12 @@ class LanguageInterface:
         It should not be overrided
         """
         symbolsToUpload = []
-        client = AIClient(useful.apikey, AIClient.APP_ID, AIClient.SEC)
+        client = AIClient(useful.apikey, aiClient.APP_ID, aiClient.SEC)
         symbolsToUpload.append(('client', client))
         for symbol in self.symbols:
-            symbolsToUpload.append(symbol['symbol_type'], symbol['symbol_list'])
-        JSONRequestCrafter(self.language, self.library_name, symbolsToUpload)
-        print('TO DO uploadToApi (languageInterface.py)')
+            symbolsToUpload.append((symbol['symbol_type'], symbol['symbol_list']))
+        if useful.upload:
+            JSONRequestCrafter(self.language, self.lib_name, symbolsToUpload)
 
 
 def printVariables(variables):
