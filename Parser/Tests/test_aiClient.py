@@ -97,7 +97,7 @@ class Test_aiClient(unittest.TestCase):
             client = aiClient.AIClient("what", "", "")
             client.CallOptimizer()
             mock_get_token.assert_called()
-        
+
     def test_optimizer_optimize_error(self):
         with self.assertRaises(IOError) as cm:
             capturedOutput = io.StringIO()  # setup an io
