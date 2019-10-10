@@ -5,11 +5,6 @@ from Lang_C_CPP.getStruct import getStruct
 from Lang_C_CPP.getUnion import getUnion
 from Lang_C_CPP.getFunction import getFunction
 from Lang_C_CPP.getTypedef import getTypedef
-import Lang_C_CPP.printData as printData
-import useful
-import aiClient
-from aiClient import AIClient
-from jsonRequestCrafter import JSONRequestCrafter
 from languageInterface import LanguageInterface
 
 
@@ -32,67 +27,3 @@ class parserC(LanguageInterface):
                 super().appendToSymbols('struct', getStruct("xml/" + refid + ".xml"))
             if 'union' in refid:
                 super().appendToSymbols('union', getUnion("xml/" + refid + ".xml"))
-
-######################################
-# Everything below should be removed #
-######################################
-
-
-def printParsedData(data):
-    printData.printStructures(data['structs'])
-    printData.printDefines(data['defines'])
-    printData.printFunctions(data['functions'])
-    printData.printTypedefs(data['typedefs'])
-    printData.printUnions(data['unions'])
-
-
-def parseXMLFile(filename, lang, libname):
-    defines = []
-    structs = []
-    unions = []
-    functions = []
-    typedefs = []
-    root = ET.parse(filename).getroot()
-
-    for elem in root.iter('memberdef'):
-        kind = elem.get('kind')
-        if kind == 'define':
-            defines.append(getDefine(elem))
-            useful.printVerbose("\tFound macro \'" + defines[-1].name + "\'")
-        if kind == 'function':
-            functions.append(getFunction(elem))
-            useful.printVerbose("\tFound function \'" + functions[-1].name + "\'")
-        if kind == 'typedef':
-            typedefs.append(getTypedef(elem))
-            useful.printVerbose("\tFound typedef \'" + typedefs[-1].tdType + "\'")
-
-    for elem in root.iter('innerclass'):
-        refid = elem.get("refid")
-        if "struct" in refid:
-            structs.append(getStruct("xml/" + refid + ".xml"))
-            useful.printVerbose("\tFound struct \'" + structs[-1].name + "\'")
-        if "union" in refid:
-            unions.append(getUnion("xml/" + refid + ".xml"))
-            useful.printVerbose("\tFound union \'" + unions[-1].name + "\'")
-
-    if useful.verbose:
-        data = {
-            'structs': structs,
-            'defines': defines,
-            'functions': functions,
-            'typedefs': typedefs,
-            'unions': unions
-        }
-        printParsedData(data)
-
-    if useful.upload:
-        # change this, maybe try association table
-        client = AIClient(useful.apikey, aiClient.APP_ID, aiClient.SEC)
-        list = []
-        list.append(('client', client))
-        list.append(('define', defines))
-        list.append(('struct', structs))
-        list.append(('union', unions))
-        list.append(('function', functions))
-        list.append(('typedef', typedefs))
-        JSONRequestCrafter(lang, libname, list)

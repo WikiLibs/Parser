@@ -26,7 +26,7 @@ class LanguageInterface:
             self.printParsedData()
         self.uploadToApi()
 
-    def getSymbols(self):
+    def getSymbols(self, filename):
         """
         This function is the only one that should be overrided by the child
         It raises an exception if not overrided
