@@ -16,7 +16,7 @@ class Test_Useful(unittest.TestCase):
         sys.stdout = capturedOutput  # redirect stdout
         useful.printVerbose('hello')
         sys.stdout = sys.__stdout__  # reset stdout
-        self.assertEqual(capturedOutput.getvalue(), '', 'Should print nothing')
+        self.assertEqual(capturedOutput.getvalue(), '')
 
     @patch('Parser.useful.verbose', True)  # modify value of global variable
     def test_verbose_true(self):
@@ -27,7 +27,7 @@ class Test_Useful(unittest.TestCase):
         sys.stdout = capturedOutput  # redirect stdout
         useful.printVerbose('hello')
         sys.stdout = sys.__stdout__  # reset stdout
-        self.assertEqual(capturedOutput.getvalue(), 'hello\n', 'Should print \'hello\'')
+        self.assertEqual(capturedOutput.getvalue(), 'hello\n')
 
     def test_exception_verbose_false(self):
         '''
@@ -37,7 +37,7 @@ class Test_Useful(unittest.TestCase):
         sys.stdout = capturedOutput  # redirect stdout
         useful.printExceptionVerbose('hello')
         sys.stdout = sys.__stdout__  # reset stdout
-        self.assertEqual(capturedOutput.getvalue(), '', 'Should print nothing')
+        self.assertEqual(capturedOutput.getvalue(), '')
 
     @patch('Parser.useful.verbose', True)
     @patch('Parser.useful.exceptions', True)
@@ -49,7 +49,7 @@ class Test_Useful(unittest.TestCase):
         sys.stdout = capturedOutput  # redirect stdout
         useful.printExceptionVerbose('hello')
         sys.stdout = sys.__stdout__  # reset stdout
-        self.assertEqual(capturedOutput.getvalue(), 'Exception: hello\n', 'Should print \'Exception: hello\'')
+        self.assertEqual(capturedOutput.getvalue(), 'Exception: hello\n')
 
     def test_log_info_minimal(self):
         '''
@@ -59,7 +59,11 @@ class Test_Useful(unittest.TestCase):
         sys.stdout = capturedOutput  # redirect stdout
         useful.logInfo('This is a minimal info')
         sys.stdout = sys.__stdout__  # reset stdout
-        self.assertEqual(capturedOutput.getvalue(), (useful.GREEN + useful.BOLD + "[INFO]" + useful.RESET + " - This is a minimal info\n"), "Should print the expected")
+        self.assertEqual(capturedOutput.getvalue(), (useful.GREEN +
+                                                     useful.BOLD +
+                                                     "[INFO]" +
+                                                     useful.RESET +
+                                                     " - This is a minimal info\n"))
 
     def test_log_info_full(self):
         '''
@@ -69,7 +73,11 @@ class Test_Useful(unittest.TestCase):
         sys.stdout = capturedOutput  # redirect stdout
         useful.logInfo('This is a full info', 'file', 4)
         sys.stdout = sys.__stdout__  # reset stdout
-        self.assertEqual(capturedOutput.getvalue(), (useful.GREEN + useful.BOLD + "[INFO]" + useful.RESET + " - This is a full info (file: 4)\n"), "Should print the expected")
+        self.assertEqual(capturedOutput.getvalue(), (useful.GREEN +
+                                                     useful.BOLD +
+                                                     "[INFO]" +
+                                                     useful.RESET +
+                                                     " - This is a full info (file: 4)\n"))
 
     def test_log_warning_minimal(self):
         '''
@@ -79,7 +87,11 @@ class Test_Useful(unittest.TestCase):
         sys.stdout = capturedOutput  # redirect stdout
         useful.logWarning('This is a minimal warning')
         sys.stdout = sys.__stdout__  # reset stdout
-        self.assertEqual(capturedOutput.getvalue(), (useful.YELLOW + useful.BOLD + "[WARNING]" + useful.RESET + " - This is a minimal warning\n"), "Should print the expected")
+        self.assertEqual(capturedOutput.getvalue(), (useful.YELLOW +
+                                                     useful.BOLD +
+                                                     "[WARNING]" +
+                                                     useful.RESET +
+                                                     " - This is a minimal warning\n"))
 
     def test_log_warning_full(self):
         '''
@@ -89,7 +101,11 @@ class Test_Useful(unittest.TestCase):
         sys.stdout = capturedOutput  # redirect stdout
         useful.logWarning('This is a full warning', 'file', 4)
         sys.stdout = sys.__stdout__  # reset stdout
-        self.assertEqual(capturedOutput.getvalue(), (useful.YELLOW + useful.BOLD + "[WARNING]" + useful.RESET + " - This is a full warning (file: 4)\n"), "Should print the expected")
+        self.assertEqual(capturedOutput.getvalue(), (useful.YELLOW +
+                                                     useful.BOLD +
+                                                     "[WARNING]" +
+                                                     useful.RESET +
+                                                     " - This is a full warning (file: 4)\n"))
 
     def test_log_error_minimal(self):
         '''
@@ -102,7 +118,15 @@ class Test_Useful(unittest.TestCase):
             sys.stdout = sys.__stdout__  # reset stdout
 
         self.assertEqual(cm.exception.code, 34)  # assert exit code
-        self.assertEqual(capturedOutput.getvalue(), (useful.RED + useful.BOLD + "[ERROR]" + useful.RESET + " - This is a minimal error\n" + useful.BOLD + "[---Exiting program---]" + useful.RESET + "\n"), "Should print the expected")
+        self.assertEqual(capturedOutput.getvalue(), (useful.RED +
+                                                     useful.BOLD +
+                                                     "[ERROR]" +
+                                                     useful.RESET +
+                                                     " - This is a minimal error\n" +
+                                                     useful.BOLD +
+                                                     "[---Exiting program---]" +
+                                                     useful.RESET +
+                                                     "\n"))
 
     def test_log_error_full(self):
         '''
@@ -115,4 +139,12 @@ class Test_Useful(unittest.TestCase):
             sys.stdout = sys.__stdout__  # reset stdout
 
         self.assertEqual(cm.exception.code, 34)  # assert exit code
-        self.assertEqual(capturedOutput.getvalue(), (useful.RED + useful.BOLD + "[ERROR]" + useful.RESET + " - This is a full error (file: 4)\n" + useful.BOLD + "[---Exiting program---]" + useful.RESET + "\n"), "Should print the expected")
+        self.assertEqual(capturedOutput.getvalue(), (useful.RED +
+                                                     useful.BOLD +
+                                                     "[ERROR]" +
+                                                     useful.RESET +
+                                                     " - This is a full error (file: 4)\n" +
+                                                     useful.BOLD +
+                                                     "[---Exiting program---]" +
+                                                     useful.RESET +
+                                                     "\n"))
