@@ -81,7 +81,6 @@ class SummaryWindow(QWidget):
 
     def __init__(self, libname, liblang):
         QMainWindow.__init__(self)
-
         self.libname = libname
         self.liblang = liblang
         # self.setMinimumSize(QSize(WIDTH, HEIGHT))
@@ -109,7 +108,7 @@ class SummaryWindow(QWidget):
         self.switch_window.emit(self.libname, self.liblang)
 
 class ProcessingWindow(QWidget):
-    switch_window = QtCore.pyqtSignal(str, str)
+    switch_window = QtCore.pyqtSignal(QLabel)
 
     def __init__(self, libname, liblang):
         QMainWindow.__init__(self)
@@ -119,22 +118,29 @@ class ProcessingWindow(QWidget):
 
         # Create Layout grid
         gridLayout = QGridLayout(self)
+
+        button = QPushButton("Click to continue")
+        button.clicked.connect(self.switch)
 
         label1 = QLabel("Reading all the files ...")
 
-        title = QLabel("Processing, please wait...", self)
-        title.setAlignment(QtCore.Qt.AlignHCenter)
+        self.title = QLabel("Processing, please wait...", self)
+        self.title.setAlignment(QtCore.Qt.AlignHCenter)
 
         # Add widgets to Layout Grid
-        gridLayout.addWidget(title, 0, 0)
+        gridLayout.addWidget(self.title, 0, 0)
         gridLayout.addWidget(label1, 2, 0)
+        gridLayout.addWidget(button, 3, 0)
 
-        self.switch_window.emit()
+
+    def switch(self):
+        self.switch_window.emit(self.title)
 
 
 class EndWindow(QWidget):
+    switch_window = QtCore.pyqtSignal()
 
-    def __init__(self, libname, liblang):
+    def __init__(self):
         QMainWindow.__init__(self)
 
         # self.setMinimumSize(QSize(WIDTH, HEIGHT))
@@ -143,7 +149,7 @@ class EndWindow(QWidget):
         # Create Layout grid
         gridLayout = QGridLayout(self)
 
-        button = QPushButton("Start")
+        button = QPushButton("Close")
         button.clicked.connect(self.close)
 
         title = QLabel("Upload was successful!", self)
@@ -152,6 +158,10 @@ class EndWindow(QWidget):
         # Add widgets to Layout Grid
         gridLayout.addWidget(title, 0, 0)
         gridLayout.addWidget(button, 1, 3)
+
+
+    def switch(self):
+        self.switch_window.emit()
 
 
 class Controller:
@@ -171,13 +181,13 @@ class Controller:
 
     def show_SummaryWindow(self, libname, liblang):
         self.summary = SummaryWindow(libname, liblang)
-        self.input.switch_window.connect(self.show_ProcessingWindow)
+        self.summary.switch_window.connect(self.show_ProcessingWindow)
         self.input.close()
         self.summary.show()
 
     def show_ProcessingWindow(self, libname, liblang):
         self.process = ProcessingWindow(libname, liblang)
-        self.summary.switch_window.connect(self.show_EndWindow)
+        self.process.switch_window.connect(self.show_EndWindow)
         self.summary.close()
         self.process.show()
 
