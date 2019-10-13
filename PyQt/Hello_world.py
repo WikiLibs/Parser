@@ -1,14 +1,24 @@
 import sys
-import time
-from PyQt5 import QtCore, QtWidgets
+from PyQt5 import QtCore, QtWidgets, QtGui
 from PyQt5.QtWidgets import QMainWindow, QLabel, QGridLayout, QWidget, QPushButton, QLineEdit, QComboBox
-from PyQt5.QtCore import QSize
 
 WIDTH = 640
 HEIGHT = 480
 
+BUTTON_STYLE = """
+    .QPushButton {
+        border-radius: 4px;
+        color: rgb(255, 255, 255);
+        background-color: rgb(123, 104, 238);
+
+        padding: 10px;
+    }
+"""
+
+
 def say_hello():
     print("Button clicked, Hello!")
+
 
 class WelcomeWindow(QMainWindow):
     switch_window = QtCore.pyqtSignal()
@@ -16,7 +26,7 @@ class WelcomeWindow(QMainWindow):
     def __init__(self):
         QMainWindow.__init__(self)
 
-        # self.setMinimumSize(QSize(WIDTH, HEIGHT))
+        self.resize(WIDTH, HEIGHT)
         self.setWindowTitle("Wikilibs - Parser Client")
 
         centralWidget = QWidget(self)
@@ -29,12 +39,22 @@ class WelcomeWindow(QMainWindow):
         button = QPushButton("Next")
         button.clicked.connect(self.switch)
 
-        title = QLabel("Welcome to Wikilibs' parser GUI interface", self)
-        title.setAlignment(QtCore.Qt.AlignHCenter)
+        title = QLabel("Welcome to the Wikilibs parser GUI interface !", self)
+        title.setAlignment(QtCore.Qt.AlignHCenter | QtCore.Qt.AlignVCenter)
+        title.setFont(QtGui.QFont('Assets/Fonts/OpenSans-Bold', 14))
+
+        button.setFixedSize(QtCore.QSize(100, 40))
+        button.setStyleSheet(BUTTON_STYLE)
+        button.move(270, 270)
+
+        imageWrapper = QLabel()
+        image = QtGui.QPixmap('Assets/Images/WikiLibs_Logo')
+        imageWrapper.setPixmap(image.scaled(100, 100, QtCore.Qt.KeepAspectRatio))
 
         # Add widgets to Layout Grid
         gridLayout.addWidget(title, 0, 0)
-        gridLayout.addWidget(button, 1, 0)
+        gridLayout.addWidget(imageWrapper, 1, 0, QtCore.Qt.AlignHCenter | QtCore.Qt.AlignTop)
+        gridLayout.addWidget(button, 2, 0, QtCore.Qt.AlignHCenter | QtCore.Qt.AlignVCenter)
 
     def switch(self):
         self.switch_window.emit()
@@ -46,14 +66,16 @@ class InputInfoWindow(QWidget):
     def __init__(self):
         QMainWindow.__init__(self)
 
-        # self.setMinimumSize(QSize(WIDTH, HEIGHT))
-        self.setWindowTitle("Wikilibs - Parser Client!!")
+        self.resize(WIDTH, HEIGHT)
+        self.setWindowTitle("Wikilibs - Parser Client")
 
         # Create Layout grid
         gridLayout = QGridLayout(self)
 
         button = QPushButton("Next")
         button.clicked.connect(self.switch)
+        button.setFixedSize(QtCore.QSize(100, 40))
+        button.setStyleSheet(BUTTON_STYLE)
 
         label1 = QLabel("Library language")
         self.line_edit = QLineEdit()
@@ -81,19 +103,23 @@ class SummaryWindow(QWidget):
 
     def __init__(self, libname, liblang):
         QMainWindow.__init__(self)
+
         self.libname = libname
         self.liblang = liblang
-        # self.setMinimumSize(QSize(WIDTH, HEIGHT))
-        self.setWindowTitle("Wikilibs - Parser Client3")
+
+        self.resize(WIDTH, HEIGHT)
+        self.setWindowTitle("Wikilibs - Parser Client")
 
         # Create Layout grid
         gridLayout = QGridLayout(self)
 
         button = QPushButton("Start")
         button.clicked.connect(self.switch)
+        button.setFixedSize(QtCore.QSize(100, 40))
+        button.setStyleSheet(BUTTON_STYLE)
 
-        label1 = QLabel("Library name : {" + self.libname + "}")
-        label2 = QLabel("Selected language : {" + self.liblang + "}")
+        label1 = QLabel("Library name: " + self.libname)
+        label2 = QLabel("Selected language: " + self.liblang)
 
         title = QLabel("Summary", self)
         title.setAlignment(QtCore.Qt.AlignHCenter)
@@ -107,22 +133,25 @@ class SummaryWindow(QWidget):
     def switch(self):
         self.switch_window.emit(self.libname, self.liblang)
 
+
 class ProcessingWindow(QWidget):
     switch_window = QtCore.pyqtSignal(QLabel)
 
     def __init__(self, libname, liblang):
         QMainWindow.__init__(self)
 
-        # self.setMinimumSize(QSize(WIDTH, HEIGHT))
-        self.setWindowTitle("Wikilibs - Parser Client3")
+        self.resize(WIDTH, HEIGHT)
+        self.setWindowTitle("Wikilibs - Parser Client")
 
         # Create Layout grid
         gridLayout = QGridLayout(self)
 
         button = QPushButton("Click to continue")
         button.clicked.connect(self.switch)
+        button.setFixedSize(QtCore.QSize(150, 40))
+        button.setStyleSheet(BUTTON_STYLE)
 
-        label1 = QLabel("Reading all the files ...")
+        label1 = QLabel("Reading all the files...")
 
         self.title = QLabel("Processing, please wait...", self)
         self.title.setAlignment(QtCore.Qt.AlignHCenter)
@@ -131,7 +160,6 @@ class ProcessingWindow(QWidget):
         gridLayout.addWidget(self.title, 0, 0)
         gridLayout.addWidget(label1, 2, 0)
         gridLayout.addWidget(button, 3, 0)
-
 
     def switch(self):
         self.switch_window.emit(self.title)
@@ -143,14 +171,16 @@ class EndWindow(QWidget):
     def __init__(self):
         QMainWindow.__init__(self)
 
-        # self.setMinimumSize(QSize(WIDTH, HEIGHT))
-        self.setWindowTitle("Wikilibs - Parser Client3")
+        self.resize(WIDTH, HEIGHT)
+        self.setWindowTitle("Wikilibs - Parser Client")
 
         # Create Layout grid
         gridLayout = QGridLayout(self)
 
         button = QPushButton("Close")
         button.clicked.connect(self.close)
+        button.setFixedSize(QtCore.QSize(100, 40))
+        button.setStyleSheet(BUTTON_STYLE)
 
         title = QLabel("Upload was successful!", self)
         title.setAlignment(QtCore.Qt.AlignHCenter)
@@ -158,7 +188,6 @@ class EndWindow(QWidget):
         # Add widgets to Layout Grid
         gridLayout.addWidget(title, 0, 0)
         gridLayout.addWidget(button, 1, 3)
-
 
     def switch(self):
         self.switch_window.emit()
@@ -195,6 +224,7 @@ class Controller:
         self.end = EndWindow()
         self.process.close()
         self.end.show()
+
 
 if __name__ == "__main__":
 
