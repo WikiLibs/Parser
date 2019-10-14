@@ -8,6 +8,7 @@ import aiClient
 
 import Lang_C_CPP.parserC as parserC
 import Lang_Python.parserPython as parserPython
+import Lang_Java.parserJava as parserJava
 
 
 DESCRIPTION = 'This program will parse a library and send it to the WikiLibs API.'
@@ -23,7 +24,8 @@ SCR_KEY_HELP = 'set the secret Key to use for authenticating with the API server
 
 dicoLang = {
     "C": ['.h', '.c'],
-    "PYTHON": ['.py']
+    "PYTHON": ['.py'],
+    "JAVA": ['.java']
 }
 
 
@@ -111,7 +113,8 @@ def parserArgs():
 def getFunctionsLang():
     dispatch = {
         'C': parserC.parserC,
-        'PYTHON': parserPython.parserPython
+        'PYTHON': parserPython.parserPython,
+        'JAVA': parserJava.parserJava
     }
     return dispatch
 
@@ -133,9 +136,8 @@ def main():
         useful.logInfo('Starting parsing \'' + filename.ogFilename + '\'')
         obj = dispatch[args.language.upper()](args.language, args.library_name)
         obj.parseXMLFile(filename.xmlFilename)
-        # dispatch[args.language.upper()](filename.xmlFilename, args.language, args.library_name)
     callOptimizer()
-    deleteFiles()
+    # deleteFiles()
 
 
 if __name__ == '__main__':
