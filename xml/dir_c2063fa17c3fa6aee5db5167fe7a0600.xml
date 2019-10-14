@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="dir_c2063fa17c3fa6aee5db5167fe7a0600" kind="dir">
+    <compoundname>Includes/personnal</compoundname>
+    <innerfile refid="_circle_shape_8h">CircleShape.h</innerfile>
+    <innerfile refid="opusfile_8h">opusfile.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="Includes/personnal/"/>
+  </compounddef>
+</doxygen>

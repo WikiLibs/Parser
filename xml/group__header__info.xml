@@ -1,0 +1,826 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="group__header__info" kind="group">
+    <compoundname>header_info</compoundname>
+    <title>Header Information</title>
+    <innerclass refid="struct_opus_head" prot="public">OpusHead</innerclass>
+    <innerclass refid="struct_opus_tags" prot="public">OpusTags</innerclass>
+    <innerclass refid="struct_opus_picture_tag" prot="public">OpusPictureTag</innerclass>
+      <sectiondef kind="user-defined">
+      <header>Picture tag image formats</header>
+      <memberdef kind="define" id="group__header__info_1gade2f09dce6330529fc3c96d1740df653" prot="public" static="no">
+        <name>OP_PIC_FORMAT_UNKNOWN</name>
+        <initializer>(-1)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The MIME type was not recognized, or the image data did not match the declared MIME type. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Includes/personnal/opusfile.h" line="299" column="9" bodyfile="Includes/personnal/opusfile.h" bodystart="299" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__header__info_1gaac4ef30a33caf090b9b1a5ada8f48204" prot="public" static="no">
+        <name>OP_PIC_FORMAT_URL</name>
+        <initializer>(0)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The MIME type indicates the image data is really a URL. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Includes/personnal/opusfile.h" line="301" column="9" bodyfile="Includes/personnal/opusfile.h" bodystart="301" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__header__info_1gaf75ae037b78a4a048359261439395450" prot="public" static="no">
+        <name>OP_PIC_FORMAT_JPEG</name>
+        <initializer>(1)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The image is a JPEG. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Includes/personnal/opusfile.h" line="303" column="9" bodyfile="Includes/personnal/opusfile.h" bodystart="303" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__header__info_1ga703554b177ae75bd6999bbd30d485d3f" prot="public" static="no">
+        <name>OP_PIC_FORMAT_PNG</name>
+        <initializer>(2)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The image is a PNG. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Includes/personnal/opusfile.h" line="305" column="9" bodyfile="Includes/personnal/opusfile.h" bodystart="305" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="group__header__info_1gaa7d5e8cb675cb2da840f258b761e7781" prot="public" static="no">
+        <name>OP_PIC_FORMAT_GIF</name>
+        <initializer>(3)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The image is a GIF. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Includes/personnal/opusfile.h" line="307" column="9" bodyfile="Includes/personnal/opusfile.h" bodystart="307" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="user-defined">
+      <header>Functions for manipulating header data</header>
+      <description><para>These functions manipulate the <ref refid="struct_opus_head" kindref="compound">OpusHead</ref> and <ref refid="struct_opus_tags" kindref="compound">OpusTags</ref> structures, which describe the audio parameters and tag-value metadata, respectively. These can be used to query the headers returned by <computeroutput>libopusfile</computeroutput>, or to parse Opus headers from sources other than an Ogg Opus stream, provided they use the same format. </para></description>
+      <memberdef kind="function" id="group__header__info_1gac3259b44ac8dfac93c7adf708de96d78" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>OP_WARN_UNUSED_RESULT int</type>
+        <definition>OP_WARN_UNUSED_RESULT int opus_head_parse</definition>
+        <argsstring>(OpusHead *_head, const unsigned char *_data, size_t _len) OP_ARG_NONNULL(2)</argsstring>
+        <name>opus_head_parse</name>
+        <param>
+          <type><ref refid="struct_opus_head" kindref="compound">OpusHead</ref> *</type>
+          <declname>_head</declname>
+        </param>
+        <param>
+          <type>const unsigned char *</type>
+          <declname>_data</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>_len</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Parses the contents of the ID header packet of an Ogg Opus stream. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="out">_head</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Returns the contents of the parsed packet. The contents of this structure are untouched on error. This may be <computeroutput>NULL</computeroutput> to merely test the header for validity. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">_data</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The contents of the ID header packet. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>_len</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The number of bytes of data in the ID header packet. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>0 on success or a negative value on error. </para></simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername><ref refid="group__error__codes_1gafca3ae244d24e10b2851c77379453220" kindref="member">OP_ENOTFORMAT</ref></parametername>
+</parameternamelist>
+<parameterdescription>
+<para>If the data does not start with the &quot;OpusHead&quot; string. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername><ref refid="group__error__codes_1gaa9ae4494f623f3c0609f0b4bd99b8f32" kindref="member">OP_EVERSION</ref></parametername>
+</parameternamelist>
+<parameterdescription>
+<para>If the version field signaled a version this library does not know how to parse. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername><ref refid="group__error__codes_1gaeea27378f826033ca23584d8403665d3" kindref="member">OP_EIMPL</ref></parametername>
+</parameternamelist>
+<parameterdescription>
+<para>If the channel mapping family was 255, which general purpose players should not attempt to play. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername><ref refid="group__error__codes_1ga534f1b45c8733a2928434e482b38869f" kindref="member">OP_EBADHEADER</ref></parametername>
+</parameternamelist>
+<parameterdescription>
+<para>If the contents of the packet otherwise violate the Ogg Opus specification: <itemizedlist>
+<listitem>
+<para>Insufficient data, </para></listitem>
+<listitem>
+<para>Too much data for the known minor versions, </para></listitem>
+<listitem>
+<para>An unrecognized channel mapping family, </para></listitem>
+<listitem>
+<para>Zero channels or too many channels, </para></listitem>
+<listitem>
+<para>Zero coded streams, </para></listitem>
+<listitem>
+<para>Too many coupled streams, or </para></listitem>
+<listitem>
+<para>An invalid channel mapping index. </para></listitem>
+</itemizedlist>
+</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Includes/personnal/opusfile.h" line="408" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__header__info_1gaac9c6e1916fba6e53152b936055d3db0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>ogg_int64_t</type>
+        <definition>ogg_int64_t opus_granule_sample</definition>
+        <argsstring>(const OpusHead *_head, ogg_int64_t _gp) OP_ARG_NONNULL(1)</argsstring>
+        <name>opus_granule_sample</name>
+        <param>
+          <type>const <ref refid="struct_opus_head" kindref="compound">OpusHead</ref> *</type>
+          <declname>_head</declname>
+        </param>
+        <param>
+          <type>ogg_int64_t</type>
+          <declname>_gp</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Converts a granule position to a sample offset for a given Ogg Opus stream. The sample offset is simply <computeroutput>_gp-_head-&gt;pre_skip</computeroutput>. Granule position values smaller than <ref refid="struct_opus_head_1ab448d3d3289d99f01dca8f19e878d57f" kindref="member">OpusHead::pre_skip</ref> correspond to audio that should never be played, and thus have no associated sample offset. This function returns -1 for such values. This function also correctly handles extremely large granule positions, which may have wrapped around to a negative number when stored in a signed ogg_int64_t value. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>_head</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The <ref refid="struct_opus_head" kindref="compound">OpusHead</ref> information from the ID header of the stream. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>_gp</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The granule position to convert. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The sample offset associated with the given granule position (counting at a 48 kHz sampling rate), or the special value -1 on error (i.e., the granule position was smaller than the pre-skip amount). </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Includes/personnal/opusfile.h" line="425" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__header__info_1gaed7c41a177cc7338ffec1e7ae57c59b1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>OP_WARN_UNUSED_RESULT int</type>
+        <definition>OP_WARN_UNUSED_RESULT int opus_tags_parse</definition>
+        <argsstring>(OpusTags *_tags, const unsigned char *_data, size_t _len) OP_ARG_NONNULL(2)</argsstring>
+        <name>opus_tags_parse</name>
+        <param>
+          <type><ref refid="struct_opus_tags" kindref="compound">OpusTags</ref> *</type>
+          <declname>_tags</declname>
+        </param>
+        <param>
+          <type>const unsigned char *</type>
+          <declname>_data</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>_len</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Parses the contents of the &apos;comment&apos; header packet of an Ogg Opus stream. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="out">_tags</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>An uninitialized <ref refid="struct_opus_tags" kindref="compound">OpusTags</ref> structure. This returns the contents of the parsed packet. The contents of this structure are untouched on error. This may be <computeroutput>NULL</computeroutput> to merely test the header for validity. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="in">_data</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The contents of the &apos;comment&apos; header packet. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>_len</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The number of bytes of data in the &apos;info&apos; header packet. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Success. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername><ref refid="group__error__codes_1gafca3ae244d24e10b2851c77379453220" kindref="member">OP_ENOTFORMAT</ref></parametername>
+</parameternamelist>
+<parameterdescription>
+<para>If the data does not start with the &quot;OpusTags&quot; string. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername><ref refid="group__error__codes_1ga534f1b45c8733a2928434e482b38869f" kindref="member">OP_EBADHEADER</ref></parametername>
+</parameternamelist>
+<parameterdescription>
+<para>If the contents of the packet otherwise violate the Ogg Opus specification. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername><ref refid="group__error__codes_1ga2ddb887c0bb55c74ea6be391fabcba59" kindref="member">OP_EFAULT</ref></parametername>
+</parameternamelist>
+<parameterdescription>
+<para>If there wasn&apos;t enough memory to store the tags. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Includes/personnal/opusfile.h" line="442" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__header__info_1gaceda528fa8f9f9ad1443df2eeeeaa8bf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int opus_tags_copy</definition>
+        <argsstring>(OpusTags *_dst, const OpusTags *_src) OP_ARG_NONNULL(1)</argsstring>
+        <name>opus_tags_copy</name>
+        <param>
+          <type><ref refid="struct_opus_tags" kindref="compound">OpusTags</ref> *</type>
+          <declname>_dst</declname>
+        </param>
+        <param>
+          <type>const <ref refid="struct_opus_tags" kindref="compound">OpusTags</ref> *</type>
+          <declname>_src</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Performs a deep copy of an <ref refid="struct_opus_tags" kindref="compound">OpusTags</ref> structure. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>_dst</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The <ref refid="struct_opus_tags" kindref="compound">OpusTags</ref> structure to copy into. If this function fails, the contents of this structure remain untouched. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>_src</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The <ref refid="struct_opus_tags" kindref="compound">OpusTags</ref> structure to copy from. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>0</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Success. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername><ref refid="group__error__codes_1ga2ddb887c0bb55c74ea6be391fabcba59" kindref="member">OP_EFAULT</ref></parametername>
+</parameternamelist>
+<parameterdescription>
+<para>If there wasn&apos;t enough memory to copy the tags. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Includes/personnal/opusfile.h" line="452" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__header__info_1ga35f993f5a8f11337a6503a2f43996fea" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void opus_tags_init</definition>
+        <argsstring>(OpusTags *_tags) OP_ARG_NONNULL(1)</argsstring>
+        <name>opus_tags_init</name>
+        <param>
+          <type><ref refid="struct_opus_tags" kindref="compound">OpusTags</ref> *</type>
+          <declname>_tags</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Initializes an <ref refid="struct_opus_tags" kindref="compound">OpusTags</ref> structure. This should be called on a freshly allocated <ref refid="struct_opus_tags" kindref="compound">OpusTags</ref> structure before attempting to use it. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>_tags</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The <ref refid="struct_opus_tags" kindref="compound">OpusTags</ref> structure to initialize. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Includes/personnal/opusfile.h" line="458" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__header__info_1ga42bc0321740b618271c4cd0ae076d29a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int opus_tags_add</definition>
+        <argsstring>(OpusTags *_tags, const char *_tag, const char *_value) OP_ARG_NONNULL(1) OP_ARG_NONNULL(2) OP_ARG_NONNULL(3)</argsstring>
+        <name>opus_tags_add</name>
+        <param>
+          <type><ref refid="struct_opus_tags" kindref="compound">OpusTags</ref> *</type>
+          <declname>_tags</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>_tag</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>_value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Add a (tag, value) pair to an initialized <ref refid="struct_opus_tags" kindref="compound">OpusTags</ref> structure. <simplesect kind="note"><para>Neither <ref refid="group__header__info_1ga42bc0321740b618271c4cd0ae076d29a" kindref="member">opus_tags_add()</ref> nor <ref refid="group__header__info_1ga76ac5425d8c2ca9a994f84adfcc6cb98" kindref="member">opus_tags_add_comment()</ref> support values containing embedded NULs, although the bitstream format does support them. To add such tags, you will need to manipulate the <ref refid="struct_opus_tags" kindref="compound">OpusTags</ref> structure directly. </para></simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>_tags</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The <ref refid="struct_opus_tags" kindref="compound">OpusTags</ref> structure to add the (tag, value) pair to. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>_tag</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A NUL-terminated, case-insensitive, ASCII string containing the tag to add (without an &apos;=&apos; character). </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>_value</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A NUL-terminated UTF-8 containing the corresponding value. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>0 on success, or a negative value on failure. </para></simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername><ref refid="group__error__codes_1ga2ddb887c0bb55c74ea6be391fabcba59" kindref="member">OP_EFAULT</ref></parametername>
+</parameternamelist>
+<parameterdescription>
+<para>An internal memory allocation failed. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Includes/personnal/opusfile.h" line="471" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__header__info_1ga76ac5425d8c2ca9a994f84adfcc6cb98" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int opus_tags_add_comment</definition>
+        <argsstring>(OpusTags *_tags, const char *_comment) OP_ARG_NONNULL(1) OP_ARG_NONNULL(2)</argsstring>
+        <name>opus_tags_add_comment</name>
+        <param>
+          <type><ref refid="struct_opus_tags" kindref="compound">OpusTags</ref> *</type>
+          <declname>_tags</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>_comment</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Add a comment to an initialized <ref refid="struct_opus_tags" kindref="compound">OpusTags</ref> structure. <simplesect kind="note"><para>Neither <ref refid="group__header__info_1ga76ac5425d8c2ca9a994f84adfcc6cb98" kindref="member">opus_tags_add_comment()</ref> nor <ref refid="group__header__info_1ga42bc0321740b618271c4cd0ae076d29a" kindref="member">opus_tags_add()</ref> support comments containing embedded NULs, although the bitstream format does support them. To add such tags, you will need to manipulate the <ref refid="struct_opus_tags" kindref="compound">OpusTags</ref> structure directly. </para></simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>_tags</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The <ref refid="struct_opus_tags" kindref="compound">OpusTags</ref> structure to add the comment to. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>_comment</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A NUL-terminated UTF-8 string containing the comment in &quot;TAG=value&quot; form. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>0 on success, or a negative value on failure. </para></simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername><ref refid="group__error__codes_1ga2ddb887c0bb55c74ea6be391fabcba59" kindref="member">OP_EFAULT</ref></parametername>
+</parameternamelist>
+<parameterdescription>
+<para>An internal memory allocation failed. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Includes/personnal/opusfile.h" line="484" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__header__info_1gad43a7ed5844debd7d4025335f096bc27" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>const char *</type>
+        <definition>const char* opus_tags_query</definition>
+        <argsstring>(const OpusTags *_tags, const char *_tag, int _count) OP_ARG_NONNULL(1) OP_ARG_NONNULL(2)</argsstring>
+        <name>opus_tags_query</name>
+        <param>
+          <type>const <ref refid="struct_opus_tags" kindref="compound">OpusTags</ref> *</type>
+          <declname>_tags</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>_tag</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>_count</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Look up a comment value by its tag. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>_tags</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>An initialized <ref refid="struct_opus_tags" kindref="compound">OpusTags</ref> structure. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>_tag</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The tag to look up. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>_count</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The instance of the tag. The same tag can appear multiple times, each with a distinct value, so an index is required to retrieve them all. The order in which these values appear is significant and should be preserved. Use <ref refid="group__header__info_1ga6e0bbe5a717115180bf4aa596bd0b2d1" kindref="member">opus_tags_query_count()</ref> to get the legal range for the <emphasis>_count</emphasis> parameter. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>A pointer to the queried tag&apos;s value. This points directly to data in the <ref refid="struct_opus_tags" kindref="compound">OpusTags</ref> structure. It should not be modified or freed by the application, and modifications to the structure may invalidate the pointer. </para></simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername>NULL</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>If no matching tag is found. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Includes/personnal/opusfile.h" line="502" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__header__info_1ga6e0bbe5a717115180bf4aa596bd0b2d1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int opus_tags_query_count</definition>
+        <argsstring>(const OpusTags *_tags, const char *_tag) OP_ARG_NONNULL(1) OP_ARG_NONNULL(2)</argsstring>
+        <name>opus_tags_query_count</name>
+        <param>
+          <type>const <ref refid="struct_opus_tags" kindref="compound">OpusTags</ref> *</type>
+          <declname>_tags</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>_tag</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Look up the number of instances of a tag. Call this first when querying for a specific tag and then iterate over the number of instances with separate calls to <ref refid="group__header__info_1gad43a7ed5844debd7d4025335f096bc27" kindref="member">opus_tags_query()</ref> to retrieve all the values for that tag in order. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>_tags</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>An initialized <ref refid="struct_opus_tags" kindref="compound">OpusTags</ref> structure. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>_tag</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The tag to look up. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The number of instances of this particular tag. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Includes/personnal/opusfile.h" line="512" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__header__info_1ga093ce83b90c68951f2e6aedc66344ce5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int opus_tags_get_track_gain</definition>
+        <argsstring>(const OpusTags *_tags, int *_gain_q8) OP_ARG_NONNULL(1) OP_ARG_NONNULL(2)</argsstring>
+        <name>opus_tags_get_track_gain</name>
+        <param>
+          <type>const <ref refid="struct_opus_tags" kindref="compound">OpusTags</ref> *</type>
+          <declname>_tags</declname>
+        </param>
+        <param>
+          <type>int *</type>
+          <declname>_gain_q8</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Get the track gain from an R128_TRACK_GAIN tag, if one was specified. This searches for the first R128_TRACK_GAIN tag with a valid signed, 16-bit decimal integer value and returns the value. This routine is exposed merely for convenience for applications which wish to do something special with the track gain (i.e., display it). If you simply wish to apply the track gain instead of the header gain, you can use <ref refid="group__stream__decoding_1ga7df927613ccf57996319678e08513289" kindref="member">op_set_gain_offset()</ref> with an <ref refid="group__stream__decoding_1ga51082f7c661488bce9bfdf0e5401fabf" kindref="member">OP_TRACK_GAIN</ref> type and no offset. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>_tags</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>An initialized <ref refid="struct_opus_tags" kindref="compound">OpusTags</ref> structure. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername direction="out">_gain_q8</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The track gain, in 1/256ths of a dB. This will lie in the range [-32768,32767], and should be applied in <emphasis>addition</emphasis> to the header gain. On error, no value is returned, and the previous contents remain unchanged. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>0 on success, or a negative value on error. </para></simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername><ref refid="group__error__codes_1ga4fd28e64a5cbe5e0ba163916199611a5" kindref="member">OP_FALSE</ref></parametername>
+</parameternamelist>
+<parameterdescription>
+<para>There was no track gain available in the given tags. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Includes/personnal/opusfile.h" line="530" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__header__info_1ga16d4f85561a965d56e0c5177fa129c35" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void opus_tags_clear</definition>
+        <argsstring>(OpusTags *_tags) OP_ARG_NONNULL(1)</argsstring>
+        <name>opus_tags_clear</name>
+        <param>
+          <type><ref refid="struct_opus_tags" kindref="compound">OpusTags</ref> *</type>
+          <declname>_tags</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Clears the <ref refid="struct_opus_tags" kindref="compound">OpusTags</ref> structure. This should be called on an <ref refid="struct_opus_tags" kindref="compound">OpusTags</ref> structure after it is no longer needed. It will free all memory used by the structure members. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>_tags</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The <ref refid="struct_opus_tags" kindref="compound">OpusTags</ref> structure to clear. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Includes/personnal/opusfile.h" line="538" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__header__info_1gaad7582aee9be320d26b13f77e7b54106" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int opus_tagcompare</definition>
+        <argsstring>(const char *_tag_name, const char *_comment)</argsstring>
+        <name>opus_tagcompare</name>
+        <param>
+          <type>const char *</type>
+          <declname>_tag_name</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>_comment</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Check if <emphasis>_comment</emphasis> is an instance of a <emphasis>_tag_name</emphasis> tag. <simplesect kind="see"><para><ref refid="group__header__info_1gabf02fa65e49fde045ef787e42ef7b8c0" kindref="member">opus_tagncompare</ref> </para></simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>_tag_name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A NUL-terminated, case-insensitive, ASCII string containing the name of the tag to check for (without the terminating &apos;=&apos; character). </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>_comment</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The comment string to check. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>An integer less than, equal to, or greater than zero if <emphasis>_comment</emphasis> is found respectively, to be less than, to match, or be greater than a &quot;tag=value&quot; string whose tag matches <emphasis>_tag_name</emphasis>. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Includes/personnal/opusfile.h" line="549" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__header__info_1gabf02fa65e49fde045ef787e42ef7b8c0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int opus_tagncompare</definition>
+        <argsstring>(const char *_tag_name, int _tag_len, const char *_comment)</argsstring>
+        <name>opus_tagncompare</name>
+        <param>
+          <type>const char *</type>
+          <declname>_tag_name</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>_tag_len</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>_comment</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Check if <emphasis>_comment</emphasis> is an instance of a <emphasis>_tag_name</emphasis> tag. This version is slightly more efficient than <ref refid="group__header__info_1gaad7582aee9be320d26b13f77e7b54106" kindref="member">opus_tagcompare()</ref> if the length of the tag name is already known (e.g., because it is a constant). <simplesect kind="see"><para><ref refid="group__header__info_1gaad7582aee9be320d26b13f77e7b54106" kindref="member">opus_tagcompare</ref> </para></simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>_tag_name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A case-insensitive ASCII string containing the name of the tag to check for (without the terminating &apos;=&apos; character). </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>_tag_len</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The number of characters in the tag name. This must be non-negative. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>_comment</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The comment string to check. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>An integer less than, equal to, or greater than zero if <emphasis>_comment</emphasis> is found respectively, to be less than, to match, or be greater than a &quot;tag=value&quot; string whose tag matches the first <emphasis>_tag_len</emphasis> characters of <emphasis>_tag_name</emphasis>. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Includes/personnal/opusfile.h" line="564" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__header__info_1ga6487af1d21fe87f4815567d85a27989a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>OP_WARN_UNUSED_RESULT int</type>
+        <definition>OP_WARN_UNUSED_RESULT int opus_picture_tag_parse</definition>
+        <argsstring>(OpusPictureTag *_pic, const char *_tag) OP_ARG_NONNULL(1) OP_ARG_NONNULL(2)</argsstring>
+        <name>opus_picture_tag_parse</name>
+        <param>
+          <type><ref refid="struct_opus_picture_tag" kindref="compound">OpusPictureTag</ref> *</type>
+          <declname>_pic</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>_tag</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Parse a single METADATA_BLOCK_PICTURE tag. This decodes the BASE64-encoded content of the tag and returns a structure with the MIME type, description, image parameters (if known), and the compressed image data. If the MIME type indicates the presence of an image format we recognize (JPEG, PNG, or GIF) and the actual image data contains the magic signature associated with that format, then the <ref refid="struct_opus_picture_tag_1aba2d71a09ecf0999cf5faf7c2276fb37" kindref="member">OpusPictureTag::format</ref> field will be set to the corresponding format. This is provided as a convenience to avoid requiring applications to parse the MIME type and/or do their own format detection for the commonly used formats. In this case, we also attempt to extract the image parameters directly from the image data (overriding any that were present in the tag, which the specification says applications are not meant to rely on). The application must still provide its own support for actually decoding the image data and, if applicable, retrieving that data from URLs. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="out">_pic</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Returns the parsed picture data. No sanitation is done on the type, MIME type, or description fields, so these might return invalid values. The contents of this structure are left unmodified on failure. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>_tag</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The METADATA_BLOCK_PICTURE tag contents. The leading &quot;METADATA_BLOCK_PICTURE=&quot; portion is optional, to allow the function to be used on either directly on the values in <ref refid="struct_opus_tags_1ad53d571bd8b23691089242e4e161358a" kindref="member">OpusTags::user_comments</ref> or on the return value of <ref refid="group__header__info_1gad43a7ed5844debd7d4025335f096bc27" kindref="member">opus_tags_query()</ref>. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>0 on success or a negative value on error. </para></simplesect>
+<parameterlist kind="retval"><parameteritem>
+<parameternamelist>
+<parametername><ref refid="group__error__codes_1gafca3ae244d24e10b2851c77379453220" kindref="member">OP_ENOTFORMAT</ref></parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The METADATA_BLOCK_PICTURE contents were not valid. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername><ref refid="group__error__codes_1ga2ddb887c0bb55c74ea6be391fabcba59" kindref="member">OP_EFAULT</ref></parametername>
+</parameternamelist>
+<parameterdescription>
+<para>There was not enough memory to store the picture tag contents. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Includes/personnal/opusfile.h" line="596" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__header__info_1ga09b9724bb7a9abd1d78680bd7d420ec2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void opus_picture_tag_init</definition>
+        <argsstring>(OpusPictureTag *_pic) OP_ARG_NONNULL(1)</argsstring>
+        <name>opus_picture_tag_init</name>
+        <param>
+          <type><ref refid="struct_opus_picture_tag" kindref="compound">OpusPictureTag</ref> *</type>
+          <declname>_pic</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Initializes an <ref refid="struct_opus_picture_tag" kindref="compound">OpusPictureTag</ref> structure. This should be called on a freshly allocated <ref refid="struct_opus_picture_tag" kindref="compound">OpusPictureTag</ref> structure before attempting to use it. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>_pic</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The <ref refid="struct_opus_picture_tag" kindref="compound">OpusPictureTag</ref> structure to initialize. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Includes/personnal/opusfile.h" line="603" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="group__header__info_1ga26a732722fc74274d76b855020822852" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void opus_picture_tag_clear</definition>
+        <argsstring>(OpusPictureTag *_pic) OP_ARG_NONNULL(1)</argsstring>
+        <name>opus_picture_tag_clear</name>
+        <param>
+          <type><ref refid="struct_opus_picture_tag" kindref="compound">OpusPictureTag</ref> *</type>
+          <declname>_pic</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Clears the <ref refid="struct_opus_picture_tag" kindref="compound">OpusPictureTag</ref> structure. This should be called on an <ref refid="struct_opus_picture_tag" kindref="compound">OpusPictureTag</ref> structure after it is no longer needed. It will free all memory used by the structure members. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>_pic</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The <ref refid="struct_opus_picture_tag" kindref="compound">OpusPictureTag</ref> structure to clear. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Includes/personnal/opusfile.h" line="610" column="1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="group__header__info_1gad6f0329582430a828244045ac85a5417" prot="public" static="no">
+        <name>OPUS_CHANNEL_COUNT_MAX</name>
+        <initializer>(255)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The maximum number of channels in an Ogg Opus stream. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Includes/personnal/opusfile.h" line="196" column="9" bodyfile="Includes/personnal/opusfile.h" bodystart="196" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+  </compounddef>
+</doxygen>
