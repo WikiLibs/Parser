@@ -29,7 +29,6 @@ class AIClient:
             "appId": APP_ID,
             "appSecret": SEC
         }
-        print("API key: #" + self._apikey + "#")
         res = requests.post(API_URL + "/auth/bot", headers=headers, json=loginJson)
         if (res.status_code != 200):
             raise ConnectionError("Authorization token rejected " + str(res.status_code) + "\n"
