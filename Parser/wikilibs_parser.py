@@ -23,9 +23,13 @@ SCR_KEY_HELP = 'set the secret Key to use for authenticating with the API server
 
 dicoLang = {
     "C": ['.h', '.c'],
-    "PYTHON": ['.py']
+    "PYTHON3": ['.py']
 }
 
+dicoLangDoxy = {
+    "C": "C",
+    "PYTHON3": "PYTHON"
+}
 
 class filesClass:
     ogFilename = ""
@@ -55,12 +59,12 @@ def getAllFiles(language):
 
 
 def getDoxyfileAndRun(language):
-    url = 'https://wikilibs-parser.azurewebsites.net/doxyfiles/' + language + '/Doxyfile'
+    url = 'https://wikilibs-parser.azurewebsites.net/doxyfiles/' + dicoLangDoxy[language] + '/Doxyfile'
     with open('./Doxyfile', 'wb') as fd:
         fd.write(urlopen(url).read())
 
-    if language == 'PYTHON':
-        url = 'https://wikilibs-parser.azurewebsites.net/doxyfiles/PYTHON/py_filter'
+    if language == 'PYTHON3':
+        url = 'https://wikilibs-parser.azurewebsites.net/doxyfiles/' + dicoLangDoxy[language] + '/py_filter'
         with open('./py_filter', 'wb') as fd:
             fd.write(urlopen(url).read())
         os.system('chmod +x py_filter')
@@ -83,7 +87,7 @@ def parserArgs():
     argParser.add_argument('-s', '--secret', help=SCR_KEY_HELP)
     args = argParser.parse_args()
 
-    args.language = args.language.upper()
+    # args.language = args.language.upper()
 
     if args.verbose:
         useful.verbose = args.verbose
@@ -100,7 +104,7 @@ def parserArgs():
         useful.apikey = args.apikey
 
     if dicoLang.get(args.language) is None:
-        useful.logError('Error: unsupported language \'{}\''.format(args.language, 1))
+        useful.logError('Error: unsupported language \'{}\''.format(args.language), 1)
 
     useful.printVerbose('Language = ' + args.language)
     useful.printVerbose('Library name = ' + args.library_name + '\n')
@@ -111,7 +115,7 @@ def parserArgs():
 def getFunctionsLang():
     dispatch = {
         'C': parserC.parserC,
-        'PYTHON': parserPython.parserPython
+        'PYTHON3': parserPython.parserPython
     }
     return dispatch
 
@@ -131,7 +135,7 @@ def main():
     dispatch = getFunctionsLang()
     for filename in files:
         useful.logInfo('Starting parsing \'' + filename.ogFilename + '\'')
-        obj = dispatch[args.language.upper()](args.language, args.library_name)
+        obj = dispatch[args.language](args.language, args.library_name)
         obj.parseXMLFile(filename.xmlFilename)
         # dispatch[args.language.upper()](filename.xmlFilename, args.language, args.library_name)
     callOptimizer()
