@@ -64,7 +64,7 @@ class Test_aiClient(unittest.TestCase):
         client._time = -3000
         client.CheckIfRefresh()
 
-    def test_push_symbol_res_error(self):
+    def test_push_symbol_res_connect_error(self):
         sym = jsClass.SymbolUpdate("test")
         sym.setLang("test2")
         sym.setPath("test")
@@ -86,6 +86,32 @@ class Test_aiClient(unittest.TestCase):
             sys.stdout = capturedOutput  # redirect stdout
             client = aiClient.AIClient(aiClient.APP_KEY, aiClient.APP_ID, aiClient.SEC)
             client.GetToken()
+            client.PushSymbol(sym)
+
+    @patch('Parser.aiClient.AIClient.CheckIfRefresh')
+    def test_push_symbol_res_post_error(self,
+                                        mock_check_if_refresh):
+        sym = jsClass.SymbolUpdate("test")
+        sym.setLang("test2")
+        sym.setPath("test")
+        sym.setType("test")
+        proto = jsClass.SymbolPrototype("test")
+        proto.setPrototype("test")
+        proto.setDescription("")
+        param = jsClass.SymbolParam("test")
+        param.setPath("")
+        param.setDescription("")
+        param.setPrototype("test")
+        proto.appendParameters(param)
+        proto.appendParameters(param)
+        sym.appendPrototypes(proto)
+        sym.appendPrototypes(proto)
+        sym.appendSymbols("test")
+        with self.assertRaises(IOError) as cm:
+            capturedOutput = io.StringIO()  # setup an io
+            sys.stdout = capturedOutput  # redirect stdout
+            client = aiClient.AIClient(aiClient.APP_KEY, aiClient.APP_ID, aiClient.SEC)
+            client._token = "test"
             client.PushSymbol(sym)
 
     @patch('Parser.aiClient.AIClient.GetToken', return_value="test")
