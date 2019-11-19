@@ -30,7 +30,8 @@ dicoLang = {
 
 dicoLangDoxy = {
     "C": "C",
-    "PYTHON3": "PYTHON"
+    "PYTHON3": "PYTHON",
+    "JAVA": "JAVA"
 }
 
 class filesClass:
