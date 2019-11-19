@@ -12,7 +12,9 @@ import Parser.aiClient as aiClient
 
 class Test_JsonRequestCrafter(unittest.TestCase):
     @patch('Parser.aiClient.AIClient.CallOptimizer')
+    @patch('Parser.aiClient.AIClient.GetToken')
     def test_distinc_wip(self,
+                         mock_call_get_token,
                          mock_call_optimizer):
         '''
         it should print WIP
@@ -25,7 +27,8 @@ class Test_JsonRequestCrafter(unittest.TestCase):
         sys.stdout = sys.__stdout__  # reset stdout
         self.assertEqual(capturedOutput.getvalue(), 'This feature is in WIP\n', 'Should print \'This feature is in WIP\'')
 
-    def test_distinc_error(self):
+    @patch('Parser.aiClient.AIClient.GetToken')
+    def test_distinc_error(self, mock_get_token):
         '''
         it should print WIP
         '''
