@@ -5,6 +5,7 @@ import os
 import argparse
 import useful
 import aiClient
+import time
 
 import Lang_C_CPP.parserC as parserC
 import Lang_Python.parserPython as parserPython
@@ -63,19 +64,37 @@ def getAllFiles(language):
 
 def getDoxyfileAndRun(language):
     url = 'https://wikilibs-parser.azurewebsites.net/doxyfiles/' + dicoLangDoxy[language] + '/Doxyfile'
+    if (language == "PYTHON" and os.name == 'nt')
+        url += 'Windows'
     with open('./Doxyfile', 'wb') as fd:
         fd.write(urlopen(url).read())
 
-    if language == 'PYTHON3':
-        url = 'https://wikilibs-parser.azurewebsites.net/doxyfiles/' + dicoLangDoxy[language] + '/py_filter'
-        with open('./py_filter', 'wb') as fd:
-            fd.write(urlopen(url).read())
-        os.system('chmod +x py_filter')
-    os.system('doxygen Doxyfile > /dev/null')
+    if language == 'PYTHON':
+        fileName = 'py_filter'
+        if (os.name == 'nt')
+            fileName += 'Windows'
+        url = 'https://wikilibs-parser.azurewebsites.net/doxyfiles/' + dicoLangDoxy[language] + '/' + fileName
+
+        if os.name != 'nt':
+            with open('./py_filter', 'wb') as fd:
+                fd.write(urlopen(url).read())
+            os.system('chmod +x py_filter')
+        else:
+            with open('./py_filter.bat', 'wb') as fd:
+                fd.write(urlopen(url).read())
+
+    if os.name == 'nt':
+        os.system('doxygen Doxyfile')
+    else:
+        os.system('doxygen Doxyfile > /dev/null')
 
 
 def deleteFiles():
-    os.system('rm -rf Doxyfile xml py_filter')
+    if os.name == 'nt':
+        os.system('del /f Doxyfile py_filter.bat')
+        os.system('RD /S /Q xml')
+    else:
+        os.system('rm -rf Doxyfile xml py_filter')
 
 
 def parserArgs():
