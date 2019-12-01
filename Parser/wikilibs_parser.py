@@ -5,7 +5,6 @@ import os
 import argparse
 import useful
 import aiClient
-import time
 
 import Lang_C_CPP.parserC as parserC
 import Lang_Python.parserPython as parserPython
@@ -25,7 +24,7 @@ SCR_KEY_HELP = 'set the secret Key to use for authenticating with the API server
 
 dicoLang = {
     "C": ['.h', '.c'],
-    "PYTHON": ['.py'],
+    "PYTHON3": ['.py'],
     "JAVA": ['.java']
 }
 
@@ -64,14 +63,14 @@ def getAllFiles(language):
 
 def getDoxyfileAndRun(language):
     url = 'https://wikilibs-parser.azurewebsites.net/doxyfiles/' + dicoLangDoxy[language] + '/Doxyfile'
-    if (language == "PYTHON" and os.name == 'nt')
+    if language == "PYTHON3" and os.name == 'nt':
         url += 'Windows'
     with open('./Doxyfile', 'wb') as fd:
         fd.write(urlopen(url).read())
 
-    if language == 'PYTHON':
+    if language == 'PYTHON3':
         fileName = 'py_filter'
-        if (os.name == 'nt')
+        if os.name == 'nt':
             fileName += 'Windows'
         url = 'https://wikilibs-parser.azurewebsites.net/doxyfiles/' + dicoLangDoxy[language] + '/' + fileName
 
@@ -109,7 +108,7 @@ def parserArgs():
     argParser.add_argument('-s', '--secret', help=SCR_KEY_HELP)
     args = argParser.parse_args()
 
-    # args.language = args.language.upper()
+    args.language = args.language.upper()
 
     if args.verbose:
         useful.verbose = args.verbose
@@ -137,7 +136,7 @@ def parserArgs():
 def getFunctionsLang():
     dispatch = {
         'C': parserC.parserC,
-        'PYTHON': parserPython.parserPython,
+        'PYTHON3': parserPython.parserPython,
         'JAVA': parserJava.parserJava
     }
     return dispatch
