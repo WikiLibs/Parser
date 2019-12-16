@@ -6,6 +6,7 @@ import argparse
 import useful
 import aiClient
 
+import graphicalClient as gui
 import Lang_C_CPP.parserC as parserC
 import Lang_Python.parserPython as parserPython
 import Lang_Java.parserJava as parserJava
@@ -113,7 +114,7 @@ def parserArgs():
     if args.verbose:
         useful.verbose = args.verbose
     if args.gui:
-        useful.printVerbose("Launch GUI mode")
+        useful.graphical = True
     if args.noUpload:
         useful.upload = False
     if args.exception:
@@ -151,6 +152,8 @@ def callOptimizer():
 
 def main():
     args = parserArgs()
+    if useful.graphical:
+        gui.graphicalClient()
     getDoxyfileAndRun(args.language)
 
     files = getAllFiles(args.language)

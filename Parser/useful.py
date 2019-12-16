@@ -3,6 +3,7 @@ import sys
 verbose = False
 upload = True
 exceptions = False
+graphical = False
 apikey = ""
 secret = ""
 
