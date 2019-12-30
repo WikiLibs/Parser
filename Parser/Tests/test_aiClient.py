@@ -59,10 +59,20 @@ class Test_aiClient(unittest.TestCase):
         client.GetToken()
         mock_request_post.assert_called()
 
-    def test_refresh_token_refreshing_no_error(self):
+    @patch('requests.patch', return_value=res2)
+    def test_refresh_token_refreshing_no_error(self,
+                                               mock_request_patch):
         client = aiClient.AIClient("what", "", "")
         client._time = -3000
         client.CheckIfRefresh()
+
+    def test_refresh_token_connection_error(self):
+        with self.assertRaises(ConnectionError) as cm:
+            capturedOutput = io.StringIO()  # setup an io
+            sys.stdout = capturedOutput  # redirect stdout
+            client = aiClient.AIClient("what", "", "")
+            client._time = -3000
+            client.CheckIfRefresh()
 
     def test_push_symbol_res_connect_error(self):
         sym = jsClass.SymbolUpdate("test")
