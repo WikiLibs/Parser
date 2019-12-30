@@ -6,9 +6,9 @@ import useful
 # WikiLibs AI Client python module
 
 API_URL = "https://wikilibs-dev-api.azurewebsites.net"
-APP_KEY = "39d183b2-955f-4d28-90d6-b711e3db355b" # ne pas changer
-APP_ID = "96abd6ae-a122-49c0-abbb-278d65d53531"
-SEC = "mY3#èvF2,<xT4-çuB6!}nQ8."
+APP_KEY = "819b9934-e8bd-49dc-ace5-888806218117" # ne pas changer
+APP_ID = "3aed2d8a-9b87-40d1-a124-b9827d7536d2"
+SEC = "uM4&~tU6/\"fY5;çlQ1%ùwV8@"
 
 
 class AIClient:
@@ -42,16 +42,16 @@ class AIClient:
 
     def RefreshToken(self):  # WIP tant que nicof n'est pas là
         useful.printVerbose("Refreshing bearer token")
-        # # Refreshing bearer token
-        # headers = {
-        #     "Authorization": self._token,
-        # }
-        # res = requests.patch(API_URL + "/auth/refresh", headers=headers)
-        # if (res.status_code != 200):
-        #     raise ConnectionError("Authorization token rejected")
+        # Refreshing bearer token
+        headers = {
+            "Authorization": self._token,
+        }
+        res = requests.patch(API_URL + "/auth/refresh", headers=headers)
+        if (res.status_code != 200):
+            raise ConnectionError("Authorization token rejected")
 
-        # # Extract bearer token string
-        # self._token = res.text[1:-1]
+        # Extract bearer token string
+        self._token = res.text[1:-1]
 
     def CheckIfRefresh(self):
         useful.printVerbose("Check if need refresh token")
@@ -71,9 +71,13 @@ class AIClient:
         headers = {
             "Authorization": "Bearer " + self._token
         }
-        res = requests.post(API_URL + "/symbol", headers=headers, json=data)
+        res = requests.put(API_URL + "/symbol/" + obj.getPath(), headers=headers, json=data)
+        print("path = " + API_URL + "/symbol/" + obj.getPath())
+        y = json.dumps(x)
+        print(x)
         if (res.status_code != 200):
-            raise IOError(res.text)
+            raise IOError("Invalid request : return code is " + str(res.status_code) + "\n"
+                                  + res.text)
 
     def CallOptimizer(self):
         if self._token == "":

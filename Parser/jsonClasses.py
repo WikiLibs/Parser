@@ -11,6 +11,9 @@ class SymbolPath:
     def setPath(self, path):
         self.__path = path
 
+    def getPath(self):
+        return (self.__path)
+
 
 class SymbolParam:
     __prototype = ''
@@ -30,6 +33,9 @@ class SymbolParam:
 
     def setPath(self, path):
         self.__path = path
+
+    def getPath(self):
+        return (self.__path)
 
     def get_JSON(self):
         jsonData = {
@@ -63,6 +69,9 @@ class SymbolPrototype:
 
     def appendParameters(self, parameter):
         self.__parameters.append(parameter)
+
+    def getPath(self):
+        return (self.__path)
 
     def get_JSON(self):
         jsonData = {
@@ -106,6 +115,9 @@ class SymbolUpdate:
 
     def appendSymbols(self, symbol):
         self.__symbols.append(symbol)
+
+    def getPath(self):
+        return (self.__path)
 
     def get_JSON(self):
         jsonData = {
