@@ -71,22 +71,6 @@ class AIClient:
         headers = {
             "Authorization": "Bearer " + self._token
         }
-        res = requests.post(API_URL + "/symbol", headers=headers, json=data)
-        if (res.status_code != 200):
-            raise IOError(res.text)
-
-    def PushSymbolV2(self, obj):
-        x = obj.get_JSON()
-        data = json.loads(x)
-
-        if self._token == "":
-            raise ConnectionError("No token")
-
-        self.CheckIfRefresh()
-        # Post a new symbol
-        headers = {
-            "Authorization": "Bearer " + self._token
-        }
         res = requests.put(API_URL + "/symbol/" + obj.getPath(), headers=headers, json=data)
         print("path = " + API_URL + "/symbol/" + obj.getPath())
         y = json.dumps(x)

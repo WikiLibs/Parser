@@ -36,13 +36,13 @@ def craftStructRequest(client, structs):
             path = g_lang + "/" + g_lib + "/" + struct.name + "/" + member.name
             mem.setPath(path)
             useful.printVerbose("Path is " + path)
-            client.PushSymbolV2(mem)
+            client.PushSymbol(mem)
         useful.printVerbose("Finished getting " + struct.name + " members")
         path = g_lang + "/" + g_lib + "/" + struct.name
         sym.setPath(path)
         useful.printVerbose("Pushing " + struct.name + " on the Database")
         useful.printVerbose("Path is " + path)
-        client.PushSymbolV2(sym)
+        client.PushSymbol(sym)
         useful.printVerbose("Push done")
     useful.printVerbose("Ended crafting Struct Request")
 
@@ -75,7 +75,7 @@ def craftDefineRequest(client, defines):
         sym.setPath(path)
         useful.printVerbose("Pushing " + define.name + " on the Database")
         useful.printVerbose("Path is " + path)
-        client.PushSymbolV2(sym)
+        client.PushSymbol(sym)
         useful.printVerbose("Push done")
     useful.printVerbose("Ended crafting Define Request")
 
@@ -107,13 +107,13 @@ def craftUnionRequest(client, unions):
             mem.appendPrototypes(mem_proto)
             path = g_lang + "/" + g_lib + "/" + union.name + "/" + member.name
             mem.setPath(path)
-            client.PushSymbolV2(mem)
+            client.PushSymbol(mem)
         useful.printVerbose("Finished getting " + union.name + " members")
         path = g_lang + "/" + g_lib + "/" + union.name
         sym.setPath(path)
         useful.printVerbose("Pushing " + union.name + " on the Database")
         useful.printVerbose("Path is " + path)
-        client.PushSymbolV2(sym)
+        client.PushSymbol(sym)
         useful.printVerbose("Push done")
     useful.printVerbose("Ended crafting Union Request")
 
@@ -152,7 +152,7 @@ def craftFunctionRequest(client, functions):
         sym.setPath(path)
         useful.printVerbose("Pushing " + function.name + " on the Database")
         useful.printVerbose("Path is " + path)
-        client.PushSymbolV2(sym)
+        client.PushSymbol(sym)
         useful.printVerbose("Push done")
     useful.printVerbose("Ended crafting Function Request")
 
@@ -175,7 +175,7 @@ def craftTypedefRequest(client, typedefs):
         sym.setPath(path)
         useful.printVerbose("Pushing " + typedef.tdName + " on the Database")
         useful.printVerbose("Path is " + path)
-        client.PushSymbolV2(sym)
+        client.PushSymbol(sym)
         useful.printVerbose("Push done")
     useful.printVerbose("Ended crafting Typedef Request")
 
@@ -209,7 +209,7 @@ def craftClassRequest(client, classes):
             path = g_lang + "/" + g_lib + "/" + classe.name + "/" + variable.name
             mem.setPath(path)
             useful.printVerbose("Path is " + path)
-            client.PushSymbolV2(mem)
+            client.PushSymbol(mem)
         useful.printVerbose("Finished getting " + classe.name + " variables")
         useful.printVerbose("Now Getting " + classe.name + " functions")
         for function in classe.functions:
@@ -240,13 +240,13 @@ def craftClassRequest(client, classes):
             path = g_lang + "/" + g_lib + "/" + classe.name + "/" + function.name
             func.setPath(path)
             useful.printVerbose("Path is " + path)
-            client.PushSymbolV2(func)
+            client.PushSymbol(func)
         useful.printVerbose("Finished getting " + classe.name + " functions")
         path = g_lang + "/" + g_lib + "/" + classe.name
         sym.setPath(path)
         useful.printVerbose("Pushing " + classe.name + " on the Database")
         useful.printVerbose("Path is " + path)
-        client.PushSymbolV2(sym)
+        client.PushSymbol(sym)
         useful.printVerbose("Push done")
     useful.printVerbose("Ended crafting Class Request")
 
@@ -269,7 +269,7 @@ def craftVariableRequest(client, variables):
         sym.setPath(path)
         useful.printVerbose("Pushing " + variable.name + " on the Database")
         useful.printVerbose("Path is " + path)
-        client.PushSymbolV2(sym)
+        client.PushSymbol(sym)
         useful.printVerbose("Push done")
     useful.printVerbose("Ended crafting Typedef Request")
 
