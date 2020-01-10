@@ -70,9 +70,6 @@ class SymbolPrototype:
     def appendParameters(self, parameter):
         self.__parameters.append(parameter)
 
-    def getPath(self):
-        return (self.__path)
-
     def get_JSON(self):
         jsonData = {
             "prototype": self.__prototype,

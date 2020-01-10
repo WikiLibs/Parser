@@ -7,12 +7,14 @@ class Test_jsonClasses(unittest.TestCase):
     def test_symbol_path(self):
         sym = jsClass.SymbolPath("test")
         sym.setPath("test")
+        sym.getPath()
 
     def test_symbol_param(self):
         sym = jsClass.SymbolParam("test")
         sym.setPath("")
         sym.setDescription("")
         sym.setPrototype("test")
+        sym.getPath()
         sym.get_JSON()
 
     def test_symbo_proto(self):

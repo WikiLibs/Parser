@@ -226,8 +226,7 @@ class Controller:
         self.end.show()
 
 
-if __name__ == "__main__":
-
+def graphicalClient():
     # Create Qt application
     app = QtWidgets.QApplication(sys.argv)
     controller = Controller()
