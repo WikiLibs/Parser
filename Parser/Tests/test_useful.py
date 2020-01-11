@@ -148,3 +148,9 @@ class Test_Useful(unittest.TestCase):
                                                      "[---Exiting program---]" +
                                                      useful.RESET +
                                                      "\n"))
+
+    def getAllFiles(self):
+        '''
+        get all the files
+        '''
+        useful.getAllFiles("C")
