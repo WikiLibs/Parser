@@ -4,6 +4,7 @@ from unittest.mock import patch
 import sys
 import io
 
+import xml.etree.ElementTree as ET
 import Parser.useful as useful
 
 
@@ -149,8 +150,11 @@ class Test_Useful(unittest.TestCase):
                                                      useful.RESET +
                                                      "\n"))
 
+
+    @patch('xml.etree.ElementTree.parse', ET.parse('./Parser/Tests/UsefulMockgetAllFilesFileTest.xsd'))
     def getAllFiles(self):
         '''
         get all the files
         '''
         useful.getAllFiles("C")
+        useful.getDoxyfileAndRun("C")

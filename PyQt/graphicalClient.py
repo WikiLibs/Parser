@@ -25,6 +25,16 @@ BUTTON_STYLE = """
     }
 """
 
+BUTTON_DEACTIVED = """
+    .QPushButton {
+        border-radius: 4px;
+        color: rgb(255, 255, 255);
+        background-color: rgb(100, 100, 100);
+
+        padding: 10px;
+    }
+"""
+
 def getFunctionsLang():
     dispatch = {
         'C': parserC.parserC,
@@ -101,7 +111,7 @@ class InputInfoWindow(QWidget):
         self.line_edit = QLineEdit()
         label2 = QLabel("Library name")
         self.combo_box = QComboBox()
-        self.combo_box.addItems(["C", "PYTHON"])
+        self.combo_box.addItems(["C", "PYTHON3"])
         label3 = QLabel("Library path")
         self.lib_path_label = QLabel(self.lib_path_txt)
 
@@ -187,33 +197,41 @@ class ProcessingWindow(QWidget):
         # Create Layout grid
         self.gridLayout = QGridLayout(self)
 
-        button = QPushButton("Click to continue")
-        button.clicked.connect(self.switch)
-        button.setFixedSize(QtCore.QSize(150, 40))
-        button.setStyleSheet(BUTTON_STYLE)
+        self.buttonUp = QPushButton("Upload")
+        self.buttonUp.clicked.connect(self.processUpload)
+        self.buttonUp.setFixedSize(QtCore.QSize(100, 40))
+        self.buttonUp.setStyleSheet(BUTTON_STYLE)
 
-        label1 = QLabel("Reading all the files...")
+        self.label1 = QLabel("Please click on the upload button.")
 
-        self.title = QLabel("Processing, please wait...", self)
+        self.title = QLabel("Processing...", self)
         self.title.setAlignment(QtCore.Qt.AlignHCenter)
 
         # Add widgets to Layout Grid
         self.gridLayout.addWidget(self.title, 0, 0)
-        self.gridLayout.addWidget(label1, 2, 0)
-        self.gridLayout.addWidget(button, 3, 0)
+        self.gridLayout.addWidget(self.label1, 2, 0)
+        self.gridLayout.addWidget(self.buttonUp, 2, 2)
+
+    def processUpload(self):
+        # Ne update pas
+        self.buttonUp.setStyleSheet(BUTTON_DEACTIVED)
+        self.buttonUp.clicked.connect(self.doNothing)
+        self.gridLayout.addWidget(self.buttonUp, 2, 2)
+        self.gridLayout.update()
+        # Ne update pas
 
         # Process Everything to Parse
-        self.runDoxyfile(self.param_arg.language)
+        self.runDoxyfile(self.liblang)
 
-        files = useful.getAllFiles(self.param_arg.language)
+        files = useful.getAllFiles(self.liblang)
         dispatch = getFunctionsLang()
         for filename in files:
             useful.logInfo('Starting parsing \'' + filename.ogFilename + '\'')
-            obj = dispatch[self.param_arg.language](self.param_arg.language, self.param_arg.library_name)
+            obj = dispatch[self.liblang](self.liblang, self.libname)
             obj.parseXMLFile(filename.xmlFilename)
         useful.callOptimizer()
         useful.deleteFiles()
-        self.switch_window.emit(self.title)
+        self.switch()
 
     def runDoxyfile(self, language):
         doxyfileBuffer = []
@@ -225,7 +243,7 @@ class ProcessingWindow(QWidget):
         with open('./Doxyfile', 'r') as fd:
             for line in fd.readlines():
                 doxyfileBuffer.append(line)
-        with open('./Test', 'w') as fd:
+        with open('./Doxyfile', 'w') as fd:
             for index, line in enumerate(doxyfileBuffer):
                 if line[-1:] == "\n":
                     doxyfileBuffer[index] = line[0:-1]
@@ -251,6 +269,9 @@ class ProcessingWindow(QWidget):
             os.system('doxygen Doxyfile')
         else:
             os.system('doxygen Doxyfile > /dev/null')
+
+    def doNothing(self):
+        pass
 
     def switch(self):
         self.switch_window.emit(self.title)
@@ -322,5 +343,4 @@ def graphicalClient(program_args):
     app = QtWidgets.QApplication(sys.argv)
     controller = Controller()
     controller.show_WelcomeWindow(program_args)
-
-    sys.exit(app.exec_())
+    return app.exec_()
