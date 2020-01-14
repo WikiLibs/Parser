@@ -19,6 +19,7 @@ def main():
     args = useful.parserArgs()
     if useful.graphical:
         gui.graphicalClient(args)
+        return 0
     useful.getDoxyfileAndRun(args.language)
 
     files = useful.getAllFiles(args.language)
