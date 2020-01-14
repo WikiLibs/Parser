@@ -149,12 +149,3 @@ class Test_Useful(unittest.TestCase):
                                                      "[---Exiting program---]" +
                                                      useful.RESET +
                                                      "\n"))
-
-
-    @patch('xml.etree.ElementTree.parse', ET.parse('./Parser/Tests/UsefulMockgetAllFilesFileTest.xsd'))
-    def getAllFiles(self):
-        '''
-        get all the files
-        '''
-        useful.getAllFiles("C")
-        useful.getDoxyfileAndRun("C")
