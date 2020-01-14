@@ -4,6 +4,7 @@ from unittest.mock import patch
 import sys
 import io
 
+import xml.etree.ElementTree as ET
 import Parser.useful as useful
 
 
@@ -148,9 +149,3 @@ class Test_Useful(unittest.TestCase):
                                                      "[---Exiting program---]" +
                                                      useful.RESET +
                                                      "\n"))
-
-    def getAllFiles(self):
-        '''
-        get all the files
-        '''
-        useful.getAllFiles("C")
