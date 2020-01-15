@@ -35,6 +35,7 @@ BUTTON_DEACTIVED = """
     }
 """
 
+
 def getFunctionsLang():
     dispatch = {
         'C': parserC.parserC,
@@ -54,6 +55,24 @@ class WelcomeWindow(QMainWindow):
         self.resize(WIDTH, HEIGHT)
         self.setWindowTitle("Wikilibs - Parser Client")
 
+        self.stylesheet = """
+            QMainWindow{
+                background-color: #FFFFFF
+            }
+
+            QLabel{
+                color: #202020;
+            }
+
+            QPushButton{
+                background-color: #7B68EE;
+                color: #FFFFFF;
+                border-radius: 4px;
+                padding: 10px;
+            }
+        """
+        self.setStyleSheet(self.stylesheet)
+
         centralWidget = QWidget(self)
         self.setCentralWidget(centralWidget)
 
@@ -64,12 +83,11 @@ class WelcomeWindow(QMainWindow):
         button = QPushButton("Next")
         button.clicked.connect(self.switch)
 
-        title = QLabel("Welcome to the Wikilibs parser GUI interface !", self)
+        title = QLabel("Welcome to the WikiLibs library uploader !", self)
         title.setAlignment(QtCore.Qt.AlignHCenter | QtCore.Qt.AlignVCenter)
         title.setFont(QtGui.QFont('Assets/Fonts/OpenSans-Bold', 14))
 
         button.setFixedSize(QtCore.QSize(100, 40))
-        button.setStyleSheet(BUTTON_STYLE)
         button.move(270, 270)
 
         imageWrapper = QLabel()
@@ -92,9 +110,27 @@ class InputInfoWindow(QWidget):
         QMainWindow.__init__(self)
 
         self.param_arg = param_arg
-        self.lib_path_txt = "Path not found - Please input a path"
+        self.lib_path_txt = "Please choose a location"
         self.resize(WIDTH, HEIGHT)
         self.setWindowTitle("Wikilibs - Parser Client")
+
+        self.stylesheet = """
+            QWidget{
+                background-color: #FFFFFF
+            }
+
+            QLabel{
+                color: #202020;
+            }
+
+            QPushButton{
+                background-color: #7B68EE;
+                color: #FFFFFF;
+                border-radius: 4px;
+                padding: 10px;
+            }
+        """
+        self.setStyleSheet(self.stylesheet)
 
         # Create Layout grid
         self.gridLayout = QGridLayout(self)
@@ -102,8 +138,8 @@ class InputInfoWindow(QWidget):
         button = QPushButton("Next")
         button.clicked.connect(self.switch)
         button.setFixedSize(QtCore.QSize(100, 40))
-        button.setStyleSheet(BUTTON_STYLE)
-        buttton2 = QPushButton('Browse Folder', self)
+
+        buttton2 = QPushButton('Browse', self)
         buttton2.setFixedSize(QtCore.QSize(100, 40))
         buttton2.clicked.connect(self.browseLibPathFolder)
 
@@ -116,7 +152,8 @@ class InputInfoWindow(QWidget):
         self.lib_path_label = QLabel(self.lib_path_txt)
 
         title = QLabel("Please input the following information", self)
-        title.setAlignment(QtCore.Qt.AlignHCenter)
+        title.setAlignment(QtCore.Qt.AlignHCenter | QtCore.Qt.AlignVCenter)
+        title.setFont(QtGui.QFont('Assets/Fonts/OpenSans-Bold', 14))
 
         # Add widgets to Layout Grid
         self.gridLayout.addWidget(title, 0, 0)
@@ -155,6 +192,24 @@ class SummaryWindow(QWidget):
         self.resize(WIDTH, HEIGHT)
         self.setWindowTitle("Wikilibs - Parser Client")
 
+        self.stylesheet = """
+            QWidget{
+                background-color: #FFFFFF
+            }
+
+            QLabel{
+                color: #202020;
+            }
+
+            QPushButton{
+                background-color: #7B68EE;
+                color: #FFFFFF;
+                border-radius: 4px;
+                padding: 10px;
+            }
+        """
+        self.setStyleSheet(self.stylesheet)
+
         # Create Layout grid
         self.gridLayout = QGridLayout(self)
 
@@ -169,13 +224,14 @@ class SummaryWindow(QWidget):
 
         title = QLabel("Summary", self)
         title.setAlignment(QtCore.Qt.AlignHCenter)
+        title.setFont(QtGui.QFont('Assets/Fonts/OpenSans-Bold', 14))
 
         # Add widgets to Layout Grid
         self.gridLayout.addWidget(title, 0, 0)
-        self.gridLayout.addWidget(label1, 2, 0)
-        self.gridLayout.addWidget(label2, 1, 0)
-        self.gridLayout.addWidget(label3, 3, 0)
-        self.gridLayout.addWidget(button, 4, 0)
+        self.gridLayout.addWidget(label2, 4, 0)
+        self.gridLayout.addWidget(label1, 5, 0)
+        self.gridLayout.addWidget(label3, 6, 0)
+        self.gridLayout.addWidget(button, 8, 1)
 
     def switch(self):
         self.switch_window.emit(self.param_arg, self.libname, self.liblang, self.libpath)
@@ -194,6 +250,24 @@ class ProcessingWindow(QWidget):
         self.resize(WIDTH, HEIGHT)
         self.setWindowTitle("Wikilibs - Parser Client")
 
+        self.stylesheet = """
+            QWidget{
+                background-color: #FFFFFF
+            }
+
+            QLabel{
+                color: #202020;
+            }
+
+            QPushButton{
+                background-color: #7B68EE;
+                color: #FFFFFF;
+                border-radius: 4px;
+                padding: 10px;
+            }
+        """
+        self.setStyleSheet(self.stylesheet)
+
         # Create Layout grid
         self.gridLayout = QGridLayout(self)
 
@@ -206,6 +280,7 @@ class ProcessingWindow(QWidget):
 
         self.title = QLabel("Processing...", self)
         self.title.setAlignment(QtCore.Qt.AlignHCenter)
+        self.title.setFont(QtGui.QFont('Assets/Fonts/OpenSans-Bold', 14))
 
         # Add widgets to Layout Grid
         self.gridLayout.addWidget(self.title, 0, 0)
@@ -286,6 +361,24 @@ class EndWindow(QWidget):
         self.resize(WIDTH, HEIGHT)
         self.setWindowTitle("Wikilibs - Parser Client")
 
+        self.stylesheet = """
+            QMainWindow{
+                background-color: #FFFFFF
+            }
+
+            QLabel{
+                color: #202020;
+            }
+
+            QPushButton{
+                background-color: #7B68EE;
+                color: #FFFFFF;
+                border-radius: 4px;
+                padding: 10px;
+            }
+        """
+        self.setStyleSheet(self.stylesheet)
+
         # Create Layout grid
         self.gridLayout = QGridLayout(self)
 
@@ -296,6 +389,7 @@ class EndWindow(QWidget):
 
         title = QLabel("Upload was successful!", self)
         title.setAlignment(QtCore.Qt.AlignHCenter)
+        title.setFont(QtGui.QFont('Assets/Fonts/OpenSans-Bold', 14))
 
         # Add widgets to Layout Grid
         self.gridLayout.addWidget(title, 0, 0)
