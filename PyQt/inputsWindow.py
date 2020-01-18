@@ -33,7 +33,7 @@ class InputsWindow(QMainWindow):
     def setupUi(self):
         self.setObjectName("MainWindow")
         self.resize(724, 471)
-        self.lib_path_txt = "Please choose a location"
+        self.lib_path_txt = "Please choose a location using the browse button"
 
         self.centralwidget = QtWidgets.QWidget(self)
         self.centralwidget.setObjectName("centralwidget")
@@ -77,6 +77,7 @@ class InputsWindow(QMainWindow):
         self.lineEdit_2.setMinimumSize(QtCore.QSize(475, 0))
         self.lineEdit_2.setMaximumSize(QtCore.QSize(475, 16777215))
         self.lineEdit_2.setObjectName("lineEdit_2")
+        self.lineEdit_2.setPlaceholderText("Please enter the library name")
         self.horizontalLayout_2.addWidget(self.lineEdit_2)
         spacerItem3 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
         self.horizontalLayout_2.addItem(spacerItem3)
@@ -91,8 +92,8 @@ class InputsWindow(QMainWindow):
         self.lineEdit = QtWidgets.QLineEdit(self.centralwidget)
         self.lineEdit.setMinimumSize(QtCore.QSize(475, 0))
         self.lineEdit.setMaximumSize(QtCore.QSize(475, 16777215))
-        self.lineEdit.setText(self.lib_path_txt)
-        self.lineEdit.setPlaceholderText("")
+        self.lineEdit.setText("")
+        self.lineEdit.setPlaceholderText(self.lib_path_txt)
         self.lineEdit.setObjectName("lineEdit")
         self.horizontalLayout_3.addWidget(self.lineEdit)
         spacerItem4 = QtWidgets.QSpacerItem(10, 20, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Minimum)

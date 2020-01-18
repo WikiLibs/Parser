@@ -34,10 +34,10 @@ class Controller:
         self.summary.show()
 
     def show_ProcessingWindow(self, param_arg, libname, liblang, libpath):
+        self.summary.close()
         self.process = ProcessingWindow(param_arg, libname, liblang, libpath)
         self.process.switch_window.connect(self.show_EndWindow)
-        self.summary.close()
-        self.process.show()
+        # self.process.show()
 
     def show_EndWindow(self):
         self.end = EndWindow()
