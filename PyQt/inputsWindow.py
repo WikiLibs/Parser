@@ -1,7 +1,6 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtWidgets import QMainWindow, QFileDialog
 
-
 class InputsWindow(QMainWindow):
     switch_window = QtCore.pyqtSignal(object, str, str, str)
 

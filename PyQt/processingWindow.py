@@ -3,9 +3,9 @@ import Lang_C_CPP.parserC as parserC
 import Lang_Python.parserPython as parserPython
 import Lang_Java.parserJava as parserJava
 
-
 from urllib.request import urlopen
 import os
+import time
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtWidgets import QMainWindow
@@ -23,15 +23,32 @@ def getFunctionsLang():
 class ProcessingWindow(QMainWindow):
     switch_window = QtCore.pyqtSignal()
 
-    def __init__(self, param_arg, libname, liblang, libpath):
+    # def __init__(self, param_arg, libname, liblang, libpath):
+    #     QMainWindow.__init__(self)
+    #     self.param_arg = param_arg
+    #     self.libname = libname
+    #     self.liblang = liblang
+    #     self.libpath = libpath
+    #     self.setupStyle()
+    #     self.setupUi()
+    #     # self.processUpload()
+
+    def __init__(self):
         QMainWindow.__init__(self)
-        self.param_arg = param_arg
-        self.libname = libname
-        self.liblang = liblang
-        self.libpath = libpath
         self.setupStyle()
         self.setupUi()
-        self.processUpload()
+
+    def setParamArg(self, paramArg):
+        self.param_arg = paramArg
+
+    def setLibName(self, libname):
+        self.libname = libname
+
+    def setLibLang(self, liblang):
+        self.liblang = liblang
+
+    def setLibPath(self, libpath):
+        self.libpath = libpath
 
     def setupStyle(self):
         self.stylesheet = """
@@ -178,7 +195,6 @@ class ProcessingWindow(QMainWindow):
     def processUpload(self):
         # Process Everything to Parse
         self.runDoxyfile(self.liblang)
-
         files = useful.getAllFiles(self.liblang)
         dispatch = getFunctionsLang()
         self.progressBar.setProperty("value", 20)
@@ -190,6 +206,7 @@ class ProcessingWindow(QMainWindow):
             useful.logInfo('Starting parsing \'' + filename.ogFilename + '\'')
             obj = dispatch[self.liblang](self.liblang, self.libname)
             obj.parseXMLFile(filename.xmlFilename)
+            self.update()
             i += 1
 
         self.progressBar.setProperty("value", 70)

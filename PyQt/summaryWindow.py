@@ -5,7 +5,8 @@ from PyQt5.QtWidgets import QMainWindow
 
 
 class SummaryWindow(QMainWindow):
-    switch_window = QtCore.pyqtSignal(object, str, str, str)
+    # switch_window = QtCore.pyqtSignal(object, str, str, str)
+    switch_window = QtCore.pyqtSignal()
 
     def __init__(self, param_arg, libname, liblang, libpath):
         QMainWindow.__init__(self)
@@ -124,7 +125,8 @@ class SummaryWindow(QMainWindow):
         self.pushButton.setText(_translate("MainWindow", "Process and Upload"))
 
     def switch(self):
-        self.switch_window.emit(self.param_arg, self.libname, self.liblang, self.libpath)
+        # self.switch_window.emit(self.param_arg, self.libname, self.liblang, self.libpath)
+        self.switch_window.emit()
 
 
 """class SummaryWindow(QWidget):
