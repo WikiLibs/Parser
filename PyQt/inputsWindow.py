@@ -1,6 +1,7 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtWidgets import QMainWindow, QFileDialog
 
+
 class InputsWindow(QMainWindow):
     switch_window = QtCore.pyqtSignal(object, str, str, str)
 
@@ -140,79 +141,3 @@ class InputsWindow(QMainWindow):
 
     def switch(self):
         self.switch_window.emit(self.param_arg, self.lineEdit_2.text(), self.comboBox.currentText(), self.lib_path_txt)
-
-
-""" class InputInfoWindow(QWidget):
-    switch_window = QtCore.pyqtSignal(object, str, str, str)
-
-    def __init__(self, param_arg):
-        QMainWindow.__init__(self)
-
-        self.param_arg = param_arg
-        self.lib_path_txt = "Please choose a location"
-        self.resize(gc.WIDTH, gc.HEIGHT)
-        self.setWindowTitle("Wikilibs - Parser Client")
-
-        self.stylesheet =
-            QWidget{
-                background-color: #FFFFFF
-            }
-
-            QLabel{
-                color: #202020;
-            }
-
-            QPushButton{
-                background-color: #7B68EE;
-                color: #FFFFFF;
-                border-radius: 4px;
-                padding: 10px;
-            }
-
-        self.setStyleSheet(self.stylesheet)
-
-        # Create Layout grid
-        self.gridLayout = QGridLayout(self)
-
-        button = QPushButton("Next")
-        button.clicked.connect(self.switch)
-        button.setFixedSize(QtCore.QSize(100, 40))
-
-        buttton2 = QPushButton('Browse', self)
-        buttton2.setFixedSize(QtCore.QSize(100, 40))
-        buttton2.clicked.connect(self.browseLibPathFolder)
-
-        label1 = QLabel("Library language")
-        self.line_edit = QLineEdit()
-        label2 = QLabel("Library name")
-        self.combo_box = QComboBox()
-        self.combo_box.addItems(["C", "PYTHON3"])
-        label3 = QLabel("Library path")
-        self.lib_path_label = QLabel(self.lib_path_txt)
-
-        title = QLabel("Please input the following information", self)
-        title.setAlignment(QtCore.Qt.AlignHCenter | QtCore.Qt.AlignVCenter)
-        title.setFont(QtGui.QFont('Assets/Fonts/OpenSans-Bold', 14))
-
-        # Add widgets to Layout Grid
-        self.gridLayout.addWidget(title, 0, 0)
-        self.gridLayout.addWidget(label1, 1, 0)
-        self.gridLayout.addWidget(self.line_edit, 1, 1)
-        self.gridLayout.addWidget(label2, 2, 0)
-        self.gridLayout.addWidget(self.combo_box, 2, 1)
-        self.gridLayout.addWidget(label3, 3, 0)
-        self.gridLayout.addWidget(self.lib_path_label, 3, 1)
-        self.gridLayout.addWidget(buttton2, 3, 3)
-        self.gridLayout.addWidget(button, 4, 3)
-
-    def browseLibPathFolder(self):
-        self.lib_path_txt = str(QFileDialog.getExistingDirectory(self, "Select Directory"))
-        self.gridLayout.removeWidget(self.lib_path_label)
-        self.lib_path_label.close()
-        self.lib_path_label = QLabel(self.lib_path_txt)
-        self.gridLayout.addWidget(self.lib_path_label, 3, 1)
-        self.gridLayout.update()
-
-    def switch(self):
-        self.switch_window.emit(self.param_arg, self.line_edit.text(), self.combo_box.currentText(), self.lib_path_txt)
- """

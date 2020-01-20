@@ -1,5 +1,4 @@
 import sys
-import time
 
 from welcomeWindow import WelcomeWindow
 from inputsWindow import InputsWindow
@@ -17,10 +16,6 @@ class Controller:
     def __init__(self):
         self.process = ProcessingWindow()
         pass
-
-    # def callProcessUpload(self):
-    #     time.sleep(2)
-    #     self.process.processUpload()
 
     def show_WelcomeWindow(self, param_arg):
         self.welcome = WelcomeWindow(param_arg)
@@ -46,13 +41,8 @@ class Controller:
 
     def show_ProcessingWindow(self):
         self.summary.close()
-        # self.summary.pushButton.released(self.callProcessUpload())
-        # self.process = ProcessingWindow(param_arg, libname, liblang, libpath)
-        # self.process.show()
-        # time.sleep(2)
         self.process.processUpload()
         self.process.switch_window.connect(self.show_EndWindow)
-        # self.process.show()
 
     def show_EndWindow(self):
         self.end = EndWindow()

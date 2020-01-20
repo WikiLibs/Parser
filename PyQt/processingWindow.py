@@ -5,7 +5,6 @@ import Lang_Java.parserJava as parserJava
 
 from urllib.request import urlopen
 import os
-import time
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtWidgets import QMainWindow
@@ -22,16 +21,6 @@ def getFunctionsLang():
 
 class ProcessingWindow(QMainWindow):
     switch_window = QtCore.pyqtSignal()
-
-    # def __init__(self, param_arg, libname, liblang, libpath):
-    #     QMainWindow.__init__(self)
-    #     self.param_arg = param_arg
-    #     self.libname = libname
-    #     self.liblang = liblang
-    #     self.libpath = libpath
-    #     self.setupStyle()
-    #     self.setupUi()
-    #     # self.processUpload()
 
     def __init__(self):
         QMainWindow.__init__(self)
@@ -139,58 +128,6 @@ class ProcessingWindow(QMainWindow):
         self.label_2.setText(_translate("MainWindow", "Status :"))
         self.label_3.setText(_translate("MainWindow", "starting"))
         self.pushButton.setText(_translate("MainWindow", "Finish"))
-
-    """def __init__(self, param_arg, libname, liblang, libpath):
-        QMainWindow.__init__(self)
-
-        self.param_arg = param_arg
-        self.libname = libname
-        self.liblang = liblang
-        self.libpath = libpath
-        self.resize(gc.WIDTH, gc.HEIGHT)
-        self.setWindowTitle("Wikilibs - Parser Client")
-
-        self.stylesheet =
-            QWidget{
-                background-color: #FFFFFF
-            }
-
-            QLabel{
-                color: #202020;
-            }
-
-            QPushButton{
-                background-color: #7B68EE;
-                color: #FFFFFF;
-                border-radius: 4px;
-                padding: 10px;
-            }
-
-            QPushButton#ButtonDisabled{
-                background-color: #808080;
-                color: #FFFFFF;
-                border-radius: 4px;
-                padding: 10px;
-            }
-        self.setStyleSheet(self.stylesheet)
-
-        # Create Layout grid
-        self.gridLayout = QGridLayout(self)
-
-        self.buttonUp = QPushButton("Upload")
-        self.buttonUp.clicked.connect(self.processUpload)
-        self.buttonUp.setFixedSize(QtCore.QSize(100, 40))
-
-        self.label1 = QLabel("Please click on the upload button.")
-
-        self.title = QLabel("Processing...", self)
-        self.title.setAlignment(QtCore.Qt.AlignHCenter)
-        self.title.setFont(QtGui.QFont('Assets/Fonts/OpenSans-Bold', 14))
-
-        # Add widgets to Layout Grid
-        self.gridLayout.addWidget(self.title, 0, 0)
-        self.gridLayout.addWidget(self.label1, 2, 0)
-        self.gridLayout.addWidget(self.buttonUp, 2, 2)"""
 
     def processUpload(self):
         # Process Everything to Parse
