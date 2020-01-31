@@ -55,26 +55,26 @@ def buildSymbol(typename, prototypeObj, path, importString=""):
 def buildFunction(path, prototypeObj, importString=""):
     return (buildSymbol("function", prototypeObj, path, importString))
 
-def buildVariable(path, prototypeObj, importString="")
+def buildVariable(path, prototypeObj, importString=""):
     return (buildSymbol("variable", prototypeObj, path, importString))
 
-def buildDefine(path, prototypeObj, importString="")
+def buildDefine(path, prototypeObj, importString=""):
     return (buildSymbol("define", prototypeObj, path, importString))
 
-def buildClass(path, prototypeObj, importString="")
+def buildClass(path, prototypeObj, importString=""):
     return (buildSymbol("class", prototypeObj, path, importString))
 
-def buildUnion(path, prototypeObj, importString="")
+def buildUnion(path, prototypeObj, importString=""):
     return (buildSymbol("union", prototypeObj, path, importString))
 
-def buildTypedef(path, prototypeObj, importString="")
+def buildTypedef(path, prototypeObj, importString=""):
     return (buildSymbol("typedef", prototypeObj, path, importString))
 
-def buildUsing(path, prototypeObj, importString="")
+def buildUsing(path, prototypeObj, importString=""):
     return (buildSymbol("using", prototypeObj, path, importString))
 
-def buildStruct(path, prototypeObj, importString="")
+def buildStruct(path, prototypeObj, importString=""):
     return (buildSymbol("struct", prototypeObj, path, importString))
 
-def buildNamespace(path, prototypeObj, importString="")
+def buildNamespace(path, prototypeObj, importString=""):
     return (buildSymbol("namespace", prototypeObj, path, importString))
