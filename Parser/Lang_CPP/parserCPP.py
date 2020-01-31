@@ -1,6 +1,13 @@
 import xml.etree.ElementTree as ET
 from languageInterface import LanguageInterface
 from Parser.useful import filesClass
+from Parser.Lang_CPP.parseFile import parseFile
+from Parser.Lang_CPP.parseClass import parseClass
+
+kindTable = {
+    "file": parseFile,
+    "class": parseClass
+}
 
 class parserCPP(LanguageInterface):
     def getAllParseableFiles(self):
@@ -8,7 +15,7 @@ class parserCPP(LanguageInterface):
         root = ET.parse("./xml/index.xml").getroot()
 
         for child in root.iter("compound"):
-            if (child.get('kind') != 'file' and child.get('kind') != 'dir'):
+            if (child.get('kind') != 'dir'):
                 tmp = filesClass()
                 tmp.ogFilename = child.find('name').text
                 tmp.xmlFilename = "./xml/" + child.get('refid') + ".xml"
@@ -16,12 +23,14 @@ class parserCPP(LanguageInterface):
         return (files)
 
     def getSymbols(self, filename):
-        print(filename)
         root = ET.parse(filename).getroot()
 
-        for elem in root.iter('memberdef'):
-            kind = elem.get('kind')
-            print(kind)
+        cpdef = root.find("compounddef")
+        kind = cpdef.get("kind")
 
-        for elem in root.iter('innerclass'):
-            refid = elem.get('refid')
+        syms = []
+        if (kind in kindTable):
+            syms = kindTable[kind](root)
+
+        for s in syms:
+            self.appendToSymbols("generic", s)
