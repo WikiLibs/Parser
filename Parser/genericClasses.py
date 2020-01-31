@@ -1,0 +1,80 @@
+class GenericSymbol:
+    def __init__(self, typename):
+        self.typename = typename
+        self.path = "" #Path is always prefixed with langName/libName
+        self.importString = ""
+        self.prototypes = []
+        self.linkedSymbols = []
+
+    def addPrototype(self, proto):
+        self.prototypes.append(proto)
+        return (self)
+
+    def addMember(self, path):
+        self.linkedSymbols.append(symbol)
+        return (self)
+
+class GenericPrototype:
+    def __init__(self):
+        self.prototype = ""
+        self.description = ""
+        self.parameters = []
+
+    def addParameter(self, param):
+        self.parameters.append(param)
+        return (self)
+
+class GenericParameter:
+    def __init__(self):
+        self.prototype = ""
+        self.description = ""
+        self.linkedSymbol = ""
+
+
+# Start symbol types definitions
+def buildPrototype(prototype, description):
+    obj = GenericPrototype()
+    obj.prototype = prototype
+    obj.description = description
+    return (obj)
+
+def buildParameter(prototype, description, linkedSymbol):
+    obj = GenericParameter()
+    obj.prototype = prototype
+    obj.description = description
+    obj.linkedSymbol = linkedSymbol
+    return (obj)
+
+def buildSymbol(typename, prototypeObj, path, importString=""):
+    sym = GenericSymbol(typename)
+    sym.path = path
+    sym.importString = importString
+    sym.addPrototype(prototypeObj)
+    return (sym)    
+
+def buildFunction(path, prototypeObj, importString=""):
+    return (buildSymbol("function", prototypeObj, path, importString))
+
+def buildVariable(path, prototypeObj, importString="")
+    return (buildSymbol("variable", prototypeObj, path, importString))
+
+def buildDefine(path, prototypeObj, importString="")
+    return (buildSymbol("define", prototypeObj, path, importString))
+
+def buildClass(path, prototypeObj, importString="")
+    return (buildSymbol("class", prototypeObj, path, importString))
+
+def buildUnion(path, prototypeObj, importString="")
+    return (buildSymbol("union", prototypeObj, path, importString))
+
+def buildTypedef(path, prototypeObj, importString="")
+    return (buildSymbol("typedef", prototypeObj, path, importString))
+
+def buildUsing(path, prototypeObj, importString="")
+    return (buildSymbol("using", prototypeObj, path, importString))
+
+def buildStruct(path, prototypeObj, importString="")
+    return (buildSymbol("struct", prototypeObj, path, importString))
+
+def buildNamespace(path, prototypeObj, importString="")
+    return (buildSymbol("namespace", prototypeObj, path, importString))

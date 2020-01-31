@@ -33,12 +33,14 @@ SCR_KEY_HELP = 'set the secret Key to use for authenticating with the API server
 
 dicoLang = {
     "C": ['.h', '.c'],
+    "CPP": ['.hh', '.cc', '.hxx', '.cxx', '.h', '.hpp', '.cpp'],
     "PYTHON3": ['.py'],
     "JAVA": ['.java']
 }
 
 dicoLangDoxy = {
     "C": "C",
+    "CPP": "CPP",
     "PYTHON3": "PYTHON",
     "JAVA": "JAVA"
 }

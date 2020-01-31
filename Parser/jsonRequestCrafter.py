@@ -278,6 +278,31 @@ def printWIP(client, list):
     print("This feature is in WIP")
 
 
+def craftGenericRequest(client, list):
+    useful.printVerbose("\n\n/****  Begin crafting of generic symbol requests  ****/")
+    map = {}
+    pathPrefix = g_lang + "/" + g_lib + "/"
+    useful.printVerbose("> Building hash table...")
+    for sym in list: # First pass: build hash table
+        map[pathPrefix + sym.path] = sym
+    useful.printVerbose("> Processing class/struct members...")
+    for sym in list: # Second pass: prepend the "member " prefix in case the symbol is a member of class/struct
+        if (sym.typename == "class" or sym.typename == "struct"):
+            for linkedSym in sym.linkedSymbols:
+                map[pathPrefix + linkedSym].typename = "member " + map[pathPrefix + linkedSym].typename
+    useful.printVerbose("> Building and uploading JSON...")
+    for ss in list: # Third pass: build and send JSON data
+        sym = SymbolUpdate("")
+        sym.setPath(pathPrefix + ss.path)
+        sym.setLang(g_lang)
+        sym.setType(ss.typename)
+        for proto in ss.prototypes:
+            p = SymbolPrototype("")
+            p.setDescription(p.description)
+        for path in ss.linkedSymbols:
+            sym.appendSymbols(path)
+    useful.printVerbose("End crafting of generic symbol requests")
+
 def initDicoFunction():
     dict = {}
     dict['struct'] = craftStructRequest
@@ -288,6 +313,7 @@ def initDicoFunction():
     dict['variable'] = craftVariableRequest
     dict['class'] = craftClassRequest
     dict['client'] = printWIP
+    dict['generic'] = craftGenericRequest
     return dict
 
 
