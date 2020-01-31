@@ -24,11 +24,11 @@ def main():
         return 0
     useful.getDoxyfileAndRun(args.language)
 
-    files = useful.getAllFiles(args.language)
     dispatch = getFunctionsLang()
+    obj = dispatch[args.language](args.language, args.library_name)
+    files = obj.getAllParseableFiles()
     for filename in files:
         useful.logInfo('Starting parsing \'' + filename.ogFilename + '\'')
-        obj = dispatch[args.language](args.language, args.library_name)
         obj.parseXMLFile(filename.xmlFilename)
     useful.callOptimizer()
     useful.deleteFiles()

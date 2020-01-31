@@ -3,6 +3,7 @@ from languageInterface import LanguageInterface
 
 class parserCPP(LanguageInterface):
     def getSymbols(self, filename):
+        print(filename)
         root = ET.parse(filename).getroot()
 
         for elem in root.iter('memberdef'):

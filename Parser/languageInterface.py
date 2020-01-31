@@ -27,6 +27,15 @@ class LanguageInterface:
             self.printParsedData()
         self.uploadToApi()
 
+    def getAllParseableFiles(self):
+        """
+        This function is called by wikilibs_parser.py
+        The child of this class will inherit this function
+        It may be overrided by child class if necessary
+        """
+
+        return (useful.getAllFiles(self.language))
+
     def getSymbols(self, filename):
         """
         This function is the only one that should be overrided by the child
