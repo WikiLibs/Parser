@@ -33,7 +33,6 @@ class LanguageInterface:
         The child of this class will inherit this function
         It may be overrided by child class if necessary
         """
-
         return (useful.getAllFiles(self.language))
 
     def getSymbols(self, filename):
