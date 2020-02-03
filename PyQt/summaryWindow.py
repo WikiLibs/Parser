@@ -1,14 +1,16 @@
 import graphicalClient as gc
+import time
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtWidgets import QMainWindow
 
 
 class SummaryWindow(QMainWindow):
-    switch_window = QtCore.pyqtSignal()
+    switch_window = QtCore.pyqtSignal(object, str, str, str)
 
-    def __init__(self, param_arg, libname, liblang, libpath):
+    def __init__(self, param_arg, libname, liblang, libpath, parent):
         QMainWindow.__init__(self)
+        self.parent = parent
         self.param_arg = param_arg
         self.libname = libname
         self.liblang = liblang
@@ -124,4 +126,13 @@ class SummaryWindow(QMainWindow):
         self.pushButton.setText(_translate("MainWindow", "Process and Upload"))
 
     def switch(self):
-        self.switch_window.emit()
+        print(self.parent.test + " in switch")
+        # self.parent.process = gc.ProcessingWindow()
+        # self.parent.process.show()
+        # self.parent.process.setParamArg(self.param_arg)
+        # self.parent.process.setLibName(self.libname)
+        # self.parent.process.setLibLang(self.liblang)
+        # self.parent.process.setLibPath(self.libpath)
+        # self.parent.process.show()
+        print("HERE?")
+        self.switch_window.emit(self.param_arg, self.libname, self.liblang, self.libpath)
