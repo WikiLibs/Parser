@@ -5,6 +5,7 @@ import Lang_Java.parserJava as parserJava
 
 from urllib.request import urlopen
 import os
+import time
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtWidgets import QMainWindow
@@ -19,13 +20,25 @@ def getFunctionsLang():
     return dispatch
 
 
+class ProcessingWindowThread(QtCore.QThread):
+    def __init__(self, processWindowClass):
+        QtCore.QThread.__init__(self)
+        self.processWindowClass = processWindowClass
+
+    def run(self):
+        time.sleep(1)
+        self.processWindowClass.processUploadThread(self.processWindowClass)
+
 class ProcessingWindow(QMainWindow):
     switch_window = QtCore.pyqtSignal()
+    change_progressBar = QtCore.pyqtSignal(int)
 
     def __init__(self):
         QMainWindow.__init__(self)
         self.setupStyle()
         self.setupUi()
+        self.change_progressBar
+        self.change_progressBar.connect(self.updateProgressBar)
 
     def setParamArg(self, paramArg):
         self.param_arg = paramArg
@@ -129,32 +142,36 @@ class ProcessingWindow(QMainWindow):
         self.label_3.setText(_translate("MainWindow", "starting"))
         self.pushButton.setText(_translate("MainWindow", "Finish"))
 
-    def processUpload(self):
+    def processUploadThread(self, thread_parent):
         # Process Everything to Parse
         self.runDoxyfile(self.liblang)
         files = useful.getAllFiles(self.liblang)
         dispatch = getFunctionsLang()
-        self.progressBar.setProperty("value", 20)
+        # self.progressBar.setProperty("value", 20)
+        thread_parent.change_progressBar.emit(20)
 
         i = 1
-
         for filename in files:
             self.label_3.setText("parsing files... (" + str(i) + "/" + str(len(files)) + ")")
             useful.logInfo('Starting parsing \'' + filename.ogFilename + '\'')
             obj = dispatch[self.liblang](self.liblang, self.libname)
             obj.parseXMLFile(filename.xmlFilename)
+            thread_parent.change_progressBar.emit(20 + i)
             self.update()
             i += 1
 
-        self.progressBar.setProperty("value", 70)
+        # self.progressBar.setProperty("value", 70)
+        thread_parent.change_progressBar.emit(70)
         self.label_3.setText("sending data to the server")
         useful.callOptimizer()
 
-        self.progressBar.setProperty("value", 90)
+        # self.progressBar.setProperty("value", 90)
+        thread_parent.change_progressBar.emit(90)
         self.label_3.setText("deleting temporary files")
         useful.deleteFiles()
 
-        self.progressBar.setProperty("value", 100)
+        # self.progressBar.setProperty("value", 100)
+        thread_parent.change_progressBar.emit(100)
         self.label_3.setText("finished !")
         self.pushButton.setEnabled(True)
 
@@ -199,6 +216,14 @@ class ProcessingWindow(QMainWindow):
             os.system('doxygen Doxyfile')
         else:
             os.system('doxygen Doxyfile > /dev/null')
+
+    def updateProgressBar(self, val):
+        self.progressBar.setProperty("value", val)
+        self.update()
+
+    def startProcessing(self):
+        self.thread = ProcessingWindowThread(self)
+        self.thread.start()
 
     def switch(self):
         self.switch_window.emit()
