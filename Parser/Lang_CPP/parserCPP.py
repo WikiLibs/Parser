@@ -3,10 +3,14 @@ from languageInterface import LanguageInterface
 from Parser.useful import filesClass
 from Parser.Lang_CPP.parseFile import parseFile
 from Parser.Lang_CPP.parseClass import parseClass
+from Parser.Lang_CPP.parseVariable import parseVariable
+from Parser.Lang_CPP.parseFunction import parseFunction
 
 kindTable = {
     "file": parseFile,
-    "class": parseClass
+    "class": parseClass,
+    "variable": parseVariable,
+    "function": parseFunction
 }
 
 class parserCPP(LanguageInterface):

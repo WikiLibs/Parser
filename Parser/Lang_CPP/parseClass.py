@@ -53,9 +53,9 @@ def parseClass(root):
         if (kind in kindTable):
             syms = kindTable[kind](elem)
         for s in syms:
-            s.path = path + "/" + s.path
-            self.appendToSymbols("generic", s)
+            s.path = path
     for elem in root.iter('innerclass'):
         path = elem.text.replace("::", "/")
         cl.addMember(path)
-    self.appendToSymbols("generic", cl)
+    syms.append(cl)
+    return (syms)

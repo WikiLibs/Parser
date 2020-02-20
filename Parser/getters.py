@@ -90,6 +90,8 @@ def getParams(define):
             tmpParam = variableClass()
             try:
                 tmpParam.name = strOp.epurStr(param.find("defname").text)
+                if (param.find("defval")):
+                    tmpParam.value = strOp.epurStr(param.find("defval").text)
             except Exception as error:
                 useful.printExceptionVerbose(error)
                 tmpParam.name = strOp.epurStr(param.find("declname").text)

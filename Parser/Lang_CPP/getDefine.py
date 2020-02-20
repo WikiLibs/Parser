@@ -6,5 +6,5 @@ def getDefine(define):
     name = getters.getName(define)
     params = getters.getParamDesc(define, getters.getParams(define))
     briefDesc = getters.getBriefDesc(define)
-    detailedDesc = getters.removeFromDetailedDescParams(getters.getDetailedDesc(define), tmpDefine.params)
+    detailedDesc = getters.removeFromDetailedDescParams(getters.getDetailedDesc(define), params)
     return buildDefine(path=name, prototypeObj=buildDefinePrototype(name, briefDesc, detailedDesc, params), importString=define.find("location").get("file"))
