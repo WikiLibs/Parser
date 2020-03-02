@@ -3,6 +3,9 @@ from genericClasses import buildFunction
 from genericClasses import buildPrototype
 from classes import variableClass
 from Lang_CPP.utility import buildFunctionPrototype
+from useful import logError
+from useful import logInfo
+from useful import logWarning
 
 def parseFunction(root):
     protoPrefix = root.get("prot")
@@ -30,15 +33,15 @@ def parseFunction(root):
             v = variableClass()
             v.type = elem.find("type")
             if (elem.find("declname") == None): #Found bug in Doxygen
-                print("A terrible error has occured in Doxygen: template is corrupted, attempting restore...")
+                logWarning("A terrible error has occured in Doxygen: template is corrupted, attempting restore...")
                 txt = v.type.text
                 vals = txt.split(" ")
                 if (len(vals) < 2):
-                    print("Unable to restore corrupted template!")
+                    logError("Unable to restore corrupted template!")
                     continue
                 v.type = vals[0]
                 v.name = vals[1]
-                print("Successfully restored corrupted template!")
+                logInfo("Successfully restored corrupted template!")
             else:
                 if (v.type.find("ref") != None):
                     v.ref = v.type.find("ref").get("refid")
@@ -57,7 +60,7 @@ def parseFunction(root):
     else:
         returnType = returnType.text
     if (returnType == None): #XML lib of python is bugged
-        print("A terrible error in Python XML has been detected: XML lib returned None when the node exists; bypassing...")
+        logError("A terrible error in Python XML has been detected: XML lib returned None when the node exists")
         returnType = ""
     func = buildFunctionPrototype(name, returnType, briefDesc, detailedDesc, params)
     func = buildFunction("", func)

@@ -6,6 +6,9 @@ from classes import variableClass
 from Lang_CPP.parseFile import parseFile
 from Lang_CPP.parseVariable import parseVariable
 from Lang_CPP.parseFunction import parseFunction
+from useful import logError
+from useful import logInfo
+from useful import logWarning
 
 #Python wants code duplication at all costs then it gets it
 kindTable = {
@@ -37,15 +40,15 @@ def parseClass(root):
             v = variableClass()
             v.type = elem.find("type")
             if (elem.find("declname") == None): #Found bug in Doxygen
-                print("A terrible error has occured in Doxygen: template is corrupted, attempting restore...")
+                logWarning("A terrible error has occured in Doxygen: template is corrupted, attempting restore...")
                 txt = v.type.text
                 vals = txt.split(" ")
                 if (len(vals) < 2):
-                    print("Unable to restore corrupted template!")
+                    logError("Unable to restore corrupted template!")
                     continue
                 v.type = vals[0]
                 v.name = vals[1]
-                print("Successfully restored corrupted template!")
+                logInfo("Successfully restored corrupted template!")
             else:
                 if (v.type.find("ref") != None):
                     v.ref = v.type.find("ref").get("refid")

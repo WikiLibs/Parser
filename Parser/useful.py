@@ -75,12 +75,17 @@ def logWarning(msg, context=None, line=None):
     else:
         print(YELLOW + BOLD + "[WARNING]" + RESET + " - " + msg)
 
-
-def logError(msg, errorCode, context=None, line=None):
+def logError(msg, context=None, line=None):
     if context and line:
         print(RED + BOLD + "[ERROR]" + RESET + " - " + msg + " (" + context + ": " + str(line) + ")")
     else:
         print(RED + BOLD + "[ERROR]" + RESET + " - " + msg)
+
+def logFatal(msg, errorCode, context=None, line=None):
+    if context and line:
+        print(RED + BOLD + "[FATAL]" + RESET + " - " + msg + " (" + context + ": " + str(line) + ")")
+    else:
+        print(RED + BOLD + "[FATAL]" + RESET + " - " + msg)
     print(BOLD + "[---Exiting program---]" + RESET)
     sys.exit(errorCode)
 
@@ -173,12 +178,12 @@ def parserArgs():
         exceptions = True
 
     if upload and not(args.apikey):
-        logError('Error: cannot push symbols without an API key', 1)
+        logFatal('Error: cannot push symbols without an API key', 1)
     else:
         apikey = args.apikey
 
     if dicoLang.get(args.language) is None:
-        logError('Error: unsupported language \'{}\''.format(args.language), 1)
+        logFatal('Error: unsupported language \'{}\''.format(args.language), 1)
 
     printVerbose('Language = ' + args.language)
     printVerbose('Library name = ' + args.library_name + '\n')
