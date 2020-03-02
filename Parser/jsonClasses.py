@@ -89,6 +89,7 @@ class SymbolUpdate:
     __type = ''
     __prototypes = []  # list of SymbolPrototype
     __symbols = []  # list of SymbolPath
+    __importString = ""
 
     def __init__(self, name):
         self.__name = name
@@ -107,6 +108,9 @@ class SymbolUpdate:
     def setType(self, type):
         self.__type = type
 
+    def setImportString(self, importStr):
+        self.__importString = importStr
+
     def appendPrototypes(self, prototype):
         self.__prototypes.append(prototype)
 
@@ -121,6 +125,7 @@ class SymbolUpdate:
             "lang": self.__lang,
             "path": self.__path,
             "type": self.__type,
+            "import": self.__importString,
             "prototypes": [json.loads(self.__prototypes[i].get_JSON()) for i in range(0, len(self.__prototypes))],
             "symbols": self.__symbols
         }

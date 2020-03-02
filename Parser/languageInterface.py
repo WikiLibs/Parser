@@ -74,7 +74,8 @@ class LanguageInterface:
         }
 
         for symbol in self.symbols:
-            printingFunctionsDict[symbol['symbol_type']](symbol['symbol_list'])
+            if (symbol['symbol_type'] in printingFunctionsDict):
+                printingFunctionsDict[symbol['symbol_type']](symbol['symbol_list'])
 
     def uploadToApi(self):
         """

@@ -66,7 +66,7 @@ def parseClass(root):
             if (v.value != None):
                 prefix = prefix + " = " + v.value
             prefix = prefix + ", "
-        prefix = prefix[:2]
+        prefix = prefix[:-2]
         prefix = prefix + ">"
         classProto = prefix + classProto
         templatePars = getters.getParamDesc(cpdef, templatePars)
@@ -79,16 +79,17 @@ def parseClass(root):
     syms = []
     for elem in root.iter('memberdef'):
         kind = elem.get('kind')
-        path = path + "/" + elem.find("name").text
-        cl.addMember(path)
+        pp3b = path + "/" + elem.find("name").text
+        cl.addMember(pp3b)
         syms1 = []
         if (kind in kindTable):
             syms1 = kindTable[kind](elem)
         for s in syms1:
-            s.path = path
+            s.typename = "member " + s.typename
+            s.path = pp3b
             syms.append(s)
     for elem in root.iter('innerclass'):
-        path = elem.text.replace("::", "/")
-        cl.addMember(path)
+        pp3b = elem.text.replace("::", "/")
+        cl.addMember(pp3b)
     syms.append(cl)
     return (syms)
