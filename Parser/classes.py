@@ -4,6 +4,7 @@ class variableClass:
         self.type = ""
         self.value = ""
         self.desc = ""
+        self.ref = ""
 
 
 class defineClass:

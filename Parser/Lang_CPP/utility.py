@@ -1,10 +1,13 @@
-import GenericPrototype from genericClasses
+from genericClasses import GenericPrototype
+from genericClasses import buildParameter
 
 def buildFunctionPrototype(name, returnType, briefDesc, detailedDesc, parameters):
     pObj = GenericPrototype()
     funcProto = returnType + " " + name + "("
     for par in parameters:
         proto = par.type + " " + par.name
+        if (par.value != None):
+            proto = proto + " = " + par.value
         funcProto = funcProto + proto + ", "
         pObj.addParameter(buildParameter(prototype=proto, description=par.desc))
     funcProto = funcProto[:2]
@@ -13,7 +16,7 @@ def buildFunctionPrototype(name, returnType, briefDesc, detailedDesc, parameters
     pObj.description = briefDesc
     if (len(detailedDesc) > 0):
         pObj.description = detailedDesc
-    return (obj)
+    return (pObj)
 
 def buildDefinePrototype(name, briefDesc, detailedDesc, parameters):
     pObj = GenericPrototype()
@@ -27,4 +30,4 @@ def buildDefinePrototype(name, briefDesc, detailedDesc, parameters):
     pObj.description = briefDesc
     if (len(detailedDesc) > 0):
         pObj.description = detailedDesc
-    return (obj)
+    return (pObj)

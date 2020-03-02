@@ -1,13 +1,24 @@
-import Parser.getters as getters
-from Parser.genericClasses import buildVariable
-from Parser.genericClasses import buildPrototype
+import getters as getters
+from genericClasses import buildVariable
+from genericClasses import buildPrototype
 
 def parseVariable(root):
     syms = []
-    proto = root.prot
+    proto = root.get("prot")
     if (root.get("static") == "yes"):
         proto = proto + " static"
-    proto = proto + " " + root.find("type").text + " " + root.find("name").text + root.find("argstring").text
+    t = root.find("type")
+    tname = ""
+    if (t.find("ref") != None):
+        tname = t.find("ref").text
+        #TODO: Demangler
+    else:
+        tname = root.find("type").text
+    tt = root.find("argsstring").text
+    if (tt == None):
+        print("A terrible error in Python XML has been detected: XML lib returned None when the node exists; bypassing...")
+        tt = ""
+    proto = proto + " " + tname + " " + root.find("name").text + tt
     briefDesc = getters.getBriefDesc(root)
     detailedDesc = getters.getDetailedDesc(root)
     desc = briefDesc

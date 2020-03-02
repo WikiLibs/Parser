@@ -1,4 +1,4 @@
-from Parser.Lang_CPP.getDefine import getDefine
+from Lang_CPP.getDefine import getDefine
 
 def parseFile(root):
     syms = []

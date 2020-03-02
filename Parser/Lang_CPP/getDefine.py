@@ -1,5 +1,5 @@
-from Parser.Lang_CPP.utility import buildDefinePrototype
-from Parser.genericClasses import buildDefine
+from Lang_CPP.utility import buildDefinePrototype
+from genericClasses import buildDefine
 import getters as getters
 
 def getDefine(define):

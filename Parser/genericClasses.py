@@ -11,7 +11,7 @@ class GenericSymbol:
         return (self)
 
     def addMember(self, path):
-        self.linkedSymbols.append(symbol)
+        self.linkedSymbols.append(path)
         return (self)
 
 class GenericPrototype:
@@ -38,7 +38,7 @@ def buildPrototype(prototype, description):
     obj.description = description
     return (obj)
 
-def buildParameter(prototype, description, linkedSymbol):
+def buildParameter(prototype, description, linkedSymbol=None):
     obj = GenericParameter()
     obj.prototype = prototype
     obj.description = description

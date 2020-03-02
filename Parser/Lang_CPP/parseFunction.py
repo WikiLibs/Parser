@@ -1,8 +1,8 @@
-import Parser.getters as getters
-from Parser.genericClasses import buildFunction
-from Parser.genericClasses import buildPrototype
+import getters as getters
+from genericClasses import buildFunction
+from genericClasses import buildPrototype
 from classes import variableClass
-from Parser.Lang_CPP.utility import buildFunctionPrototype
+from Lang_CPP.utility import buildFunctionPrototype
 
 def parseFunction(root):
     protoPrefix = root.get("prot")
@@ -25,13 +25,42 @@ def parseFunction(root):
     params = getters.getParamDesc(root, getters.getParams(root))
     briefDesc = getters.getBriefDesc(root)
     tlist = root.find("templateparamlist")
-    for elem in tlist.iter('param'):
-        v = variableClass()
-        v.type = elem.get("type")
-        v.name = elem.get("declname")
-        v.value = elem.get("defval")
-        params.append(v)
+    if (tlist != None):
+        for elem in tlist.iter('param'):
+            v = variableClass()
+            v.type = elem.find("type")
+            if (elem.find("declname") == None): #Found bug in Doxygen
+                print("A terrible error has occured in Doxygen: template is corrupted, attempting restore...")
+                txt = v.type.text
+                vals = txt.split(" ")
+                if (len(vals) < 2):
+                    print("Unable to restore corrupted template!")
+                    continue
+                v.type = vals[0]
+                v.name = vals[1]
+                print("Successfully restored corrupted template!")
+            else:
+                if (v.type.find("ref") != None):
+                    v.ref = v.type.find("ref").get("refid")
+                    v.type = v.type.find("ref").text
+                    #TODO: Demangler
+                else:
+                    v.type = v.type.text
+                v.name = elem.find("declname").text
+                if (elem.find("defval") != None):
+                    v.value = elem.find("defval").text
+            params.append(v)
     detailedDesc = getters.removeFromDetailedDescParams(getters.getDetailedDesc(root), params)
-    returnType = root.find("type").text
+    returnType = root.find("type")
+    if (returnType.find("ref") != None):
+        returnType = returnType.find("ref").text
+    else:
+        returnType = returnType.text
+    if (returnType == None): #XML lib of python is bugged
+        print("A terrible error in Python XML has been detected: XML lib returned None when the node exists; bypassing...")
+        returnType = ""
     func = buildFunctionPrototype(name, returnType, briefDesc, detailedDesc, params)
-    return ([buildFunction("", func)])
+    func = buildFunction("", func)
+    if (returnType == ""):
+        func.typename = "constructor"
+    return ([func])
