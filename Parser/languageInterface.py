@@ -26,6 +26,7 @@ class LanguageInterface:
         if useful.verbose is True:
             self.printParsedData()
         self.uploadToApi()
+        self.symbols = []
 
     def getAllParseableFiles(self):
         """
