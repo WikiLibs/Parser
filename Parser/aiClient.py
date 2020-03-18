@@ -74,7 +74,7 @@ class AIClient:
         headers = {
             "Authorization": "Bearer " + self._token
         }
-        res = requests.put(API_URL + "/symbol/" + obj.getPath().replace("+", "__PLUS__"), headers=headers, json=data, verify=VERIFY)
+        res = requests.put(API_URL + "/symbol/" + urllib.parse.quote(obj.getPath()), headers=headers, json=data, verify=VERIFY)
         print("path = " + API_URL + "/symbol/" + obj.getPath())
         y = json.dumps(x)
         print(x)
