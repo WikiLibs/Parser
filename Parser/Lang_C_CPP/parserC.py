@@ -7,6 +7,8 @@ from Lang_C_CPP.getFunction import getFunction
 from Lang_C_CPP.getTypedef import getTypedef
 from languageInterface import LanguageInterface
 
+import getters as getters
+
 
 class parserC(LanguageInterface):
     def getSymbols(self, filename):

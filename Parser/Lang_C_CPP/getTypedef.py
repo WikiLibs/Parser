@@ -8,6 +8,7 @@ def getTypedef(elem):
     tmpTypedef = typedefClass()
 
     tmpTypedef.tdType = getters.getType(elem)
+    tmpTypedef.include = getters.getLocation(elem)
     try:
         tmp = strOp.epurStr(elem.find("argsstring").text)
         tmpTypedef.tdType = strOp.epurStr(tmpTypedef.tdType + tmp)
