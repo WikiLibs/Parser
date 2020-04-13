@@ -29,7 +29,7 @@ def main():
         obj = dispatch[args.language](args.language, args.library_name)
         obj.parseXMLFile(filename.xmlFilename)
     useful.callOptimizer()
-    # useful.deleteFiles()
+    useful.deleteFiles()
 
 
 if __name__ == '__main__':
