@@ -49,7 +49,7 @@ def getLocation(elem):
     try:
         location = elem.find("location").get("file")
         if (location == ""):
-            location = elem.find("include").text()
+            location = elem.find("includes").text
         return location
     except Exception as error:
         useful.printExceptionVerbose(error)

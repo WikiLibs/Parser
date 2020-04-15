@@ -15,7 +15,7 @@ def printDefines(defines):
 
     for elem in defines:
         print("name =", elem.name)
-        print("import = ", elem.include)
+        print("import =", elem.include)
         print("initializer =", elem.initializer)
         print("brief desc =", elem.briefDesc)
         print("detailed desc =", elem.detailedDesc)
@@ -29,7 +29,7 @@ def printStructures(structures):
 
     for elem in structures:
         print("name =", elem.name)
-        print("import = ", elem.include)
+        print("import =", elem.include)
         print("brief desc =", elem.briefDesc)
         print("detailed desc =", elem.detailedDesc)
         for memb in elem.members:
@@ -43,7 +43,7 @@ def printUnions(unions):
 
     for elem in unions:
         print("name =", elem.name)
-        print("import = ", elem.include)
+        print("import =", elem.include)
         print("brief desc =", elem.briefDesc)
         print("detailed desc =", elem.detailedDesc)
         for memb in elem.members:
@@ -57,7 +57,7 @@ def printTypedefs(typedefs):
     for elem in typedefs:
         print("type =", elem.tdType)
         print("name =", elem.tdName)
-        print("import = ", elem.include)
+        print("import =", elem.include)
         print("brief desc =", elem.briefDesc)
         print("detailed desc =", elem.detailedDesc)
         print()
@@ -68,7 +68,7 @@ def printFunctions(functions):
 
     for elem in functions:
         print("name =", elem.name)
-        print("import = ", elem.include)
+        print("import =", elem.include)
         print("brief desc =", elem.briefDesc)
         print("detailed desc =", elem.detailedDesc)
         print("parameters :")
@@ -87,7 +87,7 @@ def printClasses(classes):
 
     for elem in classes:
         print("name =", elem.name)
-        print("import = ", elem.include)
+        print("import =", elem.include)
         print("description =", elem.description)
         print("\t", end="")
         printVariables(elem.variables)
