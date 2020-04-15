@@ -7,7 +7,7 @@ g_lang = ""
 g_lib = ""
 
 
-def craftStructRequest(client, structs):
+def craftStructRequest(client, structs): #import
     global g_lang
     global g_lib
 
@@ -17,6 +17,7 @@ def craftStructRequest(client, structs):
         sym = SymbolUpdate(struct.name)
         sym.setLang(g_lang)
         sym.setType("struct")
+        sym.setImport(struct.include)
         sym_proto = SymbolPrototype(struct.name)
         sym_proto.setDescription(struct.detailedDesc)
         sym_proto.setPrototype("struct " + struct.name)
@@ -47,7 +48,7 @@ def craftStructRequest(client, structs):
     useful.printVerbose("Ended crafting Struct Request")
 
 
-def craftDefineRequest(client, defines):
+def craftDefineRequest(client, defines): #import
     global g_lang
     global g_lib
 
@@ -58,6 +59,7 @@ def craftDefineRequest(client, defines):
         sym = SymbolUpdate(define.name)
         sym.setLang(g_lang)
         sym.setType("macro")
+        sym.setImport(define.include)
         sym_proto = SymbolPrototype(define.name)
         sym_proto.setDescription(define.detailedDesc)
         sym_proto.setPrototype("#define " + define.name + " " + define.initializer)
@@ -80,7 +82,7 @@ def craftDefineRequest(client, defines):
     useful.printVerbose("Ended crafting Define Request")
 
 
-def craftUnionRequest(client, unions):
+def craftUnionRequest(client, unions): #import
     global g_lang
     global g_lib
 
@@ -89,6 +91,7 @@ def craftUnionRequest(client, unions):
         sym = SymbolUpdate(union.name)
         sym.setLang(g_lang)
         sym.setType("union")
+        sym.setImport(union.include)
         sym_proto = SymbolPrototype(union.name)
         sym_proto.setDescription(union.detailedDesc)
         sym_proto.setPrototype("union " + union.name)
@@ -118,7 +121,7 @@ def craftUnionRequest(client, unions):
     useful.printVerbose("Ended crafting Union Request")
 
 
-def craftFunctionRequest(client, functions):
+def craftFunctionRequest(client, functions): #import
     global g_lang
     global g_lib
 
@@ -128,6 +131,7 @@ def craftFunctionRequest(client, functions):
         sym = SymbolUpdate(function.name)
         sym.setLang(g_lang)
         sym.setType("function")
+        sym.setImport(function.include)
         sym_proto = SymbolPrototype(function.name)
         sym_proto.setDescription(function.detailedDesc)
         buf = function.returnType + " " + function.name + "("
@@ -157,7 +161,7 @@ def craftFunctionRequest(client, functions):
     useful.printVerbose("Ended crafting Function Request")
 
 
-def craftTypedefRequest(client, typedefs):
+def craftTypedefRequest(client, typedefs): #import
     global g_lang
     global g_lib
 
@@ -167,6 +171,7 @@ def craftTypedefRequest(client, typedefs):
         sym = SymbolUpdate(typedef.tdName)
         sym.setLang(g_lang)
         sym.setType("typedef")
+        sym.setImport(typedef.include)
         sym_proto = SymbolPrototype(typedef.tdName)
         sym_proto.setDescription(typedef.detailedDesc)
         sym_proto.setPrototype("typedef " + typedef.tdName + " " + typedef.tdType)
@@ -180,7 +185,7 @@ def craftTypedefRequest(client, typedefs):
     useful.printVerbose("Ended crafting Typedef Request")
 
 
-def craftClassRequest(client, classes):
+def craftClassRequest(client, classes): #import
     global g_lang
     global g_lib
 
@@ -190,6 +195,7 @@ def craftClassRequest(client, classes):
         sym = SymbolUpdate(classe.name)
         sym.setLang(g_lang)
         sym.setType("class")
+        sym.setImport(classe.include)
         sym_proto = SymbolPrototype(classe.name)
         sym_proto.setDescription(classe.description)
         sym_proto.setPrototype("class " + classe.name)

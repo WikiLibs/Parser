@@ -42,6 +42,7 @@ class Test_PrintingFunctions(unittest.TestCase):
         tmpVar.desc = 'desc'
         tmpDef = classes.defineClass()
         tmpDef.name = 'name'
+        tmpDef.include = 'import'
         tmpDef.initializer = 'init'
         tmpDef.params = [tmpVar]
         tmpDef.briefDesc = 'desc brief'
@@ -52,6 +53,7 @@ class Test_PrintingFunctions(unittest.TestCase):
         sys.stdout = sys.__stdout__  # reset stdout
         self.assertEqual(capturedOutput.getvalue(), '\033[1mMacros:\033[0m\n\n'
                                                     'name = name\n'
+                                                    'import = import\n'
                                                     'initializer = init\n'
                                                     'brief desc = desc brief\n'
                                                     'detailed desc = desc detail\n'
@@ -70,6 +72,7 @@ class Test_PrintingFunctions(unittest.TestCase):
         tmpVar.type = 'type'
         tmpStruct = classes.structClass()
         tmpStruct.name = 'name'
+        tmpStruct.include = 'import'
         tmpStruct.members = [tmpVar]
         tmpStruct.briefDesc = 'desc brief'
         tmpStruct.detailedDesc = 'desc detail'
@@ -79,6 +82,7 @@ class Test_PrintingFunctions(unittest.TestCase):
         sys.stdout = sys.__stdout__  # reset stdout
         self.assertEqual(capturedOutput.getvalue(), '\033[1mStructures:\033[0m\n\n'
                                                     'name = name\n'
+                                                    'import = import\n'
                                                     'brief desc = desc brief\n'
                                                     'detailed desc = desc detail\n'
                                                     '\t- type name ( desc )\n\n\n')
@@ -96,6 +100,7 @@ class Test_PrintingFunctions(unittest.TestCase):
         tmpVar.type = 'type'
         tmpUnion = classes.unionClass()
         tmpUnion.name = 'name'
+        tmpUnion.include = 'import'
         tmpUnion.members = [tmpVar]
         tmpUnion.briefDesc = 'desc brief'
         tmpUnion.detailedDesc = 'desc detail'
@@ -105,6 +110,7 @@ class Test_PrintingFunctions(unittest.TestCase):
         sys.stdout = sys.__stdout__  # reset stdout
         self.assertEqual(capturedOutput.getvalue(), '\033[1mUnions:\033[0m\n\n'
                                                     'name = name\n'
+                                                    'import = import\n'
                                                     'brief desc = desc brief\n'
                                                     'detailed desc = desc detail\n'
                                                     '\t- type name ( desc )\n\n')
@@ -119,6 +125,7 @@ class Test_PrintingFunctions(unittest.TestCase):
         tmpTypedef = classes.typedefClass()
         tmpTypedef.tdName = 'name'
         tmpTypedef.tdType = 'type'
+        tmpTypedef.include = 'import'
         tmpTypedef.briefDesc = 'desc brief'
         tmpTypedef.detailedDesc = 'desc detail'
         typedefs = [tmpTypedef]
@@ -128,6 +135,7 @@ class Test_PrintingFunctions(unittest.TestCase):
         self.assertEqual(capturedOutput.getvalue(), '\033[1mTypedefs:\033[0m\n\n'
                                                     'type = type\n'
                                                     'name = name\n'
+                                                    'import = import\n'
                                                     'brief desc = desc brief\n'
                                                     'detailed desc = desc detail\n\n')
 
@@ -144,6 +152,7 @@ class Test_PrintingFunctions(unittest.TestCase):
         tmpVar.type = 'type'
         tmpFunction = classes.functionClass()
         tmpFunction.name = 'name'
+        tmpFunction.include = 'import'
         tmpFunction.briefDesc = 'desc brief'
         tmpFunction.detailedDesc = 'desc detail'
         tmpFunction.params = [tmpVar]
@@ -158,6 +167,7 @@ class Test_PrintingFunctions(unittest.TestCase):
         sys.stdout = sys.__stdout__  # reset stdout
         self.assertEqual(capturedOutput.getvalue(), '\033[1mFunctions:\033[0m\n\n'
                                                     'name = name\n'
+                                                    'import = import\n'
                                                     'brief desc = desc brief\n'
                                                     'detailed desc = desc detail\n'
                                                     'parameters :\n'
@@ -177,6 +187,7 @@ class Test_PrintingFunctions(unittest.TestCase):
 
         tmpClass = classes.classClass()
         tmpClass.name = 'name'
+        tmpClass.include = 'import'
         tmpClass.description = 'description'
         classesTab = [tmpClass]
 
@@ -184,6 +195,7 @@ class Test_PrintingFunctions(unittest.TestCase):
         sys.stdout = sys.__stdout__  # reset stdout
         self.assertEqual(capturedOutput.getvalue(), '\033[1mClasses:\033[0m\n\n'
                                                     'name = name\n'
+                                                    'import = import\n'
                                                     'description = description\n'
                                                     '\t\033[1mVariables:\033[0m\n\n\n'
                                                     '\t\033[1mFunctions:\033[0m\n\n')

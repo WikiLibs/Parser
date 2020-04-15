@@ -45,6 +45,17 @@ def getDetailedDesc(elem):
         return ""
 
 
+def getLocation(elem):
+    try:
+        location = elem.find("location").get("file")
+        if (location == ""):
+            location = elem.find("includes").text
+        return location[location.rfind('/') + 1:]
+    except Exception as error:
+        useful.printExceptionVerbose(error)
+        return ""
+
+
 def getFunctionDetailedDesc(elem):
     detailedDesc = ""
     try:
