@@ -4,14 +4,14 @@ import sys
 import io
 
 import requests
-import Parser.useful as useful
 from unittest.mock import patch
 from PyQt5 import QtCore, QtWidgets, QtGui
 from PyQt5.QtWidgets import QMainWindow, QLabel, QGridLayout, QWidget, QPushButton, QLineEdit, QComboBox, QFileDialog
 
-import Parser.jsonClasses as jsClass
 import PyQt.graphicalClient as graphicalClient
 
+WIDTH = 640
+HEIGHT = 480
 
 class Test_pyqt(unittest.TestCase):
     res = requests
