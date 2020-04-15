@@ -1,11 +1,11 @@
 import sys
 import threading
 
-from welcomeWindow import WelcomeWindow
-from inputsWindow import InputsWindow
-from summaryWindow import SummaryWindow
-from processingWindow import ProcessingWindow, ProcessingWindowThread
-from endWindow import EndWindow
+from PyQt.welcomeWindow import WelcomeWindow
+from PyQt.inputsWindow import InputsWindow
+from PyQt.summaryWindow import SummaryWindow
+from PyQt.processingWindow import ProcessingWindow, ProcessingWindowThread
+from PyQt.endWindow import EndWindow
 
 from PyQt5 import QtWidgets, QtCore
 
@@ -13,11 +13,13 @@ WIDTH = 640
 HEIGHT = 480
 
 class Controller:
-    def __init__(self):
+    def __init__(self, width, height):
+        self.width = width
+        self.height = height
         pass
 
     def show_WelcomeWindow(self, param_arg):
-        self.welcome = WelcomeWindow(param_arg)
+        self.welcome = WelcomeWindow(param_arg, self.width, self.height)
         self.welcome.switch_window.connect(self.show_InputInfoWindow)
         self.welcome.show()
 
@@ -29,7 +31,7 @@ class Controller:
 
     def show_SummaryWindow(self, param_arg, libname, liblang, libpath):
         self.param_arg = param_arg
-        self.summary = SummaryWindow(param_arg, libname, liblang, libpath)
+        self.summary = SummaryWindow(param_arg, libname, liblang, libpath, self.width, self.height)
         self.summary.switch_window.connect(self.show_ProcessingWindow)
         self.input.close()
         self.summary.show()
@@ -47,7 +49,7 @@ class Controller:
         self.process.switch_window.connect(self.show_EndWindow)
 
     def show_EndWindow(self):
-        self.end = EndWindow()
+        self.end = EndWindow(self.width, self.height)
         self.process.close()
         self.end.show()
 
@@ -55,7 +57,7 @@ class Controller:
 def graphicalClient(program_args):
     # Create Qt application
     app = QtWidgets.QApplication(sys.argv)
-    controller = Controller()
+    controller = Controller(WIDTH, HEIGHT)
     controller.show_WelcomeWindow(program_args)
     return_val = app.exec_()
     return return_val
