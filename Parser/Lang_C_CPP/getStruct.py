@@ -9,6 +9,7 @@ def getStruct(fileName):
     root = ET.parse(fileName).getroot()
 
     tmpStruct.name = getters.getCompoundName(root)
+    tmpStruct.include = getters.getLocation(root.find("compounddef"))
     tmpStruct.briefDesc = getters.getBriefDesc(root.find("compounddef"))
     tmpStruct.detailedDesc = getters.getDetailedDesc(root.find("compounddef"))
 

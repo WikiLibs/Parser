@@ -44,7 +44,7 @@ class AIClient:
         useful.printVerbose("Refreshing bearer token")
         # Refreshing bearer token
         headers = {
-            "Authorization": self._token,
+            "Authorization": "Bearer " + self._token,
         }
         res = requests.patch(API_URL + "/auth/refresh", headers=headers)
         if (res.status_code != 200):

@@ -14,12 +14,12 @@ HEIGHT = 480
 
 class Controller:
     def __init__(self, width, height):
-        self._width = width
-        self._height = height
+        self.width = width
+        self.height = height
         pass
 
     def show_WelcomeWindow(self, param_arg):
-        self.welcome = WelcomeWindow(param_arg, self._width, self._height)
+        self.welcome = WelcomeWindow(param_arg, self.width, self.height)
         self.welcome.switch_window.connect(self.show_InputInfoWindow)
         self.welcome.show()
 
@@ -31,7 +31,7 @@ class Controller:
 
     def show_SummaryWindow(self, param_arg, libname, liblang, libpath):
         self.param_arg = param_arg
-        self.summary = SummaryWindow(param_arg, libname, liblang, libpath, self._width, self._height)
+        self.summary = SummaryWindow(param_arg, libname, liblang, libpath, self.width, self.height)
         self.summary.switch_window.connect(self.show_ProcessingWindow)
         self.input.close()
         self.summary.show()
@@ -49,7 +49,7 @@ class Controller:
         self.process.switch_window.connect(self.show_EndWindow)
 
     def show_EndWindow(self):
-        self.end = EndWindow(self._width, self._height)
+        self.end = EndWindow(self.width, self.height)
         self.process.close()
         self.end.show()
 

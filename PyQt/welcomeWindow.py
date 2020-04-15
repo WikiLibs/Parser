@@ -7,8 +7,8 @@ class WelcomeWindow(QMainWindow):
 
     def __init__(self, param_arg, width, height):
         QMainWindow.__init__(self)
-        self._width = width
-        self._height = height
+        self.width = width
+        self.height = height
         self.param_arg = param_arg
         self.setupStyle()
         self.setupUi()
@@ -34,7 +34,7 @@ class WelcomeWindow(QMainWindow):
 
     def setupUi(self):
         self.setObjectName("MainWindow")
-        self.resize(self._width, self._height)
+        self.resize(self.width, self.height)
 
         self.centralwidget = QtWidgets.QWidget(self)
         self.centralwidget.setObjectName("centralwidget")

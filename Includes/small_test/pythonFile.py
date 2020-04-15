@@ -2,6 +2,8 @@ RANDOM_VARIABLE = 'HELLO'
 """
 I hope this comment goes USEFUL_STRING
 """
+import sys
+
 USEFUL_STRING = 'HI I\'M A STRING'  # Is this okay
 
 
