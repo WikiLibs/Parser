@@ -50,7 +50,7 @@ def getLocation(elem):
         location = elem.find("location").get("file")
         if (location == ""):
             location = elem.find("includes").text
-        return location
+        return location[location.rfind('/') + 1:]
     except Exception as error:
         useful.printExceptionVerbose(error)
         return ""
