@@ -6,6 +6,7 @@ import Lang_Java.parserJava as parserJava
 from urllib.request import urlopen
 import os
 import time
+import math
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtWidgets import QMainWindow
@@ -151,12 +152,13 @@ class ProcessingWindow(QMainWindow):
         thread_parent.change_progressBar.emit(20)
 
         i = 1
+        total = len(files)
         for filename in files:
             self.label_3.setText("parsing files... (" + str(i) + "/" + str(len(files)) + ")")
             useful.logInfo('Starting parsing \'' + filename.ogFilename + '\'')
             obj = dispatch[self.liblang](self.liblang, self.libname)
             obj.parseXMLFile(filename.xmlFilename)
-            thread_parent.change_progressBar.emit(20 + i)
+            thread_parent.change_progressBar.emit(20 + (i * math.trunc(49 / total)))
             self.update()
             i += 1
 
