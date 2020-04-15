@@ -1,5 +1,3 @@
-import graphicalClient as gc
-
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtWidgets import QMainWindow
 
@@ -7,8 +5,10 @@ from PyQt5.QtWidgets import QMainWindow
 class WelcomeWindow(QMainWindow):
     switch_window = QtCore.pyqtSignal(object)
 
-    def __init__(self, param_arg):
+    def __init__(self, param_arg, width, height):
         QMainWindow.__init__(self)
+        self._width = width
+        self._height = height
         self.param_arg = param_arg
         self.setupStyle()
         self.setupUi()
@@ -34,7 +34,7 @@ class WelcomeWindow(QMainWindow):
 
     def setupUi(self):
         self.setObjectName("MainWindow")
-        self.resize(gc.WIDTH, gc.HEIGHT)
+        self.resize(self._width, self._height)
 
         self.centralwidget = QtWidgets.QWidget(self)
         self.centralwidget.setObjectName("centralwidget")

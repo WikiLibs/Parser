@@ -1,12 +1,12 @@
-import graphicalClient as gc
-
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtWidgets import QMainWindow
 
 
 class EndWindow(QMainWindow):
-    def __init__(self):
+    def __init__(self, width, height):
         QMainWindow.__init__(self)
+        self._width = width
+        self._height = height
         self.setupStyle()
         self.setupUi()
 
@@ -31,7 +31,7 @@ class EndWindow(QMainWindow):
 
     def setupUi(self):
         self.setObjectName("MainWindow")
-        self.resize(gc.WIDTH, gc.HEIGHT)
+        self.resize(self._width, self._height)
         self.centralwidget = QtWidgets.QWidget(self)
         self.centralwidget.setObjectName("centralwidget")
         self.verticalLayout = QtWidgets.QVBoxLayout(self.centralwidget)

@@ -1,4 +1,3 @@
-import graphicalClient as gc
 import time
 
 from PyQt5 import QtCore, QtGui, QtWidgets
@@ -8,12 +7,14 @@ from PyQt5.QtWidgets import QMainWindow
 class SummaryWindow(QMainWindow):
     switch_window = QtCore.pyqtSignal(object, str, str, str)
 
-    def __init__(self, param_arg, libname, liblang, libpath):
+    def __init__(self, param_arg, libname, liblang, libpath, width, height):
         QMainWindow.__init__(self)
         self.param_arg = param_arg
         self.libname = libname
         self.liblang = liblang
         self.libpath = libpath
+        self._width = width
+        self._height = height
         self.setupStyle()
         self.setupUi()
 
@@ -38,7 +39,7 @@ class SummaryWindow(QMainWindow):
 
     def setupUi(self):
         self.setObjectName("MainWindow")
-        self.resize(gc.WIDTH, gc.HEIGHT)
+        self.resize(self._width, self._height)
         self.centralwidget = QtWidgets.QWidget(self)
         self.centralwidget.setObjectName("centralwidget")
         self.verticalLayout = QtWidgets.QVBoxLayout(self.centralwidget)
