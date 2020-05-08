@@ -28,8 +28,8 @@ def parseClass(root):
     if (isAbstract == "yes"):
         classProto = classProto + "abstract "
     classProto = classProto + "class " + name
-    briefDesc = getters.getBriefDesc(root)
-    detailedDesc = getters.getDetailedDesc(root)
+    briefDesc = getters.getBriefDesc(cpdef)
+    detailedDesc = getters.getDetailedDesc(cpdef)
     description = briefDesc
     if (len(detailedDesc) > 0):
         description = detailedDesc
@@ -63,7 +63,7 @@ def parseClass(root):
         prefix = "template <"
         for v in templatePars:
             prefix = prefix + v.type + " " + v.name
-            if (v.value != None):
+            if (v.value != None and len(v.value) > 0):
                 prefix = prefix + " = " + v.value
             prefix = prefix + ", "
         prefix = prefix[:-2]

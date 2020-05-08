@@ -59,7 +59,7 @@ def buildVariable(path, prototypeObj, importString=""):
     return (buildSymbol("variable", prototypeObj, path, importString))
 
 def buildDefine(path, prototypeObj, importString=""):
-    return (buildSymbol("define", prototypeObj, path, importString))
+    return (buildSymbol("macro", prototypeObj, path, importString))
 
 def buildClass(path, prototypeObj, importString=""):
     return (buildSymbol("class", prototypeObj, path, importString))

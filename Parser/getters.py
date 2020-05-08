@@ -36,10 +36,11 @@ def getInitializer(elem):
 
 def getDetailedDesc(elem):
     try:
-        detailedDesc = ""
-        for token in elem.find("detaileddescription").itertext():
-            detailedDesc += " " + token.replace('\n', '').replace('\t', '')
-        return strOp.epurStr(detailedDesc)
+        return (strOp.epurStr(elem.find("detaileddescription/para").text))
+        #detailedDesc = ""
+        #for token in elem.find("detaileddescription").itertext():
+        #    detailedDesc += " " + token.replace('\n', '').replace('\t', ' ')
+        #return strOp.epurStr(detailedDesc)
     except Exception as error:
         useful.printExceptionVerbose(error)
         return ""
@@ -51,7 +52,7 @@ def getFunctionDetailedDesc(elem):
         detailedDesc += strOp.epurStr(elem.find("detaileddescription/para").text)
         if elem.find("detaileddescription/para/simplesect").get("kind") == 'note':
             for token in elem.find("detaileddescription/para/simplesect").itertext():
-                detailedDesc += " " + token.replace('\n', '').replace('\t', '')
+                detailedDesc += " " + token.replace('\n', '').replace('\t', ' ')
         return strOp.epurStr(detailedDesc)
     except Exception as error:
         useful.printExceptionVerbose(error)
@@ -62,7 +63,7 @@ def getBriefDesc(elem):
     try:
         briefDesc = ""
         for token in elem.find("briefdescription").itertext():
-            briefDesc += token
+            briefDesc += token.replace('\n', '').replace('\t', ' ')
         return strOp.epurStr(briefDesc)
     except Exception as error:
         useful.printExceptionVerbose(error)

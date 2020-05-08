@@ -53,7 +53,7 @@ def parseFunction(root):
                 if (elem.find("defval") != None):
                     v.value = elem.find("defval").text
             params.append(v)
-    detailedDesc = getters.removeFromDetailedDescParams(getters.getDetailedDesc(root), params)
+    detailedDesc = getters.getDetailedDesc(root)
     returnType = root.find("type")
     if (returnType.find("ref") != None):
         returnType = returnType.find("ref").text
@@ -62,7 +62,8 @@ def parseFunction(root):
     if (returnType == None): #XML lib of python is bugged
         logError("A terrible error in Python XML has been detected: XML lib returned None when the node exists")
         returnType = ""
-    func = buildFunctionPrototype(name, returnType, briefDesc, detailedDesc, params)
+    returnDesc = getters.getReturnDesc(root)
+    func = buildFunctionPrototype(protoPrefix, protoSuffix, name, returnType, briefDesc, detailedDesc, params, returnDesc)
     func = buildFunction("", func)
     if (returnType == ""):
         func.typename = "constructor"

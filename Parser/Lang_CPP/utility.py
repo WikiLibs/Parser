@@ -1,7 +1,7 @@
 from genericClasses import GenericPrototype
 from genericClasses import buildParameter
 
-def buildFunctionPrototype(name, returnType, briefDesc, detailedDesc, parameters):
+def buildFunctionPrototype(protoPrefix, protoSuffix, name, returnType, briefDesc, detailedDesc, parameters, returnDesc):
     pObj = GenericPrototype()
     funcProto = returnType + " " + name + "("
     if (len(parameters) > 0):
@@ -12,7 +12,10 @@ def buildFunctionPrototype(name, returnType, briefDesc, detailedDesc, parameters
             funcProto = funcProto + proto + ", "
             pObj.addParameter(buildParameter(prototype=proto, description=par.desc))
         funcProto = funcProto[:-2]
+    if (len(returnDesc) > 0):
+        pObj.addParameter(buildParameter(prototype="return", description=returnDesc))
     funcProto = funcProto + ")"
+    funcProto = protoPrefix + " " + funcProto + protoSuffix
     pObj.prototype = funcProto
     pObj.description = briefDesc
     if (len(detailedDesc) > 0):
