@@ -6,6 +6,7 @@ def getDefine(define):
     tmpDefine = defineClass()
 
     tmpDefine.name = getters.getName(define)
+    tmpDefine.include = getters.getLocation(define)
     tmpDefine.initializer = getters.getInitializer(define)
     tmpDefine.params = getters.getParamDesc(define, getters.getParams(define))
     tmpDefine.briefDesc = getters.getBriefDesc(define)

@@ -76,6 +76,14 @@ class Test_Getters(unittest.TestCase):
         result = getters.getDetailedDesc(None)
         self.assertEqual(result, '', 'Should be empty')
 
+    def test_getLocation(self):
+        '''
+        it should return \'include\'
+        '''
+        obj = ET.ElementTree(ET.fromstring('<root><includes>include</includes><location file=""></location></root>')).getroot()
+        result = getters.getLocation(obj)
+        self.assertEqual(result, 'include', 'Should return \'include\'')
+
     def test_getFunctionDetailedDesc(self):
         '''
         it should return \'obj_dd I\'m a note\'

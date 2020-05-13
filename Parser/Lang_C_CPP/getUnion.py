@@ -9,6 +9,7 @@ def getUnion(fileName):
     root = ET.parse(fileName).getroot()
 
     tmpUnion.name = getters.getCompoundName(root)
+    tmpUnion.include = getters.getLocation(root.find("compounddef"))
     tmpUnion.briefDesc = getters.getBriefDesc(root.find("compounddef"))
     tmpUnion.detailedDesc = getters.getDetailedDesc(root.find("compounddef"))
 

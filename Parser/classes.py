@@ -10,6 +10,7 @@ class variableClass:
 class defineClass:
     def __init__(self):
         self.name = ""
+        self.include = ""
         self.initializer = ""
         self.params = []
         self.briefDesc = ""
@@ -19,6 +20,7 @@ class defineClass:
 class structClass:
     def __init__(self):
         self.name = ""
+        self.include = ""
         self.members = []
         self.briefDesc = ""
         self.detailedDesc = ""
@@ -27,6 +29,7 @@ class structClass:
 class unionClass:
     def __init__(self):
         self.name = ""
+        self.include = ""
         self.members = []
         self.briefDesc = ""
         self.detailedDesc = ""
@@ -35,6 +38,7 @@ class unionClass:
 class functionClass:
     def __init__(self):
         self.name = ""
+        self.include = ""
         self.briefDesc = ""
         self.detailedDesc = ""
         self.params = []
@@ -46,6 +50,7 @@ class functionClass:
 class typedefClass:
     def __init__(self):
         self.tdType = ""
+        self.include = ""
         self.tdName = ""
         self.briefDesc = ""
         self.detailedDesc = ""
@@ -54,6 +59,7 @@ class typedefClass:
 class classClass:
     def __init__(self):
         self.name = ""
+        self.include = ""
         self.description = ""
         self.variables = []
         self.functions = []

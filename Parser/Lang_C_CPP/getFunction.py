@@ -6,6 +6,7 @@ def getFunction(elem):
     tmpFunction = functionClass()
 
     tmpFunction.name = getters.getName(elem)
+    tmpFunction.include = getters.getLocation(elem)
     tmpFunction.params = getters.getParamDesc(elem, getters.getParams(elem))
     tmpFunction.briefDesc = getters.getBriefDesc(elem)
     tmpFunction.detailedDesc = getters.getFunctionDetailedDesc(elem)

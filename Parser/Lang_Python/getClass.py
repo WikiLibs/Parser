@@ -9,6 +9,7 @@ def getClass(classRoot):
 
     tmpClass.name = getters.getCompoundName(classRoot)
     tmpClass.name = tmpClass.name[tmpClass.name.find('::') + 2:]
+    tmpClass.include = getters.getLocation(classRoot.find("compounddef"))
 
     for elem in classRoot.iter('memberdef'):
         kind = elem.get('kind')
