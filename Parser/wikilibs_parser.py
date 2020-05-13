@@ -1,6 +1,6 @@
 #!/usr/bin/env python3.6
 import useful
-#import graphicalClient as gui
+import graphicalClient as gui
 
 import Lang_C_CPP.parserC as parserC
 import Lang_CPP.parserCPP as parserCPP
@@ -20,7 +20,7 @@ def getFunctionsLang():
 def main():
     args = useful.parserArgs()
     if useful.graphical:
-        #gui.graphicalClient(args)
+        gui.graphicalClient(args)
         return 0
     useful.getDoxyfileAndRun(args.language)
 
