@@ -1,6 +1,6 @@
 #!/usr/bin/env python3.6
 import useful
-import graphicalClient as gui
+import PyQt.graphicalClient as gui
 
 import Lang_C_CPP.parserC as parserC
 import Lang_CPP.parserCPP as parserCPP
