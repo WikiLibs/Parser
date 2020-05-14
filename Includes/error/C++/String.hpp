@@ -26,6 +26,8 @@
 // NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
 // SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
+// BlockProject 3D Framework: https://github.com/BlockProject3D/Framework
+
 #pragma once
 #include <type_traits>
 #include <cstdlib>
