@@ -121,7 +121,7 @@ class Test_Useful(unittest.TestCase):
         self.assertEqual(cm.exception.code, 34)  # assert exit code
         self.assertEqual(capturedOutput.getvalue(), (useful.RED +
                                                      useful.BOLD +
-                                                     "[ERROR]" +
+                                                     "[FATAL]" +
                                                      useful.RESET +
                                                      " - This is a minimal error\n" +
                                                      useful.BOLD +
@@ -142,7 +142,7 @@ class Test_Useful(unittest.TestCase):
         self.assertEqual(cm.exception.code, 34)  # assert exit code
         self.assertEqual(capturedOutput.getvalue(), (useful.RED +
                                                      useful.BOLD +
-                                                     "[ERROR]" +
+                                                     "[FATAL]" +
                                                      useful.RESET +
                                                      " - This is a full error (file: 4)\n" +
                                                      useful.BOLD +

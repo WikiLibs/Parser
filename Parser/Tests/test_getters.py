@@ -65,7 +65,7 @@ class Test_Getters(unittest.TestCase):
         '''
         it should return \'obj_dd\'
         '''
-        obj = ET.ElementTree(ET.fromstring('<root><detaileddescription>obj_dd</detaileddescription></root>')).getroot()
+        obj = ET.ElementTree(ET.fromstring('<root><detaileddescription><para>obj_dd</para></detaileddescription></root>')).getroot()
         result = getters.getDetailedDesc(obj)
         self.assertEqual(result, 'obj_dd', 'Should return \'obj_dd\'')
 
