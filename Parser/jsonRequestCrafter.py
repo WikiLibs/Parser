@@ -284,6 +284,33 @@ def printWIP(client, list):
     print("This feature is in WIP")
 
 
+def craftGenericRequest(client, list):
+    useful.printVerbose("\n\n/****  Begin crafting of generic symbol requests  ****/")
+    map = {}
+    pathPrefix = g_lang + "/" + g_lib + "/"
+    useful.printVerbose("> Building and uploading JSON...")
+    for ss in list: # Third pass: build and send JSON data
+        sym = SymbolUpdate("")
+        sym.setPath(pathPrefix + ss.path)
+        sym.setLang(g_lang)
+        sym.setType(ss.typename)
+        sym.setImport(ss.importString)
+        for proto in ss.prototypes:
+            p = SymbolPrototype("")
+            p.setPrototype(proto.prototype)
+            p.setDescription(proto.description)
+            for par in proto.parameters:
+                parpar = SymbolParam("")
+                parpar.setPrototype(par.prototype)
+                parpar.setDescription(par.description)
+                parpar.setPath(par.linkedSymbol)
+                p.appendParameters(parpar)
+            sym.appendPrototypes(p)
+        for path in ss.linkedSymbols:
+            sym.appendSymbols(path)
+        client.PushSymbol(sym)
+    useful.printVerbose("End crafting of generic symbol requests")
+
 def initDicoFunction():
     dict = {}
     dict['struct'] = craftStructRequest
@@ -294,6 +321,7 @@ def initDicoFunction():
     dict['variable'] = craftVariableRequest
     dict['class'] = craftClassRequest
     dict['client'] = printWIP
+    dict['generic'] = craftGenericRequest
     return dict
 
 
@@ -316,5 +344,5 @@ def JSONRequestCrafter(lang, lib, rawData):
         if key in dict:
             dict[key](client, lists)
         else:
-            useful.logError('key ' + key + ' not found in JSONRequestCrafter (line:220)', 1)
+            useful.logFatal('key ' + key + ' not found in JSONRequestCrafter (line:220)', 1)
     useful.printVerbose("Finished crafting Requests")

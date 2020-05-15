@@ -2,9 +2,12 @@ import requests
 import json
 import time
 import useful
+import urllib.parse
 
 # WikiLibs AI Client python module
 
+VERIFY = True # Set to false when working with local API
+#API_URL = "https://localhost:5001"
 API_URL = "https://wikilibs-dev-api.azurewebsites.net"
 APP_KEY = "819b9934-e8bd-49dc-ace5-888806218117" # ne pas changer
 APP_ID = "3aed2d8a-9b87-40d1-a124-b9827d7536d2"
@@ -29,7 +32,7 @@ class AIClient:
             "appId": APP_ID,
             "appSecret": SEC
         }
-        res = requests.post(API_URL + "/auth/bot", headers=headers, json=loginJson)
+        res = requests.post(API_URL + "/auth/bot", headers=headers, json=loginJson, verify=VERIFY)
         if (res.status_code != 200):
             raise ConnectionError("Authorization token rejected " + str(res.status_code) + "\n"
                                   + res.text)
@@ -46,7 +49,7 @@ class AIClient:
         headers = {
             "Authorization": "Bearer " + self._token,
         }
-        res = requests.patch(API_URL + "/auth/refresh", headers=headers)
+        res = requests.patch(API_URL + "/auth/refresh", headers=headers, verify=VERIFY)
         if (res.status_code != 200):
             raise ConnectionError("Authorization token rejected")
 
@@ -71,7 +74,7 @@ class AIClient:
         headers = {
             "Authorization": "Bearer " + self._token
         }
-        res = requests.put(API_URL + "/symbol/" + obj.getPath(), headers=headers, json=data)
+        res = requests.put(API_URL + "/symbol/" + urllib.parse.quote(obj.getPath()), headers=headers, json=data, verify=VERIFY)
         print("path = " + API_URL + "/symbol/" + obj.getPath())
         y = json.dumps(x)
         print(x)
@@ -89,7 +92,7 @@ class AIClient:
         headers = {
             "Authorization": "Bearer " + self._token
         }
-        res = requests.patch(API_URL + "/symbol/optimize", headers=headers)
+        res = requests.patch(API_URL + "/symbol/optimize", headers=headers, verify=VERIFY)
         if (res.status_code != 200):
             raise IOError(res.text)
 
@@ -104,7 +107,7 @@ class AIClient:
             "appId": APP_ID,
             "appSecret": SEC
         }
-        res = requests.post(API_URL + "/auth/bot", headers=headers, json=loginJson)
+        res = requests.post(API_URL + "/auth/bot", headers=headers, json=loginJson, verify=VERIFY)
         if (res.status_code != 200):
             raise ConnectionError("Authorization token rejected")
 
@@ -116,6 +119,6 @@ class AIClient:
         headers = {
             "Authorization": "Bearer " + token
         }
-        res = requests.patch(API_URL + "/symbol/optimize", headers=headers)
+        res = requests.patch(API_URL + "/symbol/optimize", headers=headers, verify=VERIFY)
         if (res.status_code != 200):
             raise IOError(res.text)
