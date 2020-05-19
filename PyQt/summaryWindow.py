@@ -1,18 +1,17 @@
-import time
-
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtWidgets import QMainWindow
 
 
 class SummaryWindow(QMainWindow):
-    switch_window = QtCore.pyqtSignal(object, str, str, str)
+    switch_window = QtCore.pyqtSignal(object, str, str, str, str)
 
-    def __init__(self, param_arg, libname, liblang, libpath, width, height):
+    def __init__(self, param_arg, libname, liblang, libpath, apiKey, width, height):
         QMainWindow.__init__(self)
         self.param_arg = param_arg
         self.libname = libname
         self.liblang = liblang
         self.libpath = libpath
+        self.apiKey = apiKey
         self.width = width
         self.height = height
         self.setupStyle()
@@ -126,4 +125,4 @@ class SummaryWindow(QMainWindow):
         self.pushButton.setText(_translate("MainWindow", "Process and Upload"))
 
     def switch(self):
-        self.switch_window.emit(self.param_arg, self.libname, self.liblang, self.libpath)
+        self.switch_window.emit(self.param_arg, self.libname, self.liblang, self.libpath, self.apiKey)

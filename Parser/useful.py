@@ -45,6 +45,7 @@ dicoLangDoxy = {
     "JAVA": "JAVA"
 }
 
+
 class filesClass:
     ogFilename = ""
     xmlFilename = ""
@@ -75,11 +76,13 @@ def logWarning(msg, context=None, line=None):
     else:
         print(YELLOW + BOLD + "[WARNING]" + RESET + " - " + msg)
 
+
 def logError(msg, context=None, line=None):
     if context and line:
         print(RED + BOLD + "[ERROR]" + RESET + " - " + msg + " (" + context + ": " + str(line) + ")")
     else:
         print(RED + BOLD + "[ERROR]" + RESET + " - " + msg)
+
 
 def logFatal(msg, errorCode, context=None, line=None):
     if context and line:
@@ -191,9 +194,13 @@ def parserArgs():
     return args
 
 
-def callOptimizer():
+def callOptimizer(graphicalApiKey=None):
     global upload
     if upload:
         printVerbose("Calling optimizer")
-        aiClient.AIClient.CallOptimizer_ext(apikey)
+        if (graphicalApiKey is not None):
+            print(graphicalApiKey)
+            # aiClient.AIClient.CallOptimizer_ext(graphicalApiKey)
+        else:
+            aiClient.AIClient.CallOptimizer_ext(apikey)
         printVerbose("Called optimizer")
