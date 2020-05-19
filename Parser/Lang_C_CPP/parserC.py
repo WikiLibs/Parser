@@ -6,12 +6,18 @@ from Lang_C_CPP.getUnion import getUnion
 from Lang_C_CPP.getFunction import getFunction
 from Lang_C_CPP.getTypedef import getTypedef
 from languageInterface import LanguageInterface
-
 import getters as getters
 
+kindTable = {
+    "define": getDefine,
+    "function": getFunction,
+    "typedef": getTypedef,
+    "union": getUnion,
+    "struct": getStruct
+}
 
 class parserC(LanguageInterface):
-    def getSymbols(self, filename):
+    def getSymbolsOld(self, filename):
         root = ET.parse(filename).getroot()
 
         for elem in root.iter('memberdef'):
@@ -29,3 +35,14 @@ class parserC(LanguageInterface):
                 super().appendToSymbols('struct', getStruct("xml/" + refid + ".xml"))
             if 'union' in refid:
                 super().appendToSymbols('union', getUnion("xml/" + refid + ".xml"))
+
+    def getSymbols(self, filename):
+        root = ET.parse(filename).getroot()
+
+        for elem in root.iter('memberdef'):
+            kind = elem.get('kind')
+            super().appendToSymbols('generic', kindTable[kind](elem))
+
+        for elem in root.iter('innerclass'):
+            refid = elem.get('refid')
+            super().appendToSymbols('generic', kindTable[kind]("xml/" + refid + ".xml"))

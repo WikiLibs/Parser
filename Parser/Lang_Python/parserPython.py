@@ -1,3 +1,4 @@
+#!/usr/bin/env python3.6
 import os
 import xml.etree.ElementTree as ET
 from Lang_Python.getVariable import getVariable

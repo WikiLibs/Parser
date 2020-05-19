@@ -7,6 +7,7 @@ from Lang_Java.getVariable import getVariable
 from languageInterface import LanguageInterface
 
 
+
 class parserJava(LanguageInterface):
     def getSymbols(self, filename):
         newFilename = filename[6:-8]
