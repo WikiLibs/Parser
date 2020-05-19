@@ -1,6 +1,7 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtWidgets import QMainWindow, QFileDialog
 
+prefix = ""
 
 class InputsWindow(QMainWindow):
     switch_window = QtCore.pyqtSignal(object, str, str, str)
@@ -140,4 +141,7 @@ class InputsWindow(QMainWindow):
         self.lineEdit.setText(self.lib_path_txt)
 
     def switch(self):
+        global prefix
+
+        prefix =  self.comboBox.currentText() + "/" + self.lineEdit_2.text() + "/"
         self.switch_window.emit(self.param_arg, self.lineEdit_2.text(), self.comboBox.currentText(), self.lib_path_txt)

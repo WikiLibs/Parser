@@ -12,6 +12,7 @@ exceptions = False
 graphical = False
 apikey = ""
 secret = ""
+prefix = ""
 
 GREEN = "\033[0;32m"
 YELLOW = "\u001b[33m"
@@ -154,6 +155,7 @@ def parserArgs():
     global graphical
     global secret
     global apikey
+    global prefix
 
     argParser = argparse.ArgumentParser(description=DESCRIPTION)
     argParser.add_argument('language', help=LANGUAGE_HELP)
@@ -167,6 +169,7 @@ def parserArgs():
     args = argParser.parse_args()
 
     args.language = args.language.upper()
+    prefix = args.language + "/" + args.library_name + "/"
 
     if args.verbose:
         verbose = args.verbose
