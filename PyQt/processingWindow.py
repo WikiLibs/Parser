@@ -29,6 +29,7 @@ class ProcessingWindowThread(QtCore.QThread):
         time.sleep(1)
         self.processWindowClass.processUploadThread(self.processWindowClass)
 
+
 class ProcessingWindow(QMainWindow):
     switch_window = QtCore.pyqtSignal()
     change_progressBar = QtCore.pyqtSignal(int)
@@ -51,6 +52,9 @@ class ProcessingWindow(QMainWindow):
 
     def setLibPath(self, libpath):
         self.libpath = libpath
+
+    def setApiKey(self, apiKey):
+        self.apiKey = apiKey
 
     def setupStyle(self):
         self.stylesheet = """
@@ -156,7 +160,7 @@ class ProcessingWindow(QMainWindow):
             self.label_3.setText("parsing files... (" + str(i) + "/" + str(len(files)) + ")")
             useful.logInfo('Starting parsing \'' + filename.ogFilename + '\'')
             obj = dispatch[self.liblang](self.liblang, self.libname)
-            obj.parseXMLFile(filename.xmlFilename)
+            obj.parseXMLFile(filename.xmlFilename, self.apiKey)
             thread_parent.change_progressBar.emit(int(20 + (i * 49 / total)))
             self.update()
             i += 1
@@ -164,7 +168,7 @@ class ProcessingWindow(QMainWindow):
         # self.progressBar.setProperty("value", 70)
         thread_parent.change_progressBar.emit(70)
         self.label_3.setText("sending data to the server")
-        useful.callOptimizer()
+        useful.callOptimizer(self.apiKey)
 
         # self.progressBar.setProperty("value", 90)
         thread_parent.change_progressBar.emit(90)

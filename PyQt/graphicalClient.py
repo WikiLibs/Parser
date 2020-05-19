@@ -1,16 +1,16 @@
 import sys
-import threading
 
 from PyQt.welcomeWindow import WelcomeWindow
 from PyQt.inputsWindow import InputsWindow
 from PyQt.summaryWindow import SummaryWindow
-from PyQt.processingWindow import ProcessingWindow, ProcessingWindowThread
+from PyQt.processingWindow import ProcessingWindow
 from PyQt.endWindow import EndWindow
 
-from PyQt5 import QtWidgets, QtCore
+from PyQt5 import QtWidgets
 
 WIDTH = 640
 HEIGHT = 480
+
 
 class Controller:
     def __init__(self, width, height):
@@ -29,20 +29,21 @@ class Controller:
         self.welcome.close()
         self.input.show()
 
-    def show_SummaryWindow(self, param_arg, libname, liblang, libpath):
+    def show_SummaryWindow(self, param_arg, libname, liblang, libpath, apiKey):
         self.param_arg = param_arg
-        self.summary = SummaryWindow(param_arg, libname, liblang, libpath, self.width, self.height)
+        self.summary = SummaryWindow(param_arg, libname, liblang, libpath, apiKey, self.width, self.height)
         self.summary.switch_window.connect(self.show_ProcessingWindow)
         self.input.close()
         self.summary.show()
 
-    def show_ProcessingWindow(self, param_arg, libname, liblang, libpath):
+    def show_ProcessingWindow(self, param_arg, libname, liblang, libpath, apiKey):
         self.summary.close()
         self.process = ProcessingWindow()
         self.process.setParamArg(param_arg)
         self.process.setLibName(libname)
         self.process.setLibLang(liblang)
         self.process.setLibPath(libpath)
+        self.process.setApiKey(apiKey)
         self.process.show()
 
         self.process.startProcessing()

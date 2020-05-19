@@ -16,12 +16,13 @@ class LanguageInterface:
         self.language = language
         self.lib_name = library_name
 
-    def parseXMLFile(self, filename):
+    def parseXMLFile(self, filename, apikey):
         """
         This function is called by wikilibs_parser.py
         The child of this class will inherit this function
         It should not be overrided
         """
+        self.apikey = apikey
         self.getSymbols(filename)
         if useful.verbose is True:
             self.printParsedData()
@@ -84,7 +85,7 @@ class LanguageInterface:
         It should not be overrided
         """
         symbolsToUpload = []
-        client = AIClient(useful.apikey, aiClient.APP_ID, aiClient.SEC)
+        client = AIClient(self.apikey, aiClient.APP_ID, aiClient.SEC)
         symbolsToUpload.append(('client', client))
         for symbol in self.symbols:
             symbolsToUpload.append((symbol['symbol_type'], symbol['symbol_list']))
