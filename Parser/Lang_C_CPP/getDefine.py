@@ -19,10 +19,11 @@ def getDefineOld(define):
 def getDefine(define):
     name = getters.getName(define)
     include = getters.getLocation(define)
+    initializer = getters.getInitializer(define)
     params = getters.getParamDesc(define, getters.getParams(define))
     briefDesc = getters.getBriefDesc(define)
     detailedDesc = getters.getDetailedDesc(define)
 
     # buildDefinePrototype(name, briefDesc, detailedDesc, params)
-    defineProto = buildPrototype("#define " + name, briefDesc)
-    return buildDefine(path=name, prototypeObj=defineProto, importString=include)
+    defineProto = buildPrototype("#define " + name + " " + initializer, briefDesc)
+    return [buildDefine(path=name, prototypeObj=defineProto, importString=include)]

@@ -36,4 +36,4 @@ def getFunction(elem):
     funcProto.prototype = funcProto.prototype[:-2]
     funcProto.prototype += ")"
     funcProto.addParameter(buildParameter(prototype="return", description=returnDesc))
-    return buildFunction(path=name, prototypeObj=funcProto, importString=include)
+    return [buildFunction(path=name, prototypeObj=funcProto, importString=include)]
