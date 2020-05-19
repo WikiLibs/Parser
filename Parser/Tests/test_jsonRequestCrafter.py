@@ -42,7 +42,7 @@ class Test_JsonRequestCrafter(unittest.TestCase):
 
         self.assertEqual(cm.exception.code, 1)  # assert exit code
         self.assertEqual(capturedOutput.getvalue(),
-        (useful.RED + useful.BOLD + "[ERROR]" + useful.RESET + " - key error not found in JSONRequestCrafter (line:220)\n" + useful.BOLD + "[---Exiting program---]" + useful.RESET + "\n"), "Should print the expected")
+        (useful.RED + useful.BOLD + "[FATAL]" + useful.RESET + " - key error not found in JSONRequestCrafter (line:220)\n" + useful.BOLD + "[---Exiting program---]" + useful.RESET + "\n"), "Should print the expected")
 
     @patch('Parser.aiClient.AIClient.PushSymbol')
     def test_craft_struct_request(self,

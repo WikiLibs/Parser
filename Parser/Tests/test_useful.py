@@ -115,13 +115,13 @@ class Test_Useful(unittest.TestCase):
         with self.assertRaises(SystemExit) as cm:
             capturedOutput = io.StringIO()  # setup an io
             sys.stdout = capturedOutput  # redirect stdout
-            useful.logError('This is a minimal error', 34)
+            useful.logFatal('This is a minimal error', 34)
             sys.stdout = sys.__stdout__  # reset stdout
 
         self.assertEqual(cm.exception.code, 34)  # assert exit code
         self.assertEqual(capturedOutput.getvalue(), (useful.RED +
                                                      useful.BOLD +
-                                                     "[ERROR]" +
+                                                     "[FATAL]" +
                                                      useful.RESET +
                                                      " - This is a minimal error\n" +
                                                      useful.BOLD +
@@ -136,13 +136,13 @@ class Test_Useful(unittest.TestCase):
         with self.assertRaises(SystemExit) as cm:
             capturedOutput = io.StringIO()  # setup an io
             sys.stdout = capturedOutput  # redirect stdout
-            useful.logError('This is a full error', 34, 'file', 4)
+            useful.logFatal('This is a full error', 34, 'file', 4)
             sys.stdout = sys.__stdout__  # reset stdout
 
         self.assertEqual(cm.exception.code, 34)  # assert exit code
         self.assertEqual(capturedOutput.getvalue(), (useful.RED +
                                                      useful.BOLD +
-                                                     "[ERROR]" +
+                                                     "[FATAL]" +
                                                      useful.RESET +
                                                      " - This is a full error (file: 4)\n" +
                                                      useful.BOLD +

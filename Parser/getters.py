@@ -36,10 +36,22 @@ def getInitializer(elem):
 
 def getDetailedDesc(elem):
     try:
-        detailedDesc = ""
-        for token in elem.find("detaileddescription").itertext():
-            detailedDesc += " " + token.replace('\n', '').replace('\t', '')
-        return strOp.epurStr(detailedDesc)
+        return (strOp.epurStr(elem.find("detaileddescription/para").text))
+        #detailedDesc = ""
+        #for token in elem.find("detaileddescription").itertext():
+        #    detailedDesc += " " + token.replace('\n', '').replace('\t', ' ')
+        #return strOp.epurStr(detailedDesc)
+    except Exception as error:
+        useful.printExceptionVerbose(error)
+        return ""
+
+
+def getLocation(elem):
+    try:
+        location = elem.find("location").get("file")
+        if (location == ""):
+            location = elem.find("includes").text
+        return location[location.rfind('/') + 1:]
     except Exception as error:
         useful.printExceptionVerbose(error)
         return ""
@@ -62,7 +74,7 @@ def getFunctionDetailedDesc(elem):
         detailedDesc += strOp.epurStr(elem.find("detaileddescription/para").text)
         if elem.find("detaileddescription/para/simplesect").get("kind") == 'note':
             for token in elem.find("detaileddescription/para/simplesect").itertext():
-                detailedDesc += " " + token.replace('\n', '').replace('\t', '')
+                detailedDesc += " " + token.replace('\n', '').replace('\t', ' ')
         return strOp.epurStr(detailedDesc)
     except Exception as error:
         useful.printExceptionVerbose(error)
@@ -73,7 +85,7 @@ def getBriefDesc(elem):
     try:
         briefDesc = ""
         for token in elem.find("briefdescription").itertext():
-            briefDesc += token
+            briefDesc += token.replace('\n', '').replace('\t', ' ')
         return strOp.epurStr(briefDesc)
     except Exception as error:
         useful.printExceptionVerbose(error)
@@ -101,6 +113,8 @@ def getParams(define):
             tmpParam = variableClass()
             try:
                 tmpParam.name = strOp.epurStr(param.find("defname").text)
+                if (param.find("defval")):
+                    tmpParam.value = strOp.epurStr(param.find("defval").text)
             except Exception as error:
                 useful.printExceptionVerbose(error)
                 tmpParam.name = strOp.epurStr(param.find("declname").text)

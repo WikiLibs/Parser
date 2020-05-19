@@ -89,6 +89,7 @@ class SymbolUpdate:
     __type = ''
     __prototypes = []  # list of SymbolPrototype
     __symbols = []  # list of SymbolPath
+    __importString = ""
 
     def __init__(self, name):
         self.__name = name

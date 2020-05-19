@@ -26,6 +26,15 @@ class LanguageInterface:
         if useful.verbose is True:
             self.printParsedData()
         self.uploadToApi()
+        self.symbols = []
+
+    def getAllParseableFiles(self):
+        """
+        This function is called by wikilibs_parser.py
+        The child of this class will inherit this function
+        It may be overrided by child class if necessary
+        """
+        return (useful.getAllFiles(self.language))
 
     def getSymbols(self, filename):
         """
@@ -66,7 +75,8 @@ class LanguageInterface:
         }
 
         for symbol in self.symbols:
-            printingFunctionsDict[symbol['symbol_type']](symbol['symbol_list'])
+            if (symbol['symbol_type'] in printingFunctionsDict):
+                printingFunctionsDict[symbol['symbol_type']](symbol['symbol_list'])
 
     def uploadToApi(self):
         """
