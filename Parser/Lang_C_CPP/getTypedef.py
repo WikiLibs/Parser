@@ -7,23 +7,24 @@ from genericClasses import buildParameter
 import useful
 
 
-def getTypedefOld(elem):
-    tmpTypedef = typedefClass()
+# def getTypedefOld(elem):
+#     tmpTypedef = typedefClass()
 
-    tmpTypedef.tdType = getters.getType(elem)
-    tmpTypedef.include = getters.getLocation(elem)
-    try:
-        tmp = strOp.epurStr(elem.find("argsstring").text)
-        tmpTypedef.tdType = strOp.epurStr(tmpTypedef.tdType + tmp)
-    except Exception as error:
-        useful.printExceptionVerbose(error)
-        pass
-    tmpTypedef.tdName = getters.getName(elem)
-    tmpTypedef.briefDesc = getters.getBriefDesc(elem)
-    tmpTypedef.detailedDesc = getters.getDetailedDesc(elem)
-    return tmpTypedef
+#     tmpTypedef.tdType = getters.getType(elem)
+#     tmpTypedef.include = getters.getLocation(elem)
+#     try:
+#         tmp = strOp.epurStr(elem.find("argsstring").text)
+#         tmpTypedef.tdType = strOp.epurStr(tmpTypedef.tdType + tmp)
+#     except Exception as error:
+#         useful.printExceptionVerbose(error)
+#         pass
+#     tmpTypedef.tdName = getters.getName(elem)
+#     tmpTypedef.briefDesc = getters.getBriefDesc(elem)
+#     tmpTypedef.detailedDesc = getters.getDetailedDesc(elem)
+#     return tmpTypedef
 
 def getTypedef(elem):
+    syms = []
     tdType = getters.getType(elem)
     include = getters.getLocation(elem)
     try:
@@ -36,4 +37,5 @@ def getTypedef(elem):
     briefDesc = getters.getBriefDesc(elem)
     detailedDesc = getters.getDetailedDesc(elem)
     typedefProto = buildPrototype("typedef " + tdName + " " + tdType, briefDesc)
-    return [buildTypedef(path=tdName, prototypeObj=typedefProto, importString=include)]
+    syms.append(buildTypedef(path=tdName, prototypeObj=typedefProto, importString=include))
+    return syms

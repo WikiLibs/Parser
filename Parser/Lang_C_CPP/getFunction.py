@@ -5,20 +5,21 @@ from genericClasses import buildParameter
 import getters as getters
 
 
-def getFunctionOld(elem):
-    tmpFunction = functionClass()
+# def getFunctionOld(elem):
+#     tmpFunction = functionClass()
 
-    tmpFunction.name = getters.getName(elem)
-    tmpFunction.include = getters.getLocation(elem)
-    tmpFunction.params = getters.getParamDesc(elem, getters.getParams(elem))
-    tmpFunction.briefDesc = getters.getBriefDesc(elem)
-    tmpFunction.detailedDesc = getters.getFunctionDetailedDesc(elem)
-    tmpFunction.returnType = getters.getType(elem)
-    tmpFunction.returnDesc = getters.getReturnDesc(elem)
-    tmpFunction.returnValues = getters.getRetvals(elem)
-    return tmpFunction
+#     tmpFunction.name = getters.getName(elem)
+#     tmpFunction.include = getters.getLocation(elem)
+#     tmpFunction.params = getters.getParamDesc(elem, getters.getParams(elem))
+#     tmpFunction.briefDesc = getters.getBriefDesc(elem)
+#     tmpFunction.detailedDesc = getters.getFunctionDetailedDesc(elem)
+#     tmpFunction.returnType = getters.getType(elem)
+#     tmpFunction.returnDesc = getters.getReturnDesc(elem)
+#     tmpFunction.returnValues = getters.getRetvals(elem)
+#     return tmpFunction
 
 def getFunction(elem):
+    syms = []
     name = getters.getName(elem)
     include = getters.getLocation(elem)
     params = getters.getParamDesc(elem, getters.getParams(elem))
@@ -36,4 +37,5 @@ def getFunction(elem):
     funcProto.prototype = funcProto.prototype[:-2]
     funcProto.prototype += ")"
     funcProto.addParameter(buildParameter(prototype="return", description=returnDesc))
-    return [buildFunction(path=name, prototypeObj=funcProto, importString=include)]
+    syms.append(buildFunction(path=name, prototypeObj=funcProto, importString=include))
+    return syms

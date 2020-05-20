@@ -5,18 +5,19 @@ from genericClasses import buildDefine
 import getters as getters
 
 
-def getDefineOld(define):
-    tmpDefine = defineClass()
+# def getDefineOld(define):
+#     tmpDefine = defineClass()
 
-    tmpDefine.name = getters.getName(define)
-    tmpDefine.include = getters.getLocation(define)
-    tmpDefine.initializer = getters.getInitializer(define)
-    tmpDefine.params = getters.getParamDesc(define, getters.getParams(define))
-    tmpDefine.briefDesc = getters.getBriefDesc(define)
-    tmpDefine.detailedDesc = getters.getDetailedDesc(define)
-    return tmpDefine
+#     tmpDefine.name = getters.getName(define)
+#     tmpDefine.include = getters.getLocation(define)
+#     tmpDefine.initializer = getters.getInitializer(define)
+#     tmpDefine.params = getters.getParamDesc(define, getters.getParams(define))
+#     tmpDefine.briefDesc = getters.getBriefDesc(define)
+#     tmpDefine.detailedDesc = getters.getDetailedDesc(define)
+#     return tmpDefine
 
 def getDefine(define):
+    syms = []
     name = getters.getName(define)
     include = getters.getLocation(define)
     initializer = getters.getInitializer(define)
@@ -26,4 +27,5 @@ def getDefine(define):
 
     # buildDefinePrototype(name, briefDesc, detailedDesc, params)
     defineProto = buildPrototype("#define " + name + " " + initializer, briefDesc)
-    return [buildDefine(path=name, prototypeObj=defineProto, importString=include)]
+    syms.append(buildDefine(path=name, prototypeObj=defineProto, importString=include))
+    return syms
