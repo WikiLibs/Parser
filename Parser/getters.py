@@ -8,7 +8,10 @@ def getCompoundName(elem):
 
 
 def getName(elem):
-    return strOp.epurStr(elem.find("name").text)
+    ret = elem.find("name")
+    if ret != -1:
+        return strOp.epurStr(elem.find("name").text)
+    return "ERRORED"
 
 
 def getType(elem):
