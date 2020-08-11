@@ -1,4 +1,5 @@
 #!/usr/bin/env python3.6
+import sys
 import useful
 import PyQt.graphicalClient as gui
 
@@ -19,7 +20,7 @@ def getFunctionsLang():
 
 def main():
     args = useful.parserArgs()
-    if useful.graphical:
+    if len(sys.argv) == 1:
         gui.graphicalClient(args)
         return 0
     useful.getDoxyfileAndRun(args.language)
@@ -29,7 +30,7 @@ def main():
     files = obj.getAllParseableFiles()
     for filename in files:
         useful.logInfo('Starting parsing \'' + filename.ogFilename + '\'')
-        obj.parseXMLFile(filename.xmlFilename)
+        obj.parseXMLFile(filename.xmlFilename, useful.apikey)
     useful.callOptimizer()
     useful.deleteFiles()
 

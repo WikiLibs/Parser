@@ -46,6 +46,7 @@ dicoLangDoxy = {
     "JAVA": "JAVA"
 }
 
+
 class filesClass:
     ogFilename = ""
     xmlFilename = ""
@@ -76,11 +77,13 @@ def logWarning(msg, context=None, line=None):
     else:
         print(YELLOW + BOLD + "[WARNING]" + RESET + " - " + msg)
 
+
 def logError(msg, context=None, line=None):
     if context and line:
         print(RED + BOLD + "[ERROR]" + RESET + " - " + msg + " (" + context + ": " + str(line) + ")")
     else:
         print(RED + BOLD + "[ERROR]" + RESET + " - " + msg)
+
 
 def logFatal(msg, errorCode, context=None, line=None):
     if context and line:
@@ -157,46 +160,51 @@ def parserArgs():
     global apikey
     global prefix
 
-    argParser = argparse.ArgumentParser(description=DESCRIPTION)
-    argParser.add_argument('language', help=LANGUAGE_HELP)
-    argParser.add_argument('library_name', help=NAME_HELP)
-    argParser.add_argument('-v', '--verbose', help=VERBOSE_HELP, action='store_true')
-    argParser.add_argument('-e', '--exception', help=EXCEPTION_HELP, action='store_true')
-    argParser.add_argument('-g', '--gui', help=GUI_HELP, action='store_true')
-    argParser.add_argument('-n', '--noUpload', help=NO_UPLOAD_HELP, action='store_true')
-    argParser.add_argument('-k', '--apikey', help=API_KEY_HELP)
-    argParser.add_argument('-s', '--secret', help=SCR_KEY_HELP)
-    args = argParser.parse_args()
+    if len(sys.argv) != 1:
+        argParser = argparse.ArgumentParser(description=DESCRIPTION)
+        argParser.add_argument('language', help=LANGUAGE_HELP)
+        argParser.add_argument('library_name', help=NAME_HELP)
+        argParser.add_argument('-v', '--verbose', help=VERBOSE_HELP, action='store_true')
+        argParser.add_argument('-e', '--exception', help=EXCEPTION_HELP, action='store_true')
+        argParser.add_argument('-g', '--gui', help=GUI_HELP, action='store_true')
+        argParser.add_argument('-n', '--noUpload', help=NO_UPLOAD_HELP, action='store_true')
+        argParser.add_argument('-k', '--apikey', help=API_KEY_HELP)
+        argParser.add_argument('-s', '--secret', help=SCR_KEY_HELP)
+        args = argParser.parse_args()
 
     args.language = args.language.upper()
     prefix = args.language + "/" + args.library_name + "/"
 
-    if args.verbose:
-        verbose = args.verbose
-    if args.gui:
-        graphical = True
-    if args.noUpload:
-        upload = False
-    if args.exception:
-        exceptions = True
+        if args.verbose:
+            verbose = args.verbose
+        if args.gui:
+            graphical = True
+        if args.noUpload:
+            upload = False
+        if args.exception:
+            exceptions = True
 
-    if upload and not(args.apikey):
-        logFatal('Error: cannot push symbols without an API key', 1)
-    else:
-        apikey = args.apikey
+        if upload and not(args.apikey):
+            logFatal('Error: cannot push symbols without an API key', 1)
+        else:
+            apikey = args.apikey
 
-    if dicoLang.get(args.language) is None:
-        logFatal('Error: unsupported language \'{}\''.format(args.language), 1)
+        if dicoLang.get(args.language) is None:
+            logFatal('Error: unsupported language \'{}\''.format(args.language), 1)
 
-    printVerbose('Language = ' + args.language)
-    printVerbose('Library name = ' + args.library_name + '\n')
+        printVerbose('Language = ' + args.language)
+        printVerbose('Library name = ' + args.library_name + '\n')
 
-    return args
+        return args
 
 
-def callOptimizer():
+def callOptimizer(graphicalApiKey=None):
     global upload
     if upload:
         printVerbose("Calling optimizer")
-        aiClient.AIClient.CallOptimizer_ext(apikey)
+        if (graphicalApiKey is not None):
+            print(graphicalApiKey)
+            # aiClient.AIClient.CallOptimizer_ext(graphicalApiKey)
+        else:
+            aiClient.AIClient.CallOptimizer_ext(apikey)
         printVerbose("Called optimizer")
