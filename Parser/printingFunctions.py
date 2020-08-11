@@ -93,3 +93,13 @@ def printClasses(classes):
         printVariables(elem.variables)
         print("\t", end="")
         printFunctions(elem.functions)
+
+
+def printGeneric(syms):
+    print("\033[1mClasses:\033[0m\n")
+
+    for elem in syms:
+        print("name =", elem.typename)
+        print("path =", elem.path)
+        print("import =", elem.importString)
+        print("")

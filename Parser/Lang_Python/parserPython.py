@@ -53,5 +53,5 @@ class parserPython(LanguageInterface):
             self.appendToSymbols("generic", s)
 
 def getClassesFiles(filename):
-    result = os.popen('find . -name class*' + filename + '*.xml -print').read().split()
+    result = os.popen('find . -name \"class*' + filename + '*.xml\" -print').read().split()
     return result

@@ -34,7 +34,7 @@ def getClass(classRoot):
     if prefix == "":
         prefix = inputsWindow.prefix
     name = getters.getCompoundName(classRoot)
-    name = name[name.find('::') + 2:]
+    name = name[name.find('::') + 1:]
     include = getters.getLocation(classRoot.find("compounddef"))
     briefDesc = getters.getBriefDesc(classRoot.find("compounddef"))
 
