@@ -47,7 +47,7 @@ def getClass(classRoot):
             varInclude = getters.getLocation(elem)
             varType = getters.getType(elem)
             varBriefDesc = getters.getBriefDesc(elem)
-            varProto = buildPrototype(varType + " " + varName, varBriefDesc)
+            varProto = buildPrototype(varName, varBriefDesc)
             syms.append(buildVariable(path=(name + "/" + varName), prototypeObj=varProto, importString=varInclude))
             classSym.addMember(prefix + name + "/" + varName)
 
@@ -60,7 +60,7 @@ def getClass(classRoot):
             funcReturnDesc = getters.getReturnDesc(elem)
             funcProto = buildPrototype(funcReturnType + " " + funcName + "(", funcBriefDesc)
             for param in funcParams:
-                paramProto = param.type + " " + param.name
+                paramProto = param.name
                 funcProto.prototype += paramProto + ", "
                 funcProto.addParameter(buildParameter(prototype=paramProto, description=param.desc))
             funcProto.prototype = funcProto.prototype[:-2]

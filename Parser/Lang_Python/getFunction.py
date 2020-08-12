@@ -27,7 +27,7 @@ def getFunction(elem):
 
     funcProto = buildPrototype(returnType + " " + name + "(", briefDesc)
     for param in params:
-        proto = param.type + " " + param.name
+        proto = param.name
         funcProto.prototype += proto + ", "
         funcProto.addParameter(buildParameter(prototype=proto, description=param.desc))
     funcProto.prototype = funcProto.prototype[:-2]

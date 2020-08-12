@@ -172,8 +172,8 @@ def parserArgs():
         argParser.add_argument('-s', '--secret', help=SCR_KEY_HELP)
         args = argParser.parse_args()
 
-    args.language = args.language.upper()
-    prefix = args.language + "/" + args.library_name + "/"
+        args.language = args.language.upper()
+        prefix = args.language + "/" + args.library_name + "/"
 
         if args.verbose:
             verbose = args.verbose

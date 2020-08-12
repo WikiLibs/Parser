@@ -21,6 +21,6 @@ def getVariable(elem):
     value = getters.getInitializer(elem)
     briefDesc = getters.getBriefDesc(elem)
 
-    varProto = buildPrototype(vtype + " " + name, briefDesc)
+    varProto = buildPrototype(name, briefDesc)
     syms.append(buildVariable(path=name, prototypeObj=varProto, importString=include))
     return syms
