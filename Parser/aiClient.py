@@ -9,7 +9,7 @@ import urllib.parse
 VERIFY = True # Set to false when working with local API
 #API_URL = "https://localhost:5001"
 API_URL = "https://wikilibs-dev-api.azurewebsites.net"
-APP_KEY = "819b9934-e8bd-49dc-ace5-888806218117" # ne pas changer
+APP_KEY = ""
 APP_ID = "3aed2d8a-9b87-40d1-a124-b9827d7536d2"
 SEC = "uM4&~tU6/\"fY5;çlQ1%ùwV8@"
 
