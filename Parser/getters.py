@@ -1,7 +1,8 @@
 import strOperations as strOp
 import useful
 from classes import variableClass
-
+from classes import exceptionClass
+import xml.etree.ElementTree as ET
 
 def getCompoundName(elem):
     return strOp.epurStr(elem.find("compounddef/compoundname").text)
@@ -106,6 +107,17 @@ def getReturnDesc(elem):
         return ""
 
 
+def getRefName(refid):
+    file = "./xml/" + refid + ".xml"
+    root = ET.parse(file).getroot()
+    if (root == None):
+        return (None)
+    cpdef = root.find("compounddef")
+    if (cpdef == None):
+        return (None)
+    return (cpdef.find("compoundname").text)
+
+
 def getParams(define):
     params = []
     try:
@@ -124,6 +136,28 @@ def getParams(define):
     except Exception as error:
         useful.printExceptionVerbose(error)
         return params
+
+
+def getExceptions(root):
+    exceptions = []
+    for plist in root.findall("detaileddescription/para/parameterlist"):
+        if (plist.get("kind") == "exception"):
+            for exp in plist.findall("parameteritem"):
+                extype = exp.find("parameternamelist/parametername")
+                exname = strOp.epurStr(extype.text)
+                if (extype.find("ref") != None):
+                    extype = extype.find("ref").get("refid")
+                else:
+                    extype = exname
+                extype = strOp.epurStr(exp.find("parameternamelist/parametername").text)
+                exdesc = ""
+                for txt in exp.find("parameterdescription").itertext():
+                    exdesc += " " + strOp.epurStr(txt)
+                cl = exceptionClass()
+                cl.typename = exname
+                cl.reference = extype
+                cl.description = exdesc
+                exceptions.append(cl)
 
 
 def removeFromDetailedDescParams(desc, params):

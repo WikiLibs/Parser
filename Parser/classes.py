@@ -63,3 +63,9 @@ class classClass:
         self.description = ""
         self.variables = []
         self.functions = []
+
+class exceptionClass:
+    def __init__(self):
+        self.description = ""
+        self.reference = ""
+        self.typename = ""
