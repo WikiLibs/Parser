@@ -65,7 +65,8 @@ def parseFunction(root):
         logError("A terrible error in Python XML has been detected: XML lib returned None when the node exists")
         returnType = ""
     returnDesc = getters.getReturnDesc(root)
-    func = buildFunctionPrototype(protoPrefix, protoSuffix, name, returnType, briefDesc, detailedDesc, params, returnDesc)
+    exceptions = getters.getExceptions(root)
+    func = buildFunctionPrototype(protoPrefix, protoSuffix, name, returnType, briefDesc, detailedDesc, params, returnDesc, exceptions)
     func = buildFunction("", func)
     if (returnType == ""):
         func.typename = "constructor"
