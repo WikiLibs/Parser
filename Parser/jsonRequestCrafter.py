@@ -307,7 +307,7 @@ def craftGenericRequest(client, list):
                 p.appendParameters(parpar)
             sym.appendPrototypes(p)
         for path in ss.linkedSymbols:
-            sym.appendSymbols(path)
+            sym.appendSymbols(pathPrefix + path)
         client.PushSymbol(sym)
     useful.printVerbose("End crafting of generic symbol requests")
 
