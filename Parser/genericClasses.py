@@ -62,6 +62,12 @@ def buildSymbol(typename, prototypeObj, path, importString=""):
     sym.addPrototype(prototypeObj)
     return (sym)    
 
+def buildException(linkedSymbol, description=None):
+    obj = GenericException()
+    obj.description = description
+    obj.linkedSymbol = linkedSymbol
+    return (obj)
+
 def buildFunction(path, prototypeObj, importString=""):
     return (buildSymbol("function", prototypeObj, path, importString))
 
