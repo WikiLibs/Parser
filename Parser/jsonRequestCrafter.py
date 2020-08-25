@@ -285,7 +285,7 @@ def printWIP(client, list):
 
 
 def autoBuildSymbol(client, path, type, prototype):
-    sym = SymbolUpdate()
+    sym = SymbolUpdate("")
     sym.setPath(path)
     sym.setLang(g_lang)
     sym.setType(type)
