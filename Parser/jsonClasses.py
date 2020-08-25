@@ -105,7 +105,7 @@ class SymbolPrototype:
             "prototype": self.__prototype,
             "description": self.__description,
             "parameters": [json.loads(self.__parameters[i].get_JSON()) for i in range(0, len(self.__parameters))],
-            "exceptions": [json.loads(self.__parameters[i].get_JSON()) for i in range(0, len(self.__parameters))]
+            "exceptions": [json.loads(self.__exceptions[i].get_JSON()) for i in range(0, len(self.__exceptions))]
         }
         if len(jsonData['exceptions']) == 0:
             del jsonData['exceptions']
