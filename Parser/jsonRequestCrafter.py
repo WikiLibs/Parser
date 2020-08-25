@@ -303,11 +303,11 @@ def craftGenericRequest(client, list):
                 parpar = SymbolParam("")
                 parpar.setPrototype(par.prototype)
                 parpar.setDescription(par.description)
-                parpar.setPath(par.linkedSymbol)
+                parpar.setPath(pathPrefix + par.linkedSymbol)
                 p.appendParameters(parpar)
             for ex in proto.exceptions:
                 exex = SymbolException("")
-                exex.setPath(ex.linkedSymbol)
+                exex.setPath(pathPrefix + ex.linkedSymbol)
                 exex.setDescription(ex.description)
                 p.appendExceptions(exex)
             sym.appendPrototypes(p)
