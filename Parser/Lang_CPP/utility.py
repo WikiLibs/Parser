@@ -1,5 +1,6 @@
 from genericClasses import GenericPrototype
 from genericClasses import buildParameter
+import getters as getters
 
 def buildFunctionPrototype(protoPrefix, protoSuffix, name, returnType, briefDesc, detailedDesc, parameters, returnDesc):
     pObj = GenericPrototype()
@@ -36,3 +37,14 @@ def buildDefinePrototype(name, briefDesc, detailedDesc, parameters):
     if (len(detailedDesc) > 0):
         pObj.description = detailedDesc
     return (pObj)
+
+class Reference:
+    def __init__(self, name):
+        self.name = name
+        self.path = self.Name.replace("::", "/")
+
+def resolveReference(refid):
+    name = getters.getRefName(refid)
+    if (name == None):
+        return (None)
+    return (Reference(name))
