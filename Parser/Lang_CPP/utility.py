@@ -28,7 +28,7 @@ def buildFunctionPrototype(protoPrefix, protoSuffix, name, returnType, briefDesc
             if (ex.reference != None):
                 e = buildException(linkedSymbol=resolveReference(ex.reference).path, description=ex.description)
             else:
-                e = buildException(linkedSymbol=ex.typename, description=ex.description)
+                e = buildException(linkedSymbol="AUTOGEN:" + ex.typename, description=ex.description)
             pObj.addException(e)
     return (pObj)
 

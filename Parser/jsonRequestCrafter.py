@@ -284,12 +284,24 @@ def printWIP(client, list):
     print("This feature is in WIP")
 
 
+def autoBuildSymbol(client, path, type, prototype):
+    sym = SymbolUpdate()
+    sym.setPath(path)
+    sym.setLang(g_lang)
+    sym.setType(type)
+    p = SymbolPrototype("")
+    p.setPrototype(prototype)
+    p.setDescription("Auto-generated symbol")
+    sym.appendPrototypes(p)
+    client.PushSymbol(sym)
+
+
 def craftGenericRequest(client, list):
     useful.printVerbose("\n\n/****  Begin crafting of generic symbol requests  ****/")
     map = {}
     pathPrefix = g_lang + "/" + g_lib + "/"
     useful.printVerbose("> Building and uploading JSON...")
-    for ss in list: # Third pass: build and send JSON data
+    for ss in list:
         sym = SymbolUpdate("")
         sym.setPath(pathPrefix + ss.path)
         sym.setLang(g_lang)
@@ -300,12 +312,18 @@ def craftGenericRequest(client, list):
             p.setPrototype(proto.prototype)
             p.setDescription(proto.description)
             for par in proto.parameters:
+                if (par.linkedSymbol.startswith("AUTOGEN:")):
+                    par.linkedSymbol = par.linkedSymbol[8:]
+                    autoBuildSymbol(client, pathPrefix + par.linkedSymbol, "class", "class " + par.linkedSymbol)
                 parpar = SymbolParam("")
                 parpar.setPrototype(par.prototype)
                 parpar.setDescription(par.description)
                 parpar.setPath(pathPrefix + par.linkedSymbol)
                 p.appendParameters(parpar)
             for ex in proto.exceptions:
+                if (ex.linkedSymbol.startswith("AUTOGEN:")):
+                    ex.linkedSymbol = ex.linkedSymbol[8:]
+                    autoBuildSymbol(client, pathPrefix + ex.linkedSymbol, "class", "class " + ex.linkedSymbol)
                 exex = SymbolException("")
                 exex.setPath(pathPrefix + ex.linkedSymbol)
                 exex.setDescription(ex.description)
