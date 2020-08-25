@@ -87,6 +87,7 @@ class SymbolPrototype:
         self.__prototype = ''
         self.__description = ''
         self.__parameters = []
+        self.__exceptions = []
 
     def setPrototype(self, prototype):
         self.__prototype = prototype
@@ -104,8 +105,8 @@ class SymbolPrototype:
         jsonData = {
             "prototype": self.__prototype,
             "description": self.__description,
-            "parameters": [json.loads(self.__parameters[i].get_JSON()) for i in range(0, len(self.__parameters))],
-            "exceptions": [json.loads(self.__exceptions[i].get_JSON()) for i in range(0, len(self.__exceptions))]
+            "parameters": [json.loads(v.get_JSON()) for v in self.__parameters],
+            "exceptions": [json.loads(v.get_JSON()) for v in self.__exceptions]
         }
         if len(jsonData['exceptions']) == 0:
             del jsonData['exceptions']
