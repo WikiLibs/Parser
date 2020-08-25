@@ -152,7 +152,6 @@ def getExceptions(root):
                     extype = extype.find("ref").get("refid")
                 else:
                     extype = None
-                extype = strOp.epurStr(exp.find("parameternamelist/parametername").text)
                 exdesc = ""
                 for txt in exp.find("parameterdescription").itertext():
                     exdesc += " " + strOp.epurStr(txt)
