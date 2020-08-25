@@ -1,6 +1,6 @@
 #!/usr/bin/python3.6
 
-from jsonClasses import SymbolUpdate, SymbolPrototype, SymbolParam
+from jsonClasses import SymbolUpdate, SymbolPrototype, SymbolParam, SymbolException
 import useful
 
 g_lang = ""
@@ -305,6 +305,11 @@ def craftGenericRequest(client, list):
                 parpar.setDescription(par.description)
                 parpar.setPath(par.linkedSymbol)
                 p.appendParameters(parpar)
+            for ex in proto.exceptions:
+                exex = SymbolException("")
+                exex.setPath(ex.linkedSymbol)
+                exex.setDescription(ex.description)
+                p.appendExceptions(exex)
             sym.appendPrototypes(p)
         for path in ss.linkedSymbols:
             sym.appendSymbols(pathPrefix + path)

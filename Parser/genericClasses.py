@@ -19,10 +19,20 @@ class GenericPrototype:
         self.prototype = ""
         self.description = ""
         self.parameters = []
+        self.exceptions = []
 
     def addParameter(self, param):
         self.parameters.append(param)
         return (self)
+
+    def addException(self, ex):
+        self.exceptions.append(ex)
+        return (self)
+
+class GenericException:
+    def __init__(self):
+        self.description = ""
+        self.linkedSymbol = ""
 
 class GenericParameter:
     def __init__(self):
