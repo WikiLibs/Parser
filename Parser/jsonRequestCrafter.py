@@ -312,20 +312,22 @@ def craftGenericRequest(client, list):
             p.setPrototype(proto.prototype)
             p.setDescription(proto.description)
             for par in proto.parameters:
-                if (par.linkedSymbol.startswith("AUTOGEN:")):
+                if (par.linkedSymbol != None and par.linkedSymbol.startswith("AUTOGEN:")):
                     par.linkedSymbol = par.linkedSymbol[8:]
                     autoBuildSymbol(client, pathPrefix + par.linkedSymbol, "class", "class " + par.linkedSymbol)
                 parpar = SymbolParam("")
                 parpar.setPrototype(par.prototype)
                 parpar.setDescription(par.description)
-                parpar.setPath(pathPrefix + par.linkedSymbol)
+                if (par.linkedSymbol != None):
+                    parpar.setPath(pathPrefix + par.linkedSymbol)
                 p.appendParameters(parpar)
             for ex in proto.exceptions:
-                if (ex.linkedSymbol.startswith("AUTOGEN:")):
+                if (ex.linkedSymbol != None and ex.linkedSymbol.startswith("AUTOGEN:")):
                     ex.linkedSymbol = ex.linkedSymbol[8:]
                     autoBuildSymbol(client, pathPrefix + ex.linkedSymbol, "class", "class " + ex.linkedSymbol)
                 exex = SymbolException("")
-                exex.setPath(pathPrefix + ex.linkedSymbol)
+                if (ex.linkedSymbol != None):
+                    exex.setPath(pathPrefix + ex.linkedSymbol)
                 exex.setDescription(ex.description)
                 p.appendExceptions(exex)
             sym.appendPrototypes(p)
