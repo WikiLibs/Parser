@@ -108,14 +108,17 @@ def getReturnDesc(elem):
 
 
 def getRefName(refid):
-    file = "./xml/" + refid + ".xml"
-    root = ET.parse(file).getroot()
-    if (root == None):
+    try:
+        file = "./xml/" + refid + ".xml"
+        root = ET.parse(file).getroot()
+        if (root == None):
+            return (None)
+        cpdef = root.find("compounddef")
+        if (cpdef == None):
+            return (None)
+        return (cpdef.find("compoundname").text)
+    except:
         return (None)
-    cpdef = root.find("compounddef")
-    if (cpdef == None):
-        return (None)
-    return (cpdef.find("compoundname").text)
 
 
 def getParams(define):
