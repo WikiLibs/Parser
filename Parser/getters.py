@@ -158,6 +158,7 @@ def getExceptions(root):
                 cl.reference = extype
                 cl.description = exdesc
                 exceptions.append(cl)
+    return (exceptions)
 
 
 def removeFromDetailedDescParams(desc, params):
