@@ -28,17 +28,13 @@ class Test_getFunction(unittest.TestCase):
         expected.name = 'pythonFunction'
         variable = classes.variableClass()
         variable.name = "param1"
-        variable.type = "param1"
         variable2 = classes.variableClass()
         variable2.name = "param2"
-        variable2.type = "param2"
         expected.params = [variable, variable2]
-        expected.returnValues = []
+        expected.returnValues = [] # not handled
 
         received = getFunction.getFunction(obj)
-        self.assertEqual(expected.name, received.name, 'Should be equal')
-        self.assertEqual(expected.params[0].name, received.params[0].name, 'Should be equal')
-        self.assertEqual(expected.params[0].type, received.params[0].type, 'Should be equal')
-        self.assertEqual(expected.params[1].name, received.params[1].name, 'Should be equal')
-        self.assertEqual(expected.params[1].type, received.params[1].type, 'Should be equal')
-        self.assertEqual(expected.returnValues, received.returnValues, 'Should be equal')
+        self.assertEqual(expected.name, received[0].path, 'Should be equal')
+        self.assertEqual(expected.params[0].name, received[0].prototypes[0].parameters[0].prototype, 'Should be equal')
+        self.assertEqual(expected.params[1].name, received[0].prototypes[0].parameters[1].prototype, 'Should be equal')
+        # self.assertEqual(expected.returnValues, received[0].prototypes[1].prototype, 'Should be equal')

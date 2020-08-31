@@ -8,7 +8,10 @@ def getCompoundName(elem):
 
 
 def getName(elem):
-    return strOp.epurStr(elem.find("name").text)
+    ret = elem.find("name")
+    if ret != -1:
+        return strOp.epurStr(elem.find("name").text)
+    return "ERRORED"
 
 
 def getType(elem):
@@ -41,17 +44,6 @@ def getDetailedDesc(elem):
         #for token in elem.find("detaileddescription").itertext():
         #    detailedDesc += " " + token.replace('\n', '').replace('\t', ' ')
         #return strOp.epurStr(detailedDesc)
-    except Exception as error:
-        useful.printExceptionVerbose(error)
-        return ""
-
-
-def getLocation(elem):
-    try:
-        location = elem.find("location").get("file")
-        if (location == ""):
-            location = elem.find("includes").text
-        return location[location.rfind('/') + 1:]
     except Exception as error:
         useful.printExceptionVerbose(error)
         return ""

@@ -50,7 +50,7 @@ def buildSymbol(typename, prototypeObj, path, importString=""):
     sym.path = path
     sym.importString = importString
     sym.addPrototype(prototypeObj)
-    return (sym)    
+    return (sym)
 
 def buildFunction(path, prototypeObj, importString=""):
     return (buildSymbol("function", prototypeObj, path, importString))

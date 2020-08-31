@@ -72,7 +72,8 @@ class LanguageInterface:
             'union': printingFunctions.printUnions,
             'function': printingFunctions.printFunctions,
             'typedef': printingFunctions.printTypedefs,
-            'class': printingFunctions.printClasses
+            'class': printingFunctions.printClasses,
+            'generic': printingFunctions.printGeneric
         }
 
         for symbol in self.symbols:

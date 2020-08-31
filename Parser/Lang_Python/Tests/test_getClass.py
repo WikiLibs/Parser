@@ -39,9 +39,8 @@ class Test_GetClass(unittest.TestCase):
         )).getroot()
 
         expectedVar = classes.variableClass()
-        expectedVar.name = 'param1'
-        expectedVar.type = ''
-        expectedVar.value = ''
+        expectedVar.name = 'pythonClass/param1'
+        expectedVar.type = 'variable'
 
         expected = classes.classClass()
         expected.name = 'pythonClass'
@@ -49,8 +48,7 @@ class Test_GetClass(unittest.TestCase):
         expected.variables = [expectedVar]
 
         received = getClass.getClass(obj)
-        self.assertEqual(expected.name, received.name, 'Should be equal')
-        self.assertEqual(expected.description, received.description, 'Should be equal')
-        self.assertEqual(expected.variables[0].name, received.variables[0].name, 'Should be equal')
-        self.assertEqual(expected.variables[0].type, received.variables[0].type, 'Should be equal')
-        self.assertEqual(expected.variables[0].value, received.variables[0].value, 'Should be equal')
+        self.assertEqual(expected.name, received[-1].path, 'Should be equal')
+        self.assertEqual(expected.description, received[-1].prototypes[0].description, 'Should be equal')
+        self.assertEqual(expected.variables[0].name, received[0].path, 'Should be equal')
+        self.assertEqual(expected.variables[0].type, received[0].typename, 'Should be equal')
