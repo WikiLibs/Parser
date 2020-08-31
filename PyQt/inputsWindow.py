@@ -165,4 +165,4 @@ class InputsWindow(QMainWindow):
         global prefix
 
         prefix =  self.comboBox.currentText() + "/" + self.lineEdit_2.text() + "/"
-        self.switch_window.emit(self.param_arg, self.lineEdit_2.text(), self.comboBox.currentText(), self.lib_path_txt)
+        self.switch_window.emit(self.param_arg, self.lineEdit_2.text(), self.comboBox.currentText(), self.lib_path_txt, self.lineEdit_3.text())
