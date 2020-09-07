@@ -4,7 +4,7 @@ import xml.etree.ElementTree as ET
 from urllib.request import urlopen
 import os
 import argparse
-import aiClient
+# import aiClient
 
 verbose = False
 upload = True
@@ -198,13 +198,13 @@ def parserArgs():
         return args
 
 
-def callOptimizer(graphicalApiKey=None):
-    global upload
-    if upload:
-        printVerbose("Calling optimizer")
-        if (graphicalApiKey is not None):
-            print(graphicalApiKey)
-            # aiClient.AIClient.CallOptimizer_ext(graphicalApiKey)
-        else:
-            aiClient.AIClient.CallOptimizer_ext(apikey)
-        printVerbose("Called optimizer")
+# def callOptimizer(graphicalApiKey=None):
+#     global upload
+#     if upload:
+#         printVerbose("Calling optimizer")
+#         if (graphicalApiKey is not None):
+#             print(graphicalApiKey)
+#             # aiClient.AIClient.CallOptimizer_ext(graphicalApiKey)
+#         else:
+#             aiClient.AIClient.CallOptimizer_ext(apikey)
+#         printVerbose("Called optimizer")

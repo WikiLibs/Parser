@@ -44,6 +44,9 @@ class ProcessingWindow(QMainWindow):
     def setParamArg(self, paramArg):
         self.param_arg = paramArg
 
+    def setClient(self, client):
+        self.client = client
+
     def setLibName(self, libname):
         self.libname = libname
 
@@ -160,7 +163,7 @@ class ProcessingWindow(QMainWindow):
             self.label_3.setText("parsing files... (" + str(i) + "/" + str(len(files)) + ")")
             useful.logInfo('Starting parsing \'' + filename.ogFilename + '\'')
             obj = dispatch[self.liblang](self.liblang, self.libname)
-            obj.parseXMLFile(filename.xmlFilename, self.apiKey)
+            obj.parseXMLFile(filename.xmlFilename, self.client)
             thread_parent.change_progressBar.emit(int(20 + (i * 49 / total)))
             self.update()
             i += 1
@@ -168,7 +171,6 @@ class ProcessingWindow(QMainWindow):
         # self.progressBar.setProperty("value", 70)
         thread_parent.change_progressBar.emit(70)
         self.label_3.setText("sending data to the server")
-        useful.callOptimizer(self.apiKey)
 
         # self.progressBar.setProperty("value", 90)
         thread_parent.change_progressBar.emit(90)

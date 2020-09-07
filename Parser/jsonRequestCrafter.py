@@ -325,20 +325,15 @@ def initDicoFunction():
     return dict
 
 
-def JSONRequestCrafter(lang, lib, rawData):
+def JSONRequestCrafter(lang, lib, rawData, client):
     global g_lang
     global g_lib
 
     g_lang = lang
     g_lib = lib
     # remove rawData with a better thing
-    client = ""
     dict = initDicoFunction()
-    for key, val in rawData:
-        if key == 'client':
-            client = val
-            rawData.remove((key, val))
-    client.GetToken()
+    # client.GetToken()
     useful.printVerbose("Beginning crafting Requests")
     for key, lists in rawData:
         if key in dict:
@@ -346,3 +341,4 @@ def JSONRequestCrafter(lang, lib, rawData):
         else:
             useful.logFatal('key ' + key + ' not found in JSONRequestCrafter (line:220)', 1)
     useful.printVerbose("Finished crafting Requests")
+    client.Optimize()

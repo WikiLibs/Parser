@@ -4,11 +4,12 @@ from PyQt5.QtWidgets import QMainWindow, QFileDialog
 prefix = ""
 
 class InputsWindow(QMainWindow):
-    switch_window = QtCore.pyqtSignal(object, str, str, str, str)
+    switch_window = QtCore.pyqtSignal(object, object, str, str, str, str)
 
-    def __init__(self, param_arg):
+    def __init__(self, param_arg, client):
         QMainWindow.__init__(self)
         self.param_arg = param_arg
+        self.client = client
         self.setupStyle()
         self.setupUi()
 
@@ -165,4 +166,4 @@ class InputsWindow(QMainWindow):
         global prefix
 
         prefix =  self.comboBox.currentText() + "/" + self.lineEdit_2.text() + "/"
-        self.switch_window.emit(self.param_arg, self.lineEdit_2.text(), self.comboBox.currentText(), self.lib_path_txt, self.lineEdit_3.text())
+        self.switch_window.emit(self.param_arg, self.client, self.lineEdit_2.text(), self.comboBox.currentText(), self.lib_path_txt, self.lineEdit_3.text())
