@@ -12,6 +12,7 @@ kindTable = {
     "class": getClass
 }
 
+#prepare to get throws
 class parserPython(LanguageInterface):
     # def getSymbols(self, filename):
     #     newFilename = filename[6:-8]

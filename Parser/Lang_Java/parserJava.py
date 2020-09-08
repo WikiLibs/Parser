@@ -13,6 +13,7 @@ kindTable = {
     "class": getClass
 }
 
+#prepare to get throws
 class parserJava(LanguageInterface):
     # def getSymbolsOld(self, filename):
     #     newFilename = filename[6:-8]
