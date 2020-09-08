@@ -131,7 +131,7 @@ class Test_aiClient(unittest.TestCase):
             capturedOutput = io.StringIO()  # setup an io
             sys.stdout = capturedOutput  # redirect stdout
             client = aiClient.AIClient("what", "", "")
-            client.CallOptimizer()
+            client.Optimize()
             mock_get_token.assert_called()
 
     @patch('Parser.aiClient.AIClient.CheckIfRefresh')
@@ -142,7 +142,7 @@ class Test_aiClient(unittest.TestCase):
             sys.stdout = capturedOutput  # redirect stdout
             client = aiClient.AIClient(aiClient.APP_KEY, aiClient.APP_ID, aiClient.SEC)
             client._token = "what"
-            client.CallOptimizer()
+            client.Optimize()
 
     @patch('requests.post', return_value=res2)
     @patch('Parser.aiClient.AIClient.CheckIfRefresh')
@@ -154,22 +154,5 @@ class Test_aiClient(unittest.TestCase):
             sys.stdout = capturedOutput  # redirect stdout
             client = aiClient.AIClient("what", "", "")
             client._token = "what"
-            client.CallOptimizer()
-            req_post.assert_called()
-
-    def test_optimize_ext_connection_error(self):
-        with self.assertRaises(OSError) as cm:
-            capturedOutput = io.StringIO()  # setup an io
-            sys.stdout = capturedOutput  # redirect stdout
-            client = aiClient.AIClient("what", "", "")
-            client.CallOptimizer_ext("")
-
-    @patch('requests.post', return_value=res2)
-    def test_optimize_ext_optimize_error(self,
-                                         req_post):
-        with self.assertRaises(IOError) as cm:
-            capturedOutput = io.StringIO()  # setup an io
-            sys.stdout = capturedOutput  # redirect stdout
-            client = aiClient.AIClient("what", "", "")
-            client.CallOptimizer_ext("what???")
+            client.Optimize()
             req_post.assert_called()

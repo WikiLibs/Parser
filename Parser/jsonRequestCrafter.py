@@ -339,6 +339,6 @@ def JSONRequestCrafter(lang, lib, rawData, client):
         if key in dict:
             dict[key](client, lists)
         else:
-            useful.logFatal('key ' + key + ' not found in JSONRequestCrafter (line:220)', 1)
+            useful.logFatal('key ' + key + ' not found in JSONRequestCrafter', 1)
     useful.printVerbose("Finished crafting Requests")
     client.Optimize()
