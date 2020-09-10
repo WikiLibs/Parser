@@ -23,7 +23,7 @@ class SymbolParam:
     def __init__(self, name):
         self.__prototype = ''
         self.__description = ''
-        self.path = ''
+        self.__path = ''
 
     def setPrototype(self, prototype):
         self.__prototype = prototype
@@ -50,16 +50,44 @@ class SymbolParam:
         string = json.dumps(jsonData, indent=4)
         return string
 
+class SymbolException:
+    __description = ''
+    __path = ''
+
+    def __init__(self, name):
+        self.__description = ''
+        self.__path = ''
+
+    def setDescription(self, description):
+        self.__description = description
+
+    def setPath(self, path):
+        self.__path = path
+
+    def getPath(self):
+        return (self.__path)
+
+    def get_JSON(self):
+        jsonData = {
+            "description": self.__description,
+            "ref": self.__path
+        }
+        if jsonData['description'] == '':
+            del jsonData['description']
+        string = json.dumps(jsonData, indent=4)
+        return string
 
 class SymbolPrototype:
     __prototype = ''
     __description = ''
     __parameters = []  # list of SymbolParams
+    __exceptions = []  # list of SymbolExceptions
 
     def __init__(self, name):
         self.__prototype = ''
         self.__description = ''
         self.__parameters = []
+        self.__exceptions = []
 
     def setPrototype(self, prototype):
         self.__prototype = prototype
@@ -70,17 +98,22 @@ class SymbolPrototype:
     def appendParameters(self, parameter):
         self.__parameters.append(parameter)
 
+    def appendExceptions(self, exception):
+        self.__exceptions.append(exception)
+
     def get_JSON(self):
         jsonData = {
             "prototype": self.__prototype,
             "description": self.__description,
-            "parameters": [json.loads(self.__parameters[i].get_JSON()) for i in range(0, len(self.__parameters))]
+            "parameters": [json.loads(v.get_JSON()) for v in self.__parameters],
+            "exceptions": [json.loads(v.get_JSON()) for v in self.__exceptions]
         }
+        if len(jsonData['exceptions']) == 0:
+            del jsonData['exceptions']
         if jsonData['description'] == '':
             del jsonData['description']
         string = json.dumps(jsonData, indent=4)
         return string
-
 
 class SymbolUpdate:
     __name = ''

@@ -19,10 +19,20 @@ class GenericPrototype:
         self.prototype = ""
         self.description = ""
         self.parameters = []
+        self.exceptions = []
 
     def addParameter(self, param):
         self.parameters.append(param)
         return (self)
+
+    def addException(self, ex):
+        self.exceptions.append(ex)
+        return (self)
+
+class GenericException:
+    def __init__(self):
+        self.description = ""
+        self.linkedSymbol = ""
 
 class GenericParameter:
     def __init__(self):
@@ -51,6 +61,12 @@ def buildSymbol(typename, prototypeObj, path, importString=""):
     sym.importString = importString
     sym.addPrototype(prototypeObj)
     return (sym)    
+
+def buildException(linkedSymbol, description=None):
+    obj = GenericException()
+    obj.description = description
+    obj.linkedSymbol = linkedSymbol
+    return (obj)
 
 def buildFunction(path, prototypeObj, importString=""):
     return (buildSymbol("function", prototypeObj, path, importString))

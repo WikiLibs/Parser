@@ -9,6 +9,7 @@ from Lang_CPP.parseFunction import parseFunction
 from useful import logError
 from useful import logInfo
 from useful import logWarning
+from Lang_CPP.utility import resolveReference
 
 #Python wants code duplication at all costs then it gets it
 kindTable = {
@@ -52,6 +53,8 @@ def parseClass(root):
             else:
                 if (v.type.find("ref") != None):
                     v.ref = v.type.find("ref").get("refid")
+                    if (resolveReference(v.ref) != None):
+                        v.ref = resolveReference(v.ref).path
                     v.type = v.type.find("ref").text
                 else:
                     v.type = v.type.text
