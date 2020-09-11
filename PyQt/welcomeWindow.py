@@ -3,13 +3,14 @@ from PyQt5.QtWidgets import QMainWindow
 
 
 class WelcomeWindow(QMainWindow):
-    switch_window = QtCore.pyqtSignal(object)
+    switch_window = QtCore.pyqtSignal(object, object)
 
-    def __init__(self, param_arg, width, height):
+    def __init__(self, param_arg, client, width, height):
         QMainWindow.__init__(self)
         self.width = width
         self.height = height
         self.param_arg = param_arg
+        self.client = client
         self.setupStyle()
         self.setupUi()
 
@@ -97,4 +98,4 @@ class WelcomeWindow(QMainWindow):
         self.nextButton.setText(_translate("MainWindow", "Next"))
 
     def switch(self):
-        self.switch_window.emit(self.param_arg)
+        self.switch_window.emit(self.param_arg, self.client)
