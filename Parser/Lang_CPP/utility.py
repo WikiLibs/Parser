@@ -1,7 +1,9 @@
 from genericClasses import GenericPrototype
 from genericClasses import buildParameter
+from genericClasses import buildException
+import getters as getters
 
-def buildFunctionPrototype(protoPrefix, protoSuffix, name, returnType, briefDesc, detailedDesc, parameters, returnDesc):
+def buildFunctionPrototype(protoPrefix, protoSuffix, name, returnType, briefDesc, detailedDesc, parameters, returnDesc, exceptions):
     pObj = GenericPrototype()
     funcProto = returnType + " " + name + "("
     if (len(parameters) > 0):
@@ -20,6 +22,14 @@ def buildFunctionPrototype(protoPrefix, protoSuffix, name, returnType, briefDesc
     pObj.description = briefDesc
     if (len(detailedDesc) > 0):
         pObj.description = detailedDesc
+    if (len(exceptions) > 0):
+        for ex in exceptions:
+            e = None
+            if (ex.reference != None):
+                e = buildException(linkedSymbol=resolveReference(ex.reference).path, description=ex.description)
+            else:
+                e = buildException(linkedSymbol="AUTOGEN:" + ex.typename, description=ex.description)
+            pObj.addException(e)
     return (pObj)
 
 def buildDefinePrototype(name, briefDesc, detailedDesc, parameters):
@@ -36,3 +46,14 @@ def buildDefinePrototype(name, briefDesc, detailedDesc, parameters):
     if (len(detailedDesc) > 0):
         pObj.description = detailedDesc
     return (pObj)
+
+class Reference:
+    def __init__(self, name):
+        self.name = name
+        self.path = self.Name.replace("::", "/")
+
+def resolveReference(refid):
+    name = getters.getRefName(refid)
+    if (name == None):
+        return (None)
+    return (Reference(name))
