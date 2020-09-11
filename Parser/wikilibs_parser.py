@@ -2,6 +2,7 @@
 import sys
 import useful
 import PyQt.graphicalClient as gui
+import aiClient as aiClient
 
 import Lang_C_CPP.parserC as parserC
 import Lang_CPP.parserCPP as parserCPP
@@ -24,14 +25,15 @@ def main():
         gui.graphicalClient(args)
         return 0
     useful.getDoxyfileAndRun(args.language)
-
+    client = aiClient.AIClient(useful.apikey, aiClient.APP_ID, aiClient.SEC)
+    if useful.upload is True:
+        client.GetToken()
     dispatch = getFunctionsLang()
     obj = dispatch[args.language](args.language, args.library_name)
     files = obj.getAllParseableFiles()
     for filename in files:
         useful.logInfo('Starting parsing \'' + filename.ogFilename + '\'')
-        obj.parseXMLFile(filename.xmlFilename, useful.apikey)
-    useful.callOptimizer()
+        obj.parseXMLFile(filename.xmlFilename, client)
     useful.deleteFiles()
 
 
