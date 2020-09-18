@@ -8,6 +8,7 @@ from genericClasses import buildPrototype
 from genericClasses import buildVariable
 from genericClasses import buildFunction
 from genericClasses import buildParameter
+from genericClasses import buildException
 import getters as getters
 
 
@@ -58,13 +59,17 @@ def getClass(classRoot):
             funcParams = getters.getParamDesc(elem, getters.getParams(elem))
             funcBriefDesc = getters.getBriefDesc(elem)
             funcReturnType = getters.getType(elem)
+            funcExceptions = getters.getExceptions(elem)
             funcReturnDesc = getters.getReturnDesc(elem)
             funcProto = buildPrototype(funcReturnType + " " + funcName + "(", funcBriefDesc)
             for param in funcParams:
                 paramProto = param.type + " " + param.name
                 funcProto.prototype += paramProto + ", "
                 funcProto.addParameter(buildParameter(prototype=paramProto, description=param.desc))
-            funcProto.prototype = funcProto.prototype[:-2]
+            for ex in funcExceptions:
+                funcProto.addException(buildException(linkedSymbol=ex.typename, description=ex.description))
+            if len(funcParams) != 0:
+                funcProto.prototype = funcProto.prototype[:-2]
             funcProto.prototype += ")"
             funcProto.addParameter(buildParameter(prototype="return", description=funcReturnDesc))
             syms.append(buildFunction(path=(name + "/" + funcName), prototypeObj=funcProto, importString=funcInclude))
