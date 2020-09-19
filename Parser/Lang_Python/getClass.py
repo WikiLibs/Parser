@@ -38,20 +38,20 @@ def getClass(classRoot):
     briefDesc = getters.getBriefDesc(classRoot.find("compounddef"))
 
     classProto = buildPrototype("class " + name, briefDesc)
-    classSym = buildClass(path=name, prototypeObj=classProto, importString=include)
+    classSym = buildClass(path=prefix + name, prototypeObj=classProto, importString=include)
     for elem in classRoot.iter('memberdef'):
         kind = elem.get('kind')
 
         if kind == 'variable':
             varSyms = getVariable(elem)
             for varSym in varSyms:
-                classSym.addMember(prefix + name + "/" + varSym.path[len(useful.prefix):])
+                classSym.addMember(prefix + name + "/" + varSym.path[len(prefix):])
                 syms.append(varSym)
 
         if kind == 'function':
             funcSyms = getFunction(elem)
             for funcSym in funcSyms:
-                classSym.addMember(prefix + name + "/" + funcSym.path[len(useful.prefix):])
+                classSym.addMember(prefix + name + "/" + funcSym.path[len(prefix):])
                 syms.append(funcSym)
     syms.append(classSym)
     return syms
