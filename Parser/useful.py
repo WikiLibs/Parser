@@ -7,6 +7,7 @@ import argparse
 # import aiClient
 
 verbose = False
+cleanup = True
 upload = True
 exceptions = False
 graphical = False
@@ -31,6 +32,7 @@ GUI_HELP = 'set this option to use the GUI version'
 NO_UPLOAD_HELP = 'set this option to disable upload to API (useful for degug)'
 API_KEY_HELP = 'set the API Key to use for authenticating with the API server'
 SCR_KEY_HELP = 'set the secret Key to use for authenticating with the API server'
+NO_CLEANUP_HELP = 'skip cleanup of XML and other generated files (useful for degug)'
 
 dicoLang = {
     "C": ['.h', '.c'],
@@ -144,6 +146,11 @@ def getDoxyfileAndRun(language):
 
 
 def deleteFiles():
+    global cleanup
+
+    if (not(cleanup)):
+        logInfo("Not performing cleanup as option 'noCleanup' has been activated.")
+        return
     if os.name == 'nt':
         os.system('del /f Doxyfile py_filter.bat')
         os.system('RD /S /Q xml')
@@ -159,6 +166,7 @@ def parserArgs():
     global secret
     global apikey
     global prefix
+    global cleanup
 
     if len(sys.argv) != 1:
         argParser = argparse.ArgumentParser(description=DESCRIPTION)
@@ -170,6 +178,7 @@ def parserArgs():
         argParser.add_argument('-n', '--noUpload', help=NO_UPLOAD_HELP, action='store_true')
         argParser.add_argument('-k', '--apikey', help=API_KEY_HELP)
         argParser.add_argument('-s', '--secret', help=SCR_KEY_HELP)
+        argParser.add_argument('-c', '--noCleanup', help=NO_CLEANUP_HELP, action='store_true')
         args = argParser.parse_args()
 
         args.language = args.language.upper()
@@ -181,6 +190,8 @@ def parserArgs():
             graphical = True
         if args.noUpload:
             upload = False
+        if args.noCleanup:
+            cleanup = False
         if args.exception:
             exceptions = True
 

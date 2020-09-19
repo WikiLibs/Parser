@@ -38,35 +38,20 @@ def getClass(classRoot):
     briefDesc = getters.getBriefDesc(classRoot.find("compounddef"))
 
     classProto = buildPrototype("class " + name, briefDesc)
-    classSym = buildClass(path=name, prototypeObj=classProto, importString=include)
+    classSym = buildClass(path=prefix + name, prototypeObj=classProto, importString=include)
     for elem in classRoot.iter('memberdef'):
         kind = elem.get('kind')
 
         if kind == 'variable':
-            varName = getters.getName(elem)
-            varInclude = getters.getLocation(elem)
-            varType = getters.getType(elem)
-            varBriefDesc = getters.getBriefDesc(elem)
-            varProto = buildPrototype(varName, varBriefDesc)
-            syms.append(buildVariable(path=(name + "/" + varName), prototypeObj=varProto, importString=varInclude))
-            classSym.addMember(prefix + name + "/" + varName)
+            varSyms = getVariable(elem)
+            for varSym in varSyms:
+                classSym.addMember(prefix + name + "/" + varSym.path[len(prefix):])
+                syms.append(varSym)
 
         if kind == 'function':
-            funcName = getters.getName(elem)
-            funcInclude = getters.getLocation(elem)
-            funcParams = getters.getParamDesc(elem, getters.getParams(elem))
-            funcBriefDesc = getters.getBriefDesc(elem)
-            funcReturnType = getters.getType(elem)
-            funcReturnDesc = getters.getReturnDesc(elem)
-            funcProto = buildPrototype(funcReturnType + " " + funcName + "(", funcBriefDesc)
-            for param in funcParams:
-                paramProto = param.name
-                funcProto.prototype += paramProto + ", "
-                funcProto.addParameter(buildParameter(prototype=paramProto, description=param.desc))
-            funcProto.prototype = funcProto.prototype[:-2]
-            funcProto.prototype += ")"
-            funcProto.addParameter(buildParameter(prototype="return", description=funcReturnDesc))
-            syms.append(buildFunction(path=(name + "/" + funcName), prototypeObj=funcProto, importString=funcInclude))
-            classSym.addMember(prefix + name + "/" + funcName)
+            funcSyms = getFunction(elem)
+            for funcSym in funcSyms:
+                classSym.addMember(prefix + name + "/" + funcSym.path[len(prefix):])
+                syms.append(funcSym)
     syms.append(classSym)
     return syms

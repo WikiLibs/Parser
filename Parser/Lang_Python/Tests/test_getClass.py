@@ -39,7 +39,7 @@ class Test_GetClass(unittest.TestCase):
         )).getroot()
 
         expectedVar = classes.variableClass()
-        expectedVar.name = 'pythonClass/param1'
+        expectedVar.name = 'param1'
         expectedVar.type = 'variable'
 
         expected = classes.classClass()

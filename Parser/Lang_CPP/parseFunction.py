@@ -6,6 +6,7 @@ from Lang_CPP.utility import buildFunctionPrototype
 from useful import logError
 from useful import logInfo
 from useful import logWarning
+from Lang_CPP.utility import resolveReference
 
 def parseFunction(root):
     protoPrefix = root.get("prot")
@@ -45,8 +46,9 @@ def parseFunction(root):
             else:
                 if (v.type.find("ref") != None):
                     v.ref = v.type.find("ref").get("refid")
+                    if (resolveReference(v.ref) != None):
+                        v.ref = resolveReference(v.ref).path
                     v.type = v.type.find("ref").text
-                    #TODO: Demangler
                 else:
                     v.type = v.type.text
                 v.name = elem.find("declname").text
@@ -63,7 +65,8 @@ def parseFunction(root):
         logError("A terrible error in Python XML has been detected: XML lib returned None when the node exists")
         returnType = ""
     returnDesc = getters.getReturnDesc(root)
-    func = buildFunctionPrototype(protoPrefix, protoSuffix, name, returnType, briefDesc, detailedDesc, params, returnDesc)
+    exceptions = getters.getExceptions(root)
+    func = buildFunctionPrototype(protoPrefix, protoSuffix, name, returnType, briefDesc, detailedDesc, params, returnDesc, exceptions)
     func = buildFunction("", func)
     if (returnType == ""):
         func.typename = "constructor"

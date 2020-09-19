@@ -1,7 +1,10 @@
+import useful
+import PyQt.inputsWindow as inputsWindow
 from classes import functionClass
 from genericClasses import buildFunction
 from genericClasses import buildPrototype
 from genericClasses import buildParameter
+from genericClasses import buildException
 import getters as getters
 
 
@@ -20,12 +23,16 @@ import getters as getters
 
 def getFunction(elem):
     syms = []
+    prefix = useful.prefix
+    if prefix == "":
+        prefix = inputsWindow.prefix
     name = getters.getName(elem)
     include = getters.getLocation(elem)
     params = getters.getParamDesc(elem, getters.getParams(elem))
     briefDesc = getters.getBriefDesc(elem)
     detailedDesc = getters.getFunctionDetailedDesc(elem)
     returnType = getters.getType(elem)
+    exceptions = getters.getExceptions(elem)
     returnDesc = getters.getReturnDesc(elem)
     returnValues = getters.getRetvals(elem)
 
@@ -34,8 +41,12 @@ def getFunction(elem):
         proto = param.type + " " + param.name
         funcProto.prototype += proto + ", "
         funcProto.addParameter(buildParameter(prototype=proto, description=param.desc))
-    funcProto.prototype = funcProto.prototype[:-2]
+    for ex in exceptions:
+        funcProto.addException(buildException(linkedSymbol=ex.typename, description=ex.description))
+        print(name + " + " + ex.typename)
+    if len(params) != 0:
+        funcProto.prototype = funcProto.prototype[:-2]
     funcProto.prototype += ")"
     funcProto.addParameter(buildParameter(prototype="return", description=returnDesc))
-    syms.append(buildFunction(path=name, prototypeObj=funcProto, importString=include))
+    syms.append(buildFunction(path=prefix + name, prototypeObj=funcProto, importString=include))
     return syms

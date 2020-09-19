@@ -41,13 +41,13 @@ def getUnion(fileName):
     detailedDesc = getters.getDetailedDesc(root.find("compounddef"))
 
     unionProto = buildPrototype("struct " + name, briefDesc)
-    unionSym = buildUnion(path=name, prototypeObj=unionProto, importString=include)
+    unionSym = buildUnion(path=prefix + name, prototypeObj=unionProto, importString=include)
     for elem in root.iter("memberdef"):
         ename = getters.getName(elem)
         etype = getters.getType(elem)
         edesc = getters.getDetailedDesc(elem)
         proto = buildPrototype(etype + " " + ename, edesc)
-        syms.append(buildVariable(path=(name + "/" + ename), prototypeObj=proto))
-        unionSym.addMember(prefix + name + "/" + ename)
+        syms.append(buildVariable(path=(prefix + name + "/" + ename), prototypeObj=proto))
+        unionSym.addMember(name + "/" + ename)
     syms.append(unionSym)
     return syms

@@ -39,13 +39,13 @@ def getStruct(fileName):
     detailedDesc = getters.getDetailedDesc(root.find("compounddef"))
 
     structProto = buildPrototype("struct " + name, briefDesc)
-    structSym = buildStruct(path=name, prototypeObj=structProto, importString=include)
+    structSym = buildStruct(path=prefix + name, prototypeObj=structProto, importString=include)
     for elem in root.iter("memberdef"):
         ename = getters.getName(elem)
         etype = getters.getType(elem)
         edesc = getters.getDetailedDesc(elem)
         proto = buildPrototype(etype + " " + ename, edesc)
-        syms.append(buildVariable(path=(name + "/" + ename), prototypeObj=proto))
-        structSym.addMember(prefix + name + "/" + ename)
+        syms.append(buildVariable(path=(prefix + name + "/" + ename), prototypeObj=proto))
+        structSym.addMember(name + "/" + ename)
     syms.append(structSym)
     return syms

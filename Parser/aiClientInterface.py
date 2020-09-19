@@ -11,12 +11,6 @@ import urllib.parse
 # PushSymbols() and Optimize() must be implemented by the child class
 # Other functions can be modified here, but not overrided by the child
 class AIClientInterface:
-    def __init__(self, apikey, appID, secret):
-        self._apikey = apikey
-        self._appID = appID
-        self._secret = secret
-        self._token = ""
-        self._time = 0.0
 
     def PushSymbol(self, obj):
         # function that must be called in order to push symbols
