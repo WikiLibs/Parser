@@ -1,3 +1,4 @@
+import useful
 from classes import variableClass
 from genericClasses import buildVariable
 from genericClasses import buildPrototype
@@ -22,5 +23,5 @@ def getVariable(elem):
     briefDesc = getters.getBriefDesc(elem)
 
     varProto = buildPrototype(name, briefDesc)
-    syms.append(buildVariable(path=name, prototypeObj=varProto, importString=include))
+    syms.append(buildVariable(path=useful.prefix + name, prototypeObj=varProto, importString=include))
     return syms

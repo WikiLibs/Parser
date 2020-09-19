@@ -47,13 +47,13 @@ def getClass(classRoot):
         if kind == 'variable':
             varSyms = getVariable(elem)
             for varSym in varSyms:
-                classSym.addMember(prefix + name + "/" + varSym.path)
+                classSym.addMember(prefix + name + "/" + varSym.path[len(useful.prefix):])
                 syms.append(varSym)
 
         if kind == 'function':
             funcSyms = getFunction(elem)
             for funcSym in funcSyms:
-                classSym.addMember(prefix + name + "/" + funcSym.path)
+                classSym.addMember(prefix + name + "/" + funcSym.path[len(useful.prefix):])
                 syms.append(funcSym)
     syms.append(classSym)
     return syms

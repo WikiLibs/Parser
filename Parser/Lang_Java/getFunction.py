@@ -1,3 +1,4 @@
+import useful
 from classes import functionClass
 from genericClasses import buildFunction
 from genericClasses import buildPrototype
@@ -43,5 +44,5 @@ def getFunction(elem):
         funcProto.prototype = funcProto.prototype[:-2]
     funcProto.prototype += ")"
     funcProto.addParameter(buildParameter(prototype="return", description=returnDesc))
-    syms.append(buildFunction(path=name, prototypeObj=funcProto, importString=include))
+    syms.append(buildFunction(path=useful.prefix + name, prototypeObj=funcProto, importString=include))
     return syms
