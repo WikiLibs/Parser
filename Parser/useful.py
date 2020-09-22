@@ -207,15 +207,3 @@ def parserArgs():
         printVerbose('Library name = ' + args.library_name + '\n')
 
         return args
-
-
-# def callOptimizer(graphicalApiKey=None):
-#     global upload
-#     if upload:
-#         printVerbose("Calling optimizer")
-#         if (graphicalApiKey is not None):
-#             print(graphicalApiKey)
-#             # aiClient.AIClient.CallOptimizer_ext(graphicalApiKey)
-#         else:
-#             aiClient.AIClient.CallOptimizer_ext(apikey)
-#         printVerbose("Called optimizer")
