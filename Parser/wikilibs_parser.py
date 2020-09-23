@@ -21,7 +21,7 @@ def getFunctionsLang():
 
 def main():
     args = useful.parserArgs()
-    if useful.graphical is True:
+    if len(sys.argv) == 1 or useful.graphical is True:
         gui.graphicalClient(args)
         return 0
     useful.getDoxyfileAndRun(args.language)

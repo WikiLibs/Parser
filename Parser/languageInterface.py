@@ -89,7 +89,8 @@ class LanguageInterface:
         # symbolsToUpload.append(('client', client))
         for symbol in self.symbols:
             # symbolsToUpload.append((symbol['symbol_type'], symbol['symbol_list']))
-            symbolsToUpload.append(('generic', symbol['symbol_list']))
+            symbolsToUpload.append(symbol['symbol_list'])
         if useful.upload:
             # JSONRequestCrafter(self.language, self.lib_name, symbolsToUpload, client)
-            craftGenericRequest(self.language, self.lib_name, symbolsToUpload, client)
+            for ss in symbolsToUpload:
+                craftGenericRequest(self.language, self.lib_name, client, ss)

@@ -3,12 +3,11 @@ from PyQt5.QtWidgets import QMainWindow
 
 
 class SummaryWindow(QMainWindow):
-    switch_window = QtCore.pyqtSignal(object, object, str, str, str, str)
+    switch_window = QtCore.pyqtSignal(object, str, str, str, str)
 
-    def __init__(self, param_arg, client, libname, liblang, libpath, apiKey, width, height):
+    def __init__(self, param_arg, libname, liblang, libpath, apiKey, width, height):
         QMainWindow.__init__(self)
         self.param_arg = param_arg
-        self.client = client
         self.libname = libname
         self.liblang = liblang
         self.libpath = libpath
@@ -126,4 +125,4 @@ class SummaryWindow(QMainWindow):
         self.pushButton.setText(_translate("MainWindow", "Process and Upload"))
 
     def switch(self):
-        self.switch_window.emit(self.param_arg, self.client, self.libname, self.liblang, self.libpath, self.apiKey)
+        self.switch_window.emit(self.param_arg, self.libname, self.liblang, self.libpath, self.apiKey)
