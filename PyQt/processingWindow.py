@@ -126,7 +126,7 @@ class ProcessingWindow(QMainWindow):
         self.pushButton = QtWidgets.QPushButton(self.centralwidget)
         self.pushButton.setEnabled(False)
         self.pushButton.setObjectName("pushButton")
-        self.pushButton.clicked.connect(self.switch)
+        self.pushButton.clicked.connect(self.close)
         self.horizontalLayout_2.addWidget(self.pushButton)
         self.verticalLayout.addLayout(self.horizontalLayout_2)
         self.setCentralWidget(self.centralwidget)
@@ -182,6 +182,7 @@ class ProcessingWindow(QMainWindow):
         # self.progressBar.setProperty("value", 100)
         thread_parent.change_progressBar.emit(100)
         self.label_3.setText("finished !")
+        self.label.setText("Processing and uploading was a success!!!")
         self.pushButton.setEnabled(True)
 
     def runDoxyfile(self, language):
