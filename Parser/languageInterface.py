@@ -1,7 +1,7 @@
 import useful
 import aiClient
 from aiClient import AIClient
-from jsonRequestCrafter import JSONRequestCrafter
+from genericRequestCrafter import craftGenericRequest
 import printingFunctions as printingFunctions
 
 
@@ -88,6 +88,9 @@ class LanguageInterface:
         # client = AIClient(self.apikey, aiClient.APP_ID, aiClient.SEC)
         # symbolsToUpload.append(('client', client))
         for symbol in self.symbols:
-            symbolsToUpload.append((symbol['symbol_type'], symbol['symbol_list']))
+            # symbolsToUpload.append((symbol['symbol_type'], symbol['symbol_list']))
+            symbolsToUpload.append(symbol['symbol_list'])
         if useful.upload:
-            JSONRequestCrafter(self.language, self.lib_name, symbolsToUpload, client)
+            # JSONRequestCrafter(self.language, self.lib_name, symbolsToUpload, client)
+            for ss in symbolsToUpload:
+                craftGenericRequest(self.language, self.lib_name, client, ss)

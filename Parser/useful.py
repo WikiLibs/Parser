@@ -168,7 +168,10 @@ def parserArgs():
     global prefix
     global cleanup
 
-    if len(sys.argv) != 1:
+    print(sys.argv)
+    if len(sys.argv) == 2 and (sys.argv[1] == '-g' or sys.argv[1] == '--gui'):
+        graphical = True
+    elif len(sys.argv) != 1:
         argParser = argparse.ArgumentParser(description=DESCRIPTION)
         argParser.add_argument('language', help=LANGUAGE_HELP)
         argParser.add_argument('library_name', help=NAME_HELP)
@@ -207,15 +210,3 @@ def parserArgs():
         printVerbose('Library name = ' + args.library_name + '\n')
 
         return args
-
-
-# def callOptimizer(graphicalApiKey=None):
-#     global upload
-#     if upload:
-#         printVerbose("Calling optimizer")
-#         if (graphicalApiKey is not None):
-#             print(graphicalApiKey)
-#             # aiClient.AIClient.CallOptimizer_ext(graphicalApiKey)
-#         else:
-#             aiClient.AIClient.CallOptimizer_ext(apikey)
-#         printVerbose("Called optimizer")

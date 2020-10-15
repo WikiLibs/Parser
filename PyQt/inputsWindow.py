@@ -2,14 +2,19 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtWidgets import QMainWindow, QFileDialog
 
 prefix = ""
+comboboxLangDict = {
+    'C': 0,
+    'PYTHON3': 2,
+    'JAVA': 3,
+    'C++': 1
+}
 
 class InputsWindow(QMainWindow):
-    switch_window = QtCore.pyqtSignal(object, object, str, str, str, str)
+    switch_window = QtCore.pyqtSignal(object, str, str, str, str)
 
-    def __init__(self, param_arg, client):
+    def __init__(self, param_arg):
         QMainWindow.__init__(self)
         self.param_arg = param_arg
-        self.client = client
         self.setupStyle()
         self.setupUi()
 
@@ -64,8 +69,9 @@ class InputsWindow(QMainWindow):
         self.comboBox.setMaximumSize(QtCore.QSize(475, 16777215))
         self.comboBox.setObjectName("comboBox")
         self.comboBox.addItems(["C", "CPP", "PYTHON3", "JAVA"])
+        if self.param_arg != None:
+            self.comboBox.setCurrentIndex(comboboxLangDict[self.param_arg.language])
         self.horizontalLayout.addWidget(self.comboBox, 0, QtCore.Qt.AlignLeft)
-
         spacerItem2 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
         self.horizontalLayout.addItem(spacerItem2)
         self.verticalLayout.addLayout(self.horizontalLayout)
@@ -79,6 +85,8 @@ class InputsWindow(QMainWindow):
         self.lineEdit_2 = QtWidgets.QLineEdit(self.centralwidget)
         self.lineEdit_2.setMinimumSize(QtCore.QSize(475, 0))
         self.lineEdit_2.setMaximumSize(QtCore.QSize(475, 16777215))
+        if self.param_arg != None:
+            self.lineEdit_2.setText(self.param_arg.library_name)
         self.lineEdit_2.setObjectName("lineEdit_2")
         self.lineEdit_2.setPlaceholderText("Please enter the library name")
         self.horizontalLayout_2.addWidget(self.lineEdit_2)
@@ -120,6 +128,8 @@ class InputsWindow(QMainWindow):
         self.label_5.setObjectName("label_5")
         self.horizontalLayout_4.addWidget(self.label_5)
         self.lineEdit_3 = QtWidgets.QLineEdit(self.centralwidget)
+        if self.param_arg != None:
+            self.lineEdit_3.setText(self.param_arg.apikey)
         self.lineEdit_3.setMinimumSize(QtCore.QSize(475, 0))
         self.lineEdit_3.setMaximumSize(QtCore.QSize(475, 16777215))
         self.lineEdit_3.setObjectName("lineEdit_3")
@@ -166,4 +176,4 @@ class InputsWindow(QMainWindow):
         global prefix
 
         prefix =  self.comboBox.currentText() + "/" + self.lineEdit_2.text() + "/"
-        self.switch_window.emit(self.param_arg, self.client, self.lineEdit_2.text(), self.comboBox.currentText(), self.lib_path_txt, self.lineEdit_3.text())
+        self.switch_window.emit(self.param_arg, self.lineEdit_2.text(), self.comboBox.currentText(), self.lib_path_txt, self.lineEdit_3.text())

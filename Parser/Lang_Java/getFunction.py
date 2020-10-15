@@ -43,7 +43,6 @@ def getFunction(elem):
         funcProto.addParameter(buildParameter(prototype=proto, description=param.desc))
     for ex in exceptions:
         funcProto.addException(buildException(linkedSymbol=ex.typename, description=ex.description))
-        print(name + " + " + ex.typename)
     if len(params) != 0:
         funcProto.prototype = funcProto.prototype[:-2]
     funcProto.prototype += ")"
