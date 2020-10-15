@@ -11,8 +11,8 @@ VERIFY = True # Set to false when working with local API
 #API_URL = "https://localhost:5001"
 API_URL = "https://wikilibs-dev-api.azurewebsites.net"
 APP_KEY = ""
-APP_ID = "3aed2d8a-9b87-40d1-a124-b9827d7536d2"
-SEC = "uM4&~tU6/\"fY5;çlQ1%ùwV8@"
+APP_ID = "9ee1d8d8-932f-47ea-9e34-8faab50d4d0c"
+SEC = "sT0_(cX5%<kA0.ùsT8*)eU3,"
 
 
 class AIClient(AIClientInterface):
