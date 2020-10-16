@@ -198,7 +198,7 @@ def parserArgs():
         if args.exception:
             exceptions = True
 
-        if upload and not(args.apikey):
+        if upload and not args.apikey and not graphical:
             logFatal('Error: cannot push symbols without an API key', 1)
         else:
             apikey = args.apikey

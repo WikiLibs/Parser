@@ -20,6 +20,11 @@ class InputsWindow(QMainWindow):
             self.apikey = self.param_arg.apikey
             self.liblang = self.param_arg.language
             self.libname = self.param_arg.library_name
+        else:
+            self.apikey = None
+            self.liblang = "C"
+            self.libname = ""
+
         self.setupStyle()
         
         self.setupUi()
@@ -137,6 +142,8 @@ class InputsWindow(QMainWindow):
         self.label_5.setObjectName("label_5")
         self.horizontalLayout_4.addWidget(self.label_5)
         self.lineEdit_3 = QtWidgets.QLineEdit(self.centralwidget)
+        if self.apikey is not None:
+            self.lineEdit_3.setEnabled(False)
         self.lineEdit_3.setText(self.apikey)
         self.lineEdit_3.setMinimumSize(QtCore.QSize(475, 0))
         self.lineEdit_3.setMaximumSize(QtCore.QSize(475, 16777215))
