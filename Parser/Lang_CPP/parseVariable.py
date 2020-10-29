@@ -12,7 +12,6 @@ def parseVariable(root):
     tname = ""
     if (t.find("ref") != None):
         tname = t.find("ref").text
-        #TODO: Demangler
     else:
         tname = root.find("type").text
     tt = root.find("argsstring").text

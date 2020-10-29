@@ -12,7 +12,11 @@ def buildFunctionPrototype(protoPrefix, protoSuffix, name, returnType, briefDesc
             if (par.value != None and len(par.value) > 0):
                 proto = proto + " = " + par.value
             funcProto = funcProto + proto + ", "
-            pObj.addParameter(buildParameter(prototype=proto, description=par.desc))
+            symref = resolveReference(par.ref)
+            if (symref != None):
+                pObj.addParameter(buildParameter(prototype=proto, description=par.desc, linkedSymbol=symref.path))
+            else:
+                pObj.addParameter(buildParameter(prototype=proto, description=par.desc))
         funcProto = funcProto[:-2]
     if (len(returnDesc) > 0):
         pObj.addParameter(buildParameter(prototype="return", description=returnDesc))
@@ -50,7 +54,7 @@ def buildDefinePrototype(name, briefDesc, detailedDesc, parameters):
 class Reference:
     def __init__(self, name):
         self.name = name
-        self.path = self.Name.replace("::", "/")
+        self.path = self.name.replace("::", "/")
 
 def resolveReference(refid):
     name = getters.getRefName(refid)

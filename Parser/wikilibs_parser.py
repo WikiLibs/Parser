@@ -4,7 +4,7 @@ import useful
 import PyQt.graphicalClient as gui
 import aiClient as aiClient
 
-import Lang_C_CPP.parserC as parserC
+import Lang_C.parserC as parserC
 import Lang_CPP.parserCPP as parserCPP
 import Lang_Python.parserPython as parserPython
 import Lang_Java.parserJava as parserJava

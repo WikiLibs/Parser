@@ -1,3 +1,4 @@
+from Parser.useful import logError
 import strOperations as strOp
 import useful
 from classes import variableClass
@@ -125,6 +126,9 @@ def getParams(define):
             except Exception as error:
                 useful.printExceptionVerbose(error)
                 tmpParam.name = strOp.epurStr(param.find("declname").text)
+            t = param.find("type")
+            if (t.find("ref") != None):
+                tmpParam.ref = t.find("ref").get("refid")
             tmpParam.type = getType(param)
             params.append(tmpParam)
         return params
@@ -139,6 +143,9 @@ def getExceptions(root):
         if (plist.get("kind") == "exception"):
             for exp in plist.findall("parameteritem"):
                 extype = exp.find("parameternamelist/parametername")
+                if (extype.text == None):
+                    logError("Doxygen has fucked up, symbol exceptions might be corrupted!")
+                    extype.text = ""
                 exname = strOp.epurStr(extype.text)
                 if (extype.find("ref") != None):
                     extype = extype.find("ref").get("refid")

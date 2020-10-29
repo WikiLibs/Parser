@@ -86,9 +86,6 @@ def buildUnion(path, prototypeObj, importString=""):
 def buildTypedef(path, prototypeObj, importString=""):
     return (buildSymbol("typedef", prototypeObj, path, importString))
 
-def buildUsing(path, prototypeObj, importString=""):
-    return (buildSymbol("using", prototypeObj, path, importString))
-
 def buildStruct(path, prototypeObj, importString=""):
     return (buildSymbol("struct", prototypeObj, path, importString))
 

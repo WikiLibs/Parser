@@ -1,5 +1,5 @@
 import useful
-import Lang_C_CPP.parserC as parserC
+import Lang_C.parserC as parserC
 import Lang_Python.parserPython as parserPython
 import Lang_Java.parserJava as parserJava
 import Lang_CPP.parserCPP as parserCPP
