@@ -1,10 +1,10 @@
 #!/usr/bin/env python3.6
 import xml.etree.ElementTree as ET
-from Lang_C_CPP.getDefine import getDefine
-from Lang_C_CPP.getStruct import getStruct
-from Lang_C_CPP.getUnion import getUnion
-from Lang_C_CPP.getFunction import getFunction
-from Lang_C_CPP.getTypedef import getTypedef
+from Lang_C.getDefine import getDefine
+from Lang_C.getStruct import getStruct
+from Lang_C.getUnion import getUnion
+from Lang_C.getFunction import getFunction
+from Lang_C.getTypedef import getTypedef
 from languageInterface import LanguageInterface
 import getters as getters
 
