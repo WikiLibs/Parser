@@ -5,12 +5,16 @@ from Lang_CPP.parseFile import parseFile
 from Lang_CPP.parseClass import parseClass
 from Lang_CPP.parseVariable import parseVariable
 from Lang_CPP.parseFunction import parseFunction
+from Lang_CPP.parseTypedef import parseTypedef
+from Lang_CPP.parseNamespace import parseNamespace
 
 kindTable = {
     "file": parseFile,
     "class": parseClass,
     "variable": parseVariable,
-    "function": parseFunction
+    "function": parseFunction,
+    "typedef": parseTypedef,
+    "namespace": parseNamespace
 }
 
 class parserCPP(LanguageInterface):
