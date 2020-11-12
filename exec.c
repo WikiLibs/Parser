@@ -10,27 +10,25 @@
 #include <sys/stat.h>
 #include <fcntl.h>
 
-#include "output.h"
+#include "mybin.h"
 
 int main(int argc, char **argv, char **env)
 {
-    /* int memfd = memfd_create("mybin", MFD_CLOEXEC); */
-    int memfd = open("mybin", O_RDWR);
+    int memfd = memfd_create("hello", 0);
+    /* int memfd = open("mybin", O_RDWR); */
     if (memfd == -1)
 	exit(84);
     size_t curPtr = 0;
     int d = 0;
     while (curPtr < BINARY_DATA_SIZE - 512)
     {
-	printf("%d\n", d);
 	write(memfd, &BINARY_DATA[curPtr], 512);
 	curPtr += 512;
 	d++;
     }
-    printf("here1\n");
     int r;
-    r = fexecve(memfd, argv, env); //You will have to create the argv and pass the envp argument from main
-    printf("here2 %i\n", r);
+    r = fexecve(memfd, argv, env);
+	//You will have to create the argv and pass the envp argument from main
     perror(strerror(r));
     return 0;
 }
