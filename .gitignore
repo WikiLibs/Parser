@@ -5,3 +5,4 @@ __pycache__
 Parser/Tests/EIP\.code-workspace
 Includes/BPF
 .vs
+bin2c-master
