@@ -26,9 +26,9 @@ def main():
         return 0
     useful.getDoxyfileAndRun(args.language)
     client = aiClient.AIClient(useful.apikey, aiClient.APP_ID, aiClient.SEC)
-    client.CreateLibUUID(args.language, args.library_name)
     if useful.upload is True:
         client.GetToken()
+        client.CreateLibUUID(args.language, args.library_name)
     dispatch = getFunctionsLang()
     obj = dispatch[args.language](args.language, args.library_name)
     files = obj.getAllParseableFiles()
