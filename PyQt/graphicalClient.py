@@ -59,6 +59,7 @@ class Controller:
         client = aiClient.AIClient(apiKey, aiClient.APP_ID, aiClient.SEC)
         if useful.upload is True:
             client.GetToken()
+            client.CreateLibUUID(liblang, libname)
 
         self.process = ProcessingWindow()
         self.process.setParamArg(param_arg)

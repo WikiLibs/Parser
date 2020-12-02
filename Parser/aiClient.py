@@ -96,3 +96,22 @@ class AIClient(AIClientInterface):
         res = requests.patch(API_URL + "/symbol/optimize", headers=headers, verify=VERIFY)
         if (res.status_code != 200):
             raise IOError(res.text)
+
+    def CreateLibUUID(self, liblang, libname):
+        if useful.apikey and useful.UUID != "":
+            useful.printVerbose("Creating Lib with UUID")
+            # Create a lib linked with UUID
+            headers = {
+                "Authorization": "Bearer " + self._token
+            }
+            loginJson = {
+                "name": libname,
+                "lang": liblang,
+                "userId": useful.UUID
+            }
+            res = requests.post(API_URL + "/symbol/lib", headers=headers, json=loginJson, verify=VERIFY)
+            if (res.status_code != 200):
+                raise ConnectionError("UUID is errored: " + str(res.status_code) + "\n"
+                                    + res.text)
+        else:
+            useful.logWarning("UUID not set")
