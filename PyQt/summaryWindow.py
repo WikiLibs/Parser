@@ -4,6 +4,7 @@ from PyQt5.QtWidgets import QMainWindow
 
 class SummaryWindow(QMainWindow):
     switch_window = QtCore.pyqtSignal(object, str, str, str, str)
+    switch_window_prev = QtCore.pyqtSignal(object)
 
     def __init__(self, param_arg, libname, liblang, libpath, apiKey, width, height):
         QMainWindow.__init__(self)
@@ -91,6 +92,13 @@ class SummaryWindow(QMainWindow):
         self.verticalLayout.addItem(spacerItem2)
         self.horizontalLayout_4 = QtWidgets.QHBoxLayout()
         self.horizontalLayout_4.setObjectName("horizontalLayout_4")
+
+        spacerItem4 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        self.pushButton2 = QtWidgets.QPushButton(self.centralwidget)
+        self.pushButton2.setObjectName("pushButton")
+        self.pushButton2.clicked.connect(self.switch_prev)
+        self.horizontalLayout_4.addWidget(self.pushButton2)
+
         spacerItem3 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
         self.horizontalLayout_4.addItem(spacerItem3)
         self.pushButton = QtWidgets.QPushButton(self.centralwidget)
@@ -101,6 +109,7 @@ class SummaryWindow(QMainWindow):
         self.horizontalLayout_4.addWidget(self.pushButton)
         self.verticalLayout.addLayout(self.horizontalLayout_4)
         self.setCentralWidget(self.centralwidget)
+
         self.menubar = QtWidgets.QMenuBar(self)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 640, 21))
         self.menubar.setObjectName("menubar")
@@ -123,6 +132,10 @@ class SummaryWindow(QMainWindow):
         self.label_4.setText(_translate("MainWindow", "Selected library path :"))
         self.label_7.setText(_translate("MainWindow", self.libpath))
         self.pushButton.setText(_translate("MainWindow", "Process and Upload"))
+        self.pushButton2.setText(_translate("MainWindow", "Prev"))
 
     def switch(self):
-        self.switch_window.emit(self.param_arg, self.libname, self.liblang, self.libpath, self.apiKey)
+        self.switch_window.emit(self.param_arg, self.label_6.text(), self.label_5.text(), self.label_7.text(), self.apiKey)
+
+    def switch_prev(self):
+        self.switch_window_prev.emit(self.param_arg)

@@ -28,6 +28,7 @@ def main():
     client = aiClient.AIClient(useful.apikey, aiClient.APP_ID, aiClient.SEC)
     if useful.upload is True:
         client.GetToken()
+        client.CreateLibUUID(args.language, args.library_name)
     dispatch = getFunctionsLang()
     obj = dispatch[args.language](args.language, args.library_name)
     files = obj.getAllParseableFiles()

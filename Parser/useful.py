@@ -14,6 +14,7 @@ graphical = False
 apikey = ""
 secret = ""
 prefix = ""
+UUID = ""
 
 GREEN = "\033[0;32m"
 YELLOW = "\u001b[33m"
@@ -33,6 +34,7 @@ NO_UPLOAD_HELP = 'set this option to disable upload to API (useful for degug)'
 API_KEY_HELP = 'set the API Key to use for authenticating with the API server'
 SCR_KEY_HELP = 'set the secret Key to use for authenticating with the API server'
 NO_CLEANUP_HELP = 'skip cleanup of XML and other generated files (useful for degug)'
+UUID_HELP = 'UUID of the user'
 
 dicoLang = {
     "C": ['.h', '.c'],
@@ -167,6 +169,7 @@ def parserArgs():
     global apikey
     global prefix
     global cleanup
+    global UUID
 
     print(sys.argv)
     if len(sys.argv) == 2 and (sys.argv[1] == '-g' or sys.argv[1] == '--gui'):
@@ -182,6 +185,7 @@ def parserArgs():
         argParser.add_argument('-k', '--apikey', help=API_KEY_HELP)
         argParser.add_argument('-s', '--secret', help=SCR_KEY_HELP)
         argParser.add_argument('-c', '--noCleanup', help=NO_CLEANUP_HELP, action='store_true')
+        argParser.add_argument('-u', '--UUID', help=UUID_HELP)
         args = argParser.parse_args()
 
         args.language = args.language.upper()
@@ -198,10 +202,11 @@ def parserArgs():
         if args.exception:
             exceptions = True
 
-        if upload and not(args.apikey):
+        if upload and not args.apikey and not graphical:
             logFatal('Error: cannot push symbols without an API key', 1)
         else:
             apikey = args.apikey
+            UUID = args.UUID
 
         if dicoLang.get(args.language) is None:
             logFatal('Error: unsupported language \'{}\''.format(args.language), 1)
