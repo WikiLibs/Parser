@@ -98,7 +98,7 @@ class AIClient(AIClientInterface):
             raise IOError(res.text)
 
     def CreateLibUUID(self, liblang, libname):
-        if useful.apikey and useful.UUID != "":
+        if useful.apikey and useful.UUID:
             useful.printVerbose("Creating Lib with UUID")
             # Create a lib linked with UUID
             headers = {
