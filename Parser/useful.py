@@ -14,7 +14,7 @@ graphical = False
 apikey = ""
 secret = ""
 prefix = ""
-UUID = ""
+UUID = None
 
 GREEN = "\033[0;32m"
 YELLOW = "\u001b[33m"
