@@ -16,14 +16,16 @@ class InputsWindow(QMainWindow):
         QMainWindow.__init__(self)
         self.param_arg = param_arg
 
+        self.apikey = None
+        self.liblang = "C"
+        self.libname = ""
         if self.param_arg is not None:
-            self.apikey = self.param_arg.apikey
-            self.liblang = self.param_arg.language
-            self.libname = self.param_arg.library_name
-        else:
-            self.apikey = None
-            self.liblang = "C"
-            self.libname = ""
+            if self.param_arg.apikey:
+                self.apikey = self.param_arg.apikey
+            if self.param_arg.language and type(self.param_arg.language) != bool:
+                self.liblang = self.param_arg.language
+            if self.param_arg.library_name and type(self.param_arg.library_name) != bool:
+                self.libname = self.param_arg.library_name
 
         self.setupStyle()
         
@@ -87,7 +89,10 @@ class InputsWindow(QMainWindow):
         self.comboBox.setMaximumSize(QtCore.QSize(475, 16777215))
         self.comboBox.setObjectName("comboBox")
         self.comboBox.addItems(["C", "CPP", "PYTHON3", "JAVA"])
-        self.comboBox.setCurrentIndex(comboboxLangDict[self.liblang])
+        if comboboxLangDict.get(self.liblang) is None:
+            self.comboBox.setCurrentIndex(0)
+        else:
+            self.comboBox.setCurrentIndex(comboboxLangDict[self.liblang])
         self.horizontalLayout.addWidget(self.comboBox, 0, QtCore.Qt.AlignLeft)
         spacerItem2 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
         self.horizontalLayout.addItem(spacerItem2)
