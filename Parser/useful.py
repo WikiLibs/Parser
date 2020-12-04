@@ -4,7 +4,7 @@ import xml.etree.ElementTree as ET
 from urllib.request import urlopen
 import os
 import argparse
-import aiClient
+# import aiClient
 
 verbose = False
 cleanup = True
@@ -13,6 +13,8 @@ exceptions = False
 graphical = False
 apikey = ""
 secret = ""
+prefix = ""
+UUID = None
 
 GREEN = "\033[0;32m"
 YELLOW = "\u001b[33m"
@@ -32,6 +34,7 @@ NO_UPLOAD_HELP = 'set this option to disable upload to API (useful for degug)'
 API_KEY_HELP = 'set the API Key to use for authenticating with the API server'
 SCR_KEY_HELP = 'set the secret Key to use for authenticating with the API server'
 NO_CLEANUP_HELP = 'skip cleanup of XML and other generated files (useful for degug)'
+UUID_HELP = 'UUID of the user'
 
 dicoLang = {
     "C": ['.h', '.c'],
@@ -164,12 +167,16 @@ def parserArgs():
     global graphical
     global secret
     global apikey
+    global prefix
     global cleanup
+    global UUID
 
-    if len(sys.argv) != 1:
+    print(sys.argv)
+    if '-g' in sys.argv or '--gui' in sys.argv:
+        graphical = True
         argParser = argparse.ArgumentParser(description=DESCRIPTION)
-        argParser.add_argument('language', help=LANGUAGE_HELP)
-        argParser.add_argument('library_name', help=NAME_HELP)
+        argParser.add_argument('-l', '--language', help=LANGUAGE_HELP)
+        argParser.add_argument('-ln', '--library_name', help=NAME_HELP)
         argParser.add_argument('-v', '--verbose', help=VERBOSE_HELP, action='store_true')
         argParser.add_argument('-e', '--exception', help=EXCEPTION_HELP, action='store_true')
         argParser.add_argument('-g', '--gui', help=GUI_HELP, action='store_true')
@@ -177,9 +184,8 @@ def parserArgs():
         argParser.add_argument('-k', '--apikey', help=API_KEY_HELP)
         argParser.add_argument('-s', '--secret', help=SCR_KEY_HELP)
         argParser.add_argument('-c', '--noCleanup', help=NO_CLEANUP_HELP, action='store_true')
+        argParser.add_argument('-u', '--UUID', help=UUID_HELP)
         args = argParser.parse_args()
-
-        args.language = args.language.upper()
 
         if args.verbose:
             verbose = args.verbose
@@ -192,10 +198,45 @@ def parserArgs():
         if args.exception:
             exceptions = True
 
-        if upload and not(args.apikey):
+        if upload and not args.apikey and not graphical:
             logFatal('Error: cannot push symbols without an API key', 1)
         else:
             apikey = args.apikey
+            UUID = args.UUID
+        return args
+    elif len(sys.argv) != 1:
+        argParser = argparse.ArgumentParser(description=DESCRIPTION)
+        argParser.add_argument('language', help=LANGUAGE_HELP)
+        argParser.add_argument('library_name', help=NAME_HELP)
+        argParser.add_argument('-v', '--verbose', help=VERBOSE_HELP, action='store_true')
+        argParser.add_argument('-e', '--exception', help=EXCEPTION_HELP, action='store_true')
+        argParser.add_argument('-g', '--gui', help=GUI_HELP, action='store_true')
+        argParser.add_argument('-n', '--noUpload', help=NO_UPLOAD_HELP, action='store_true')
+        argParser.add_argument('-k', '--apikey', help=API_KEY_HELP)
+        argParser.add_argument('-s', '--secret', help=SCR_KEY_HELP)
+        argParser.add_argument('-c', '--noCleanup', help=NO_CLEANUP_HELP, action='store_true')
+        argParser.add_argument('-u', '--UUID', help=UUID_HELP)
+        args = argParser.parse_args()
+
+        args.language = args.language.upper()
+        prefix = args.language + "/" + args.library_name + "/"
+
+        if args.verbose:
+            verbose = args.verbose
+        if args.gui:
+            graphical = True
+        if args.noUpload:
+            upload = False
+        if args.noCleanup:
+            cleanup = False
+        if args.exception:
+            exceptions = True
+
+        if upload and not args.apikey and not graphical:
+            logFatal('Error: cannot push symbols without an API key', 1)
+        else:
+            apikey = args.apikey
+            UUID = args.UUID
 
         if dicoLang.get(args.language) is None:
             logFatal('Error: unsupported language \'{}\''.format(args.language), 1)
@@ -204,15 +245,3 @@ def parserArgs():
         printVerbose('Library name = ' + args.library_name + '\n')
 
         return args
-
-
-def callOptimizer(graphicalApiKey=None):
-    global upload
-    if upload:
-        printVerbose("Calling optimizer")
-        if (graphicalApiKey is not None):
-            print(graphicalApiKey)
-            # aiClient.AIClient.CallOptimizer_ext(graphicalApiKey)
-        else:
-            aiClient.AIClient.CallOptimizer_ext(apikey)
-        printVerbose("Called optimizer")

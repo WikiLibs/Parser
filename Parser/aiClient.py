@@ -1,4 +1,5 @@
 import requests
+from aiClientInterface import AIClientInterface
 import json
 import time
 import useful
@@ -9,12 +10,12 @@ import urllib.parse
 VERIFY = True # Set to false when working with local API
 #API_URL = "https://localhost:5001"
 API_URL = "https://wikilibs-dev-api.azurewebsites.net"
-APP_KEY = "819b9934-e8bd-49dc-ace5-888806218117" # ne pas changer
-APP_ID = "3aed2d8a-9b87-40d1-a124-b9827d7536d2"
-SEC = "uM4&~tU6/\"fY5;çlQ1%ùwV8@"
+APP_KEY = ""
+APP_ID = "9ee1d8d8-932f-47ea-9e34-8faab50d4d0c"
+SEC = "sT0_(cX5%<kA0.ùsT8*)eU3,"
 
 
-class AIClient:
+class AIClient(AIClientInterface):
     def __init__(self, apikey, appID, secret):
         self._apikey = apikey
         self._appID = appID
@@ -82,7 +83,7 @@ class AIClient:
             raise IOError("Invalid request : return code is " + str(res.status_code) + "\n"
                                   + res.text)
 
-    def CallOptimizer(self):
+    def Optimize(self):
         if self._token == "":
             raise ConnectionError("No token")
 
@@ -96,29 +97,21 @@ class AIClient:
         if (res.status_code != 200):
             raise IOError(res.text)
 
-    @staticmethod
-    def CallOptimizer_ext(apikey):
-        useful.printVerbose("Getting bearer token")
-        # Authenticate with the server
-        headers = {
-            "Authorization": apikey,
-        }
-        loginJson = {
-            "appId": APP_ID,
-            "appSecret": SEC
-        }
-        res = requests.post(API_URL + "/auth/bot", headers=headers, json=loginJson, verify=VERIFY)
-        if (res.status_code != 200):
-            raise ConnectionError("Authorization token rejected")
-
-        # Extract bearer token string
-        token = res.text[1:-1]
-
-        useful.printVerbose("Optimizer is being called")
-        # Call optimizer
-        headers = {
-            "Authorization": "Bearer " + token
-        }
-        res = requests.patch(API_URL + "/symbol/optimize", headers=headers, verify=VERIFY)
-        if (res.status_code != 200):
-            raise IOError(res.text)
+    def CreateLibUUID(self, liblang, libname):
+        if useful.apikey and useful.UUID:
+            useful.printVerbose("Creating Lib with UUID")
+            # Create a lib linked with UUID
+            headers = {
+                "Authorization": "Bearer " + self._token
+            }
+            loginJson = {
+                "name": libname,
+                "lang": liblang,
+                "userId": useful.UUID
+            }
+            res = requests.post(API_URL + "/symbol/lib", headers=headers, json=loginJson, verify=VERIFY)
+            if (res.status_code != 200):
+                raise ConnectionError("UUID is errored: " + str(res.status_code) + "\n"
+                                    + res.text)
+        else:
+            useful.logWarning("UUID not set")

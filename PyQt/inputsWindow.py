@@ -1,6 +1,13 @@
+import os
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtWidgets import QMainWindow, QFileDialog
 
+comboboxLangDict = {
+    'C': 0,
+    'PYTHON3': 2,
+    'JAVA': 3,
+    'C++': 1
+}
 
 class InputsWindow(QMainWindow):
     switch_window = QtCore.pyqtSignal(object, str, str, str, str)
@@ -8,7 +15,20 @@ class InputsWindow(QMainWindow):
     def __init__(self, param_arg):
         QMainWindow.__init__(self)
         self.param_arg = param_arg
+
+        self.apikey = None
+        self.liblang = "C"
+        self.libname = ""
+        if self.param_arg is not None:
+            if self.param_arg.apikey:
+                self.apikey = self.param_arg.apikey
+            if self.param_arg.language and type(self.param_arg.language) != bool:
+                self.liblang = self.param_arg.language
+            if self.param_arg.library_name and type(self.param_arg.library_name) != bool:
+                self.libname = self.param_arg.library_name
+
         self.setupStyle()
+        
         self.setupUi()
 
     def setupStyle(self):
@@ -39,8 +59,15 @@ class InputsWindow(QMainWindow):
         self.centralwidget.setObjectName("centralwidget")
         self.verticalLayout = QtWidgets.QVBoxLayout(self.centralwidget)
         self.verticalLayout.setObjectName("verticalLayout")
-        spacerItem = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Minimum)
-        self.verticalLayout.addItem(spacerItem)
+        spacerItem8 = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Minimum)
+        self.verticalLayout.addItem(spacerItem8)
+        self.topLabel = QtWidgets.QLabel(self.centralwidget)
+        font = QtGui.QFont()
+        font.setPointSize(14)
+        self.topLabel.setFont(font)
+        self.topLabel.setAlignment(QtCore.Qt.AlignCenter)
+        self.topLabel.setObjectName("topLabel")
+        self.verticalLayout.addWidget(self.topLabel)
         self.label = QtWidgets.QLabel(self.centralwidget)
         font = QtGui.QFont()
         font.setPointSize(14)
@@ -62,8 +89,11 @@ class InputsWindow(QMainWindow):
         self.comboBox.setMaximumSize(QtCore.QSize(475, 16777215))
         self.comboBox.setObjectName("comboBox")
         self.comboBox.addItems(["C", "CPP", "PYTHON3", "JAVA"])
+        if comboboxLangDict.get(self.liblang) is None:
+            self.comboBox.setCurrentIndex(0)
+        else:
+            self.comboBox.setCurrentIndex(comboboxLangDict[self.liblang])
         self.horizontalLayout.addWidget(self.comboBox, 0, QtCore.Qt.AlignLeft)
-
         spacerItem2 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
         self.horizontalLayout.addItem(spacerItem2)
         self.verticalLayout.addLayout(self.horizontalLayout)
@@ -77,10 +107,10 @@ class InputsWindow(QMainWindow):
         self.lineEdit_2 = QtWidgets.QLineEdit(self.centralwidget)
         self.lineEdit_2.setMinimumSize(QtCore.QSize(475, 0))
         self.lineEdit_2.setMaximumSize(QtCore.QSize(475, 16777215))
+        self.lineEdit_2.setText(self.libname)
         self.lineEdit_2.setObjectName("lineEdit_2")
         self.lineEdit_2.setPlaceholderText("Please enter the library name")
         self.horizontalLayout_2.addWidget(self.lineEdit_2)
-
         spacerItem3 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
         self.horizontalLayout_2.addItem(spacerItem3)
         self.verticalLayout.addLayout(self.horizontalLayout_2)
@@ -94,7 +124,7 @@ class InputsWindow(QMainWindow):
         self.lineEdit = QtWidgets.QLineEdit(self.centralwidget)
         self.lineEdit.setMinimumSize(QtCore.QSize(475, 0))
         self.lineEdit.setMaximumSize(QtCore.QSize(475, 16777215))
-        self.lineEdit.setText("")
+        self.lineEdit.setText(os.getcwd())
         self.lineEdit.setPlaceholderText(self.lib_path_txt)
         self.lineEdit.setObjectName("lineEdit")
         self.horizontalLayout_3.addWidget(self.lineEdit)
@@ -106,7 +136,6 @@ class InputsWindow(QMainWindow):
         self.pushButton_2.setObjectName("pushButton_2")
         self.pushButton_2.clicked.connect(self.browseLibPathFolder)
         self.horizontalLayout_3.addWidget(self.pushButton_2)
-
         spacerItem7 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
         self.horizontalLayout_3.addItem(spacerItem7)
         self.verticalLayout.addLayout(self.horizontalLayout_3)
@@ -118,12 +147,14 @@ class InputsWindow(QMainWindow):
         self.label_5.setObjectName("label_5")
         self.horizontalLayout_4.addWidget(self.label_5)
         self.lineEdit_3 = QtWidgets.QLineEdit(self.centralwidget)
+        if self.apikey is not None:
+            self.lineEdit_3.setEnabled(False)
+        self.lineEdit_3.setText(self.apikey)
         self.lineEdit_3.setMinimumSize(QtCore.QSize(475, 0))
         self.lineEdit_3.setMaximumSize(QtCore.QSize(475, 16777215))
         self.lineEdit_3.setObjectName("lineEdit_3")
         self.lineEdit_3.setPlaceholderText("Enter API key")
         self.horizontalLayout_4.addWidget(self.lineEdit_3)
-
         spacerItem5 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
         self.horizontalLayout_4.addItem(spacerItem5)
         self.verticalLayout.addLayout(self.horizontalLayout_4)
@@ -148,6 +179,9 @@ class InputsWindow(QMainWindow):
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "WikiLibs Uploader"))
+
+        self.topLabel.setText(_translate("MainWindow", "Welcome to the WikiLibs library uploader"))
+
         self.label.setText(_translate("MainWindow", "Please input the following informations"))
         self.label_2.setText(_translate("MainWindow", "Language"))
         self.label_3.setText(_translate("MainWindow", "Library Name"))
@@ -161,4 +195,4 @@ class InputsWindow(QMainWindow):
         self.lineEdit.setText(self.lib_path_txt)
 
     def switch(self):
-        self.switch_window.emit(self.param_arg, self.lineEdit_2.text(), self.comboBox.currentText(), self.lib_path_txt, self.lineEdit_3.text())
+        self.switch_window.emit(self.param_arg, self.lineEdit_2.text(), self.comboBox.currentText(), self.lineEdit.text(), self.lineEdit_3.text())

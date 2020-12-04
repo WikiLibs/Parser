@@ -1,3 +1,4 @@
+from Parser.useful import logError
 import strOperations as strOp
 import useful
 from classes import variableClass
@@ -9,7 +10,10 @@ def getCompoundName(elem):
 
 
 def getName(elem):
-    return strOp.epurStr(elem.find("name").text)
+    ret = elem.find("name")
+    if ret != -1:
+        return strOp.epurStr(elem.find("name").text)
+    return "ERRORED"
 
 
 def getType(elem):
@@ -42,17 +46,6 @@ def getDetailedDesc(elem):
         #for token in elem.find("detaileddescription").itertext():
         #    detailedDesc += " " + token.replace('\n', '').replace('\t', ' ')
         #return strOp.epurStr(detailedDesc)
-    except Exception as error:
-        useful.printExceptionVerbose(error)
-        return ""
-
-
-def getLocation(elem):
-    try:
-        location = elem.find("location").get("file")
-        if (location == ""):
-            location = elem.find("includes").text
-        return location[location.rfind('/') + 1:]
     except Exception as error:
         useful.printExceptionVerbose(error)
         return ""
@@ -133,6 +126,9 @@ def getParams(define):
             except Exception as error:
                 useful.printExceptionVerbose(error)
                 tmpParam.name = strOp.epurStr(param.find("declname").text)
+            t = param.find("type")
+            if (t.find("ref") != None):
+                tmpParam.ref = t.find("ref").get("refid")
             tmpParam.type = getType(param)
             params.append(tmpParam)
         return params
@@ -147,6 +143,9 @@ def getExceptions(root):
         if (plist.get("kind") == "exception"):
             for exp in plist.findall("parameteritem"):
                 extype = exp.find("parameternamelist/parametername")
+                if (extype.text == None):
+                    logError("Doxygen has fucked up, symbol exceptions might be corrupted!")
+                    extype.text = ""
                 exname = strOp.epurStr(extype.text)
                 if (extype.find("ref") != None):
                     extype = extype.find("ref").get("refid")

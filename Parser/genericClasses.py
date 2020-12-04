@@ -60,7 +60,7 @@ def buildSymbol(typename, prototypeObj, path, importString=""):
     sym.path = path
     sym.importString = importString
     sym.addPrototype(prototypeObj)
-    return (sym)    
+    return (sym)
 
 def buildException(linkedSymbol, description=None):
     obj = GenericException()
@@ -85,9 +85,6 @@ def buildUnion(path, prototypeObj, importString=""):
 
 def buildTypedef(path, prototypeObj, importString=""):
     return (buildSymbol("typedef", prototypeObj, path, importString))
-
-def buildUsing(path, prototypeObj, importString=""):
-    return (buildSymbol("using", prototypeObj, path, importString))
 
 def buildStruct(path, prototypeObj, importString=""):
     return (buildSymbol("struct", prototypeObj, path, importString))

@@ -22,10 +22,10 @@ class Test_GetVariable(unittest.TestCase):
 
         expected = classes.variableClass()
         expected.name = 'RANDOM_VARIABLE'
-        expected.type = 'string'
-        expected.value = 'HELLO'
+        expected.type = 'variable'
+        expected.value = 'HELLO' #not handled
 
         received = getVariable.getVariable(obj)
-        self.assertEqual(expected.name, received.name, 'Should be equal')
-        self.assertEqual(expected.type, received.type, 'Should be equal')
-        self.assertEqual(expected.value, received.value, 'Should be equal')
+        self.assertEqual(expected.name, received[0].path, 'Should be equal')
+        self.assertEqual(expected.type, received[0].typename, 'Should be equal')
+        # self.assertEqual(expected.value, received[0].value, 'Should be equal')

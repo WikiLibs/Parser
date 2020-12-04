@@ -93,3 +93,26 @@ def printClasses(classes):
         printVariables(elem.variables)
         print("\t", end="")
         printFunctions(elem.functions)
+
+
+def printGeneric(syms):
+    print("\033[1mGeneric:\033[0m\n")
+
+    for elem in syms:
+        print("name =", elem.typename)
+        print("path =", elem.path)
+        print("import =", elem.importString)
+        for proto in elem.prototypes:
+            print("\tprototype=", proto.prototype)
+            print("\tdescription=", proto.description)
+            for param in proto.parameters:
+                print("\t\tparameters=", param.prototype)
+                print("\t\tdescription=", param.description)
+                print("\t\tlinkedSym=", param.linkedSymbol)
+            for ex in proto.exceptions:
+                print("\t\texception:")
+                print("\t\t\tdescription=", ex.description)
+                print("\t\t\tlinkedSym=", ex.linkedSymbol)
+        for sym in elem.linkedSymbols:
+            print("\tlinkedSymbol=", sym)
+        print("")

@@ -1,7 +1,8 @@
 import useful
-import Lang_C_CPP.parserC as parserC
+import Lang_C.parserC as parserC
 import Lang_Python.parserPython as parserPython
 import Lang_Java.parserJava as parserJava
+import Lang_CPP.parserCPP as parserCPP
 
 from urllib.request import urlopen
 import os
@@ -15,7 +16,8 @@ def getFunctionsLang():
     dispatch = {
         'C': parserC.parserC,
         'PYTHON3': parserPython.parserPython,
-        'JAVA': parserJava.parserJava
+        'JAVA': parserJava.parserJava,
+        'C++': parserCPP.parserCPP
     }
     return dispatch
 
@@ -43,6 +45,9 @@ class ProcessingWindow(QMainWindow):
 
     def setParamArg(self, paramArg):
         self.param_arg = paramArg
+
+    def setClient(self, client):
+        self.client = client
 
     def setLibName(self, libname):
         self.libname = libname
@@ -121,7 +126,7 @@ class ProcessingWindow(QMainWindow):
         self.pushButton = QtWidgets.QPushButton(self.centralwidget)
         self.pushButton.setEnabled(False)
         self.pushButton.setObjectName("pushButton")
-        self.pushButton.clicked.connect(self.switch)
+        self.pushButton.clicked.connect(self.close)
         self.horizontalLayout_2.addWidget(self.pushButton)
         self.verticalLayout.addLayout(self.horizontalLayout_2)
         self.setCentralWidget(self.centralwidget)
@@ -149,8 +154,9 @@ class ProcessingWindow(QMainWindow):
     def processUploadThread(self, thread_parent):
         # Process Everything to Parse
         self.runDoxyfile(self.liblang)
-        files = useful.getAllFiles(self.liblang)
         dispatch = getFunctionsLang()
+        obj = dispatch[self.liblang](self.liblang, self.libname)
+        files = obj.getAllParseableFiles()
         # self.progressBar.setProperty("value", 20)
         thread_parent.change_progressBar.emit(20)
 
@@ -159,8 +165,7 @@ class ProcessingWindow(QMainWindow):
         for filename in files:
             self.label_3.setText("parsing files... (" + str(i) + "/" + str(len(files)) + ")")
             useful.logInfo('Starting parsing \'' + filename.ogFilename + '\'')
-            obj = dispatch[self.liblang](self.liblang, self.libname)
-            obj.parseXMLFile(filename.xmlFilename, self.apiKey)
+            obj.parseXMLFile(filename.xmlFilename, self.client)
             thread_parent.change_progressBar.emit(int(20 + (i * 49 / total)))
             self.update()
             i += 1
@@ -168,7 +173,6 @@ class ProcessingWindow(QMainWindow):
         # self.progressBar.setProperty("value", 70)
         thread_parent.change_progressBar.emit(70)
         self.label_3.setText("sending data to the server")
-        useful.callOptimizer(self.apiKey)
 
         # self.progressBar.setProperty("value", 90)
         thread_parent.change_progressBar.emit(90)
@@ -178,6 +182,7 @@ class ProcessingWindow(QMainWindow):
         # self.progressBar.setProperty("value", 100)
         thread_parent.change_progressBar.emit(100)
         self.label_3.setText("finished !")
+        self.label.setText("Processing and uploading was a success!!!")
         self.pushButton.setEnabled(True)
 
     def runDoxyfile(self, language):

@@ -40,6 +40,7 @@ class WelcomeWindow(QMainWindow):
         self.centralwidget.setObjectName("centralwidget")
         self.verticalLayout = QtWidgets.QVBoxLayout(self.centralwidget)
         self.verticalLayout.setObjectName("verticalLayout")
+
         spacerItem = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Minimum)
         self.verticalLayout.addItem(spacerItem)
         self.topLabel = QtWidgets.QLabel(self.centralwidget)
@@ -49,6 +50,7 @@ class WelcomeWindow(QMainWindow):
         self.topLabel.setAlignment(QtCore.Qt.AlignCenter)
         self.topLabel.setObjectName("topLabel")
         self.verticalLayout.addWidget(self.topLabel)
+
         spacerItem1 = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Minimum)
         self.verticalLayout.addItem(spacerItem1)
         self.label = QtWidgets.QLabel(self.centralwidget)
@@ -59,6 +61,7 @@ class WelcomeWindow(QMainWindow):
         self.label_2.setAlignment(QtCore.Qt.AlignCenter)
         self.label_2.setObjectName("label_2")
         self.verticalLayout.addWidget(self.label_2)
+
         spacerItem2 = QtWidgets.QSpacerItem(20, 230, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
         self.verticalLayout.addItem(spacerItem2)
         self.nextButton = QtWidgets.QPushButton(self.centralwidget)
@@ -77,6 +80,7 @@ class WelcomeWindow(QMainWindow):
         self.nextButton.clicked.connect(self.switch)
         self.verticalLayout.addWidget(self.nextButton, 0, QtCore.Qt.AlignRight)
         self.setCentralWidget(self.centralwidget)
+
         self.menubar = QtWidgets.QMenuBar(self)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 640, 21))
         self.menubar.setObjectName("menubar")

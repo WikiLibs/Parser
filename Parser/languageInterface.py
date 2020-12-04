@@ -1,7 +1,7 @@
 import useful
 import aiClient
 from aiClient import AIClient
-from jsonRequestCrafter import JSONRequestCrafter
+from genericRequestCrafter import craftGenericRequest
 import printingFunctions as printingFunctions
 
 
@@ -16,17 +16,16 @@ class LanguageInterface:
         self.language = language
         self.lib_name = library_name
 
-    def parseXMLFile(self, filename, apikey):
+    def parseXMLFile(self, filename, client):
         """
         This function is called by wikilibs_parser.py
         The child of this class will inherit this function
         It should not be overrided
         """
-        self.apikey = apikey
         self.getSymbols(filename)
         if useful.verbose is True:
             self.printParsedData()
-        self.uploadToApi()
+        self.uploadToApi(client)
         self.symbols = []
 
     def getAllParseableFiles(self):
@@ -72,22 +71,26 @@ class LanguageInterface:
             'union': printingFunctions.printUnions,
             'function': printingFunctions.printFunctions,
             'typedef': printingFunctions.printTypedefs,
-            'class': printingFunctions.printClasses
+            'class': printingFunctions.printClasses,
+            'generic': printingFunctions.printGeneric
         }
 
         for symbol in self.symbols:
             if (symbol['symbol_type'] in printingFunctionsDict):
                 printingFunctionsDict[symbol['symbol_type']](symbol['symbol_list'])
 
-    def uploadToApi(self):
+    def uploadToApi(self, client):
         """
         This function will upload the symbols to the API
         It should not be overrided
         """
         symbolsToUpload = []
-        client = AIClient(self.apikey, aiClient.APP_ID, aiClient.SEC)
-        symbolsToUpload.append(('client', client))
+        # client = AIClient(self.apikey, aiClient.APP_ID, aiClient.SEC)
+        # symbolsToUpload.append(('client', client))
         for symbol in self.symbols:
-            symbolsToUpload.append((symbol['symbol_type'], symbol['symbol_list']))
+            # symbolsToUpload.append((symbol['symbol_type'], symbol['symbol_list']))
+            symbolsToUpload.append(symbol['symbol_list'])
         if useful.upload:
-            JSONRequestCrafter(self.language, self.lib_name, symbolsToUpload)
+            # JSONRequestCrafter(self.language, self.lib_name, symbolsToUpload, client)
+            for ss in symbolsToUpload:
+                craftGenericRequest(self.language, self.lib_name, client, ss)

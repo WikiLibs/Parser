@@ -6,6 +6,7 @@ from classes import variableClass
 from Lang_CPP.parseFile import parseFile
 from Lang_CPP.parseVariable import parseVariable
 from Lang_CPP.parseFunction import parseFunction
+from Lang_CPP.parseTypedef import parseTypedef
 from useful import logError
 from useful import logInfo
 from useful import logWarning
@@ -15,7 +16,8 @@ from Lang_CPP.utility import resolveReference
 kindTable = {
     "file": parseFile,
     "variable": parseVariable,
-    "function": parseFunction
+    "function": parseFunction,
+    "typedef": parseTypedef
 }
 
 def parseClass(root):
