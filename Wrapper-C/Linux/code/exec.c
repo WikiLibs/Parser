@@ -63,14 +63,14 @@ int main(int argc, char **argv, char **env)
 	}
 
 	int r;  // return value of execve
-	char buffer[400]; // array that will store the location of the temporary file
+	char buffer[1024]; // array that will store the location of the temporary file
 	snprintf(buffer, 1024, "/proc/%d/fd/%d", getpid(), memfd); // get temporaty file process
 
-	char **args = malloc(sizeof(char *) * 6);
-	args = fill_args(args, 5, "sssss", "-g", "-k", g_apikey, "-u", g_user);
-	args[5] = NULL;
-        /* for (int j = 0; j < 6; j++) */
-	/* 	printf("%s\n", args[j]); */
+	char **args = malloc(sizeof(char *) * 7);
+	args = fill_args(args, 6, "ssssss", "/proc/self/exe", "-g", "-k", g_apikey, "-u", g_user);
+	args[6] = NULL;
+    //for (int j = 0; j < 7; j++)
+	// 	printf("%s\n", args[j]);
 	/* argv[0] = buffer; */
 
 	printf("Proc is: %s\n", buffer);
