@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.10)
 
 # set the project name
-project(Wrapper_Linux)
+project(Wrapper_Windows)
 
 # find the executable and store in var
 file(GLOB MyBins
