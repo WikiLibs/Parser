@@ -172,8 +172,38 @@ def parserArgs():
     global UUID
 
     print(sys.argv)
-    if len(sys.argv) == 2 and (sys.argv[1] == '-g' or sys.argv[1] == '--gui'):
+    if '-g' in sys.argv or '--gui' in sys.argv:
         graphical = True
+        argParser = argparse.ArgumentParser(description=DESCRIPTION)
+        argParser.add_argument('-l', '--language', help=LANGUAGE_HELP)
+        argParser.add_argument('-ln', '--library_name', help=NAME_HELP)
+        argParser.add_argument('-v', '--verbose', help=VERBOSE_HELP, action='store_true')
+        argParser.add_argument('-e', '--exception', help=EXCEPTION_HELP, action='store_true')
+        argParser.add_argument('-g', '--gui', help=GUI_HELP, action='store_true')
+        argParser.add_argument('-n', '--noUpload', help=NO_UPLOAD_HELP, action='store_true')
+        argParser.add_argument('-k', '--apikey', help=API_KEY_HELP)
+        argParser.add_argument('-s', '--secret', help=SCR_KEY_HELP)
+        argParser.add_argument('-c', '--noCleanup', help=NO_CLEANUP_HELP, action='store_true')
+        argParser.add_argument('-u', '--UUID', help=UUID_HELP)
+        args = argParser.parse_args()
+
+        if args.verbose:
+            verbose = args.verbose
+        if args.gui:
+            graphical = True
+        if args.noUpload:
+            upload = False
+        if args.noCleanup:
+            cleanup = False
+        if args.exception:
+            exceptions = True
+
+        if upload and not args.apikey and not graphical:
+            logFatal('Error: cannot push symbols without an API key', 1)
+        else:
+            apikey = args.apikey
+            UUID = args.UUID
+        return args
     elif len(sys.argv) != 1:
         argParser = argparse.ArgumentParser(description=DESCRIPTION)
         argParser.add_argument('language', help=LANGUAGE_HELP)

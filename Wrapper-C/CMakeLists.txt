@@ -7,11 +7,16 @@ project(Tutorial)
 # find the executable and store in var
 file(GLOB MyBins
   Linux/mybin.*.c
-)
+  )
+
+file(GLOB Constants
+  Linux/constant.*
+  )
+
 
 # add the executable
 set(MAIN Linux/exec.c)
-add_executable(Tutorial ${MyBins} ${MAIN})
+add_executable(Tutorial ${MyBins} ${Constants} ${MAIN})
 
 # add the binary tree to the search path for include files
 # so that we will find the headers file
