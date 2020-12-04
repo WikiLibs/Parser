@@ -25,3 +25,4 @@ include_directories("${CMAKE_CURRENT_SOURCE_DIR}/mybins" "${CMAKE_CURRENT_SOURCE
 # specify the C++ standard
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
+add_definitions("-W -Wall -Wextra")
