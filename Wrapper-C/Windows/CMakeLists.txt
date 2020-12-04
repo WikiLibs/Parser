@@ -15,7 +15,7 @@ file(GLOB Constants
 
 # add the executable
 set(MAIN ${CMAKE_CURRENT_SOURCE_DIR}/code/CreatePross.cpp)
-add_executable(Wrapper_Linux ${MyBins} ${Constants} ${MAIN})
+add_executable(Wrapper_Windows ${MyBins} ${Constants} ${MAIN})
 
 # add the binary tree to the search path for include files
 # so that we will find the headers file
