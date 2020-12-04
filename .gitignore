@@ -7,3 +7,6 @@ Includes/BPF
 .vs
 bin2c-master
 wrapper-C_Linux/mybin*
+Wrapper-C/Linux/mybins
+Wrapper-C/Windows/mybins
+Wrapper-C/build
