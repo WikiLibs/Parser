@@ -1,27 +1,17 @@
 cmake_minimum_required(VERSION 3.10)
 
 # set the project name
-project(Tutorial)
+project(Wrapper_Linux)
 
+if (UNIX)
+  add_subdirectory(Linux)
+elseif (WIN32)
+  add_subdirectory(Windows)
+endif()
 
-# find the executable and store in var
-file(GLOB MyBins
-  Linux/mybin.*.c
-  )
-
-file(GLOB Constants
-  Linux/constant.*
-  )
-
-
-# add the executable
-set(MAIN Linux/exec.c)
-add_executable(Tutorial ${MyBins} ${Constants} ${MAIN})
-
-# add the binary tree to the search path for include files
-# so that we will find the headers file
-configure_file(Linux/exec.c Linux/mybin.h)
-include_directories("${CMAKE_SOURCE_DIR}/Linux")
+set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/build)
+set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/build)
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/build)
 
 # specify the C++ standard
 set(CMAKE_CXX_STANDARD 11)

@@ -20,7 +20,7 @@ add_executable(Wrapper_Linux ${MyBins} ${Constants} ${MAIN})
 # add the binary tree to the search path for include files
 # so that we will find the headers file
 # configure_file(Linux/exec.c Linux/mybin.h)
-include_directories("${CMAKE_SOURCE_DIR}/mybins" "${CMAKE_SOURCE_DIR}/code")
+include_directories("${CMAKE_CURRENT_SOURCE_DIR}/mybins" "${CMAKE_CURRENT_SOURCE_DIR}/code")
 
 # specify the C++ standard
 set(CMAKE_CXX_STANDARD 11)
