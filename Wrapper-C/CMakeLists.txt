@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.10)
 
 # set the project name
-project(Wrapper_Linux)
+project(Wrapper_C)
 
 if (UNIX)
   add_subdirectory(Linux)

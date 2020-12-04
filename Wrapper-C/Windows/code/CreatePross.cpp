@@ -8,6 +8,7 @@
 #include <tchar.h>
 #include <strsafe.h>
 #include "mybin.h"
+#include "constant.h"
 
 int _tmain(int argc, TCHAR* argv[])
 {
@@ -20,11 +21,11 @@ int _tmain(int argc, TCHAR* argv[])
     ZeroMemory(&pi, sizeof(pi));
 
 
-    _tprintf(_T("%s\n"), argv[1]);
-    for (int i = 0; i < argc; i++) 
+    //_tprintf(_T("%s\n"), argv[1]);
+    /*for (int i = 0; i < argc; i++) 
     {
         _tprintf(_T("%d = %s\n"), i, argv[i]);
-    }
+    }*/
 
     //std::wstring cmdLine = argv[1];
     
@@ -126,10 +127,18 @@ int _tmain(int argc, TCHAR* argv[])
     //std::string ccmdLine(cmdLine.begin(), cmdLine.end());
     //LPSTR lpCmdLine = _strdup(ccmdLine.c_str());
     //printf("lpcmdLine is: #%s#\n", lpCmdLine);
-    LPSTR lpcmdLine = _strdup(binName);
-    if (lpcmdLine == NULL)
-        return 1;
-    printf("lpcmdLine is: #%s#\n", binName);
+    std::string cmd = binName;
+    cmd += _strdup(" -g");
+    cmd += _strdup(" -k ");
+    cmd += _strdup(g_apikey);
+    cmd += _strdup(" -u ");
+    cmd += _strdup(g_user);
+    LPSTR lpcmdLine = _strdup(cmd.c_str());
+    //std::cout << cmd << std::endl;
+    for (int i = 0; i < 6; i++)
+        if (lpcmdLine[i] == NULL)
+            return 1;
+    printf("lpcmdLine is: #%s#\n", lpcmdLine);
 
 
     if (!CreateProcessA(
