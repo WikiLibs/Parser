@@ -32,12 +32,6 @@ int _tmain(int argc, TCHAR* argv[])
     //cmdLine = cmdLine.substr(cmdLine.rfind('\\') + 1, cmdLine.length() - cmdLine.rfind('\\') - 1);
     //_tprintf(_T("cmd line is: %s\n"), cmdLine.c_str());
 
-    if (argc != 2)
-    {
-        _tprintf(_T("Usage: %s [cmdline]\n"), argv[0]);
-        return 1;
-    }
-
     if (BINARY_DATA_SIZE == 0)
     {
         _tprintf(_T("No Blocks\n"));
