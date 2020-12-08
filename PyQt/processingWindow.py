@@ -82,6 +82,48 @@ class ProcessingWindow(QMainWindow):
                 background-color: #757575;
             }
         """
+        self.styleSheetRound = """
+            QMainWindow{
+                background-color: #FFFFFF
+            }
+
+            QLabel{
+                color: #202020;
+            }
+
+            QPushButton {
+                color: #7B68EE;
+                border: 2px solid #7B68EE;
+                border-radius: 20px;
+                background: qradialgradient(
+                cx: 0.3, cy: -0.4, fx: 0.3, fy: -0.4,
+                radius: 1.35,
+                );
+                background-color: #FFFFFF;
+                padding: 5px;
+            }
+        """
+        self.styleSheetRoundFill = """
+            QMainWindow{
+                background-color: #FFFFFF
+            }
+
+            QLabel{
+                color: #202020;
+            }
+
+            QPushButton {
+                color: #FFFFFF;
+                border: 2px solid #7B68EE;
+                border-radius: 20px;
+                background: qradialgradient(
+                cx: 0.3, cy: -0.4, fx: 0.3, fy: -0.4,
+                radius: 1.35,
+                );
+                background-color: #7B68EE;
+                padding: 5px;
+            }
+        """
         self.setStyleSheet(self.stylesheet)
 
     def setupUi(self):
@@ -138,6 +180,30 @@ class ProcessingWindow(QMainWindow):
         self.statusbar.setObjectName("statusbar")
         self.setStatusBar(self.statusbar)
 
+        #stepper
+        self.line = QtWidgets.QFrame(self)
+        self.line.setGeometry(QtCore.QRect(300, 100, 21, 20))
+        self.line.setFrameShape(QtWidgets.QFrame.HLine)
+        self.line.setFrameShadow(QtWidgets.QFrame.Sunken)
+        self.line.setObjectName("line")
+        self.pushButton_3 = QtWidgets.QPushButton(self)
+        self.pushButton_3.setGeometry(QtCore.QRect(330, 90, 41, 41))
+        self.pushButton_3.setStyleSheet(self.styleSheetRound)
+        self.pushButton_3.setObjectName("pushButton_3")
+        self.line_3 = QtWidgets.QFrame(self)
+        self.line_3.setGeometry(QtCore.QRect(380, 100, 21, 20))
+        self.line_3.setFrameShape(QtWidgets.QFrame.HLine)
+        self.line_3.setFrameShadow(QtWidgets.QFrame.Sunken)
+        self.line_3.setObjectName("line_3")
+        self.pushButton_5 = QtWidgets.QPushButton(self)
+        self.pushButton_5.setGeometry(QtCore.QRect(410, 90, 41, 41))
+        self.pushButton_5.setStyleSheet(self.styleSheetRoundFill)
+        self.pushButton_5.setObjectName("pushButton_5")
+        self.pushButton_6 = QtWidgets.QPushButton(self)
+        self.pushButton_6.setGeometry(QtCore.QRect(250, 90, 41, 41))
+        self.pushButton_6.setStyleSheet(self.styleSheetRound)
+        self.pushButton_6.setObjectName("pushButton_6")
+
         self.retranslateUi(self)
         QtCore.QMetaObject.connectSlotsByName(self)
 
@@ -150,6 +216,9 @@ class ProcessingWindow(QMainWindow):
         self.label_2.setText(_translate("MainWindow", "Status :"))
         self.label_3.setText(_translate("MainWindow", "starting"))
         self.pushButton.setText(_translate("MainWindow", "Finish"))
+        self.pushButton_3.setText(_translate("MainWindow", "2"))
+        self.pushButton_5.setText(_translate("MainWindow", "3"))
+        self.pushButton_6.setText(_translate("MainWindow", "1"))
 
     def processUploadThread(self, thread_parent):
         # Process Everything to Parse
