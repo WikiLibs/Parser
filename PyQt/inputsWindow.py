@@ -15,6 +15,7 @@ class InputsWindow(QMainWindow):
     def __init__(self, param_arg):
         QMainWindow.__init__(self)
         self.param_arg = param_arg
+        self.setMinimumHeight(430)
 
         self.apikey = None
         self.liblang = "C"
@@ -48,7 +49,56 @@ class InputsWindow(QMainWindow):
                 padding: 10px;
             }
         """
+        self.styleSheetRound = """
+            QMainWindow{
+                background-color: #FFFFFF
+            }
+
+            QLabel{
+                color: #202020;
+            }
+
+            QPushButton {
+                color: #7B68EE;
+                border: 2px solid #7B68EE;
+                border-radius: 20px;
+                background: qradialgradient(
+                cx: 0.3, cy: -0.4, fx: 0.3, fy: -0.4,
+                radius: 1.35,
+                );
+                background-color: #FFFFFF;
+                padding: 5px;
+            }
+        """
+        self.styleSheetRoundFill = """
+            QMainWindow{
+                background-color: #FFFFFF
+            }
+
+            QLabel{
+                color: #202020;
+            }
+
+            QPushButton {
+                color: #FFFFFF;
+                border: 2px solid #7B68EE;
+                border-radius: 20px;
+                background: qradialgradient(
+                cx: 0.3, cy: -0.4, fx: 0.3, fy: -0.4,
+                radius: 1.35,
+                );
+                background-color: #7B68EE;
+                padding: 5px;
+            }
+        """
         self.setStyleSheet(self.stylesheet)
+
+    def resizeEvent(self, event):
+        self.line.setGeometry(QtCore.QRect(self.width() / 2 - 50, 130, 21, 20))
+        self.line_3.setGeometry(QtCore.QRect(self.width() / 2 + 30, 130, 21, 20))
+        self.pushButton_6.setGeometry(QtCore.QRect(self.width() / 2 - 100, 120, 41, 41))
+        self.pushButton_3.setGeometry(QtCore.QRect(self.width() / 2 - 20, 120, 41, 41))
+        self.pushButton_5.setGeometry(QtCore.QRect(self.width() / 2 + 60, 120, 41, 41))
 
     def setupUi(self):
         self.setObjectName("MainWindow")
@@ -173,6 +223,31 @@ class InputsWindow(QMainWindow):
         self.statusbar.setObjectName("statusbar")
         self.setStatusBar(self.statusbar)
 
+        #stepper
+        self.line = QtWidgets.QFrame(self)
+        self.line.setGeometry(QtCore.QRect(300, 130, 21, 20))
+        self.line.setFrameShape(QtWidgets.QFrame.HLine)
+        self.line.setFrameShadow(QtWidgets.QFrame.Sunken)
+        self.line.setObjectName("line")
+        self.pushButton_3 = QtWidgets.QPushButton(self)
+        self.pushButton_3.setGeometry(QtCore.QRect(330, 120, 41, 41))
+        self.pushButton_3.setStyleSheet(self.styleSheetRound)
+        self.pushButton_3.setObjectName("pushButton_3")
+        self.line_3 = QtWidgets.QFrame(self)
+        self.line_3.setGeometry(QtCore.QRect(380, 130, 21, 20))
+        self.line_3.setFrameShape(QtWidgets.QFrame.HLine)
+        self.line_3.setFrameShadow(QtWidgets.QFrame.Sunken)
+        self.line_3.setObjectName("line_3")
+        self.pushButton_5 = QtWidgets.QPushButton(self)
+        self.pushButton_5.setGeometry(QtCore.QRect(410, 120, 41, 41))
+        self.pushButton_5.setStyleSheet(self.styleSheetRound)
+        self.pushButton_5.setObjectName("pushButton_5")
+        self.pushButton_6 = QtWidgets.QPushButton(self)
+        self.pushButton_6.setGeometry(QtCore.QRect(250, 120, 41, 41))
+        self.pushButton_6.setStyleSheet(self.styleSheetRoundFill)
+        self.pushButton_6.setObjectName("pushButton_6")
+        
+
         self.retranslateUi(self)
         QtCore.QMetaObject.connectSlotsByName(self)
 
@@ -189,6 +264,9 @@ class InputsWindow(QMainWindow):
         self.label_5.setText(_translate("MainWindow", "API Key"))
         self.pushButton_2.setText(_translate("MainWindow", "Browse"))
         self.pushButton.setText(_translate("MainWindow", "Next"))
+        self.pushButton_3.setText(_translate("MainWindow", "2"))
+        self.pushButton_5.setText(_translate("MainWindow", "3"))
+        self.pushButton_6.setText(_translate("MainWindow", "1"))
 
     def browseLibPathFolder(self):
         self.lib_path_txt = str(QFileDialog.getExistingDirectory(self, "Select Directory"))
