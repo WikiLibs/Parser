@@ -15,6 +15,7 @@ class InputsWindow(QMainWindow):
     def __init__(self, param_arg):
         QMainWindow.__init__(self)
         self.param_arg = param_arg
+        self.setMinimumHeight(430)
 
         if self.param_arg is not None:
             self.apikey = self.param_arg.apikey
@@ -89,6 +90,13 @@ class InputsWindow(QMainWindow):
             }
         """
         self.setStyleSheet(self.stylesheet)
+
+    def resizeEvent(self, event):
+        self.line.setGeometry(QtCore.QRect(self.width() / 2 - 50, 130, 21, 20))
+        self.line_3.setGeometry(QtCore.QRect(self.width() / 2 + 30, 130, 21, 20))
+        self.pushButton_6.setGeometry(QtCore.QRect(self.width() / 2 - 100, 120, 41, 41))
+        self.pushButton_3.setGeometry(QtCore.QRect(self.width() / 2 - 20, 120, 41, 41))
+        self.pushButton_5.setGeometry(QtCore.QRect(self.width() / 2 + 60, 120, 41, 41))
 
     def setupUi(self):
         self.setObjectName("MainWindow")

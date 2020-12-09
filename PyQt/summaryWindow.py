@@ -13,8 +13,9 @@ class SummaryWindow(QMainWindow):
         self.liblang = liblang
         self.libpath = libpath
         self.apiKey = apiKey
-        self.width = width
-        self.height = height
+        self.winWidth = width
+        self.winHeight = height
+        self.setMinimumHeight(320)
         self.setupStyle()
         self.setupUi()
 
@@ -79,9 +80,16 @@ class SummaryWindow(QMainWindow):
         """
         self.setStyleSheet(self.stylesheet)
 
+    def resizeEvent(self, event):
+        self.line.setGeometry(QtCore.QRect(self.width() / 2 - 50, 100, 21, 20))
+        self.line_3.setGeometry(QtCore.QRect(self.width() / 2 + 30, 100, 21, 20))
+        self.pushButton_6.setGeometry(QtCore.QRect(self.width() / 2 - 100, 90, 41, 41))
+        self.pushButton_3.setGeometry(QtCore.QRect(self.width() / 2 - 20, 90, 41, 41))
+        self.pushButton_5.setGeometry(QtCore.QRect(self.width() / 2 + 60, 90, 41, 41))
+
     def setupUi(self):
         self.setObjectName("MainWindow")
-        self.resize(self.width, self.height)
+        self.resize(self.winWidth, self.winHeight)
         self.centralwidget = QtWidgets.QWidget(self)
         self.centralwidget.setObjectName("centralwidget")
         self.verticalLayout = QtWidgets.QVBoxLayout(self.centralwidget)
