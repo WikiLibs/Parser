@@ -38,6 +38,7 @@ class ProcessingWindow(QMainWindow):
 
     def __init__(self):
         QMainWindow.__init__(self)
+        self.setMinimumHeight(350)
         self.setupStyle()
         self.setupUi()
         self.change_progressBar
@@ -125,6 +126,13 @@ class ProcessingWindow(QMainWindow):
             }
         """
         self.setStyleSheet(self.stylesheet)
+
+    def resizeEvent(self, event):
+        self.line.setGeometry(QtCore.QRect(self.width() / 2 - 50, 130, 21, 20))
+        self.line_3.setGeometry(QtCore.QRect(self.width() / 2 + 30, 130, 21, 20))
+        self.pushButton_6.setGeometry(QtCore.QRect(self.width() / 2 - 100, 120, 41, 41))
+        self.pushButton_3.setGeometry(QtCore.QRect(self.width() / 2 - 20, 120, 41, 41))
+        self.pushButton_5.setGeometry(QtCore.QRect(self.width() / 2 + 60, 120, 41, 41))
 
     def setupUi(self):
         self.setObjectName("MainWindow")
