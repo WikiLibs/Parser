@@ -1,5 +1,10 @@
 cmake_minimum_required(VERSION 3.10)
 
+if (UNIX)
+  set(CMAKE_C_FLAGS -no-pie)
+  set(CMAKE_EXE_LINK_FLAGS -no-pie)
+endif (UNIX)
+
 # set the project name
 project(Wrapper_C)
 
