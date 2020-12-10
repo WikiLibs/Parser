@@ -6,6 +6,7 @@ from Lang_C.getUnion import getUnion
 from Lang_C.getFunction import getFunction
 from Lang_C.getTypedef import getTypedef
 from Lang_C.getEnum import getEnum
+from Lang_C.getVariable import getVariable
 from languageInterface import LanguageInterface
 import getters as getters
 
@@ -15,6 +16,7 @@ kindTable = {
     "typedef": getTypedef,
     "union": getUnion,
     "struct": getStruct,
+    "variable": getVariable,
     "enum": getEnum
 }
 
