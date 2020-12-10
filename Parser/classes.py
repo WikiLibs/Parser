@@ -3,6 +3,7 @@ class variableClass:
         self.name = ""
         self.type = ""
         self.value = ""
+        self.initializer = ""
         self.desc = ""
         self.ref = ""
 

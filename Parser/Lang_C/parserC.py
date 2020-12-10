@@ -5,6 +5,7 @@ from Lang_C.getStruct import getStruct
 from Lang_C.getUnion import getUnion
 from Lang_C.getFunction import getFunction
 from Lang_C.getTypedef import getTypedef
+from Lang_C.getEnum import getEnum
 from languageInterface import LanguageInterface
 import getters as getters
 
@@ -13,7 +14,8 @@ kindTable = {
     "function": getFunction,
     "typedef": getTypedef,
     "union": getUnion,
-    "struct": getStruct
+    "struct": getStruct,
+    "enum": getEnum
 }
 
 class parserC(LanguageInterface):
