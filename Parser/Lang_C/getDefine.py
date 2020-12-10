@@ -1,6 +1,4 @@
-import useful
 from classes import defineClass
-import PyQt.inputsWindow as inputsWindow
 from genericClasses import buildPrototype
 from genericClasses import buildDefine
 import getters as getters
@@ -19,9 +17,6 @@ import getters as getters
 
 def getDefine(define):
     syms = []
-    prefix = useful.prefix
-    if prefix == "":
-        prefix = inputsWindow.prefix
     name = getters.getName(define)
     include = getters.getLocation(define)
     initializer = getters.getInitializer(define)
@@ -30,5 +25,5 @@ def getDefine(define):
     detailedDesc = getters.getDetailedDesc(define)
 
     defineProto = buildPrototype("#define " + name + " " + initializer, briefDesc)
-    syms.append(buildDefine(path=prefix + name, prototypeObj=defineProto, importString=include))
+    syms.append(buildDefine(path=name, prototypeObj=defineProto, importString=include))
     return syms

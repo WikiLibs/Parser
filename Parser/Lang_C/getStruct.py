@@ -1,6 +1,4 @@
 import xml.etree.ElementTree as ET
-import useful
-import PyQt.inputsWindow as inputsWindow
 from classes import structClass
 from classes import variableClass
 from genericClasses import buildStruct
@@ -30,22 +28,19 @@ def getStruct(fileName):
     root = ET.parse(fileName).getroot()
 
     syms = []
-    prefix = useful.prefix
-    if prefix == "":
-        prefix = inputsWindow.prefix
     name = getters.getCompoundName(root)
     include = getters.getLocation(root.find("compounddef"))
     briefDesc = getters.getBriefDesc(root.find("compounddef"))
     detailedDesc = getters.getDetailedDesc(root.find("compounddef"))
 
     structProto = buildPrototype("struct " + name, briefDesc)
-    structSym = buildStruct(path=prefix + name, prototypeObj=structProto, importString=include)
+    structSym = buildStruct(path=name, prototypeObj=structProto, importString=include)
     for elem in root.iter("memberdef"):
         ename = getters.getName(elem)
         etype = getters.getType(elem)
         edesc = getters.getDetailedDesc(elem)
         proto = buildPrototype(etype + " " + ename, edesc)
-        syms.append(buildVariable(path=(prefix + name + "/" + ename), prototypeObj=proto))
+        syms.append(buildVariable(path=(name + "/" + ename), prototypeObj=proto))
         structSym.addMember(name + "/" + ename)
     syms.append(structSym)
     return syms

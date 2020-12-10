@@ -1,11 +1,9 @@
 from classes import typedefClass
 import getters as getters
 import strOperations as strOp
-import PyQt.inputsWindow as inputsWindow
 from genericClasses import buildTypedef
 from genericClasses import buildPrototype
 from genericClasses import buildParameter
-import useful
 
 
 # def getTypedefOld(elem):
@@ -26,9 +24,6 @@ import useful
 
 def getTypedef(elem):
     syms = []
-    prefix = useful.prefix
-    if prefix == "":
-        prefix = inputsWindow.prefix
     tdType = getters.getType(elem)
     include = getters.getLocation(elem)
     try:
@@ -41,5 +36,5 @@ def getTypedef(elem):
     briefDesc = getters.getBriefDesc(elem)
     detailedDesc = getters.getDetailedDesc(elem)
     typedefProto = buildPrototype("typedef " + tdName + " " + tdType, briefDesc)
-    syms.append(buildTypedef(path=prefix + tdName, prototypeObj=typedefProto, importString=include))
+    syms.append(buildTypedef(path=tdName, prototypeObj=typedefProto, importString=include))
     return syms

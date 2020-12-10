@@ -1,4 +1,3 @@
-import useful
 from classes import functionClass
 from genericClasses import buildFunction
 from genericClasses import buildPrototype
