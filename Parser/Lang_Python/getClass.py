@@ -1,5 +1,4 @@
 from classes import classClass
-import useful
 from Lang_Python.getVariable import getVariable
 from Lang_Python.getFunction import getFunction
 from genericClasses import buildClass
