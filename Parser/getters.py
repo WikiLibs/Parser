@@ -136,6 +136,20 @@ def getParams(define):
         useful.printExceptionVerbose(error)
         return params
 
+def getEnumParams(define):
+    params = []
+    try:
+        for param in define.findall("enumvalue"):
+            tmpParam = variableClass()
+            tmpParam.name = param.find("name").text
+            if (param.find("initializer")):
+                tmpParam.initializer = " " + param.find("initializer").text
+            tmpParam.desc = param.find("briefdescription").text
+            params.append(tmpParam)
+        return params
+    except Exception as error:
+        useful.printExceptionVerbose(error)
+        return params
 
 def getExceptions(root):
     exceptions = []
