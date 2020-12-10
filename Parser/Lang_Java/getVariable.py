@@ -1,4 +1,3 @@
-import useful
 from classes import variableClass
 from genericClasses import buildVariable
 from genericClasses import buildPrototype
