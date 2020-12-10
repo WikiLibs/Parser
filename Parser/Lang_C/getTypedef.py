@@ -1,6 +1,7 @@
 from classes import typedefClass
 import getters as getters
 import strOperations as strOp
+import useful
 from genericClasses import buildTypedef
 from genericClasses import buildPrototype
 from genericClasses import buildParameter
@@ -27,7 +28,10 @@ def getTypedef(elem):
     tdType = getters.getType(elem)
     include = getters.getLocation(elem)
     try:
-        tmp = strOp.epurStr(elem.find("argsstring").text)
+        if elem.find("argsstring").text:
+            tmp = strOp.epurStr(elem.find("argsstring").text)
+        else:
+            return syms
         tdType = strOp.epurStr(tdType + tmp)
     except Exception as error:
         useful.printExceptionVerbose(error)
