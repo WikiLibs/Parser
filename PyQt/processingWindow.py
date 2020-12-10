@@ -17,7 +17,7 @@ def getFunctionsLang():
         'C': parserC.parserC,
         'PYTHON3': parserPython.parserPython,
         'JAVA': parserJava.parserJava,
-        'C++': parserCPP.parserCPP
+        'CPP': parserCPP.parserCPP
     }
     return dispatch
 
