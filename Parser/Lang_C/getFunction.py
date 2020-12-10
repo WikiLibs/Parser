@@ -1,6 +1,4 @@
-import useful
 from classes import functionClass
-import PyQt.inputsWindow as inputsWindow
 from genericClasses import buildFunction
 from genericClasses import buildPrototype
 from genericClasses import buildParameter
@@ -22,9 +20,6 @@ import getters as getters
 
 def getFunction(elem):
     syms = []
-    prefix = useful.prefix
-    if prefix == "":
-        prefix = inputsWindow.prefix
     name = getters.getName(elem)
     include = getters.getLocation(elem)
     params = getters.getParamDesc(elem, getters.getParams(elem))
@@ -43,5 +38,5 @@ def getFunction(elem):
         funcProto.prototype = funcProto.prototype[:-2]
     funcProto.prototype += ")"
     funcProto.addParameter(buildParameter(prototype="return", description=returnDesc))
-    syms.append(buildFunction(path=prefix + name, prototypeObj=funcProto, importString=include))
+    syms.append(buildFunction(path=name, prototypeObj=funcProto, importString=include))
     return syms

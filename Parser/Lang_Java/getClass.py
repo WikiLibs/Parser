@@ -1,5 +1,4 @@
 from classes import classClass
-import useful
 from Lang_Java.getFunction import getFunction
 from Lang_Java.getVariable import getVariable
 from genericClasses import buildClass
